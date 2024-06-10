@@ -30,6 +30,11 @@ description: > # this means to ignore newlines until "Language & timezone"
 lang: en-US
 timezone: Asia/Calcutta
 
+include:
+  website_data_rishi
+
+collection_dir: website_data_rishi
+
 
 ## => Author and Social
 ##############################
