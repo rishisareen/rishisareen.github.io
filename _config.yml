@@ -29,10 +29,11 @@ description: > # this means to ignore newlines until "Language & timezone"
 ##############################
 lang: en-US
 timezone: Asia/Calcutta
-include:
-  - website_data_rishi
 
-collection_dir: website_data_rishi
+#include:
+#  - website_data_rishi
+
+#collection_dir: website_data_rishi
 
 
 ## => Author and Social
@@ -42,7 +43,7 @@ author:
   name      : Rishi Sareen
   url       :
   avatar    : # path or url of avatar image (square)
-  bio       : Bio to be written posthumously
+  bio       : "Bio to be written posthumously"
 
 ## => GitHub Repository (if the site is hosted by GitHub)
 ##############################
