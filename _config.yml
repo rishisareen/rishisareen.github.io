@@ -31,9 +31,10 @@ lang: en-US
 timezone: Asia/Calcutta
 
 include:
-  website_data_rishi
+  blog
 
-collection_dir: website_data_rishi
+collection_dir: blog
+paginate_path: /blog/page:num/
 
 
 ## => Author and Social
