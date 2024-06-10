@@ -1,6 +1,4 @@
 ---
-layout: posts
-
 title: "Ironman Kalmar - Aug 19 ‘23 - Race Report from Rupesh"
 date: 2023-11-05 06:48:02 +0530
 comments: true

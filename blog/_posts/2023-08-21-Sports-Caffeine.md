@@ -1,6 +1,4 @@
 ---
-
-layout: posts
 title: "Caffeine: Your Secret Weapon for Athletic Success"
 date: 2023-09-09 04:44:02 +0530
 comments: true
