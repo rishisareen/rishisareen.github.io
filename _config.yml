@@ -30,11 +30,6 @@ description: > # this means to ignore newlines until "Language & timezone"
 lang: en-US
 timezone: Asia/Calcutta
 
-#include:
-#  - website_data_rishi
-
-#collection_dir: website_data_rishi
-
 
 ## => Author and Social
 ##############################
@@ -43,7 +38,10 @@ author:
   name      : Rishi Sareen
   url       :
   avatar    : # path or url of avatar image (square)
-  bio       : "Bio to be written posthumously"
+  bio       : Bio to be written posthumously
+  email     :
+  npm       : # "user_name" the last part of your profile url, e.g. https://www.npmjs.com/~user_name
+
 
 ## => GitHub Repository (if the site is hosted by GitHub)
 ##############################
@@ -56,7 +54,7 @@ repository_tree: master
 paths:
   root    : # title link url, "/" (default)
   home    : # home layout url, "/" (default)
-  archive :  "/archive.html" (default)
+  archive : # "/archive.html" (default)
   rss     : # "/feed.xml" (default)
 
 
