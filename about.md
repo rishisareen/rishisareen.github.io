@@ -1,74 +1,121 @@
 ---
-layout: article
-titles:
-  # @start locale config
-  en      : &EN       About
-  en-GB   : *EN
-  en-US   : *EN
-  en-CA   : *EN
-  en-AU   : *EN
-  zh-Hans : &ZH_HANS  关于
-  zh      : *ZH_HANS
-  zh-CN   : *ZH_HANS
-  zh-SG   : *ZH_HANS
-  zh-Hant : &ZH_HANT  關於
-  zh-TW   : *ZH_HANT
-  zh-HK   : *ZH_HANT
-  ko      : &KO       소개
-  ko-KR   : *KO
-  fr      : &FR       À propos
-  fr-BE   : *FR
-  fr-CA   : *FR
-  fr-CH   : *FR
-  fr-FR   : *FR
-  fr-LU   : *FR
-  # @end locale config
-key: page-about
+layout: page
+title: About Me
+sidebar_link: true
 ---
 
-![TeXt Theme](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/TeXt-home.jpg)
+<style>
+	.wrapper {
+		margin: auto;
+		max-width: 75rem;
+	}
 
-TeXt is a super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc. Similar to iOS 11 style, it has large and prominent titles, round buttons and cards.
+	aside, footer, header, main, section {
+		display: block;
+		margin: 0;
+		color: #000;
+	}
 
-```javascript
-(() => console.log('Hello, World!'))();
-```
+	main {
+		/* background: #000 */
+	}
+	.header {
+		/* background: #03a9f4 */
+	}
+	.hero {
+		/* background: #d22b1f */
+	}
 
-## Features
+	img { 
+		margin: auto;
+		width: 100%;
+		max-width: 400px;
+		max-height: 100%;
+		object-fit: contain;
+	}
+	   
+	.content {
+		flex: 1;
+		max-width: 800px;
+		/* background: #129a22 */
+		margin-left: 20px;
+	}
+	.sidebar {
+		flex: 0 1 400px;
+	}
 
-- Responsive
-- Semantic HTML
-- Skins
-- Highlight Theme
-- Internationalization
-- Search
-- Table of contents
-- Authors
-- Additional styles (alert, tag, image, icon, button, grid, etc)
-- Extensions (audios, videos, slides, demos)
-- Markdown enhancements ([MathJax](https://www.mathjax.org/), [mermaid](https://mermaidjs.github.io/), [chartjs](http://www.chartjs.org/))
-- Sharing ([AddToAny](https://www.addtoany.com/), [AddThis](https://www.addthis.com/))
-- Comments ([Disqus](https://disqus.com/), [Gitalk](https://gitalk.github.io/), [Valine](https://valine.js.org/en/))
-- Pageview ([LeanCloud](https://leancloud.cn/))
-- Analytics ([Google Analytics](https://analytics.google.com/analytics/web/))
-- RSS ([jekyll-feed](https://github.com/jekyll/jekyll-feed))
+	.footer,
+	.sidebar {
+		border: 1px solid #fff;
+	}
+	   
+	.some-page-wrapper {
+		margin: 15px;
+		background-color: white;
+	}
 
-## Skins
+	.footer-row {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+	}
 
-TeXt has 6 built-in skins, you can also set up your own skin.
+	.footer-column {
+		display: flex;
+		flex-direction: column;
+		flex-basis: 100%;
+		border: 1px solid #000;
+	}
+	.footer-column:hover {
+		background-color: #2699ab; 
+		cursor: hand;
+		cursor: pointer;
+	}
 
-| `default` | `dark` | `forest` |
-| --- |  --- | --- |
-| ![Default](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_default.jpg) | ![Dark](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_dark.jpg) | ![Forest](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_forest.jpg) |
+	.footer-column img {
+		height: 100px;
+		width: auto;
+	}
+	
+	@media screen and (min-width: 640px) {
+		.flex-container {
+			display: flex;
+		}
+		.footer-column {
+			flex: 1;
+		}
+	}
+</style>
 
-| `ocean` | `chocolate` | `orange` |
-| --- |  --- | --- |
-| ![Ocean](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_ocean.jpg) | ![Chocolate](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_chocolate.jpg) | ![Orange](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_orange.jpg) |
+<main>
+	<div class="flex-container wrapper">
+		<!-- Sidebar -->
+		<aside class="sidebar">
+			<p>
+				{% include image.html file="/images/blog-small-front.jpg" description="" %}
+			</p>
+		</aside>
+		<!-- Content -->
+		<section class="content">
+			<p>Hey there!</p>
+			
+			<p>I’m Rishi, and yes, my name means an enlightened person. Pretty cool, right?</p>
+			
+			<p>Welcome to my personal playground on the web! Here, I share my thoughts, adventures, and a lot about my latest obsession – sports.</p>
+			
+			<p>I’m a certified geek, always pushing my boundaries and stepping out of my comfort zone.</p>
+			
+			<p>Books are my best friends. Started with fiction – think Jeffrey Archer, PG Wodehouse, Sherlock Holmes – and now I’m deep into non-fiction. Lately, it’s all about the science of habits and sports performance.</p>
+			
+			<p>Triathlons? Oh, they’re my thing! What began as a bucket list item has turned into a full-blown passion. Expect to see a lot about my triathlon stories here.</p>
+			
+			<p>This website? Always a work in progress. I built this with Jekyll, constantly tinkering with layout. I love the no-nonsense, clean vibe of static sites. Hosted on Github Pages because, why not?</p>
+			
+			<p>Love connecting with like-minded folks! Got something to share or chat about? Drop me a line at rishi at rishisareen dot com.</p>
+			
+			<p>Follow my adventures on Instagram <a href="https://instagram.com/rishi.sareen">@rishi.sareen</a>.</p>
+		</section>
+	</div>
+</main>
 
-### Highlight Theme
-
-TeXt use [Tomorrow](https://github.com/chriskempson/tomorrow-theme) as the highlight theme.
-
-| `tomorrow` | `tomorrow-night` | `tomorrow-night-eighties` | `tomorrow-night-blue` | `tomorrow-night-bright` |
-| --- |  --- | --- | --- |  --- |
-| ![Tomorrow](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow.png) | ![Tomorrow Night](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night.png) | ![Tomorrow Night Eighties](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-eighties.png) | ![Tomorrow Night Blue](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-blue.png) | ![Tomorrow Night Bright](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/highlight_tomorrow-night-bright.png) |
