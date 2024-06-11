@@ -1,106 +1,74 @@
 ---
 layout: articles
 ---
-<style>
-	.wrapper {
-		margin: auto;
-		max-width: 75rem;
-	}
 
-	aside,footer,header,main,section {
-		display: block;
-		margin: 0;
-		color: #000;
-	}
-
-	main {
-		/* background: #000 */
-	}
-	.header {
-		/* background: #03a9f4 */
-	}
-	.hero {
-		/*  background: #d22b1f */
-	}
-
-	img { 
-		margin: auto;
-		width: 100%;
-		max-width: 400px;
-		max-height:100%;
-		object-fit: contain;
-	}
-	   
-	.content {
-		flex: 1;
-		max-width: 600px;
-		/* background: #129a22 */
-		margin-left: 20px;
-	}
-	.sidebar {
-		flex: 0 1 400px;
-	}
-
-	.footer,
-	.sidebar {
-		border: 1px solid #fff;
-	}
-	   
-	.some-page-wrapper {
-		margin: 15px;
-		background-color: white;
-	}
-
-	.footer-row {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		width: 100%;
-	}
-
-	.footer-column {
-		display: flex;
-		flex-direction: column;
-		flex-basis: 100%;
-		border: 1px solid #000;
-	}
-	.footer-column:hover {
-		background-color: #2699ab; 
-		cursor: hand;
-		cursor: pointer;
-	}
-
-	.footer-column img {
-		height: 100px;
-		width: auto;
-	}
-	
-	@media screen and (min-width:640px) {
-		.flex-container {
-			display: flex;
-		}
-		.footer-column {
-			flex: 1;
-		}
-	}
-</style>
-<main>
-	<div class="flex-container wrapper">
-		<!-- Sidebar -->
-		<aside class="sidebar">
-			<p>
-				<img src="https://rishisareen.com/images/RishiCover.jpg" alt="Profile Picture">
-			</p>
-		</aside>
-		<!-- Content -->
-		<section class="content">
-			<h2>Hi, I'm Rishi Sareen</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rishi Sareen</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    header {
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-size: 3.5em;
+      margin: 0;
+      font-weight: 700;
+      color: #000;
+    }
+    main {
+      max-width: 600px;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    main p {
+      font-size: 1.2em;
+      line-height: 1.6;
+      color: #555;
+    }
+    footer {
+      margin-top: 20px;
+    }
+    footer a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #0073e6;
+      font-weight: 500;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Rishi Sareen</h1>
+  </header>
+  <main>
 			<p>I’m a curious soul who loves to read, learn new stuff, and share cool ideas!</p>
 			<p>See <a href="/about">About</a> to learn more.</p>
 			<p>Dive into the <a href="/archive.html"> Archives </a> for book reviews, triathlon race reports, training tips, recipes, and more!</p>
 			<p class="post">Sounds cool? Hop on board for updates <a href="http://eepurl.com/gOwpwn">here</a>.</p>
 			<p>Follow my adventures on Instagram <a href="https://instagram.com/rishi.sareen">@rishi.sareen</a>.</p>
-		</section>
-	</div>
-</main>
+
+  </main>
+</body>
+</html>
 

@@ -1,0 +1,106 @@
+---
+layout: articles
+---
+<style>
+	.wrapper {
+		margin: auto;
+		max-width: 75rem;
+	}
+
+	aside,footer,header,main,section {
+		display: block;
+		margin: 0;
+		color: #000;
+	}
+
+	main {
+		/* background: #000 */
+	}
+	.header {
+		/* background: #03a9f4 */
+	}
+	.hero {
+		/*  background: #d22b1f */
+	}
+
+	img { 
+		margin: auto;
+		width: 100%;
+		max-width: 400px;
+		max-height:100%;
+		object-fit: contain;
+	}
+	   
+	.content {
+		flex: 1;
+		max-width: 600px;
+		/* background: #129a22 */
+		margin-left: 20px;
+	}
+	.sidebar {
+		flex: 0 1 400px;
+	}
+
+	.footer,
+	.sidebar {
+		border: 1px solid #fff;
+	}
+	   
+	.some-page-wrapper {
+		margin: 15px;
+		background-color: white;
+	}
+
+	.footer-row {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+
+	.footer-column {
+		display: flex;
+		flex-direction: column;
+		flex-basis: 100%;
+		border: 1px solid #000;
+	}
+	.footer-column:hover {
+		background-color: #2699ab; 
+		cursor: hand;
+		cursor: pointer;
+	}
+
+	.footer-column img {
+		height: 100px;
+		width: auto;
+	}
+	
+	@media screen and (min-width:640px) {
+		.flex-container {
+			display: flex;
+		}
+		.footer-column {
+			flex: 1;
+		}
+	}
+</style>
+<main>
+	<div class="flex-container wrapper">
+		<!-- Sidebar -->
+		<aside class="sidebar">
+			<p>
+				<img src="https://rishisareen.com/images/RishiCover.jpg" alt="Profile Picture">
+			</p>
+		</aside>
+		<!-- Content -->
+		<section class="content">
+			<h2>Hi, I'm Rishi Sareen</h2>
+			<p>I’m a curious soul who loves to read, learn new stuff, and share cool ideas!</p>
+			<p>See <a href="/about">About</a> to learn more.</p>
+			<p>Dive into the <a href="/archive.html"> Archives </a> for book reviews, triathlon race reports, training tips, recipes, and more!</p>
+			<p class="post">Sounds cool? Hop on board for updates <a href="http://eepurl.com/gOwpwn">here</a>.</p>
+			<p>Follow my adventures on Instagram <a href="https://instagram.com/rishi.sareen">@rishi.sareen</a>.</p>
+		</section>
+	</div>
+</main>
+
