@@ -53,13 +53,13 @@ I recently bought instapot and since then experimenting with various recipes on 
 
 5. **Release pressure and finish:**
 
-   - Allow the pressure to release naturally for 5 minutes, then do a quick release.
-   - Stir in chopped parsley and spinach, if using.
+   1. Allow the pressure to release naturally for 5 minutes, then do a quick release.
+   2. Stir in chopped parsley and spinach, if using.
 
 6. **Taste and serve:**
 
-   - Adjust seasoning if needed and serve hot.
-   - Garnish with more fresh parsley before serving.
+   1. Adjust seasoning if needed and serve hot.
+   2. Garnish with more fresh parsley before serving.
 
    
 ## Notes:
