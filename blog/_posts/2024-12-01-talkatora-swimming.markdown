@@ -24,17 +24,24 @@ These are my notes on getting Talkatora Swimming Pool Membership
 ### Swim trial
 
 * You'll be asked to swim 100m nonstop
+
 * On swim finish, you'd be asked to tread in the water for few seconds. They mainly want to see if you are comfortable in water and can stand for few seconds and not panic. If you can't tread, practice dog paddle.
+
 * These documents are needed for swim trial
   * Aadhar Card Copy
+  
   * Passport Copy (optional, i took it)
+  
   * 2 passport size photographs
+  
   * [Swimming Form](https://drive.google.com/file/d/1Adt6cRnI4ju3-Vhehql-0U-pDGrcrGzn/view?usp=sharing) 
+  
   * Certificate by doctor saying you are free from any disease and fit for swim 
     * Ensure you have doctor stamp with registration number on the form.
-    * Sample form [here](https://docs.google.com/document/d/1Ad1DqWLUUfAiKhdL0EdgZeuqx7devWvx/edit?usp=sharing&ouid=102157091472612773313&rtpof=true&sd=true)
-
-
+    
+    * Sample form here [pic](https://drive.google.com/file/d/102fguf3ZdHK2DtD2KXIBs3gNSikWu647/view?usp=sharing) or  [doc](https://docs.google.com/document/d/1Ad1DqWLUUfAiKhdL0EdgZeuqx7devWvx/edit?usp=sharing&ouid=102157091472612773313&rtpof=true&sd=true)
+    
+      
 
 I hope it helps. Happy swimming.
 
