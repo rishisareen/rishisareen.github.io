@@ -9,7 +9,7 @@ categories:
 
 <!--more-->
 
-These are my notes on getting Talkatora Swimming Pool Membership:
+These are my notes on getting Talkatora Swimming Pool Membership::-
 
 * Talkatora Pool is open year around. It is temperature controlled pool, so heated pool in winters.
 
