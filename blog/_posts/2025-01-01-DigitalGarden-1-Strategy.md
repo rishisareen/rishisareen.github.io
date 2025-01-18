@@ -20,7 +20,7 @@ How is it different from regular notes:
 
 ## My Strategy for Digital Garden
 
-As I am structuring my Digital Garden (aka note organization), the core strategy to organizing is influenced by Tiago Forte book ["Building the second brain"](https://rishisareen.com/blog/book%20reviews/2025/01/12/BookReview-BuildingaSecondBrain.html)
+As I am structuring my Digital Garden (aka note organization), the core strategy to organizing is influenced by Tiago Forte book ["Building the second brain"](https://rishisareen.com/blog/book%20reviews/2025/01/03/BookReview-BuildingaSecondBrain.html)
 
 ## The Foundation: C.O.D.E. + P.A.R.A.
 
@@ -40,14 +40,14 @@ In this stage, you capture all kinds of notes, and resources into four container
 4. Physical Books
 5. YouTube Videos
 
-The process to capture the incoming articles and kindle highlight is captured here.
+The process to capture the incoming articles and kindle highlight is captured [here](https://rishisareen.com/blog/digital%20garden/2025/01/06/DigitalGarden-2-Capture-(ReaditLater).html).
 The captured notes are saved in Obsidian Inbox for further processing.
 
 Note: I'm yet to devise a clean workflow for Podcast, Physical books and Youtube videos. As I figure that out, I will return and update this article. 
 
 
 ### 2\. **Organize (P.A.R.A.)**
-Folders and notes, that’s all you need to organize your second brain. For Notes, my process is captured here. 
+Folders and notes, that’s all you need to organize your second brain. For Organizing, my process is captured [here](https://rishisareen.com/blog/digital%20garden/2025/01/07/DigitalGarden-3-Organize.html)
 
 
 ### 3\. **Distill (Progressive Summarization)**
