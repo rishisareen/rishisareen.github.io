@@ -64,7 +64,7 @@ The result? Less information overload and more clarity, creativity, and producti
 2. The second way that people use their Second Brain is **to connect ideas together**.
 3. Eventually, the third and final way that people use their Second Brain is **for creating new things**. They realize that they have a lot of knowledge on a subject and decide to turn it into something concrete and shareable. 
 
-## **CODE Method of Second Brain**
+## CODE Method of Second Brain
 
 - Capture: Keep What Resonates 
 - Organize: Save for Actionability 
