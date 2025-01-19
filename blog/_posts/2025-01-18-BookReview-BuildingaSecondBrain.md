@@ -3,7 +3,7 @@ layout: post
 title: "Book Review: Building a second brain"
 date: 2025-01-03
 categories: [Book Reviews]
-tags: [Books, Reviews, Productivity] 
+tags: [digitalgarden, bookreviews] 
 ---
 
 <div style="display: flex; align-items: flex-start; gap: 20px;">
