@@ -192,7 +192,7 @@ The result? Less information overload and more clarity, creativity, and producti
 ### Project Checklist:
 
 - Checklist #1: Project Kickoff 
-  - Here’s my own checklist: Capture my current thinking on the project. Review folders (or tags) that might contain relevant notes. Search for related terms across all folders. Move (or tag) relevant notes to the project folder. Create an outline of collected notes and plan the project. (Page 203)
+  - Here’s my own checklist: Capture my current thinking on the project. Review folders (or tags) that might contain relevant notes. Search for related terms across all folders. Move (or tag) relevant notes to the project folder. Create an outline of collected notes and plan the project. 
 
 - Checklist #2: Project Completion
   - Mark project as complete in task manager or project management app. 
