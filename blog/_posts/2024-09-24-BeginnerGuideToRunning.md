@@ -28,19 +28,17 @@ Your muscles and cardiovascular system work together to power you through a run.
 For beginners, building both is crucial to avoid stress on the joints and overexertion on the heart.
 
 
-   ### 2. Why You Should Take it Easy
+### 2. Why You Should Take it Easy
 
    - Many new runners make the mistake of pushing too hard, too soon. 
-
    - It's tempting to chase longer distances or faster times, but this can lead to burnout or injury. 
-
    - Your body needs time to adapt, especially if running is new to you. 
 
    This is why it’s essential to take it **easy in the beginning**—running at a comfortable pace, where you can **hold a conversation**, helps your muscles, ligaments, and cardiovascular system gradually develop strength without undue strain.
 
    
 
-   ### 3. The 80-20 Rule: Balance is Key
+### 3. The 80-20 Rule: Balance is Key
 
    * The 80-20 rule is a guiding principle for effective training. 
 
@@ -50,7 +48,7 @@ For beginners, building both is crucial to avoid stress on the joints and overex
 
    
 
-   #### 4. How to know you are running _easy_
+#### 4. How to know you are running _easy_
 
    - If you have a heart rate monitor, follow [MAF Method](https://rishisareen.com/blog/running/2019/03/10/maf-method-part1.html)
 
@@ -58,7 +56,7 @@ For beginners, building both is crucial to avoid stress on the joints and overex
 
      
 
-   ### 5. A Week to Get Started
+### 5. A Week to Get Started
 
    Here’s a balanced weekly schedule for beginners focusing on both muscular and cardiovascular strength:
 
