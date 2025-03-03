@@ -72,24 +72,23 @@ For beginners, building both is crucial to avoid stress on the joints and overex
 
    
 
-   ### 6. Essential Strength Training for Runners:
+### 6. Essential Strength Training for Runners:
 
-   #### Lower Body
+#### Lower Body
+- Squats
+- Lunges
+- Single Leg Deadlift
+- Single Leg Raise
+- Step up
+- Glute Bridges
 
-   - Squats
-   - Lunges
-   - Single Leg Deadlift
-   - Single Leg Raise
-   - Step up
-   - Glute Bridges
+#### Core & Mobility
 
-   #### Core & Mobility
-
-   - Plank
-   - Side Plank
-   - [Seven Way Hips](https://www.youtube.com/watch?v=iLTBIaHU5iw)
-   - Russian Twist
-   - Dead bugs
+- Plank
+- Side Plank
+- [Seven Way Hips](https://www.youtube.com/watch?v=iLTBIaHU5iw)
+- Russian Twist
+- Dead bugs
 
 
 
