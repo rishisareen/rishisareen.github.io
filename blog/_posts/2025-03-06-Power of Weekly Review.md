@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Win your week : The power of weekly reviews
+title: The power of weekly reviews
 date: 2025-03-06
 categories: [general]
 tags: [markdown, obsidian, jekyll]
