@@ -7,9 +7,6 @@ tags: [Books, Reviews, Genre] # Replace 'Genre' with appropriate tags like Ficti
 
 ---
 
-# Book Review: The Dip
-
-
 <div style="display: flex; align-items: flex-start; gap: 20px;">
   <div style="flex: 0 0 auto; width: 100px; height: auto;">
     <img src="https://i.imgur.com/HRXKpTQ.png" alt="[Book Title] Cover" style="width: 100px; height: auto; border: 1px solid #ddd; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);">
