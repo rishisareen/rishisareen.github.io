@@ -6,8 +6,8 @@ categories: [general]
 tags: [markdown, obsidian, jekyll]
 ---
 
-
-[TOC]
+* Table of Contents
+{:toc}
 
 ### Low in Added Fat
 

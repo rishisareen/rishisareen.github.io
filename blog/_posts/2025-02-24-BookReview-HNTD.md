@@ -52,7 +52,8 @@ tags: [Books, Reviews, Diet]
 
 ## My Notes
 
-- *[Highlight the main themes, messages, or lessons you took away from the book.]*
+- [Inflammation](https://rishisareen.com/blog/general/2025/02/24/HNTD-AntiInflammatory.html)
+- [Other Diet Notes](https://rishisareen.com/blog/general/2025/02/24/HNTD-DietContd.html)
 
 ## Favorite Quotes
 
