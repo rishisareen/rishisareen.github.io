@@ -58,8 +58,11 @@ tags: [Books, Reviews, Diet]
 ## Favorite Quotes
 
 > “The primary reason diseases tend to run in families may be that diets tend to run in families.”
+> 
 > "What we eat determines what we become."
+> 
 > "The healthiest diets are also the most sustainable."
+> 
 > “Given the right conditions, the body heals itself. If you whack your shin really hard on a coffee table, it can get red, swollen, and painful. But your shin will heal naturally if you just stand back and let your body work its magic. But what if you kept whacking it in the same place three times a day—say, at breakfast, lunch, and dinner? It would never heal. You could go to your doctor and complain that your shin hurts. “No problem,” he or she might say, whipping out a pad to write you a prescription for painkillers. You’d go back home, still whacking your shin three times a day, but the pain pills would make it feel so much better. Thank heavens for modern medicine!”."
 
 ## Links
