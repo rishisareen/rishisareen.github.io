@@ -10,7 +10,7 @@ tags: [growth, mindset, resilience, goal-setting]
 
 
 
-## **Why Struggle Isn’t a Sign to Quit**  
+## 1. Why Struggle Isn’t a Sign to Quit
 
 Let’s be real: chasing big goals is *hard*.  
 
@@ -32,7 +32,7 @@ So, let’s talk about why the suck is inevitable, why it’s actually a good th
 
 
 
-## **Why the Struggle Means You're Getting Stronger**  
+## 2. Why the Struggle Means You're Getting Stronger
 
 Feeling like you’re dragging yourself through mud? Good. That means you’re growing.  
 
@@ -56,7 +56,7 @@ So next time it sucks, remind yourself: **this is the part where you get better.
 
 
 
-## **How High Performers Turn Pain Into Progress**  
+## 3. How High Performers Turn Pain Into Progress
 
 If you think you’re the only one wrestling with the hard stuff, think again. Even the best in the world get punched in the face by failure — they’ve just learned to punch back.  
 
@@ -85,7 +85,7 @@ The suck isn’t a signal to stop. It’s a sign you’re on the same path every
 
 
 
-## **How to Reframe the Struggle (So It Doesn’t Break You)**  
+## 4. How to Reframe the Struggle (So It Doesn’t Break You)
 
 Struggle isn’t the problem — it’s how you *see* it. If you treat hard days like failure, quitting feels logical. But if you see struggle as part of growth, you can push through.  
 
@@ -114,7 +114,7 @@ In 2014, **Mangalyaan** became the first successful Mars mission on the first tr
 
 
 
-## **Turn the Suck Into a Ritual**  
+## 5. Turn the Suck Into a Ritual
 
 It’s one thing to know struggle is necessary. It’s another to actually *stick with it* when you’re in the middle of it.  
 
@@ -140,7 +140,7 @@ Struggle gets worse when you only measure success by results. Instead, track the
 
 
 
-## **The Struggle *Is* the Shortcut**  
+## 6. The Struggle *Is* the Shortcut
 
 If you’re waiting for the hard part to end so you can finally start making progress, I’ve got news for you: **the hard part *is* the progress.**  
 
