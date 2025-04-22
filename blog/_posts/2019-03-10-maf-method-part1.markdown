@@ -18,7 +18,7 @@ His secret? **Maffetone Method.**
 The approach is discussed in two parts:  
 
 - The science behind aerobic training  
-- [How-to approach the MAF Training](http://rishisareen.com/running/maf-method-part2.html)
+- [How-to approach the MAF Training](maf-method-part2.html)
 
 People usually jump on the "how-to" part. While it is important, understand the "why" part is also critical.  
 <br>
@@ -78,7 +78,7 @@ Dr Maffetone suggests adjustments based on these factors:
 - Category 4 : Been training regularly for 2 years without problems? Add 5.   
 
 
-[In the next article](https://rishisareen.com/running/maf-method-part2.html), we will cover the training approach in detail.  
+[In the next article](maf-method-part2.html), we will cover the training approach in detail.  
 
 
 
