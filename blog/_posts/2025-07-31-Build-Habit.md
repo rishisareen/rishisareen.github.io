@@ -26,19 +26,19 @@ That’s not just habit. That’s what psychologists call a **cognitive script**
 Like how to greet elders with “Namaste,” or how to stand in line at a temple. These scripts are shaped by past experiences and culture—so we can respond quickly without overthinking.
 
 They’re incredibly helpful.
- But here’s where it gets interesting: **we don’t just have scripts for tasks—we have them for emotions and behavior, too.**
+ But here’s where it gets interesting: **we don’t just have scripts for tasks, we have them for emotions and behavior, too.**
 
-- If someone scolds you in public, your brain might automatically run the *defend-yourself script* or *stay-quiet-and-nod script*
-- If you're bored, it might cue up the *scroll-your-phone script*.
-- If you're anxious about results, it could be the *pray-and-wait script* or *scroll-Instagram script*.
+- If someone scolds you in public, your brain might automatically run the *defend yourself script* or *stay quiet and nod script*
+- If you're bored, it might cue up the *scroll your phone script*.
+- If you're anxious about results, it could be the *pray and wait script* or *scroll Instagram script*.
 
-These responses feel instant, even natural. But often, they’re just **well-rehearsed routines**—played out so many times they feel like “just the way I am.”
+These responses feel instant, even natural. But often, they’re just **well-rehearsed routines** played out so many times they feel like “just the way I am.”
 
 ------
 
 ### **Why This Matters for Habit Change**
 
-If you want to change a habit, you're not just changing a single action—you’re editing the whole script behind it.
+If you want to change a habit, you're not just changing a single action. You’re editing the whole script behind it.
 
 And editing starts with **awareness**.
 
@@ -46,7 +46,7 @@ Ask yourself:
 
 - What’s the situation I’m in?
 - What script does my brain usually run here?
-- Is that script helping me—or just a leftover loop?
+- Is that script helping me, or just a leftover loop?
 
 The moment you notice the script is the moment you get a choice.
  You don’t have to run it again. You can pause. You can try a different line.
@@ -56,8 +56,8 @@ The moment you notice the script is the moment you get a choice.
 
 ### **Why New Habits Often Fail**
 
-Let’s be honest—most people don’t fail to build habits because they’re lazy.
- They fail because they try to rely on willpower. And willpower is like a battery—it drains fast.
+Let’s be honest. Most people don’t fail to build habits because they’re lazy.
+ They fail because they try to rely on willpower. And willpower is like a battery, it drains fast.
 
 Here’s what usually happens:
 
@@ -67,7 +67,7 @@ Here’s what usually happens:
 
 Sound familiar?
 
-The problem isn’t you—it’s the **system**.
+The problem isn’t you, it’s the **system**.
 
 Good habits don’t stick because of motivation. They stick because of **design**.
 
@@ -93,12 +93,12 @@ You’re not “trying harder.” You’re making it hard to miss.
 
 #### **2. Make it tiny**
 
-Big changes feel exciting—but tiny ones are more sustainable.
+Big changes feel exciting. But tiny ones are more sustainable.
 
 Instead of: “I’ll meditate for 30 minutes,”
  Try: **“I’ll sit quietly for one minute after I brush my teeth.”**
 
-That’s not laziness—it’s smart. Small habits build momentum. They’re easier to repeat. And repetition is what rewires the brain.
+That’s not lazinessz, it’s smart. Small habits build momentum. They’re easier to repeat. And repetition is what rewires the brain.
 
 ------
 
@@ -117,7 +117,7 @@ You’re using the rhythm of your existing day to piggyback a new habit on top.
 
 #### **4. Make it rewarding**
 
-The brain loves a win. So make sure your habit *feels* good—right away.
+The brain loves a win. So make sure your habit *feels* good right away.
 
 That could mean checking it off a list, enjoying how calm you feel, or just saying, “Shabaash, well done” to yourself.
  If the reward is delayed or vague, the habit won’t feel worth it.
