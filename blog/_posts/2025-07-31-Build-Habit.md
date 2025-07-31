@@ -1,6 +1,6 @@
 ---
 layout: post  
-title: Rewriting the Script: The Science and Art of Habit Change  
+title: Rewriting the Habits Script  
 date: 2025-07-31
 categories: [general]  
 tags: [growth, mindset, resilience, goal-setting]  
