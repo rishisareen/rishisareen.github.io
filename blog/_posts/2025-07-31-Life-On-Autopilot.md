@@ -13,7 +13,7 @@ Not proud of it. Just… noticed it.
 
 Then I brushed my teeth (left side first, like always), made my coffee (two spoons, same mug), and sat in the exact chair I sit in every morning. Before I’d even thought about what kind of day I wanted to have, I was halfway through it.
 
-Sound familiar?
+Know the feeling?
 
 Most of us like to believe we make decisions constantly. That we’re choosing each moment with full awareness. But here’s the surprising truth: **much of what we do every day isn’t a decision. It’s a habit.**
 
