@@ -7,7 +7,7 @@ tags: [growth, mindset, resilience, goal-setting]
 ---
 ## **Part 2: How to Build Better Habits (Without Burning Out)**
 
-Last time, we talked about how so much of our life runs on autopilot—guided by habits we don’t even realize we have.
+Last time, we talked about how so much of our life runs on autopilot, guided by habits we don’t even realize we have.
 The question now is: **how do we take back the steering wheel?**
 How can we use the brain’s natural love for efficiency to build habits that *actually* serve us?
 
@@ -17,13 +17,13 @@ Let’s get into it.
 
 ### **The Scripts We Follow Without Realizing**
 
-Ever walked into a local restaurant, waited to be seated, ordered Dal Makhni, Shahi Paneer without looking at the menu—and barely noticed how automatic it felt?
+Ever walked into a local restaurant, waited to be seated, ordered Dal Makhni, Shahi Paneer without looking at the menu and barely noticed how automatic it felt?
 
 That’s not just habit. That’s what psychologists call a **cognitive script**.
 
 **Cognitive Script Theory** says we carry mental “scripts” for how common situations play out.
 
-Like how to greet elders with “Namaste,” or how to stand in line at a temple. These scripts are shaped by past experiences and culture—so we can respond quickly without overthinking.
+Like how to greet elders with “Namaste,” or how to stand in line at a temple. These scripts are shaped by past experiences and culture, so we can respond quickly without overthinking.
 
 They’re incredibly helpful.
  But here’s where it gets interesting: **we don’t just have scripts for tasks, we have them for emotions and behavior, too.**
@@ -73,7 +73,7 @@ Good habits don’t stick because of motivation. They stick because of **design*
 
 ------
 
-### **Designing Habits That Stick: 4 Science-Backed Tips**
+### **Designing Habits That Stick: 4 Science Backed Tips**
 
 Here are four powerful, proven strategies to help habits take root:
 
@@ -146,7 +146,7 @@ We often think of habits as boring. But here’s the truth:
 It’s not about one big breakthrough. It’s about small steps repeated over time.
 
 You don’t have to overhaul your life.
- Just pick one habit. Start tiny. Make it easy. And keep going—even if you miss a day.
+ Just pick one habit. Start tiny. Make it easy. And keep going, even if you miss a day.
 
 That’s how change really happens.
 
