@@ -1,7 +1,7 @@
 ---
 layout: post  
 title: Life on Autopilot  
-date: 2025-07-311  
+date: 2025-07-30
 categories: [general]  
 tags: [growth, mindset, resilience, goal-setting]  
 ---
