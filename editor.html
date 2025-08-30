@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Recipe Manager — Editor</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Editor</h1>
+    <div class="controls">
+      <button id="back">Back</button>
+      <input id="filename" placeholder="filename-slug.md" />
+      <input id="title" placeholder="Recipe title" />
+      <button id="saveBtn">Save to GitHub</button>
+    </div>
+  </header>
+  <main class="editor-main">
+    <textarea id="md" placeholder="# Recipe title\nIngredients...\nSteps..."></textarea>
+    <div id="preview" class="preview"></div>
+  </main>
+
+  <div id="status" class="status"></div>
+
+  <script src="js/github.js"></script>
+  <script src="js/editor.js"></script>
+</body>
+</html>
