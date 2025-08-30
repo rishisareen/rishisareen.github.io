@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Editor - Recipe Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.3.0/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✏️ Recipe Editor</h1>
+            <a href="index.html" class="btn back-btn">← Back to Recipes</a>
+        </header>
+
+        <main>
+            <div id="error" class="error" style="display: none;"></div>
+            <div id="success" class="success" style="display: none;"></div>
+            
+            <div class="editor-controls">
+                <input type="text" id="filenameInput" class="filename-input" placeholder="my-delicious-recipe.md">
+                <div>
+                    <button id="saveBtn" class="btn btn-success">💾 Save Recipe</button>
+                    <button id="saveAsBtn" class="btn btn-secondary">📋 Save As New</button>
+                </div>
+            </div>
+
+            <div class="editor-container">
+                <div class="editor-panel">
+                    <div class="panel-header">📝 Markdown Editor</div>
+                    <textarea id="markdownEditor" class="editor-textarea" placeholder="# My Amazing Recipe
+
+🍳 **Prep Time:** 15 minutes  
+⏰ **Cook Time:** 30 minutes  
+👥 **Servings:** 4
+
+## 🥘 Ingredients
+- 2 cups flour
+- 1 cup sugar
+- 3 eggs
+- 1/2 cup butter
+
+## 📋 Instructions
+1. Preheat oven to 350°F (175°C)
+2. Mix dry ingredients in a large bowl
+3. Add wet ingredients and mix until combined
+4. Bake for 25-30 minutes until golden
+
+## 💡 Tips & Notes
+Add your cooking tips and variations here..."></textarea>
+                </div>
+
+                <div class="editor-panel">
+                    <div class="panel-header">👀 Live Preview</div>
+                    <div id="markdownPreview" class="preview-panel"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="github.js"></script>
+    <script>
+        const markdownEditor = document.getElementById('markdownEditor');
+        const markdownPreview = document.getElementById('markdownPreview');
+        const filenameInput = document.getElementById('filenameInput');
+        const saveBtn = document.getElementById('saveBtn');
+        const saveAsBtn = document.getElementById('saveAsBtn');
+        const error = document.getElementById('error');
+        const success = document.getElementById('success');
+
+        let currentFilename = null;
+        let isNewFile = true;
+
+        // Get filename from URL parameters if editing existing recipe
+        const urlParams = new URLSearchParams(window.location.search);
+        const editFilename = urlParams.get('file');
+
+        if (editFilename) {
+            currentFilename = editFilename;
+            isNewFile = false;
+            filenameInput.value = editFilename;
+            loadExistingRecipe();
+        }
+
+        // Configure marked options
+        marked.setOptions({
+            breaks: true,
+            gfm: true
+        });
+
+        // Event listeners
+        markdownEditor.addEventListener('input', updatePreview);
+        markdownEditor.addEventListener('scroll', syncScroll);
+        saveBtn.addEventListener('click', saveRecipe);
+        saveAsBtn.addEventListener('click', saveAsNewRecipe);
+
+        // Auto-generate filename from title
+        markdownEditor.addEventListener('input', () => {
+            if (isNewFile) {
+                const content = markdownEditor.value;
+                const title = GitHubAPI.extractTitleFromContent(content);
+                if (title && !filenameInput.value) {
+                    filenameInput.value = GitHubAPI.sanitizeFilename(title);
+                }
+            }
+        });
+
+        function updatePreview() {
+            const markdown = markdownEditor.value;
+            const html = marked.parse(markdown);
+            markdownPreview.innerHTML = html;
+        }
+
+        function syncScroll() {
+            const editorScrollPercent = markdownEditor.scrollTop / (markdownEditor.scrollHeight - markdownEditor.clientHeight);
+            markdownPreview.scrollTop = editorScrollPercent * (markdownPreview.scrollHeight - markdownPreview.clientHeight);
+        }
+
+        async function loadExistingRecipe() {
+            try {
+                showMessage('Loading recipe...', 'info');
+                const content = await GitHubAPI.getRecipe(currentFilename);
+                markdownEditor.value = content;
+                updatePreview();
+                hideMessages();
+            } catch (err) {
+                showError('Failed to load recipe: ' + err.message);
+            }
+        }
+
+        async function saveRecipe() {
+            const filename = filenameInput.value.trim();
+            const content = markdownEditor.value.trim();
+
+            if (!filename) {
+                showError('Please enter a filename');
+                return;
+            }
+
+            if (!filename.endsWith('.md')) {
+                showError('Filename must end with .md');
+                return;
+            }
+
+            if (!content) {
+                showError('Please enter some content');
+                return;
+            }
+
+            try {
+                showMessage('Saving recipe...', 'info');
+                await GitHubAPI.saveRecipe(filename, content);
+                currentFilename = filename;
+                isNewFile = false;
+                showSuccess('Recipe saved successfully!');
+            } catch (err) {
+                showError('Failed to save recipe: ' + err.message);
+            }
+        }
+
+        async function saveAsNewRecipe() {
+            const oldFilename = filenameInput.value;
+            filenameInput.value = '';
+            isNewFile = true;
+            
+            // Auto-generate filename from title
+            const content = markdownEditor.value;
+            const title = GitHubAPI.extractTitleFromContent(content);
+            if (title) {
+                filenameInput.value = GitHubAPI.sanitizeFilename(title);
+            }
+            
+            await saveRecipe();
+        }
+
+        function showError(message) {
+            error.textContent = message;
+            error.style.display = 'block';
+            success.style.display = 'none';
+            setTimeout(hideMessages, 5000);
+        }
+
+        function showSuccess(message) {
+            success.textContent = message;
+            success.style.display = 'block';
+            error.style.display = 'none';
+            setTimeout(hideMessages, 3000);
+        }
+
+        function showMessage(message, type) {
+            if (type === 'info') {
+                // Show loading-style message
+                success.textContent = message;
+                success.style.display = 'block';
+                error.style.display = 'none';
+            }
+        }
+
+        function hideMessages() {
+            error.style.display = 'none';
+            success.style.display = 'none';
+        }
+
+        // Initialize preview
+        updatePreview();
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+                e.preventDefault();
+                saveRecipe();
+            }
+        });
+    </script>
+</body>
+</html>
