@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍽️ Recipe Manager</h1>
+            <div class="header-buttons">
+                <button id="newRecipeBtn" class="btn btn-primary">✨ New Recipe</button>
+                <button id="llmRecipeBtn" class="btn btn-secondary">🤖 AI Generate</button>
+                <button id="refreshBtn" class="btn">🔄 Refresh</button>
+            </div>
+        </header>
+
+        <main>
+            <div id="loading" class="loading">🍳 Cooking up your recipes...</div>
+            <div id="error" class="error" style="display: none;"></div>
+            <div id="recipeList" class="recipe-list" style="display: none;"></div>
+        </main>
+    </div>
+
+    <script src="github.js"></script>
+    <script>
+        const recipeList = document.getElementById('recipeList');
+        const loading = document.getElementById('loading');
+        const error = document.getElementById('error');
+        const newRecipeBtn = document.getElementById('newRecipeBtn');
+        const llmRecipeBtn = document.getElementById('llmRecipeBtn');
+        const refreshBtn = document.getElementById('refreshBtn');
+
+        // Event listeners
+        newRecipeBtn.addEventListener('click', () => {
+            window.location.href = 'editor.html';
+        });
+
+        llmRecipeBtn.addEventListener('click', () => {
+            window.location.href = 'llm.html';
+        });
+
+        refreshBtn.addEventListener('click', loadRecipes);
+
+        async function loadRecipes() {
+            loading.style.display = 'block';
+            error.style.display = 'none';
+            recipeList.style.display = 'none';
+
+            try {
+                const recipes = await GitHubAPI.listRecipes();
+                displayRecipes(recipes);
+            } catch (err) {
+                showError('Failed to load recipes: ' + err.message);
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        function displayRecipes(recipes) {
+            if (recipes.length === 0) {
+                recipeList.innerHTML = '<div class="no-recipes">✨ No recipes found. Create your first culinary masterpiece!</div>';
+            } else {
+                recipeList.innerHTML = recipes.map((recipe, index) => `
+                    <div class="recipe-card" style="animation-delay: ${index * 0.1}s">
+                        <h3>${recipe.title}</h3>
+                        <p class="recipe-filename">${recipe.filename}</p>
+                        <div class="recipe-actions">
+                            <button onclick="viewRecipe('${recipe.filename}')" class="btn btn-small btn-primary">👁️ View</button>
+                            <button onclick="editRecipe('${recipe.filename}')" class="btn btn-small btn-secondary">✏️ Edit</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            recipeList.style.display = 'block';
+        }
+
+        function viewRecipe(filename) {
+            window.location.href = `recipe.html?file=${encodeURIComponent(filename)}`;
+        }
+
+        function editRecipe(filename) {
+            window.location.href = `editor.html?file=${encodeURIComponent(filename)}`;
+        }
+
+        function showError(message) {
+            error.textContent = message;
+            error.style.display = 'block';
+        }
+
+        // Load recipes on page load
+        loadRecipes();
+    </script>
+</body>
+</html>
