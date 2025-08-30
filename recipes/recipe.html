@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Recipe</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1 id="title">Recipe</h1>
+    <div class="controls">
+      <button id="back">Back</button>
+      <button id="edit">Edit</button>
+    </div>
+  </header>
+  <main>
+    <div id="content"></div>
+  </main>
+
+  <div id="status" class="status"></div>
+
+  <script src="js/github.js"></script>
+  <script>
+    // simple viewer that reads ?file=<filename>
+    const params = new URLSearchParams(location.search);
+    const file = params.get('file');
+    const status = document.getElementById('status');
+    const contentEl = document.getElementById('content');
+    const titleEl = document.getElementById('title');
+    document.getElementById('back').onclick = ()=> history.back();
+    document.getElementById('edit').onclick = ()=> {
+      if(file) location.href = 'editor.html?file=' + encodeURIComponent(file);
+    }
+
+    if(!file){
+      status.textContent = 'No file specified.';
+    } else {
+      status.textContent = 'Loading...';
+      const rawUrl = `https://raw.githubusercontent.com/rishisareen/rishisareen.github.io/main/recipes/${file}`;
+      fetch(rawUrl).then(r=>{
+        if(!r.ok) throw new Error('Failed to fetch raw file: ' + r.status);
+        return r.text();
+      }).then(md=>{
+        status.textContent = '';
+        // derive title from first markdown heading or filename
+        const m = md.match(/^#\s*(.+)/m);
+        titleEl.textContent = m ? m[1] : file;
+        contentEl.innerHTML = marked.parse(md);
+      }).catch(err=>{
+        status.textContent = 'Error: ' + err.message;
+      })
+    }
+  </script>
+</body>
+</html>
