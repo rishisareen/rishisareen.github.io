@@ -1,6 +1,6 @@
 // GitHub API configuration
 const GITHUB_CONFIG = {
-    username: 'rishisareen',
+    username: 'rishi.sareen',
     repo: 'rishisareen.github.io',
     token: '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',
     branch: 'main'
