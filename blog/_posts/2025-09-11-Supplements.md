@@ -62,6 +62,15 @@ Fast&UP salt tablets are very common in India. While they are good, the sodium c
 
 Just like with caffeine, test your strategy in training so you’re not guessing on race day.
 
+### Creatine
+
+Creatine is one of the most studied supplements out there, both for the impact and long term safety. It’s mainly known for helping sprinters and weightlifters because it gives extra energy for short, hard efforts. For endurance athletes, it’s not a game changer for long races, but it can still help with strength training, sprints, and recovery during tough training blocks.
+
+One thing to know is that creatine can make your muscles hold a bit more water. That can show up as a small weight gain. Some athletes don’t mind, others find it uncomfortable in hot races.
+
+**How to Take It**
+ A simple dose is 3–5 grams per day. No need for fancy loading. Just take it daily and your muscles will fill up over time. Creatine monohydrate is the best option—it’s cheap, safe, and effective.
+
 
 
 ## 2. Recovery-Oriented Supplements
@@ -106,9 +115,8 @@ The best move is to get your blood levels checked so you know if you actually ne
 ## Putting It Together
 
 - **For performance**: Caffeine and nitrate-rich foods like beetroot have the strongest track record. Electrolytes keep you steady, especially in hot or long races.
-
-  **For recovery**: Vitamin D3 (paired with K2 ), vitamin B12 if you’re low, and electrolytes for rehydration all play a clear role.
-
-  **What to skip**: BCAAs, megadoses of antioxidants, glutamine, and ketone esters don’t live up to the hype.
+-  **For recovery**: Vitamin D3 (paired with K2 ), vitamin B12 if you’re low, and electrolytes for rehydration all play a clear role.
+-  **Useful extras** : Creatine can help with strength training and recovery, even if it’s not a direct endurance booster.
+-  **What to skip**: BCAAs, megadoses of antioxidants, glutamine, and ketone esters don’t live up to the hype.
 
 Supplements can be useful, but they’re not magic. Think of them as the finishing touches that only matter once the big pieces : training, good food, sleep, and recovery are in place. For triathletes, the smart move isn’t chasing every new pill but sticking with the few that actually deliver.
