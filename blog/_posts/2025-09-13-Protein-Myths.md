@@ -79,7 +79,7 @@ Now, lets dig into what are the most common myths / argument against Protein, an
 **Reality Check:** This is our desi version of "protein is heating." Yes, protein digestion slightly raises body temperature (called thermic effect), but so does climbing stairs or arguing with the cable-wallah. It's actually good. It means you're burning more calories!
 
 ### **Myth 6: "Vegetarians ko protein nahi mil sakta!"**
-**Reality Check:** Harder? Yes. Impossible? No way. With paneer, dals, soy, Greek yogurt, nuts, and millets, vegetarians can absolutely hit their targets. It just requires more planning than a non-vegetarian meal (but then again, what doesn't?).
+**Reality Check:** Harder? Yes. Impossible? No way. With paneer, dals, soy, Greek yogurt, Dahi, Tofu nuts, and millets, vegetarians can absolutely hit their targets. It just requires being deliberate about getting enough protein without consuming too many calories. A small education will go a long way. 
 
 ### **Myth 7: "Ladkiyon ko itna protein ki zaroorat nahi!"**
 **Reality Check:** Protein isn't just for muscles, friends. It's needed for hormones, bones, energy, skin, hair, and basically everything that keeps you from falling apart like an old Alto. Women need protein as much as men, especially to prevent turning into a fragile aunty with age.
@@ -88,7 +88,7 @@ Now, lets dig into what are the most common myths / argument against Protein, an
 **Reality Check:** That's like saying water is only for marathon runners. Everyone needs protein, whether you exercise or spend your day perfecting the art of Netflix browsing. Your body is constantly rebuilding itself, and it needs protein for that 24/7 construction work.
 
 ### **Myth 9: Protein heavy lagta hai, digest nahi hota!"**
-**Reality Check:** Most people digest protein just fine. If you feel uncomfortable, it's usually the extra fiber (from eating tons of dal) or lactose (from that third glass of milk), not the protein itself. Your digestive system isn't as delicate as you think.
+**Reality Check:** Most people digest protein just fine. If you feel uncomfortable, it's usually the extra fiber (from eating tons of dal), lactose (from that third glass of milk), or sulfur compounds in eggs that cause bloating—not the protein itself. Your digestive system isn't as delicate as you think.
 
 ### **Myth 10: Soy nuggets or soy protein raise estrogen.**
 **Reality Check:** Soy contains phytoestrogens, which are about as similar to human estrogen as a bicycle is to a Ferrari : technically in the same category, but not even close in power. Normal soy consumption is perfectly safe and gives great protein, especially for vegetarians.
