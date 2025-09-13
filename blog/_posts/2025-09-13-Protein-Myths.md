@@ -5,9 +5,6 @@ comments: true
 categories: 
 - Nutrition
 ---
-# The Most Common Myths About Protein 
-
-## Separating Science from WhatsApp University
 
 ## Why Aunty Ji Has Strong Opinions About Your Protein Shake
 
@@ -35,7 +32,7 @@ Here's the thing about nutrition : it can look messier than a Mumbai local train
 
 That’s the nature of science, it evolves. As better studies come out, advice changes. So don’t be surprised if recommendations shift again in the future. **That’s not confusion, that’s progress.**
 
-The real problem? Most of us never learned proper nutrition in school. Even doctors get maybe a few hours of nutrition training in medical school—less time than they spend learning about rare diseases they'll probably never see. This creates a knowledge vacuum that gets filled by WhatsApp forwards, that one friend who lost 10 kilos and now thinks they're a nutritionist, and random YouTube videos with dramatic thumbnails.
+The real problem? Most of us never learned proper nutrition in school. Even doctors get maybe a few hours of nutrition training in medical school, less time than they spend learning about rare diseases they'll probably never see. This creates a knowledge vacuum that gets filled by WhatsApp forwards, that one friend who lost 10 kilos and now thinks they're a nutritionist, and random YouTube videos with dramatic thumbnails.
 
 But nutrition is a real science, and just like you’d see a doctor for medical advice, you owe it to yourself to either learn the basics or consult a qualified nutritionist with proper training and a degree. After all, it is your own body. When one is so mindful about finance, why not about body and what goes into it!!
 
@@ -48,7 +45,7 @@ When it comes to protein, though, the science is refreshingly clear. Unlike your
 
 ### How Much Protein Do You Actually Need?
 
-Think of protein requirements like mobile data plans—it depends on how you use your body:
+Think of protein requirements like mobile data plans, it depends on how you use your body:
 
 | Lifestyle                      | Protein Needed (per kg body weight per day) | Notes                                  |
 | ------------------------------ | ------------------------------------------- | -------------------------------------- |
@@ -79,7 +76,7 @@ Now, lets dig into what are the most common myths / argument against Protein, an
 **Reality Check:** Calling protein powder "steroids" is like calling flour "drugs" because bread makes you feel good. It's processed food, like milk powder, just with more protein. Not magic, definitely not steroids, just convenient nutrition.
 
 ### **Myth 5: "Protein se body mein garmi hoti hai!"**
-**Reality Check:** This is our desi version of "protein is heating." Yes, protein digestion slightly raises body temperature (called thermic effect), but so does climbing stairs or arguing with the cable-wallah. It's actually good—it means you're burning more calories!
+**Reality Check:** This is our desi version of "protein is heating." Yes, protein digestion slightly raises body temperature (called thermic effect), but so does climbing stairs or arguing with the cable-wallah. It's actually good. It means you're burning more calories!
 
 ### **Myth 6: "Vegetarians ko protein nahi mil sakta!"**
 **Reality Check:** Harder? Yes. Impossible? No way. With paneer, dals, soy, Greek yogurt, nuts, and millets, vegetarians can absolutely hit their targets. It just requires more planning than a non-vegetarian meal (but then again, what doesn't?).
