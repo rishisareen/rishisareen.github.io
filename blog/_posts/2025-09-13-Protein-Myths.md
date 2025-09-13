@@ -36,7 +36,7 @@ The real problem? Most of us never learned proper nutrition in school. Even doct
 
 But nutrition is a real science, and just like you’d see a doctor for medical advice, you owe it to yourself to either learn the basics or consult a qualified nutritionist with proper training and a degree. After all, it is your own body. When one is so mindful about finance, why not about body and what goes into it!!
 
-Here 's your new mantra :
+Here's your new mantra :
 
 > Nutrition is a science, not a WhatsApp thread.
 
@@ -51,7 +51,7 @@ Think of protein requirements like mobile data plans, it depends on how you use 
 | ------------------------------ | ------------------------------------------- | -------------------------------------- |
 | **Couch Potato**               | **0.8 – 1.0 g/kg**                          | Just enough to keep everything running |
 | **Active / Regular Exercise**  | **1.2 – 1.6 g/kg**                          | You actually move your body regularly  |
-| **Athlete / Intense Training** | **1.6 – 2.2 g/kg**                          | You train like your life depends on it |
+| **Serious Athlete / Intense Training** | **1.6 – 2.2 g/kg**                          | You train like your life depends on it |
 
 
 
