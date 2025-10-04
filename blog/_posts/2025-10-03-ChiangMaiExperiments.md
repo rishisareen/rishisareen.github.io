@@ -8,7 +8,7 @@ categories:
 
 ## The Setup
 
-Chiang Mai hits you with three things immediately: temples, street food, and weed shops. So many weed shops. Neon signs on every corner, colorful jars lined up like a candy store.Thailand's had legal cannabis for a while now, which probably explains half the European backpackers wandering around. They recently added a prescription requirement, but honestly? Nothing's really changed. From what I'd seen on YouTube, Bangkok shops just hire "doctors" now. You walk in, mention you can't sleep (everyone says this), and boom : prescription in two minutes. It's theater, but efficient theater."
+I landed in Chiang Mai from KL on September 30th, and three things hit me immediately: temples, street food, and weed shops. So many weed shops. Neon signs on every corner, colorful jars lined up like a candy store.Thailand's had legal cannabis for a while now, which probably explains half the European backpackers wandering around. They recently added a prescription requirement, but honestly? Nothing's really changed. From what I'd seen on YouTube, Bangkok shops just hire "doctors" now. You walk in, mention you can't sleep (everyone says this), and boom : prescription in two minutes. It's theater, but efficient theater."
 
 I hadn't arrived in Thailand planning to try weed. But when you're wandering toward the Old Night Bazaar and pass your fifth cannabis shop, you think : *Why not?*
 
