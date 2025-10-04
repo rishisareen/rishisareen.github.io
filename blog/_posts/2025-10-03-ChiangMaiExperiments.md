@@ -5,11 +5,10 @@ comments: true
 categories: 
 - General
 ---
-# When 40mg Teaches You Humility: A Cannabis Misadventure in Chiang Mai
 
 ## The Setup
 
-Chiang Mai greets you with temples, street food, and an unexpected density of cannabis shops. They're everywhere : neon signs glowing on every corner, storefronts displaying colorful jars like candy stores. Weed has been legal in Thailand for a long time, making it a draw for backpackers and curious travelers alike. Though recently they'd added a prescription requirement, the city hadn't really changed. From what I'd seen on YouTube, Bangkok shops now have "doctors" on-site who'd listen to your complaint : "can't sleep" was the most common recommendation and write you a prescription in minutes. Remarkably civilized, if somewhat staged.
+Chiang Mai hits you with three things immediately: temples, street food, and weed shops. So many weed shops. Neon signs on every corner, colorful jars lined up like a candy store.Thailand's had legal cannabis for a while now, which probably explains half the European backpackers wandering around. They recently added a prescription requirement, but honestly? Nothing's really changed. From what I'd seen on YouTube, Bangkok shops just hire "doctors" now. You walk in, mention you can't sleep (everyone says this), and boom : prescription in two minutes. It's theater, but efficient theater."
 
 I hadn't arrived in Thailand planning to try weed. But when you're wandering toward the Old Night Bazaar and pass your fifth cannabis shop, you think : *Why not?*
 
@@ -17,7 +16,7 @@ One shop, "64 Buds," had educational posters explaining strain differences and q
 
 "You have three choices," she explained. "Raw flower to smoke, cookies with 2-3mg, or gummies with 20mg."
 
-She asked if I'd tried cannabis before. I nodded. First time in Amsterdam (fantastic Space Mountain). A few times in the mountains with friends, sharing  around a joint. To me, this counted as experience.
+She asked if I'd tried cannabis before. I nodded. First time in Amsterdam (fantastic Space Mountain Cake). A few times in the mountains with friends, sharing  around a joint. To me, this counted as experience.
 
 "Then try the gummies," she suggested. "The cookies might be too mild for you."
 
@@ -27,7 +26,7 @@ Only later would I realize that her definition of "experienced" and mine existed
 
 ## The Preparations
 
-Back in my room, I did something right: I texted Tanya. Told her I was about to consume cannabis, shared my hotel details and my brother Jatu's number. If you're going to be reckless, at least be *responsibly* reckless. I knew she'd check on me in the morning.
+Back in my room, I did something right: I texted Tanya. Told her I was about to consume cannabis, shared my hotel details and my brother's number. If you're going to be reckless, at least be *responsibly* reckless. I knew she'd check on me in the morning.
 
 At 8:30 PM, I popped the first gummy. It was gel-like, mildly sweet, unremarkable. I chewed it as instructed, then settled onto my bed with my Kindle.
 
@@ -37,7 +36,7 @@ An hour passed. Nothing. I felt completely, utterly normal. The rational part of
 
 This was, of course, a spectacular mistake.
 
-Here's what haunts me: I consider myself careful. I like controlled experiments, calculated risks. I understood I was alone in a foreign country trying something that could go sideways. So why did I casually take a second dose without even Googling?
+Here's what haunts me: I consider myself a careful person. I like controlled experiments, calculated risks. I understood I was alone in a foreign country trying something that could go sideways. So why did I casually take a second dose without even Googling?
 
 I've replayed that moment countless times. Was I truly sober when I took the second gummy? Or had the first one already begun its subtle work, messing with my judgment just enough to make me think I felt nothing? It's a question I'll never be able to answer.
 
@@ -49,7 +48,7 @@ I was lying in bed, scrolling through my phone. Around 10:30 PM, I felt my brain
 
 I texted Tanya immediately: "It's starting."
 
-She replied asking how I felt. I typed back that everything felt "slow," but even typing that message was proof. Words that should take three seconds to write stretched into twenty. My fingers couldn't quite remember, muscle memory gone! My thoughts arrived delayed, as if traveling slowly.
+She replied asking how I felt. I typed back that everything felt "slow," but even typing that message was proof. Words that should take three seconds to write stretched into twenty. My fingers couldn't quite remember the letter position, muscle memory gone! My thoughts arrived delayed, as if traveling slowly.
 
 Somewhere in there, I dozed off.
 
@@ -61,13 +60,13 @@ I started pacing, back and forth across my room like a caged animal (most accura
 
 *I took too much. This was stupid. 40mg was reckless.*
 
-I checked my phone and pulled up the heart rate monitor. 140 beats per minute. For context, I'm an athlete. A light walk should put me at 70-80 bpm. This wasn't just anxiety I was feeling; it was my cardiovascular system responding to the chemical, and my mind was reacting to that elevated state. I tried to remember what I knew about blood pressure and heart rate correlation. Was my blood pressure spiking too? 
+I checked my garmin watch and pulled up the heart rate screen. 140 beats per minute. For context, I'm an athlete. A light walk should put me at 70-80 bpm. This wasn't just anxiety I was feeling; it was my cardiovascular system responding to the chemical, and my mind was reacting to that elevated state. I tried to remember what I knew about blood pressure and heart rate correlation. Was my blood pressure spiking too? 
 
 Then came the harder question: *Do I need a hospital?*
 
-I ran through the calculation:
+I ran through the calculations:
 
-**Physical Safety:** From everything I'd read, there's no lethal dose of cannabis. The panic was real, but the physical danger was minimal. I just needed to ride it out and keep monitoring my heart rate.
+**Physical Safety:** From everything I'd read, there's no lethal dose of cannabis. The panic was real, but the physical danger was minimal. I just needed to ride it out and keep monitoring my heart rate. HR was also not going beyond 150, which was a good input. 
 
 **Logistics:** I was in a foreign country. While cannabis was legal (mostly), seeking medical help meant questions, hassle, possible police involvement about prescriptions. A hospital would likely just admit me for observation. Expensive, complicated, and probably unnecessary.
 
@@ -89,7 +88,7 @@ I decided on the iPad. Then, around 1:45 AM, I collapsed into bed and mercifully
 
 I woke at 5:30 AM, still deep in the fog. "Stoned" suddenly made sense. I felt like stone, heavy and unable to move, consciousness trapped inside an unresponsive body.
 
-By 8 AM, my heart rate began stabilizing. The waves of panic were smaller, more manageable. I brushed my teeth, stared at my face in the mirror, and barely recognized the exhausted person looking back.
+By 8 AM, my heart rate began stabilizing. The waves of panic were smaller, more manageable. I brushed my teeth, stared at my face in the mirror, and barely recognized the exhausted person looking back. Hello, tu kaun!! 
 
 Finally, I grabbed my iPad and opened ChatGPT. I typed out everything that had happened and asked for a diagnosis and management steps.
 
@@ -100,14 +99,14 @@ The AI's response was startlingly accurate:
 - Effects could last 12+ hours at peak intensity, with full recovery taking up to 24 hours
 - My symptoms : Extreme confusion, dizziness, scattered thoughts, elevated heart rate : were textbook for this dosage. Well done, Rishi Sareen.
 
-Reading this was profoundly reassuring. ChatGPT described exactly how I was feeling with such precision that I felt seen, understood. It also made clear: I wasn't going anywhere today. Part of me was struggling with this. I wanted to explore the city, hit my daily 20,000 steps. But acknowledging I needed to stay put stopped that internal struggle.
+Reading this was profoundly reassuring. ChatGPT described exactly how I was feeling with such precision that I felt seen, understood. I was not going mad, this was exactly as expected. It also made clear: I wasn't going anywhere today. Part of me was struggling with this. I wanted to explore the city, hit my daily 20,000 steps. But acknowledging I needed to stay put stopped that internal struggle.
 
 ChatGPT suggested grounding exercises:
 
 - Box breathing: inhale for 4 seconds, hold for 4, exhale for 7, hold for 7 seconds
 - The 5-4-3-2-1 technique: name 5 things I can see, 4 I can touch, 3 I can smell, 2 I can hear, 1 I can hold
 
-I tried them. They helped. The 5-4-3-2-1 exercise was also hilarious in my state. I stared at my phone charger adapter for a solid minute, cycling through "adapter," "power bank," "that thing," unable to find the simple word I needed.
+I tried them. They helped. The 5-4-3-2-1 exercise was also hilarious in my state. I stared at my phone charger for a solid minute, trying to recall the name, cycling through "adapter," "power bank," "that thing," unable to find the simple word I needed.
 
 Tanya called around 8 AM. I'd preemptively put in my AirPods, unsure I could hold my phone steady. I don't know how coherent I sounded, but I managed to convey I was safe. I asked her to check again in 90 minutes.
 
