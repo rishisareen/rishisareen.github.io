@@ -21,9 +21,9 @@ categories:
 
 | Goal | Description | Completed? |
 |------|:-----------:|-----------:|
-| A |Goal A | ? |
-| B |Goal B | ? |
-| C |Goal C | ? |
+| A |Swim : Sub 90 | No |
+| B |Bike : Sub 6:30 | Yes! |
+| C |Run : Sub 4:30 | No |
 
 
 
