@@ -62,7 +62,7 @@ On one hand, I was super confident of my training block, but on the other hand
 
 So when I did the athlete check-in on Friday morning, I wasn't sure I could race - both calves were painfully sore even to walk (and the anxious mind playing tricks dint help either) and there was this uncertainty of whether the bike could be decisively repaired.
 
-Had my fanboy moment on meeting Milind Soman who was also doing the race with his wife Ankita Konwar. It was inspiring to see his level functional fitness at 60 years of age. 
+Had my fanboy moment on meeting Milind Soman who was also doing the race with his wife Ankita Konwar. It was inspiring to see his level of functional fitness at 60 years of age. 
 
 Thankfully all my issues resolved over the next 2 days – the calf cramps gradually disappeared and the tenderness completely gone on race day morning; the bike got repaired on Friday evening from the nearby bike shop. 
 
