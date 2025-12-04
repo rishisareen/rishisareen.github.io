@@ -6,21 +6,9 @@ comments: true
 categories: 
 - Recipes
 ---
----
-layout: post
-title: "Recipe - Chole"
-date: 2025-02-11
-comments: true
-categories: 
-- Recipes
----
 
 
 # 🥣 **High-Protein Yogurt Superfood Bowl**
-
-
-
-![Image](https://images.squarespace-cdn.com/content/v1/5b07020aee1759ba35799f05/1527624792120-R4YQGKUA1S4ZN981ZNZ0/JO6A8318-1-2.jpg?format=1500w&utm_source=chatgpt.com)
 
 ### **Ingredients (1 big meal bowl or 2 snack bowls)**
 
