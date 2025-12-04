@@ -28,7 +28,7 @@ categories:
 
 ------
 
-# ** Method (Takes < 5 minutes)**
+# Method (Takes < 5 minutes)
 
 1. **Protein-Yogurt Base**
    - In a bowl, whisk yogurt with whey protein until smooth and creamy.
