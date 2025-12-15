@@ -3,3 +3,10 @@
     margin: map-get($spacers, 4) 0;
   }
 }
+
+// Limit the width of the main content container
+.layout-archive, .layout-post {
+  max-width: 38em; // Approx 600-700px
+  margin-left: auto;
+  margin-right: auto;
+}
