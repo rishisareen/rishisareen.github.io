@@ -902,21 +902,25 @@ a.pagination-item:hover {
 }
 
 .hero {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .hero h1 {
-  font-size: 2rem;
+  font-size: 2.75rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: #303030;
 }
 
 .hero p {
-  font-size: 1.15rem;
+  font-size: 1.35rem;
   line-height: 1.7;
   color: #444;
-  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.hero p:last-child {
+  margin-bottom: 0;
 }
 
 .home-nav {
@@ -1064,19 +1068,11 @@ a.pagination-item:hover {
 
 @media (max-width: 48em) {
   .hero h1 {
-    font-size: 1.75rem;
+    font-size: 2.25rem;
   }
 
   .hero p {
-    font-size: 1.05rem;
-  }
-
-  .quick-links {
-    gap: 1.5rem;
-  }
-
-  .latest-list {
-    column-count: 1;
+    font-size: 1.15rem;
   }
 }
 
