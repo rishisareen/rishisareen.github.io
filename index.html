@@ -11,54 +11,12 @@ title: Home
     </p>
   </section>
 
-
-  <section class="home-section">
-    <h2>Featured</h2>
-    <ul class="featured-list">
-      {% assign triathlon = site.articles | where_exp: "a", "a.categories contains 'Triathlon'" | sort: 'date' | reverse | first %}
-      {% if triathlon %}
-      <li>
-        <a href="{{ triathlon.url | absolute_url }}">{{ triathlon.title }}</a>
-        <span class="item-meta">Latest race report</span>
-      </li>
-      {% endif %}
-      {% assign productivity = site.articles | where_exp: "a", "a.categories contains 'Productivity'" | sort: 'date' | reverse | first %}
-      {% if productivity %}
-      <li>
-        <a href="{{ productivity.url | absolute_url }}">{{ productivity.title }}</a>
-        <span class="item-meta">Productivity</span>
-      </li>
-      {% endif %}
-      {% assign nutrition = site.articles | where_exp: "a", "a.categories contains 'Nutrition'" | sort: 'date' | reverse | first %}
-      {% if nutrition %}
-      <li>
-        <a href="{{ nutrition.url | absolute_url }}">{{ nutrition.title }}</a>
-        <span class="item-meta">Nutrition</span>
-      </li>
-      {% endif %}
-      {% assign books = site.articles | where_exp: "a", "a.categories contains 'Books'" | sort: 'date' | reverse | first %}
-      {% if books %}
-      <li>
-        <a href="{{ books.url | absolute_url }}">{{ books.title }}</a>
-        <span class="item-meta">Book review</span>
-      </li>
-      {% endif %}
-    </ul>
+  <section class="home-nav">
+    <a href="{{ '/articles/' | absolute_url }}">Articles</a>
+    <a href="{{ '/notes/' | absolute_url }}">Notes</a>
+    <a href="{{ '/photography/' | absolute_url }}">Photography</a>
+    <a href="{{ '/about/' | absolute_url }}">About</a>
   </section>
-
-  <section class="home-section">
-    <h2>Latest</h2>
-    <ul class="latest-list">
-      {% assign recent = site.articles | sort: 'date' | reverse %}
-      {% for article in recent limit:8 %}
-      <li>
-        <a href="{{ article.url | absolute_url }}">{{ article.title }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-    <p class="more-link"><a href="{{ '/articles/' | absolute_url }}">Browse all {{ site.articles.size }} articles &rarr;</a></p>
-  </section>
-
 
   <section class="colophon">
     <p>Say hello: <a href="mailto:rishi@rishisareen.com">rishi@rishisareen.com</a></p>

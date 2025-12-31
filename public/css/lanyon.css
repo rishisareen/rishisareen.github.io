@@ -919,25 +919,30 @@ a.pagination-item:hover {
   margin: 0;
 }
 
-.quick-links {
+.home-nav {
   display: flex;
   gap: 2rem;
   margin-bottom: 3rem;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #eee;
 }
 
-.quick-links a {
-  font-size: 1rem;
+.home-nav a {
+  font-size: 1.1rem;
   color: #303030;
   text-decoration: none;
   border-bottom: 1px solid #ccc;
   padding-bottom: 2px;
 }
 
-.quick-links a:hover {
+.home-nav a:hover {
   color: #000;
   border-bottom-color: #000;
+}
+
+@media (max-width: 48em) {
+  .home-nav {
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+  }
 }
 
 .home-section {
