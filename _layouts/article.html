@@ -1,0 +1,106 @@
+---
+layout: default
+---
+
+<div class="article-container">
+  <article class="post">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <span class="post-date">{{ page.date | date_to_string }}</span>
+    <div class="post-content">
+      {{ content }}
+    </div>
+  </article>
+
+  <aside class="toc-sidebar">
+    <nav class="toc" id="toc">
+      <h4>Contents</h4>
+      <ul id="toc-list"></ul>
+    </nav>
+  </aside>
+</div>
+
+{% assign articles = site.articles | where_exp: "item", "item.url != page.url" | limit: 3 %}
+{% if articles.size >= 1 %}
+<div class="related">
+  <h2>More articles</h2>
+  <ul class="related-posts">
+    {% for article in articles limit:3 %}
+      <li>
+        <h3>
+          <a href="{{ site.baseurl }}{{ article.url }}">
+            {{ article.title }}
+            <small>{{ article.date | date_to_string }}</small>
+          </a>
+        </h3>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<script>
+(function() {
+  const tocList = document.getElementById('toc-list');
+  const tocSidebar = document.querySelector('.toc-sidebar');
+  const postContent = document.querySelector('.post-content');
+
+  if (!tocList || !postContent) return;
+
+  // Get all headings from the article content
+  const headings = postContent.querySelectorAll('h2, h3');
+
+  // Hide TOC if fewer than 3 headings
+  if (headings.length < 3) {
+    tocSidebar.style.display = 'none';
+    document.querySelector('.article-container').classList.add('no-toc');
+    return;
+  }
+
+  // Generate TOC
+  headings.forEach(function(heading, index) {
+    // Add ID to heading if it doesn't have one
+    if (!heading.id) {
+      heading.id = 'heading-' + index;
+    }
+
+    const li = document.createElement('li');
+    li.className = 'toc-' + heading.tagName.toLowerCase();
+
+    const a = document.createElement('a');
+    a.href = '#' + heading.id;
+    a.textContent = heading.textContent;
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      heading.scrollIntoView({ behavior: 'smooth' });
+      history.pushState(null, null, '#' + heading.id);
+    });
+
+    li.appendChild(a);
+    tocList.appendChild(li);
+  });
+
+  // Highlight current section on scroll
+  const tocLinks = tocList.querySelectorAll('a');
+
+  function highlightCurrentSection() {
+    let current = '';
+
+    headings.forEach(function(heading) {
+      const rect = heading.getBoundingClientRect();
+      if (rect.top <= 100) {
+        current = heading.id;
+      }
+    });
+
+    tocLinks.forEach(function(link) {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', highlightCurrentSection);
+  highlightCurrentSection();
+})();
+</script>

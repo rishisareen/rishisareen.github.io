@@ -1,0 +1,18 @@
+---
+layout: page
+title: Complete Archive
+---
+
+<p class="back-link"><a href="{{ site.baseurl }}/articles/">&larr; Back to articles</a></p>
+
+<ul class="article-list archive-list">
+  {% assign all_articles = site.articles | sort: "date" | reverse %}
+  {% for article in all_articles %}
+  <li>
+    <a href="{{ site.baseurl }}{{ article.url }}">{{ article.title }}</a>
+    <span class="article-date">{{ article.date | date: "%b %d, %Y" }}</span>
+  </li>
+  {% endfor %}
+</ul>
+
+<p class="article-count">{{ all_articles.size }} articles</p>

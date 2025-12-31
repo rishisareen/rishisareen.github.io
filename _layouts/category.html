@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<div class="page">
+  <h1 class="page-title">{{ page.title }}</h1>
+
+  <p class="category-description">{{ page.description }}</p>
+
+  <p class="back-link"><a href="{{ site.baseurl }}/articles/">&larr; Back to all articles</a></p>
+
+  {% assign cat_articles = site.articles | where_exp: "item", "item.categories contains page.category" | sort: "date" | reverse %}
+
+  <ul class="article-list">
+    {% for article in cat_articles %}
+    <li>
+      <a href="{{ site.baseurl }}{{ article.url }}">{{ article.title }}</a>
+      <span class="article-date">{{ article.date | date: "%b %d, %Y" }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <p class="article-count">{{ cat_articles.size }} articles</p>
+</div>

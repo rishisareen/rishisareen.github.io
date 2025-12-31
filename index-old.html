@@ -1,0 +1,62 @@
+---
+layout: default
+title: Home
+---
+
+<div class="home">
+  <section class="intro">
+    <p class="intro-text">
+      I'm <strong>Rishi Sareen</strong> — endurance athlete, reader, and someone who loves pushing boundaries.
+    </p>
+    <p class="intro-subtext">
+      I've finished multiple Ironman races and write about what I learn along the way: training, habits, nutrition, and the science of performance.
+    </p>
+  </section>
+
+  <section class="home-section">
+    <h2>Recent Writing</h2>
+    <ul class="home-list">
+      {% assign recent_articles = site.articles | sort: 'date' | reverse %}
+      {% for article in recent_articles limit:5 %}
+      <li>
+        <a href="{{ article.url | absolute_url }}">{{ article.title }}</a>
+        <span class="home-date">{{ article.date | date: "%b %Y" }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="see-all"><a href="{{ '/articles/' | absolute_url }}">View all articles &rarr;</a></p>
+  </section>
+
+  <section class="home-section">
+    <h2>Race Reports</h2>
+    <p class="section-intro">Stories from the finish line — the training, the struggle, and the lessons.</p>
+    <ul class="home-list">
+      {% assign triathlon_articles = site.articles | where_exp: "article", "article.categories contains 'Triathlon'" | sort: 'date' | reverse %}
+      {% for article in triathlon_articles limit:4 %}
+      <li>
+        <a href="{{ article.url | absolute_url }}">{{ article.title }}</a>
+        <span class="home-date">{{ article.date | date: "%b %Y" }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="see-all"><a href="{{ '/articles/triathlon/' | absolute_url }}">All race reports &rarr;</a></p>
+  </section>
+
+  <section class="home-section">
+    <h2>Explore</h2>
+    <div class="explore-grid">
+      <a href="{{ '/notes/' | absolute_url }}" class="explore-card">
+        <h3>Notes</h3>
+        <p>A digital garden of ideas on productivity, fitness, and books I'm reading.</p>
+      </a>
+      <a href="{{ '/articles/' | absolute_url }}" class="explore-card">
+        <h3>Articles</h3>
+        <p>Long-form writing on training, nutrition, habits, and lessons learned.</p>
+      </a>
+      <a href="{{ '/about/' | absolute_url }}" class="explore-card">
+        <h3>About</h3>
+        <p>More about me and how to get in touch.</p>
+      </a>
+    </div>
+  </section>
+</div>

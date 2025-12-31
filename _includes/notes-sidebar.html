@@ -1,0 +1,76 @@
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <input type="text" id="notes-search" class="notes-search-input" placeholder="Search notes...">
+  </div>
+
+  <nav class="sidebar-nav">
+    {% comment %}Group notes by folder - root level notes have path like _notes/file.md (2 parts), subfolder notes have _notes/folder/file.md (3+ parts){% endcomment %}
+    {% assign folders = "" | split: "" %}
+    {% assign root_notes = "" | split: "" %}
+
+    {% for note in site.notes %}
+      {% assign path_parts = note.path | split: '/' %}
+      {% if path_parts.size > 2 %}
+        {% assign folder_name = path_parts[1] %}
+        {% unless folders contains folder_name %}
+          {% assign folders = folders | push: folder_name %}
+        {% endunless %}
+      {% else %}
+        {% assign root_notes = root_notes | push: note %}
+      {% endif %}
+    {% endfor %}
+
+    {% comment %}Display root level notes first{% endcomment %}
+    {% assign sorted_root = root_notes | sort: "title" %}
+    {% for note in sorted_root %}
+      <a class="sidebar-nav-item{% if page.url == note.url %} active{% endif %}" href="{{ site.baseurl }}{{ note.url }}">
+        {{ note.title }}
+      </a>
+    {% endfor %}
+
+    {% comment %}Display folders and their notes{% endcomment %}
+    {% assign sorted_folders = folders | sort %}
+    {% for folder in sorted_folders %}
+      <span class="sidebar-nav-item folder-header">{{ folder | replace: "_", " " | capitalize }}</span>
+      {% assign folder_notes = site.notes | where_exp: "note", "note.path contains folder" | sort: "title" %}
+      {% for note in folder_notes %}
+        {% assign note_parts = note.path | split: '/' %}
+        {% if note_parts[1] == folder %}
+          <a class="sidebar-nav-item sidebar-note{% if page.url == note.url %} active{% endif %}" href="{{ site.baseurl }}{{ note.url }}">
+            {{ note.title }}
+          </a>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      <a href="{{ '/notes/' | absolute_url }}">All Notes</a>
+    </p>
+  </div>
+</div>
+
+<script>
+document.getElementById('notes-search').addEventListener('input', function(e) {
+  const query = e.target.value.toLowerCase();
+  const items = document.querySelectorAll('.sidebar-nav-item');
+
+  items.forEach(item => {
+    if (item.classList.contains('folder-header')) {
+      return;
+    }
+    const text = item.textContent.toLowerCase();
+    if (text.includes(query) || query === '') {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+});
+</script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  {% include head.html %}
+
+  <body>
+
+    {% include notes-sidebar.html %}
+
+    <div class="wrap">
+      <header class="site-header site-header-notes">
+        <div class="header-container">
+          <div class="header-left">
+            <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+            <a href="{{ site.baseurl }}/" class="site-title">{{ site.author.name }}</a>
+          </div>
+          <nav class="site-nav">
+            <a class="nav-link{% if page.title == 'Articles' or page.collection == 'articles' %} active{% endif %}" href="{{ '/articles/' | absolute_url }}">Articles</a>
+            <a class="nav-link{% if page.title == 'Notes' or page.collection == 'notes' %} active{% endif %}" href="{{ '/notes/' | absolute_url }}">Notes</a>
+            <a class="nav-link{% if page.title == 'Photography' or page.collection == 'photography' %} active{% endif %}" href="{{ '/photography/' | absolute_url }}">Photography</a>
+            <a class="nav-link{% if page.title == 'About' %} active{% endif %}" href="{{ '/about/' | absolute_url }}">About</a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="container content">
+        <article class="note">
+          <h1 class="page-title">{{ page.title }}</h1>
+          {% if page.date and page.collection == 'notes' %}
+          <span class="note-date">{{ page.date | date: "%b %d, %Y" }}</span>
+          {% endif %}
+          <div class="note-body">
+            {{ content }}
+          </div>
+        </article>
+      </main>
+    </div>
+
+    <script src='{{ site.baseurl }}/public/js/script.js'></script>
+  </body>
+</html>

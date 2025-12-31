@@ -1,0 +1,42 @@
+---
+layout: page
+title: Articles
+---
+
+<div class="articles-header">
+  <p class="archive-link"><a href="{{ site.baseurl }}/articles/archive/">View Complete Archive &rarr;</a></p>
+
+  <div class="topic-filters">
+    <span class="filter-label">Filter by topic:</span>
+    <a href="#triathlon">Triathlon</a> |
+    <a href="#productivity">Productivity</a> |
+    <a href="#nutrition">Nutrition</a> |
+    <a href="#fitness">Fitness</a> |
+    <a href="#recipes">Recipes</a> |
+    <a href="#books">Books</a> |
+    <a href="#travel">Travel</a> |
+    <a href="#tech">Tech</a>
+  </div>
+</div>
+
+{% assign categories = "Triathlon|Productivity|Nutrition|Fitness|Recipes|Books|Travel|Tech" | split: "|" %}
+
+{% for category in categories %}
+  {% assign cat_articles = site.articles | where_exp: "item", "item.categories contains category" | sort: "date" | reverse %}
+  {% if cat_articles.size > 0 %}
+  <section class="category-section" id="{{ category | downcase }}">
+    <h2 class="category-title">{{ category }}</h2>
+    <ul class="article-list">
+      {% for article in cat_articles limit: 4 %}
+      <li>
+        <a href="{{ site.baseurl }}{{ article.url }}">{{ article.title }}</a>
+        <span class="article-date">{{ article.date | date: "%b %Y" }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% if cat_articles.size > 4 %}
+    <p class="see-more"><a href="{{ site.baseurl }}/articles/{{ category | downcase }}/">See all {{ cat_articles.size }} articles &rarr;</a></p>
+    {% endif %}
+  </section>
+  {% endif %}
+{% endfor %}
