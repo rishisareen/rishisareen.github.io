@@ -797,85 +797,70 @@ a.pagination-item:hover {
 }
 
 /*
- * Notes - Sidebar Layout (Lanyon Style)
+ * Notes - Static Sidebar Layout
  */
 
-/* Header adjustments for notes */
-.site-header-notes .header-container {
+.notes-layout {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  min-height: calc(100vh - 80px);
 }
 
-.site-header-notes .header-left {
+.notes-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+  background: #fafafa;
+  border-right: 1px solid #eee;
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.notes-nav {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  flex-direction: column;
 }
 
-.site-header-notes .sidebar-toggle {
-  position: relative;
-  top: auto;
-  left: auto;
-  display: flex;
-  padding: 0.25rem;
-  background: transparent;
-  cursor: pointer;
-}
-
-.site-header-notes .sidebar-toggle::before {
-  width: 24px;
-  height: 24px;
-  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='%23fff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M2.5 11.5A.5.5 0 013 11h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 7h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5zm0-4A.5.5 0 013 3h10a.5.5 0 010 1H3a.5.5 0 01-.5-.5z' clip-rule='evenodd'/%3E%3C/svg%3E") no-repeat center;
-  background-size: contain;
-}
-
-/* Notes search in sidebar */
-.notes-search-input {
-  width: calc(100% - 1rem);
-  margin: 0 0.5rem;
-  padding: 0.5rem;
-  border: 1px solid rgba(255,255,255,.2);
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-family: inherit;
-  background: rgba(255,255,255,.1);
-  color: #fff;
-}
-
-.notes-search-input::placeholder {
-  color: rgba(255,255,255,.5);
-}
-
-.notes-search-input:focus {
-  outline: none;
-  border-color: rgba(255,255,255,.4);
-  background: rgba(255,255,255,.15);
-}
-
-/* Folder headers in sidebar */
-.folder-header {
-  color: rgba(255,255,255,.6);
-  font-size: 0.625rem;
-  font-weight: 700;
+.notes-folder {
+  font-size: 0.7rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  padding: 1rem 1rem 0.25rem;
-  border-top: none;
-  cursor: default;
+  color: #999;
+  padding: 1.25rem 1.25rem 0.5rem;
 }
 
-.folder-header:hover {
-  background: transparent;
+.notes-nav-item {
+  display: block;
+  padding: 0.4rem 1.25rem;
+  font-size: 0.875rem;
+  color: #555;
+  text-decoration: none;
+  border-bottom: none;
 }
 
-/* Notes in sidebar */
-.sidebar-note {
-  padding-left: 1.5rem;
-  font-size: 0.8125rem;
+.notes-nav-item:hover {
+  color: #000;
+  background: #f0f0f0;
 }
 
-/* Note content styling */
+.notes-nav-item.active {
+  color: #000;
+  font-weight: 600;
+  background: #eee;
+}
+
+.notes-nav-child {
+  padding-left: 2rem;
+}
+
+.notes-content {
+  flex: 1;
+  padding: 2rem 3rem;
+  max-width: 48rem;
+}
+
 .note-date {
   display: block;
   color: #999;
@@ -888,8 +873,21 @@ a.pagination-item:hover {
 }
 
 @media (max-width: 48em) {
-  .site-header-notes .header-left {
-    gap: 0.5rem;
+  .notes-layout {
+    flex-direction: column;
+  }
+
+  .notes-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
+  }
+
+  .notes-content {
+    padding: 1.5rem 1rem;
   }
 }
 
