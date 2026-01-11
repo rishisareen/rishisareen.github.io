@@ -1,30 +1,27 @@
 ---
 layout: article
-title: Preventive Health Tests
+title: Preventive Health Tests (Indian / 45+)
 date: 2026-01-10 04:44:02 +0530
 comments: true
 categories: Nutrition
 ---
-# Preventive Health Panel Summary (Age 45+)
-
-Focus: Longevity, early risk detection, cardiometabolic health  
-Context: Indian adults, asymptomatic, prevention first
+**Focus**: Longevity, early risk detection, cardiometabolic health  
+**Context**: Indian adults, asymptomatic, prevention first
 
 ---
-
 ## 1. Cardiovascular Health
 
-| Test                                 | Frequency                                         | Optimal / Action Threshold           | Purpose (Layman Explanation)                                 |
-| ------------------------------------ | ------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------ |
+| Test                                 | Frequency                                         | Optimal / Action Threshold           | Purpose                                                                            |
+| ------------------------------------ | ------------------------------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------- |
 | Blood Pressure                       | Every visit / annually                            | Optimal <120/80 mmHg, act if ≥130/80 | Checks pressure inside arteries; high values silently damage heart, brain, kidneys |
-| Lipid Profile (TC, LDL-C, HDL-C, TG) | Annually                                          | LDL-C <100 mg/dL, TG <150 mg/dL      | Measures blood fats that contribute to artery blockage       |
-| Apolipoprotein B (ApoB)              | Annually                                          | Optimal <80 mg/dL, high risk ≥100    | Counts harmful cholesterol particles that enter artery walls |
-| Lipoprotein(a)                       | Once in lifetime (repeat post-menopause in women) | Elevated ≥30 mg/dL                   | Detects inherited risk for early heart disease               |
-| hs-CRP                               | Annually                                          | Low risk <1.0 mg/L, high ≥3.0        | Detects hidden inflammation damaging blood vessels           |
-| ECG                                  | Annually                                          | Any new abnormality                  | Screens heart rhythm and electrical activity                 |
-| Echocardiogram                       | Every 2–3 years                                   | Structural or EF abnormality         | Ultrasound to check heart size, pumping strength, and valves |
-| CAC Score                            | Every 3–5 years                                   | 0 ideal, >100 high risk              | Measures actual calcium plaque in heart arteries             |
-| Stress Echo                          | Every 2–3 years (selective)                       | Abnormal wall motion                 | Checks blood flow to heart during exercise or stress         |
+| Lipid Profile (TC, LDL-C, HDL-C, TG) | Annually                                          | LDL-C <100 mg/dL, TG <150 mg/dL      | Measures blood fats that contribute to artery blockage                             |
+| Apolipoprotein B (ApoB)              | Annually                                          | Optimal <80 mg/dL, high risk ≥100    | Counts harmful cholesterol particles that enter artery walls                       |
+| Lipoprotein(a)                       | Once in lifetime (repeat post-menopause in women) | Elevated ≥30 mg/dL                   | Detects inherited risk for early heart disease                                     |
+| hs-CRP                               | Annually                                          | Low risk <1.0 mg/L, high ≥3.0        | Detects hidden inflammation damaging blood vessels                                 |
+| ECG                                  | Annually                                          | Any new abnormality                  | Screens heart rhythm and electrical activity                                       |
+| Echocardiogram                       | Every 2–3 years                                   | Structural or EF abnormality         | Ultrasound to check heart size, pumping strength, and valves                       |
+| CAC Score                            | Every 3–5 years                                   | 0 ideal, >100 high risk              | Measures actual calcium plaque in heart arteries                                   |
+| Stress Echo                          | Every 2–3 years (selective)                       | Abnormal wall motion                 | Checks blood flow to heart during exercise or stress                               |
 
 Derived metric:
 - **Triglyceride/HDL ratio** (from lipid profile)  
@@ -34,7 +31,7 @@ Derived metric:
 
 ## 2. Metabolic Health and Insulin Sensitivity
 
-| Test            | Frequency | Optimal / Action Threshold | Purpose (Layman Explanation)                     |
+| Test            | Frequency | Optimal / Action Threshold | Purpose                                          |
 | --------------- | --------- | -------------------------- | ------------------------------------------------ |
 | Fasting Glucose | Annually  | Optimal <100 mg/dL         | Measures current blood sugar level               |
 | HbA1c           | Annually  | Optimal <5.7%              | Shows average blood sugar over 3 months          |
@@ -49,13 +46,13 @@ Calculated index:
 
 ## 3. Inflammation, Micronutrients, Aging Markers
 
-| Test                  | Frequency | Optimal / Action Threshold | Purpose (Layman Explanation)                                 |
-| --------------------- | --------- | -------------------------- | ------------------------------------------------------------ |
+| Test                  | Frequency | Optimal / Action Threshold | Purpose                                                                    |
+| --------------------- | --------- | -------------------------- | -------------------------------------------------------------------------- |
 | Serum Ferritin        | Annually  | 40–100 ng/mL               | Measures iron stores; low levels cause fatigue even with normal hemoglobin |
-| Homocysteine          | Annually  | <10–12 μmol/L              | Signals vitamin B12/folate deficiency and vascular aging     |
-| Vitamin D (25-OH)     | Annually  | 40–80 ng/mL                | Assesses vitamin D status for bones, immunity, muscles       |
-| Serum Calcium (total) | Annually  | Lab reference range        | Safety check during vitamin D supplementation                |
-| Vitamin B12           | Annually  | >500 pg/mL                 | Supports nerve function, energy, cognition                   |
+| Homocysteine          | Annually  | <10–12 μmol/L              | Signals vitamin B12/folate deficiency and vascular aging                   |
+| Vitamin D (25-OH)     | Annually  | 40–80 ng/mL                | Assesses vitamin D status for bones, immunity, muscles                     |
+| Serum Calcium (total) | Annually  | Lab reference range        | Safety check during vitamin D supplementation                              |
+| Vitamin B12           | Annually  | >500 pg/mL                 | Supports nerve function, energy, cognition                                 |
 
 Notes:
 - Calcium is a safety marker, not a vitamin D absorption test  
@@ -65,7 +62,7 @@ Notes:
 
 ## 4. Liver, Kidney, Thyroid
 
-| Test                       | Frequency | Optimal / Action Threshold | Purpose (Layman Explanation)                                |
+| Test                       | Frequency | Optimal / Action Threshold | Purpose                                                     |
 | -------------------------- | --------- | -------------------------- | ----------------------------------------------------------- |
 | Kidney Function Test (KFT) | Annually  | eGFR >90                   | Checks kidney filtration and waste removal                  |
 | Liver Function Test (LFT)  | Annually  | ALT/AST <25–30 U/L         | Detects fatty liver, alcohol or medication stress           |
@@ -77,7 +74,7 @@ Add T3 and T4 only if TSH abnormal or symptoms present
 
 ## 5. Female-Specific Additions
 
-| Test                | Frequency                            | Action Threshold    | Purpose (Layman Explanation)             |
+| Test                | Frequency                            | Action Threshold    | Purpose                                  |
 | ------------------- | ------------------------------------ | ------------------- | ---------------------------------------- |
 | Mammogram           | Every 1–2 years after 40             | BI-RADS ≥3          | Early detection of breast cancer         |
 | Pap Smear           | Every 3 years                        | Any abnormal result | Detects cervical cancer early            |
@@ -90,7 +87,7 @@ Add T3 and T4 only if TSH abnormal or symptoms present
 
 ## 6. Male-Specific Additions
 
-| Test | Frequency         | Action Threshold | Purpose (Layman Explanation)            |
+| Test | Frequency         | Action Threshold | Purpose                                 |
 | ---- | ----------------- | ---------------- | --------------------------------------- |
 | PSA  | Annually after 45 | 0–3.5 ng/mL      | Screens prostate health and cancer risk |
 
