@@ -19,25 +19,6 @@ layout: default
   </aside>
 </div>
 
-{% assign articles = site.articles | where_exp: "item", "item.url != page.url" | limit: 3 %}
-{% if articles.size >= 1 %}
-<div class="related">
-  <h2>More articles</h2>
-  <ul class="related-posts">
-    {% for article in articles limit:3 %}
-      <li>
-        <h3>
-          <a href="{{ site.baseurl }}{{ article.url }}">
-            {{ article.title }}
-            <small>{{ article.date | date_to_string }}</small>
-          </a>
-        </h3>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
-{% endif %}
-
 <script>
 (function() {
   const tocList = document.getElementById('toc-list');
