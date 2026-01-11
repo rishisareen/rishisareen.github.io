@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Preventive Health Tests (Indian / 45+)
+title: Preventive Health Tests (Indian)
 date: 2026-01-10 04:44:02 +0530
 comments: true
 categories: Nutrition
