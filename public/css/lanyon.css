@@ -40,6 +40,47 @@ body {
   overflow-x: hidden;
 }
 
+/*
+ * Responsive Tables
+ */
+
+.post table,
+.page table,
+.content table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.9rem;
+}
+
+.post table th,
+.post table td,
+.page table th,
+.page table td,
+.content table th,
+.content table td {
+  white-space: nowrap;
+  padding: 0.5rem 0.75rem;
+}
+
+@media (max-width: 48em) {
+  .post table,
+  .page table,
+  .content table {
+    font-size: 0.8rem;
+  }
+
+  .post table th,
+  .post table td,
+  .page table th,
+  .page table td,
+  .content table th,
+  .content table td {
+    padding: 0.4rem 0.5rem;
+  }
+}
+
 html {
   font-family: Athelas, Palatino, Georgia, serif;
 }
