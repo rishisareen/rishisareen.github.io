@@ -1230,24 +1230,31 @@ a.pagination-item:hover {
   flex-direction: column;
   align-items: center;
   max-width: 90vw;
-  max-height: calc(100vh - 120px);
-  margin-bottom: 100px;
+  position: absolute;
+  top: 60px;
+  bottom: 120px;
+  justify-content: center;
 }
 
 .lightbox-content img {
   max-width: 90vw;
-  max-height: calc(100vh - 200px);
+  max-height: calc(100vh - 250px);
   object-fit: contain;
 }
 
 .lightbox-caption {
+  position: fixed;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
   color: #fff;
   font-size: 1.1rem;
   text-align: center;
-  margin-top: 1rem;
   font-style: italic;
   max-width: 600px;
+  width: 90%;
   padding: 0 1rem;
+  z-index: 1002;
 }
 
 .lightbox-close {
@@ -1328,6 +1335,7 @@ a.pagination-item:hover {
   }
 
   .lightbox-caption {
+    bottom: 90px;
     font-size: 0.95rem;
     padding: 0 1rem;
   }
