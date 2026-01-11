@@ -344,7 +344,7 @@ Every task takes time and therefore needs a place on your calendar.
 ---
 layout: article
 title: "Book Review: [Book Title]"
-date: <% tp.date.now("YYYY-MM-DD") %>
+date: 2026-01-11
 categories: [Books]
 tags: [Books, Reviews, Genre] # Replace 'Genre' with appropriate tags like Fiction, Non-Fiction, etc.
 
@@ -358,7 +358,7 @@ tags: [Books, Reviews, Genre] # Replace 'Genre' with appropriate tags like Ficti
   </div>
   <div style="flex: 1;">
     <ul>
-      <li><strong>Date Read:</strong> <% tp.date.now("YYYY-MM-DD") %> </li>
+      <li><strong>Date Read:</strong> 2026-01-11 </li>
       <li><strong>Rating:</strong> 7/10</li>
     </ul>
   </div>
