@@ -34,10 +34,13 @@
  * Update the foundational and global aspects of the page.
  */
 
-/* Prevent scroll on narrow devices */
-html,
-body {
+/* Prevent scroll on narrow devices - but allow nested scroll */
+html {
   overflow-x: hidden;
+}
+
+body {
+  overflow-x: visible;
 }
 
 /*
@@ -45,15 +48,18 @@ body {
  */
 
 .table-wrapper {
+  display: block;
   width: 100%;
-  overflow-x: auto;
+  overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   margin-bottom: 1rem;
+  position: relative;
 }
 
 .table-wrapper table {
   margin-bottom: 0;
-  min-width: 600px;
+  min-width: 700px;
+  width: max-content;
 }
 
 .table-wrapper th,
@@ -63,6 +69,14 @@ body {
 }
 
 @media (max-width: 48em) {
+  .table-wrapper {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: calc(100% + 2rem);
+  }
+
   .table-wrapper th,
   .table-wrapper td {
     padding: 0.4rem 0.5rem;
