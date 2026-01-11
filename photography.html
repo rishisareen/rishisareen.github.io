@@ -10,8 +10,8 @@ title: Photography
   {% if photos.size > 0 %}
   <ul class="photo-list">
     {% for photo in photos %}
-    <li class="photo-item">
-      <a href="{{ site.baseurl }}{{ photo.url }}">
+    <li>
+      <a href="{{ site.baseurl }}{{ photo.url }}" class="photo-item-link">
         <h2>{{ photo.title }}</h2>
         <span class="photo-date">{{ photo.date | date: "%B %Y" }}</span>
         {% if photo.location %}
