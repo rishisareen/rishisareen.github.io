@@ -3,10 +3,28 @@ layout: default
 title: Photography
 ---
 
-<div class="photography-coming-soon">
+<div class="photography-page">
   <h1>Photography</h1>
+
+  {% assign photos = site.photography | sort: "date" | reverse %}
+  {% if photos.size > 0 %}
+  <ul class="photo-list">
+    {% for photo in photos %}
+    <li class="photo-item">
+      <a href="{{ site.baseurl }}{{ photo.url }}">
+        <h2>{{ photo.title }}</h2>
+        <span class="photo-date">{{ photo.date | date: "%B %Y" }}</span>
+        {% if photo.location %}
+        <span class="photo-location">{{ photo.location }}</span>
+        {% endif %}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
   <p>Coming Soon</p>
   <div class="coming-soon-image">
     <img src="{{ site.baseurl }}/images/Sattal.jpeg" alt="Sattal">
   </div>
+  {% endif %}
 </div>
