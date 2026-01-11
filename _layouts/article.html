@@ -21,6 +21,15 @@ layout: default
 
 <script>
 (function() {
+  // Wrap tables in scrollable container for mobile
+  const tables = document.querySelectorAll('.post-content table');
+  tables.forEach(function(table) {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'table-wrapper';
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  });
+
   const tocList = document.getElementById('toc-list');
   const tocSidebar = document.querySelector('.toc-sidebar');
   const postContent = document.querySelector('.post-content');

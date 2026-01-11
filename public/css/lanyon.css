@@ -44,40 +44,29 @@ body {
  * Responsive Tables
  */
 
-.post table,
-.page table,
-.content table {
-  display: block;
+.table-wrapper {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  margin-bottom: 1rem;
+}
+
+.table-wrapper table {
+  margin-bottom: 0;
+  min-width: 600px;
+}
+
+.table-wrapper th,
+.table-wrapper td {
+  padding: 0.5rem 0.75rem;
   font-size: 0.9rem;
 }
 
-.post table th,
-.post table td,
-.page table th,
-.page table td,
-.content table th,
-.content table td {
-  white-space: nowrap;
-  padding: 0.5rem 0.75rem;
-}
-
 @media (max-width: 48em) {
-  .post table,
-  .page table,
-  .content table {
-    font-size: 0.8rem;
-  }
-
-  .post table th,
-  .post table td,
-  .page table th,
-  .page table td,
-  .content table th,
-  .content table td {
+  .table-wrapper th,
+  .table-wrapper td {
     padding: 0.4rem 0.5rem;
+    font-size: 0.8rem;
   }
 }
 
