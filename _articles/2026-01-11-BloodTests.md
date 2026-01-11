@@ -21,7 +21,7 @@ categories: Nutrition
 | ECG                                  | Annually                                          | Any new abnormality                  | Screens heart rhythm and electrical activity                                       |
 | Echocardiogram                       | Every 2–3 years                                   | Structural or EF abnormality         | Ultrasound to check heart size, pumping strength, and valves                       |
 | CAC Score                            | Every 3–5 years                                   | 0 ideal, >100 high risk              | Measures actual calcium plaque in heart arteries                                   |
-| Stress Echo                          | Every 2–3 years (selective)                       | Abnormal wall motion                 | Checks blood flow to heart during exercise or stress                               |
+| Stress Echo (Also called TMT)        | Every 2–3 years (selective)                       | Abnormal wall motion                 | Checks blood flow to heart during exercise or stress                               |
 
 Derived metric:
 - **Triglyceride/HDL ratio** (from lipid profile)  
