@@ -2,140 +2,110 @@
 layout: default
 ---
 
-<div class="gallery-viewer">
-  <div class="gallery-main">
-    <div class="gallery-header">
-      <h1 class="gallery-title">{{ page.title }}</h1>
-      <div class="gallery-meta">
-        <span class="gallery-date">{{ page.date | date_to_string }}</span>
-        {% if page.location %}
-        <span class="gallery-location">{{ page.location }}</span>
-        {% endif %}
-      </div>
+<div class="photo-album">
+  <div class="album-header">
+    <h1 class="album-title">{{ page.title }}</h1>
+    <div class="album-meta">
+      <span class="album-date">{{ page.date | date_to_string }}</span>
+      {% if page.location %}
+      <span class="album-location">{{ page.location }}</span>
+      {% endif %}
     </div>
-
-    <div class="gallery-image-container">
-      <button class="gallery-nav gallery-prev" aria-label="Previous image">&larr;</button>
-      <div class="gallery-image-wrapper">
-        <img id="gallery-main-image" src="" alt="" class="gallery-main-image">
-        <p id="gallery-caption" class="gallery-caption"></p>
-      </div>
-      <button class="gallery-nav gallery-next" aria-label="Next image">&rarr;</button>
-    </div>
-
-    <div class="gallery-counter">
-      <span id="gallery-current">1</span> / <span id="gallery-total">0</span>
-    </div>
-
-    <p class="gallery-hint">Use arrow keys or click buttons to navigate</p>
   </div>
 
-  <div class="gallery-thumbnails">
-    <div class="gallery-thumbnails-inner" id="gallery-thumbnails">
-      <!-- Thumbnails populated by JS -->
-    </div>
+  <div class="photo-grid" id="photo-grid">
+    {{ content }}
   </div>
 </div>
 
-<div id="gallery-data" style="display: none;">
-{{ content }}
+<!-- Lightbox overlay -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&larr;</button>
+  <div class="lightbox-content">
+    <img id="lightbox-img" src="" alt="">
+    <p id="lightbox-caption" class="lightbox-caption"></p>
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightbox-next">&rarr;</button>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const galleryData = document.getElementById('gallery-data');
-  const figures = galleryData.querySelectorAll('figure.photo-item');
-  const photos = [];
-
-  figures.forEach(function(fig) {
-    const img = fig.querySelector('img');
-    const caption = fig.querySelector('figcaption');
-    if (img) {
-      photos.push({
-        src: img.getAttribute('src'),
-        alt: img.getAttribute('alt') || '',
-        caption: caption ? caption.textContent : ''
-      });
-    }
-  });
-
-  if (photos.length === 0) return;
+  const grid = document.getElementById('photo-grid');
+  const items = grid.querySelectorAll('.grid-item');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const closeBtn = document.getElementById('lightbox-close');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const nextBtn = document.getElementById('lightbox-next');
 
   let currentIndex = 0;
-  const mainImage = document.getElementById('gallery-main-image');
-  const captionEl = document.getElementById('gallery-caption');
-  const currentEl = document.getElementById('gallery-current');
-  const totalEl = document.getElementById('gallery-total');
-  const thumbnailsContainer = document.getElementById('gallery-thumbnails');
+  const photos = [];
 
-  totalEl.textContent = photos.length;
+  items.forEach(function(item, index) {
+    const img = item.querySelector('img');
+    const caption = item.getAttribute('data-caption') || '';
+    photos.push({
+      src: img.getAttribute('src'),
+      alt: img.getAttribute('alt') || '',
+      caption: caption
+    });
 
-  // Build thumbnails
-  photos.forEach(function(photo, index) {
-    const thumb = document.createElement('div');
-    thumb.className = 'gallery-thumb';
-    thumb.setAttribute('data-index', index);
-
-    const img = document.createElement('img');
-    img.src = photo.src;
-    img.alt = photo.alt;
-
-    thumb.appendChild(img);
-    thumbnailsContainer.appendChild(thumb);
-
-    thumb.addEventListener('click', function() {
-      goToImage(index);
+    item.addEventListener('click', function() {
+      openLightbox(index);
     });
   });
 
-  function goToImage(index) {
-    if (index < 0) index = photos.length - 1;
-    if (index >= photos.length) index = 0;
-
+  function openLightbox(index) {
     currentIndex = index;
+    updateLightbox();
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function updateLightbox() {
     const photo = photos[currentIndex];
-
-    mainImage.src = photo.src;
-    mainImage.alt = photo.alt;
-    captionEl.textContent = photo.caption;
-    currentEl.textContent = currentIndex + 1;
-
-    // Update thumbnail active state
-    document.querySelectorAll('.gallery-thumb').forEach(function(t, i) {
-      t.classList.toggle('active', i === currentIndex);
-    });
-
-    // Scroll thumbnail into view
-    const activeThumb = document.querySelector('.gallery-thumb.active');
-    if (activeThumb) {
-      activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
+    lightboxImg.src = photo.src;
+    lightboxImg.alt = photo.alt;
+    lightboxCaption.textContent = photo.caption;
   }
 
   function nextImage() {
-    goToImage(currentIndex + 1);
+    currentIndex = (currentIndex + 1) % photos.length;
+    updateLightbox();
   }
 
   function prevImage() {
-    goToImage(currentIndex - 1);
+    currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+    updateLightbox();
   }
 
-  // Initialize
-  goToImage(0);
+  closeBtn.addEventListener('click', closeLightbox);
+  nextBtn.addEventListener('click', nextImage);
+  prevBtn.addEventListener('click', prevImage);
 
-  // Keyboard navigation
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-      e.preventDefault();
-      nextImage();
-    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-      e.preventDefault();
-      prevImage();
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
+      closeLightbox();
     }
   });
 
-  // Button navigation
-  document.querySelector('.gallery-prev').addEventListener('click', prevImage);
-  document.querySelector('.gallery-next').addEventListener('click', nextImage);
+  document.addEventListener('keydown', function(e) {
+    if (!lightbox.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
+      closeLightbox();
+    } else if (e.key === 'ArrowRight') {
+      nextImage();
+    } else if (e.key === 'ArrowLeft') {
+      prevImage();
+    }
+  });
 });
 </script>
