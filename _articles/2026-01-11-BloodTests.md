@@ -3,7 +3,7 @@ layout: article
 title: Preventive Health Tests (Indian)
 date: 2026-01-10 04:44:02 +0530
 comments: true
-categories: Nutrition
+categories: Fitness
 ---
 **Focus**: Longevity, early risk detection, cardiometabolic health  
 **Context**: Indian adults, asymptomatic, prevention first
