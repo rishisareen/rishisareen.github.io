@@ -20,12 +20,14 @@ categories: Nutrition
 | hs-CRP                               | Annually                                          | Low risk <1.0 mg/L, high ≥3.0        | Detects hidden inflammation damaging blood vessels                                 |
 | ECG                                  | Annually                                          | Any new abnormality                  | Screens heart rhythm and electrical activity                                       |
 | Echocardiogram                       | Every 2–3 years                                   | Structural or EF abnormality         | Ultrasound to check heart size, pumping strength, and valves                       |
-| CAC Score                            | Every 3–5 years                                   | 0 ideal, >100 high risk              | Measures actual calcium plaque in heart arteries                                   |
+| CT Calcium Score (CAC)               | Every 3–5 years                                   | 0 ideal, >100 high risk              | Measures actual calcium plaque in heart arteries.                                  |
 | Stress Echo (Also called TMT)        | Every 2–3 years (selective)                       | Abnormal wall motion                 | Checks blood flow to heart during exercise or stress                               |
 
 Derived metric:
-- **Triglyceride/HDL ratio** (from lipid profile)  
-  Optimal <2.0; insulin resistance likely if >3.0
+- **Triglyceride/HDL ratio** (from lipid profile)  :   Optimal <2.0; insulin resistance likely if >3.0
+- CAC is important test to find about calcium build up. 
+	- If > 100, then CT Cardio Angiogram should be done. 
+	- If history of heart issues in family, then CT Cardio Angiogram should be done at least once in lifetime proactively. 
 
 ---
 
