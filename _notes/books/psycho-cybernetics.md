@@ -116,18 +116,15 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 * This chapter digs into self-image and how we have "hypnotized" ourselves into beliefs as if they are true. Beliefs are not physical laws and it can be changed.
 
 * Author gives many example of how people perform various feats when hypnotized. The key takeaway: "When the hypnotist has guided the subject to the point where he is convinced that the hypnotist’s words are true statements, the subject then behaves differently because he thinks and believes differently.”
-
 > To onlookers, the hypnotist’s “word” has a magical power. Such, however, is not the case. The power, the basic ability, to do these things was inherent in the subjects all the time—even before they met the hypnotist. The subjects, however, were unable to use this power because they themselves did not know it was there. They had bottled it up, and choked it off, because of their own negative beliefs. Without realizing it, they had hypnotized themselves into believing they could not do these things. And it would be truer to say that the hypnotist had “dehypnotized” them than to say he had hypnotized them.
 
 * He digs deeper into this thought and why we feel inferior
-
 > It is not knowledge of actual inferiority in skill or knowledge that gives us an inferiority complex and interferes with our living. It is the feeling of inferiority that does this. And this feeling of inferiority comes about for just one reason: We judge ourselves, and measure ourselves, not against our own “norm” or “par” but against some other individual’s “norm.” When we do this, we always, without exception, come out second best. But because we think and believe and assume that we should measure up to some other person’s “norm,” we feel miserable, and second-rate, and conclude that there is something wrong with us. The next logical conclusion in this cockeyed reasoning process is to conclude that we are not “worthy”; that we do not deserve success and happiness, and that it would be out of place for us to fully express our own abilities and talents, whatever they might be, without apology, or without feeling guilty about it.
 
 * Now we tie this feeling of inferiority and superiority together
 > The person with an inferiority complex invariably compounds the error by striving for superiority. His feelings spring from the false premise that he is inferior. From this false premise, a whole structure of “logical thought” and feeling is built. If he feels bad because he is inferior, the cure is to make himself as good as everybody else, and the way to feel really good is to make himself superior. This striving for superiority gets him into more trouble, causes more frustration, and sometimes brings about a neurosis where none existed before. He becomes more miserable than ever, and “the harder he tries,” the more miserable he becomes. Inferiority and superiority are reverse sides of the same coin. The cure lies in realizing that the coin itself is spurious.
 
 * And the core point
-
 > The truth about you is this: 
 >
 > You are not “inferior.” 
