@@ -111,6 +111,37 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 
   
 
+### 4. Dehypnotize Yourself from False Beliefs
+
+* This chapter digs into self-image and how we have "hypnotized" ourselves into beliefs as if they are true. Beliefs are not physical laws and it can be changed.
+
+* Author gives many example of how people perform various feats when hypnotized. The key takeaway: "When the hypnotist has guided the subject to the point where he is convinced that the hypnotist’s words are true statements, the subject then behaves differently because he thinks and believes differently.”
+
+> To onlookers, the hypnotist’s “word” has a magical power. Such, however, is not the case. The power, the basic ability, to do these things was inherent in the subjects all the time—even before they met the hypnotist. The subjects, however, were unable to use this power because they themselves did not know it was there. They had bottled it up, and choked it off, because of their own negative beliefs. Without realizing it, they had hypnotized themselves into believing they could not do these things. And it would be truer to say that the hypnotist had “dehypnotized” them than to say he had hypnotized them.
+
+* He digs deeper into this thought and why we feel inferior
+
+> It is not knowledge of actual inferiority in skill or knowledge that gives us an inferiority complex and interferes with our living. It is the feeling of inferiority that does this. And this feeling of inferiority comes about for just one reason: We judge ourselves, and measure ourselves, not against our own “norm” or “par” but against some other individual’s “norm.” When we do this, we always, without exception, come out second best. But because we think and believe and assume that we should measure up to some other person’s “norm,” we feel miserable, and second-rate, and conclude that there is something wrong with us. The next logical conclusion in this cockeyed reasoning process is to conclude that we are not “worthy”; that we do not deserve success and happiness, and that it would be out of place for us to fully express our own abilities and talents, whatever they might be, without apology, or without feeling guilty about it.
+
+* Now we tie this feeling of inferiority and superiority together
+> The person with an inferiority complex invariably compounds the error by striving for superiority. His feelings spring from the false premise that he is inferior. From this false premise, a whole structure of “logical thought” and feeling is built. If he feels bad because he is inferior, the cure is to make himself as good as everybody else, and the way to feel really good is to make himself superior. This striving for superiority gets him into more trouble, causes more frustration, and sometimes brings about a neurosis where none existed before. He becomes more miserable than ever, and “the harder he tries,” the more miserable he becomes. Inferiority and superiority are reverse sides of the same coin. The cure lies in realizing that the coin itself is spurious.
+
+* And the core point
+
+> The truth about you is this: 
+>
+> You are not “inferior.” 
+>
+> You are not “superior.”
+>
+>  **You are simply “You.”** 
+>
+> “You” as a personality are not in competition with any other personality simply because there is not another person on the face of the earth like you, or in your particular class. You are an individual. You are unique. You are not “like” any other person and can never become “like” any other person. You are not “supposed” to be like any other person and no other person is “supposed” to be like you.
+
+* Interestingly, this inferiority complex is manufactured in lab
+> An “inferiority complex,” and its accompanying deterioration in performance, can be made to order in the psychological laboratory. All you need to do is to set up a norm or average, then convince your subject he does not measure up. According to a report in Science Digest, a psychologist wanted to find out how feelings of inferiority affected ability to solve problems. He gave his students a set of routine tests. But then he solemnly announced that the average person could complete the test in about one-fifth the time it would really take. When in the course of the test a bell would ring, indicating that the “average man’s” time was up, some of the brightest subjects became very jittery and incompetent indeed, thinking themselves to be morons. Stop measuring yourself against “their” standards. **You are not “them” and can never measure up. Neither can “they” measure up to yours—nor should they. Once you see this simple, rather self-evident truth, accept it, and believe it, your inferior feelings will vanish.**
+
+* He finishes the chapter by prescribing daily relaxation habits. His recommendation is it helps to visualize new "you" (one without inferior beliefs) when you are relaxed. Not sure how much I agree on this, but everyone advocates daily relaxation. 
 
 
 
