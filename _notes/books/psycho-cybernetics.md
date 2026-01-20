@@ -1,12 +1,9 @@
 ---
 layout: notes
-title: Psycho Cybernetics - Notes
+title: "Book Review: Psycho Cybernetics (Ongoing Notes Draft)"
 date: 2026-01-18
 ---
-
-
-
-# Book Review: Psycho Cybernetics
+	 
 
 <div style="display: flex; align-items: flex-start; gap: 20px;">
   <div style="flex: 0 0 auto; width: 100px; height: auto;">
