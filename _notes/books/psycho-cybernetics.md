@@ -142,11 +142,59 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 
 
 
+### Chapter 5 : How to Utilize the power of Rational thinking
 
+* This chapter focuses on two aspects : First - the sub-conscious has no "will" of its own, it is directed by conscious thinking. And second, often we are limited by past failures and experiences. With the help of Rational thinking, we can challenge our past beliefs and stop "believing in them"
 
+> There is a widely accepted fallacy that rational, logical, conscious thinking has no power over unconscious processes or mechanisms, and that to change negative beliefs, feelings, or behavior, it is necessary to dig down and dredge up material from the “unconscious.” Your automatic mechanism, or what the Freudians call the “unconscious,” is absolutely impersonal. It operates as a machine and has no “will” of its own.  It is conscious thinking that is the “control knob” of your unconscious machine.
 
+> “Regardless of the omissions and commissions of the past,” he said, “a person has to start in the present to acquire some maturity so that the future may be better than the past. The present and the future depend on learning new habits and new ways of looking at old problems. There simply isn’t any future in digging continually into the past. … The underlying emotional problem has the same common denominator in every patient. This common denominator is that the patient has forgotten how, or probably never learned how, to control his present thinking to produce enjoyment.”
 
+* He makes a powerful point about past failures and errors were learning lessons. Seperate those lessons from identity
 
+> Our errors, mistakes, failures, and sometimes even our humiliations, were necessary steps in the learning process. However, they were meant to be means to an end—and not an end in themselves. When they have served their purpose, they should be forgotten. If we consciously dwell on the error, or consciously feel guilty about the error and keep berating ourselves because of it, then—unwittingly—the error or failure itself becomes the “goal” that is consciously held in imagination and memory. The unhappiest of mortals is that man who insists on reliving the past, over and over in imagination—continually criticizing himself for past mistakes—continually condemning himself for past sins.
+
+> Our errors, mistakes, failures, and sometimes even our humiliations, were necessary steps in the learning process. However, they were meant to be means to an end—and not an end in themselves. When they have served their purpose, they should be forgotten. If we consciously dwell on the error, or consciously feel guilty about the error and keep berating ourselves because of it, then—unwittingly—the error or failure itself becomes the “goal” that is consciously held in imagination and memory. The unhappiest of mortals is that man who insists on reliving the past, over and over in imagination—continually criticizing himself for past mistakes—continually condemning himself for past sins.
+
+* He makes a strong example that why hypnosis is successful is because :
+
+> the talents and abilities displayed by hypnotic subjects were due to a “purgation of memory” of past failures while in the hypnotic state. If this were possible under hypnosis, Miss Brande asked herself—if ordinary people carried around within themselves talents, abilities, powers that were held in and not used merely because of memories of past failures—why couldn’t a person in the wakeful state use these same powers by ignoring past failures and “acting as if it were impossible to fail”? (Quoted by F.M.H. Myers)
+
+* Brande’s argument therefore shifts responsibility back to ordinary life. Hypnosis becomes a demonstration rather than a necessity. It shows that people possess more resource than they habitually employ, and that a change of attitude in the waking state, persistent disregard of discouraging memories, can open the same door that trance seems to open.
+* This quote by Bertrand Russell (who actually changed his self belief of hating his life to finding joy and positivity  in it) :
+
+> What I suggest is that a man should make up his mind with emphasis as to what he rationally believes, and should never allow contrary irrational beliefs to pass unchallenged or obtain a hold over him, however brief. This is a question of reasoning with himself in those moments in which he is tempted to become infantile, but the reasoning, if it is sufficiently emphatic, may be very brief.
+>
+
+* **Maltz press further on examining and reevaluate the beliefs. This is solid, most powerful part of this chapter :** 
+
+> Remember that both behavior and feeling spring from belief. To root out the belief that is responsible for your feeling and behavior—ask yourself, “Why?” Is there some task that you would like to do, some channel in which you would like to express yourself, but you hang back feeling that “I can’t”? Ask yourself, “Why?” “Why do I believe that I can’t?” Then ask yourself, “Is this belief based on an actual fact or on an assumption—or a false conclusion?” Then ask yourself the questions: 
+>
+> 1. Is there any rational reason for such a belief? 
+> 2. Could it be that I am mistaken in this belief? 
+> 3.  Would I come to the same conclusion about some other person in a similar situation? 
+> 4.  Why should I continue to act and feel as if this were true if there is no good reason to believe it? 
+>
+> Don’t just pass these questions by casually. Wrestle with them. Think hard on them. Get emotional about them. Can you see that you have cheated yourself and sold yourself short—not because of a “fact”—but only because of some stupid belief? If so, try to arouse some indignation, or even anger. Indignation and anger can sometimes act as liberators from false ideas. Alfred Adler “got mad” at himself and at his teacher and was enabled to throw off a negative definition of himself. This experience is not uncommon.
+
+* Another note on the power of desire. This is the main crux of the entire book - change your thoughts and subconscious will generate emotions in support of the "goal":
+
+> Picture to yourself what you would like to be and have, and assume for the moment that such things might be possible. Arouse a deep desire for these things. Become enthusiastic about them. Dwell on them—and keep going over them in your mind. Your present negative beliefs were formed by thought plus feelings. Generate enough emotion, or deep feeling, and your new thoughts and ideas will cancel them out.
+>
+> Picture to yourself what you would like to be and have, and assume for the moment that such things might be possible. Arouse a deep desire for these things. Become enthusiastic about them. Dwell on them—and keep going over them in your mind. Your present negative beliefs were formed by thought plus feelings. Generate enough emotion, or deep feeling, and your new thoughts and ideas will cancel them out.
+>
+
+* A practical advice on setting the goals. Tim Ferriss also goes in this - when chasing a goal, he challenges to visualize "what if this was easy":
+
+> Also remember that your automatic mechanism does not reason about, or question, the data you feed it. It merely processes it and reacts appropriately to it. 
+>
+> **It is very important that the automatic mechanism be given true facts concerning the environment.** This is the job of conscious rational thought: to know the truth, to form correct evaluations, estimations, and opinions. In this connection most of us are prone to underestimate ourselves and overestimate the nature of the difficulty facing us. **“Always think of what you have to do as easy and it will become so,”**
+
+* The chapter ends with a note on caution - what conscious mind can or can not do. 
+
+> It is the job of your conscious mind to pay strict attention to the task at hand, to what you are doing and what is going on around you so that these incoming sensory messages can keep your automatic mechanism currently advised of the environment and allow it to respond spontaneously. In baseball parlance you must “keep your eye on the ball.” It is not the job of your conscious rational mind, however, to create or to “do” the job at hand. We get into trouble when we either neglect to use conscious thinking in the way that it is meant to be used, or when we attempt to use it in a way that it was never meant to be used. We cannot squeeze creative thought out of the Creative Mechanism by making conscious effort. We cannot “do” the job to be done by making strained conscious efforts. And because we try and cannot, we become concerned, anxious, frustrated. The automatic mechanism is unconscious. We cannot see the wheels turning. We cannot know what is taking place beneath the surface. And because it works spontaneously in reacting to present and current needs, we can have no intimation or certified guarantee in advance that it will come up with the answer. We are forced into a position of trust. And only by trusting and acting do we receive signs and wonders. In short, conscious, rational thought selects the goal, gathers information, concludes, evaluates, estimates, and starts the wheels in motion. It is not, however, responsible for results. We must learn to do our work, act on the best assumptions available, and leave results to take care of themselves.
+
+* **In summary, Maltz therefore assigns a clear sequence. Conscious thought sets the aim, collects information, evaluates options, and initiates action. After that point it must step aside and allow the automatic system to execute. Anxiety appears when the conscious mind refuses to release control and tries to supervise every movement. The practical lesson is to focus on doing the next necessary action with full attention while letting outcomes emerge on their own. Work diligently, act on the best knowledge available, and avoid obsessing over results. Creativity and effective performance arise not from tension but from confident cooperation between the observing mind and the hidden mechanism that actually does the work.**
 
 
 
