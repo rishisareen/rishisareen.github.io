@@ -27,7 +27,7 @@ I loved the book ; it is clearly written, full of real-world examples and logica
 
 
 ## My Notes
-### 1. **Chapter 1 : Introducing 100-Baggers**
+### **Chapter 1 : Introducing 100-Baggers**
 
 * He introduces us to the famous book "100 to 1 in the stock market" by Thomas Phelps, where the original study of 100 baggers was done.  Some of the key notes mentioned from that book:
 
@@ -48,10 +48,10 @@ I loved the book ; it is clearly written, full of real-world examples and logica
 * The last quote is a brilliant point. While holding is great, it is important to monitor this. In later chapter, Christopher also remarks that ideally he holds the stock for as long as ROE is growing, unless valuation (P/E) becomes outrageous. 
 * Christopher concludes this chapter with a lovely remark : "Investing is, arguably, more art than science,  anyway. If investing well were all about statistics, then the best investors  would be statisticians. And that is not the case.  We’re looking for insights and wisdom, not hard laws and proofs. 
 
-### 2. Chapter 2 : Anybody can do this : True Stories
+### Chapter 2 : Anybody can do this : True Stories
 * Short chapter ; stories of people who did 100 bagger
 
-### 3. Chapter 3 : The coffee can portfolio
+### Chapter 3 : The coffee can portfolio
 
 * As the name suggests, this chapter brings out the concept of Coffee can portfolio, which is covered to a great extent by another brilliant book "The Coffee Can Investing" by Saurabh Mukherjea.
 
@@ -73,7 +73,7 @@ I loved the book ; it is clearly written, full of real-world examples and logica
 
 
 
-### 4. Chapter 4 : Study of 100-Baggers
+### Chapter 4 : Study of 100-Baggers
 
 * A fellow named Tony at TS Analysis published one informal 15-page study  called “An Analysis of 100-Baggers.”. Main takeaways he presented:
 
@@ -86,11 +86,65 @@ I loved the book ; it is clearly written, full of real-world examples and logica
 
 * Indian stock study also done with Motilal Oswal (to be written in separate article, these guys have brilliant analysis on their website). Their main summary for 100 baggers:
 
-<img src="https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/01/19/image-20260119161452117%7Bextension%7D" alt="image-20260119161452117"  />
+> But there are other ingredients as well. “Our analysis of the 100x  stocks suggests that their essence lies in the alchemy of five elements  forming the acronym SQGLP,” they wrote:  
+>
+> *  S—Size is small.  
+> * Q—Quality is high for both business and management. 
+> * G—Growth in earnings is high. 
+> * L—Longevity in both Q and G  
+> * P—Price is favorable for good returns.  
+>
+> Most of these are fairly objective, save for assessing management.  “In the ultimate analysis, it is the management alone which is the 100x  alchemist,” they concluded. “And it is to those who have mastered the art  of evaluating the alchemist that the stock market rewards with gold.” 
 
 * Importance of Management is something that comes up in future chapters too.
 
 
+
+### Chapter 5 : The 100 Baggers of the last 50 years
+
+* To get 100 Baggers,  you need growth —and lots of it. Ideally, you need it in both the size of the business and in the  multiple the market puts on the stock, as we’ve seen—the twin engines,  as author call them. 
+
+>  Despite occasional exceptions, you do want to focus on companies  that have national or international markets.
+
+* From case study of Monster beverage, one key summary (and metrics to watch out for)
+
+> 1. Net sales grew to a larger percentage of gross sales. That reflects promotions (discounts) Monster no longer needed to  offer, as Monster was now a well-known brand retailers wanted  to carry.  
+> 1. Gross profits as a percentage of net sales also increased as their  copackers and distribution partners started to see them as a  good customer and offer concessions to stay. 
+>
+> ![image-20260120102706074](https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/01/20/image-20260120102706074%7Bextension%7D)
+
+* In another analysis for Jeff Bezos / Amazon study, the analyst mentions 
+
+> “At heart, he understands two things,” Thompson writes. “He understands the value of a business is the sum of its future free cash flows, discounted back to the present. And he understands capital allocation and  the importance of return on invested capital.” 
+>
+> From Bezos’s 1999 shareholder letter: “Each of the previous  goals I’ve outlined contribute to our long-standing objective  of building the best, most profitable, highest return on capital,  long-term franchise.”  
+>
+> From Bezos’s first shareholder letter, in 1997: “Market leadership can translate directly to higher revenue, higher profitability, greater capital velocity and correspondingly stronger returns on  invested capital. Our decisions have consistently reflected this focus.” 
+
+* In case of Amazon, if one is analyzing stock, we need to add back CAPEX to arrive at the correct picture. Prof Aswath Damodaran also talks about this.
+
+> “Looking at Amazon’s reported operating income, it doesn’t look  profitable,” Thompson continues. “On $88 billion in 2014 sales, Amazon  earned a measly $178 million in operating income. That’s a razor-thin  0.20% operating margin.  
+>
+> “Adding back R&D, however, paints a completely different picture. In  2014, Amazon spent $9.2 billion on R&D. Adding that back to operating  income, Amazon generated adjusted operating income of $9.4 billion in  2014. **That’s an operating margin of 10.6%.** 
+
+* Great study examples from Monster Beverages, Amazon, EA Sports, Comcast, Pepsi, Gilette. The author ends chapter with note from "One Up on the Wall Street" by Peter Lynch on the Importance of growth:
+
+> **All else being equal, a 20 percent grower selling at 20 times earnings (a p/e of 20) is a much better buy than a 10 percent grower  selling at 10 times earnings (a p/e of 10). This may sound like an  esoteric point, but it’s important to understand what happens to  the earnings of the faster growers that propel the stock price.** 
+
+![image-20260120104040769](https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/01/20/image-20260120104040769%7Bextension%7D)
+
+
+
+### Chapter 6 : The Key to 100 Baggers
+
+* This is transition chapter from examples so far to now going to nitty gritty of characterstick of a 100 bagger stock.
+* *“If a company has a high ROE for four or five years in a row—and  earned it not with leverage but from high profit margins—that’s a great  place to start,”. “So  when you see a company that has an ROE of 20 percent year after year,  somebody is taking the profit at the end of the year and recycling back in  the business so that ROE can stay right where it is.”* 
+
+
+
+### Chapter 7 : Owner - Operators : Skin in the game
+
+* 
 
 
 
