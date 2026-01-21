@@ -1,6 +1,6 @@
 ---
 layout: notes
-title: "Book Review: Psycho Cybernetics (Ongoing Notes Draft)"
+title: "Book Review: Psycho Cybernetics (Draft)"
 date: 2026-01-18
 ---
 	 

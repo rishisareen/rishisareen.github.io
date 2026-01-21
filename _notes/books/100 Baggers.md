@@ -1,9 +1,9 @@
 ---
 layout: notes
-title: 100 Baggers - Notes
+title: Book Review : 100 Baggers (Draft)
 date: 2026-01-19
 ---
-# Book Review: 100 Baggers
+# 
 
 <div style="display: flex; align-items: flex-start; gap: 20px;">
   <div style="flex: 0 0 auto; width: 100px; height: auto;">
@@ -144,9 +144,30 @@ I loved the book ; it is clearly written, full of real-world examples and logica
 
 ### Chapter 7 : Owner - Operators : Skin in the game
 
-* 
+> So you have a situation where the stock is expensive and insiders are  selling but ETFs are mindlessly buying more. There were other property  companies owned by insiders that traded for half (or less) the valuation  of Simon with twice the yield. “But because there’s not a lot of ‘free float,’  they’re being neglected,” Doyle said. “Those are the types of securities  that we’re looking at and trying to include in most of our funds.”  
 
+* This chapter opens with a powerful point. One of the big contributors of stock moving up is Mutual Fund and ETF buying into it. But if a stock is owned largely by owners, the float (stock available in market to trade) would be less. So, less funds will go for it as they want to aquire a sizeable chunk. So the stock price will not be as appreciated or atleast not as quickly compared to other stocks which are more liquid. 
+  * **The Math:** If a fund manages $10 Billion, a 1% position is $100 Million. If a company has a low "free float" (few shares actually trading), trying to buy $100M worth of stock would send the price skyrocketing before the fund could finish filling its order.
+  * **The Exit Problem:** Funds worry more about *selling* than buying. If they own 10% of the free float, they cannot exit the position quickly without crashing the stock.
+  * **Result:** They simply ignore these stocks. They *must* buy liquid, high-float giants even if they are expensive, because they can get in and out easily.
+  * If the stock has low float, it often gets excluded by Index (Nasdaq, BSE, NSE) . As the indexes calculates the market value by excluding the owner stocks. So, it also gets excluded from various ETF which are often passive funds and rule based (invest if it is in index)
+* After this interesting insight, Christopher focuses that Owner operated after often high value, as they are owners so they take long term decision and also need not answer to the market in the short term
 
+![image-20260121061059113](https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/01/21/image-20260121061059113%7Bextension%7D)
+
+### Chapter 8 : The Outsiders : The Best CEOs
+
+> The main idea is that these CEOs were all great capital allocators, or  great investors. Capital allocation equals investment. And CEOs have five  basic options, says Thorndike: invest in existing operations, acquire other  businesses, pay dividends, pay down debt or buy back stock.
+
+* This chapter presents research from the book "The Outsiders : Eight Unconventional  CEO and their radically rational blueprint for success". In the book, 8 successful CEO are analyzed (Including Jack Welsh and Warren Buffet). Thorndike writes each CEO understood that
+  * capital allocation is the CEO’s most important job;  
+  * value per share is what counts, not overall size or growth;  
+  * Long term value is determined by cash flows not reported earnings
+  * decentralized organizations release entrepreneurial energies;  
+  * independent thinking is essential to long-term success;  
+  * sometimes the best opportunity is holding your own stock; and  
+  * patience is a virtue with acquisitions, as is occasional boldness. 
+* The chapter also goes into next candidates for such multi baggers. But this book is from 2015, and 10 years is a long time. So I would rather run my own research based on the principles. 
 
 
 
