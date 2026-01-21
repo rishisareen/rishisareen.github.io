@@ -3,7 +3,7 @@ layout: notes
 title: "Book Review: Psycho Cybernetics (Draft)"
 date: 2026-01-18
 ---
-	 
+
 
 <div style="display: flex; align-items: flex-start; gap: 20px;">
   <div style="flex: 0 0 auto; width: 100px; height: auto;">
@@ -195,7 +195,73 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 
 
 
+### Chapter 6 : Relax and Let your success mechanism work for you
+
+* Another powerful chapter which digs into why relaxing and worrying less is your best strategy for success. This chapter was full of actionable tips with relevant examples. I will re-read this chapter every 2 weeks for some time.
+* It starts by re-iterating that we can
+
+> Our trouble is that we ignore the automatic Creative Mechanism and try to do everything and solve all our problems by conscious thought, or “forebrain thinking.” The forebrain is comparable to the “operator” of a computer, or any other type of servo-mechanism. It is with the forebrain that we think “I,” and feel our sense of identity. It is with the forebrain that we exercise imagination, or set goals. We use the forebrain to gather information, make observations, and evaluate incoming sense-data, form judgments. But the forebrain cannot create. It cannot “do” the job to be done, any more than the operator of a computer can “do” the work.
+
+> All the evidence points to the conclusion that in order to receive an “inspiration” or a “hunch,” the person must first of all be intensely interested in solving a particular problem, or securing a particular answer. He must think about it consciously, gather all the information he can on the subject, consider all the possible courses of action. And above all, he must have a burning desire to solve the problem. But, after he has defined the problem, sees in his imagination the desired end result, secured all the information and facts that he can, then additional struggling, fretting, and worrying over it does not help, but seems to hinder the solution.
+
+* Many examples are given of successful people who solved the problem by grappling with the problem and letting the subconscious mind handle this for some time
+
+> It is well known that when Thomas A. Edison was stymied by a problem, he would lie down and take a short nap. 
+>
+> Charles Darwin, telling how an intuitional flash came to him suddenly, after months of conscious thinking had failed to give him the ideas he needed for The Origin of Species, wrote, “I can remember the very spot in the road, whilst in my carriage, when to my joy the solution occurred to me.”
+
+* **This advice is again a summary of the whole approach :**
+
+> ***When you set a goal, it’s very important to keep in mind that most of the time you will be in “journey mode.” This means you will be focused on the process and the actions you need to take to get where you want to go—most of the time. If your goal is to climb Mount Everest, and you are only thinking about being at the top, you “jam” your success mechanism in the present. You’ve got to take care of each step along the way. Focus on the journey the majority of the time—and occasionally (once or twice per day when you visualize) tune into the goal. Then get back into journey mode and simply turn your goal over to your subconscious or Success Mechanism, to guide you there without effort.*** 
+>
+> People who want to improve their financial situation must heed the same advice. If you continually obsess about where you are as well as where you want to be financially, you’re less likely to get there. Program the goal—then get busy on the process—and if you don’t know the process yet, give yourself space to allow the process of “how” to come to you. The “how” will come to you when you’re relaxed—not when you’re tense or trying to force your way through the process.
+
+* He gives Five Rules for freeing your creative machinery : 
+1. “Do Your Worrying Before You Place Your Bet, Not After the Wheel Starts Turning”
+
+* Obvious and yet so easy to ignore. 
+
+> I also discovered that the same principle works in a hundred different little personal ways. For example, I used to worry and fume about having to go to the dentist, and other unpleasant tasks. Then I said to myself, “This is silly. You know the unpleasantness involved before you make the decision to go. If the unpleasantness is all that important to cause so much concern, and not worth the worry involved, you can simply decide not to go. But, if the decision is that the trip is worth a little unpleasantness, and a definite decision is made to go—then forget about it. Consider the risk before the wheel starts turning.”
+>
+
+2. Form the habit of consciously responding to the present moment
+
+>  Consciously practice the habit of “taking no anxious thought for tomorrow,” by giving all your attention to the present moment. Your Creative Mechanism cannot function or work tomorrow. It can only function in the present—today. **Make long-range plans for tomorrow. But don’t try to live in tomorrow, or in the past. Creative living means responding and reacting to environment spontaneously. Your Creative Mechanism can respond appropriately and successfully to present environment—only if you have your full attention on present environment—and give it information concerning what is happening now. Plan all you want to for the future. Prepare for it. But don’t worry about how you will react tomorrow, or even five minutes from now. Your Creative Mechanism will react appropriately in the “now” if you pay attention to what is happening now. It will do the same tomorrow. It cannot react successfully to what may happen—but to what is happening.**
+
+> Live life in “day-tight compartments,” he advised his students. Look neither forward nor backward beyond a 24-hour cycle. Live today as best you can. By living today well you do the most within your power to make tomorrow better.
+>
+> Alcoholics Anonymous uses the same principle when they say, “Don’t try to stop drinking forever—merely say, ‘I will not drink today.’”
+
+* A practical note on "Stop, Look and Listen"
+
+> Becoming more aware of what is happening now, and attempting to respond only to what is happening now, has almost magical results in relieving the “jitters.” **The next time you feel yourself tensing up, becoming jittery and nervous—pull yourself up short and say, “What is there here and now that I should respond to? That I can do something about?” A great deal of nervousness is caused from unwittingly “trying” to do something that cannot be done here or now. You are then geared for action or for “doing,” which cannot take place. Keep constantly in mind that the job of your Creative Mechanism is to respond appropriately to present environment—here and now. Many times, if we do not “stop and think” about this, we continue to react automatically to some past environment.**
+>
+> ***In short we do not react to reality—but to a fiction.***
+
+3. Try to do only one thing at a time
+
+* This advice is everywhere. All productivity gurus talk about the cost of context switching and that muti-tasking doesnt exist in nature, it is more of muti-context switching. All spiritual leaders also talk about this - from Osho who talks about being mindful and aware of the present to almost all meditation books. The amazing book "Meditation for Mortals" actually go over this single line again and again, asking us to embrace our reality (of mortality) and the fact that we can do only one thing at a time.
+
+> Another cause of confusion, and the resulting feelings of nervousness, hurry, and anxiety, is the absurd habit of trying to do many things at one time. 
+>
+> **The truth is: We can only do one thing at a time. Realizing this, fully convincing ourselves of this simple and obvious truth, enables us to mentally stop trying to do the things that lie next, and to concentrate all our awareness, all our responsiveness, on this one thing we are doing now.** When we work with this attitude, we are relaxed, we are free from the feelings of hurry and anxiety, and we are able to concentrate and think at our best.
+
+4. Sleep on it
+
+* Another obvious, famous and useful advice. History is filled with stories of how progress was made by working and let subconscious mind taking over and solving in background
+
+5. Relax While you work
+
+* This book is written in 1960. It is so interesting that many of these advices are now coming from both Productivity experts and Spiritial leaders. Again, a very useful advice - relax while you work. Tie this with advice #3 and you will make much more progress while remaining calm. 
+
+> The truth is: We can only do one thing at a time. Realizing this, fully convincing ourselves of this simple and obvious truth, enables us to mentally stop trying to do the things that lie next, and to concentrate all our awareness, all our responsiveness, on this one thing we are doing now. When we work with this attitude, we are relaxed, we are free from the feelings of hurry and anxiety, and we are able to concentrate and think at our best.
+
+
+
+
+
 
 ## Favorite Quotes
-> "[Insert a favorite quote from the book here.]"
-> "[Insert another quote if applicable.]"
+> Live life in “day-tight compartments,” Look neither forward nor backward beyond a 24-hour cycle. Live today as best you can. By living today well you do the most within your power to make tomorrow better.
+> 
+
