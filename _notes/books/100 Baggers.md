@@ -3,7 +3,7 @@ layout: notes
 title: Book Review : 100 Baggers (Draft)
 date: 2026-01-19
 ---
-# 
+
 
 <div style="display: flex; align-items: flex-start; gap: 20px;">
   <div style="flex: 0 0 auto; width: 100px; height: auto;">
