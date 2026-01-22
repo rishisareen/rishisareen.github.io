@@ -47,9 +47,9 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 
 * This chapter starts from the basics : we all have self image, many of our acts are consistent with our self image. And, the loophole is, we can change our self image. In fact, it is literally impossible to really think positively about a particular situation as long as you hold a negative concept of your “self.”
 
-* > The new science of cybernetics has furnished us with convincing proof that the so-called subconscious mind is not a “mind” at all, but a mechanism—a goal-striving “servo-mechanism” consisting of the brain and nervous system, which is used by, and directed by the mind. The latest and most usable concept is that man does not have two “minds,” but a mind, or consciousness, that operates an automatic, goal-striving machine. This automatic, goal-striving machine functions very similarly to the way that electronic servo-mechanisms function, as far as basic principles are concerned. But it is much more marvelous, much more complex, than any computer or guided missile ever conceived by man.
+> The new science of cybernetics has furnished us with convincing proof that the so-called subconscious mind is not a “mind” at all, but a mechanism—a goal-striving “servo-mechanism” consisting of the brain and nervous system, which is used by, and directed by the mind. The latest and most usable concept is that man does not have two “minds,” but a mind, or consciousness, that operates an automatic, goal-striving machine. This automatic, goal-striving machine functions very similarly to the way that electronic servo-mechanisms function, as far as basic principles are concerned. But it is much more marvelous, much more complex, than any computer or guided missile ever conceived by man.
 
-* > Dr. Maltz makes it clear that all of us have goals, whether we intentionally articulate them or not. The brain and nervous system are continually leading us in the direction of images we think about consciously, or images that are so much a part of us that we’re led toward them on autopilot. The alcoholic or drug addict has goals just as much as the entrepreneur, politician, professional athlete, or mother-to-be. With this in mind, we can become aware of what’s “under the hood”—and whether or not we want the goals we’re unconsciously moving toward, or the ones that we consciously choose and work toward.
+> Dr. Maltz makes it clear that all of us have goals, whether we intentionally articulate them or not. The brain and nervous system are continually leading us in the direction of images we think about consciously, or images that are so much a part of us that we’re led toward them on autopilot. The alcoholic or drug addict has goals just as much as the entrepreneur, politician, professional athlete, or mother-to-be. With this in mind, we can become aware of what’s “under the hood”—and whether or not we want the goals we’re unconsciously moving toward, or the ones that we consciously choose and work toward.
 
 * Like any other servo-mechanism, it must have a clear-cut goal, objective, or “problem” to work on. 
 
@@ -62,7 +62,7 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 
 * Basically success will feed on success. Your improved self image will make bigger goals believable and the belief will help to achieve them. 
 
-### 2. Chapter 2 : Discovering the success mechanism within you
+### Chapter 2 : Discovering the success mechanism within you
 
 * Focus of this chapter is humans have evolved to have success mechanism that goes beyond survival needs. 
 
@@ -78,25 +78,28 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
   1.  You must learn to trust your Creative Mechanism to do its work and not “jam it” by becoming too concerned or too anxious as to whether it will work or not, or by attempting to force it by too much conscious effort. You must “let it” work, rather than “make it” work. This trust is necessary because your Creative Mechanism operates below the level of consciousness, and you cannot “know” what is going on beneath the surface. Moreover, its nature is to operate spontaneously according to present need. Therefore, you have no guarantees in advance. It comes into operation as you act and as you place a demand on it by your actions. You must not wait to act until you have proof—you must act as if it is there, and it will come through. “Do the thing and you will have the power,” said Emerson.
   
 
-### 3. Imagination : The First Key to Your Success Mechanism
+### Chapter 3. Imagination : The First Key to Your Success Mechanism
 
 * Previous chapters covered that mind is powerful and self image is the key to everything. And once you set a goal, your mind works on achieving it in background. 
 
 * This chapter digs into fact that Your nervous system cannot tell the difference between an imagined experience and a real experience. In either case, it reacts automatically to information that you give to it from your forebrain. The brain and nervous system that react automatically to the environment are the same brain and nervous system that tell us what the environment is.
 
-  > For example, if a good hypnotic subject is told that he is at the North Pole, he will not only shiver and appear to be cold, his body will react just as if he were cold and goose pimples will develop. The same phenomenon has been demonstrated on wide-awake college students by asking them to imagine that one of their hands is immersed in ice water. Thermometer readings show that the temperature does drop in the “treated” hand. Tell a hypnotized subject that your finger is a red hot poker, and he will not only grimace with pain at your touch, but his cardiovascular and lymphatic systems will react just as if your finger were a red hot poker and produce inflammation and perhaps a blister on the skin.
-    >
+
+> For example, if a good hypnotic subject is told that he is at the North Pole, he will not only shiver and appear to be cold, his body will react just as if he were cold and goose pimples will develop. The same phenomenon has been demonstrated on wide-awake college students by asking them to imagine that one of their hands is immersed in ice water. Thermometer readings show that the temperature does drop in the “treated” hand. Tell a hypnotized subject that your finger is a red hot poker, and he will not only grimace with pain at your touch, but his cardiovascular and lymphatic systems will react just as if your finger were a red hot poker and produce inflammation and perhaps a blister on the skin.
+  >
 
 
 * You act, and feel, not according to what things are really like, but according to the image your mind holds of what they are like. You have certain mental images of yourself, your world, and the people around you, and you behave as though these images were the truth, the reality, rather than the things they represent.
 
 * So, how to use this knowledge? This para summarize this well
 
-  > As Alex Morrison said, you must first clearly see a thing in your mind before you can do it. When you do see a thing clearly in your mind, the creative Success Mechanism within you takes over and does the job much better than you could do it by conscious effort, or “willpower.” 
-  >
-  > Instead of trying hard by conscious effort to do the thing with ironed-jawed willpower, and all the while worrying and picturing to yourself all the things that are likely to go wrong, you simply relax the strain, stop trying to do it by strain and effort, picture to yourself the target you really want to hit, and let your creative Success Mechanism take over. 
-  >
-  > Thus, mentally picturing the desired end result literally forces you to use “positive thinking.” You are not relieved thereafter from effort and work, but your efforts are used to carry you forward toward your goal, rather than in the futile mental conflict that results when you want and try to do one thing, but picture to yourself something else.
+
+> As Alex Morrison said, you must first clearly see a thing in your mind before you can do it. When you do see a thing clearly in your mind, the creative Success Mechanism within you takes over and does the job much better than you could do it by conscious effort, or “willpower.” 
+>
+> Instead of trying hard by conscious effort to do the thing with ironed-jawed willpower, and all the while worrying and picturing to yourself all the things that are likely to go wrong, you simply relax the strain, stop trying to do it by strain and effort, picture to yourself the target you really want to hit, and let your creative Success Mechanism take over. 
+>
+> Thus, mentally picturing the desired end result literally forces you to use “positive thinking.” You are not relieved thereafter from effort and work, but your efforts are used to carry you forward toward your goal, rather than in the futile mental conflict that results when you want and try to do one thing, but picture to yourself something else.
+
 
 * This chapter gives a practice exercise to visualize the goal everyday. It recommends 30 min each day but say you can have good results even with 10 or 15 min. 
 
@@ -108,7 +111,7 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 
   
 
-### 4. Dehypnotize Yourself from False Beliefs
+### Chapter 4. Dehypnotize Yourself from False Beliefs
 
 * This chapter digs into self-image and how we have "hypnotized" ourselves into beliefs as if they are true. Beliefs are not physical laws and it can be changed.
 
@@ -244,7 +247,7 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 
 > Another cause of confusion, and the resulting feelings of nervousness, hurry, and anxiety, is the absurd habit of trying to do many things at one time. 
 >
-> **The truth is: We can only do one thing at a time. Realizing this, fully convincing ourselves of this simple and obvious truth, enables us to mentally stop trying to do the things that lie next, and to concentrate all our awareness, all our responsiveness, on this one thing we are doing now.** When we work with this attitude, we are relaxed, we are free from the feelings of hurry and anxiety, and we are able to concentrate and think at our best.
+	> **The truth is: We can only do one thing at a time. Realizing this, fully convincing ourselves of this simple and obvious truth, enables us to mentally stop trying to do the things that lie next, and to concentrate all our awareness, all our responsiveness, on this one thing we are doing now.** When we work with this attitude, we are relaxed, we are free from the feelings of hurry and anxiety, and we are able to concentrate and think at our best.
 
 4. Sleep on it
 
@@ -258,10 +261,59 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 
 
 
+### Chapter 7 : You can acquire the habit of happiness
+
+* "Happiness is a state of mind in which our thinking is pleasant a good share of the time".
+* Maltz opens this chapter by sharing many examples of why happiness is a good medicine. He present research after research where science proves that we are physically and mentally better if we are happy
+
+> **Happiness is native to the human mind and its physical machine. We think better, perform better, feel better, and are healthier when we are happy.** Even our physical sense organs work better. Russian psychologist K. Kekcheyev tested people when they were thinking pleasant and unpleasant thoughts. He found that when thinking pleasant thoughts they could see better, taste, smell, and hear better, and detect finer differences in touch. Dr. William Bates proved that eyesight improves immediately when the individual is thinking pleasant thoughts, or visualizing pleasant scenes.
+
+> The very word “disease” means a state of unhappiness—“dis-ease.”
+
+* It also discuss impact of happiness from a moral standpoint. There is a text by philosopher Barch Spinoza from his book Ethics
+
+> “Happiness is not the reward of virtue,” said Spinoza in his book Ethics, “but virtue itself; nor do we delight in happiness because we restrain our lusts; but, on the contrary, because we delight in it, therefore are we able to restrain them.”
+
+* Spinoza flips the traditional cause-and-effect relationship between **Virtue** (being good/disciplined) and **Happiness**.
+  - **Traditional View:** I must restrain my bad impulses (lusts/vices) -> Then I will become virtuous -> As a reward, I will get to be happy.
+  - **Spinoza's View:** I must be happy first (delight in happiness) -> This positive state gives me the power to restrain my bad impulses -> Therefore, I become virtuous.
+* Another very important aspect is dealt that seeking happiness is not "Selfish". He makes a strong argument:
+
+> Many sincere people are deterred from seeking happiness because they feel that it would be “selfish” or “wrong.” Unselfishness does make for happiness, for it not only gets our minds directed outward away from ourselves and our introspection, our faults, sins, troubles (unpleasant thoughts), or pride in our “goodness,” but it also enables us to express ourselves creatively, and fulfill ourselves in helping others. **However, if we make a moral issue out of happiness and conceive of it as something to be earned as a sort of reward for being unselfish, we are very apt to feel guilty about wanting happiness. Happiness comes from being and acting unselfishly—as a natural accompaniment to the being and acting**, not as a “payoff” or prize. If we are rewarded for being unselfish, the next logical step is to assume that the more self-abnegating and miserable we make ourselves, the happier we will be. The premise leads to the absurd conclusion that the way to be happy is to be unhappy.
+
+* After making all the case for WHY one should be happy, the chapter further goes into HOW of it.
+
+> Happiness is a mental habit, a mental attitude, and if it is not learned and practiced in the present it is never experienced. It cannot be made contingent upon solving some external problem. When one problem is solved, another appears to take its place. Life is a series of problems. If you are to be happy at all, you must be happy—period! Not happy “because of.”
+
+> To a large extent we react to petty annoyances, frustrations, and the like with grumpiness, dissatisfaction, resentment, and irritability, purely out of habit. We have practiced reacting that way so long, it has become habitual. **Much of this habitual unhappiness-reaction originated because of some event that we interpreted as a blow to our self-esteem.** A driver honks his horn at us unnecessarily; someone interrupts and doesn’t pay attention while we’re talking; someone doesn’t come through for us as we think he should. Even impersonal events can be interpreted, and reacted to, as affronts to our self-esteem. The bus we wanted to catch had to be late; it had to go and rain when we had planned to play golf; traffic had to get into a snarl just when we needed to catch the plane. We react with anger, resentment, self-pity, or in other words, unhappiness.
+
+> You are letting outward events and other people dictate to you how you shall feel and how you shall react. You are acting as an obedient slave and obeying promptly when some event or circumstance signals to you—‘Be angry’—‘Get upset’—or ‘Now is the time to feel unhappy.’”
+
+* Then a strong case is made on happiness is something to be practiced, like any habit
+
+> The idea that happiness, or keeping one’s thoughts pleasant most of the time, can be deliberately and systematically cultivated by practicing in a more or less cold-blooded manner, strikes many of my patients as rather incredible, if not ludicrous, when I first suggest it. Yet experience has shown not only that this can be done, but that it is about the only way that the “habit of happiness” can be cultivated. **In the first place happiness isn’t something that happens to you. It is something you yourself do and determine upon**. 
+>
+> No one can decide what your thoughts shall be but yourself. If you wait until circumstances “justify” your thinking pleasant thoughts, you are also likely to wait forever. Every day is a mixture of good and evil—no day or circumstance is completely 100 percent “good.” There are elements and “facts” present in the world, and in our personal lives at all times, that “justify” either a pessimistic and grumpy outlook, or an optimistic and happy outlook, depending on our choice. It is largely a matter of selection, attention, and decision. Nor is it a matter of being either intellectually honest or dishonest. Good is as “real” as evil. **It is merely a matter of what we choose to give primary attention to—and what thoughts we hold in the mind.**
+
+* A practical tip of using "happy thoughts" by Professor Elmer Gates is shared
+
+> He made a daily practice of “calling up pleasant ideas and memories” and believed that this helped him in his work. If a person wants to improve himself, he said, “let him summon those finer feelings of benevolence and usefulness, which are called up only now and then. Let him make this a regular exercise like swinging dumbbells. Let him gradually increase the time devoted to these psychical gymnastics, and at the end of a month he will find the change in himself surprising.
+
+* Self Image and Happiness are so strongly linked. Hence, correcting self image is everything:
+
+> Our self-image and our habits tend to go together. Change one and you will automatically change the other. The word “habit” originally meant a garment, or clothing. We still speak of riding habits, and habiliments. This gives us an insight into the true nature of habit. Our habits are literally garments worn by our personalities. They are not accidental, or happenstance.
+
+> our attitudes, emotions, and beliefs tend to become habitual. In the past we “learned” that certain attitudes, ways of feeling and thinking, were “appropriate” to certain situations. Now we tend to think, feel, and act the same way whenever we encounter what we interpret as “the same sort of situation.” What we need to understand is that these habits, unlike addictions, can be modified, changed, or reversed simply by taking the trouble to make a conscious decision—and then by practicing or “acting out” the new response or behavior. The pianist can consciously decide to strike a different key, if he chooses. The dancer can consciously decide to learn a new step—and there is no agony about it. It does require constant watchfulness and practice until the new behavior pattern is thoroughly learned.
+
+
+
 
 
 
 ## Favorite Quotes
 > Live life in “day-tight compartments,” Look neither forward nor backward beyond a 24-hour cycle. Live today as best you can. By living today well you do the most within your power to make tomorrow better.
-> 
+
+> The very word “disease” means a state of unhappiness—“dis-ease.”
+
+> “Men are disturbed not by the things that happen, but by their opinion of the things that happen.”
 
