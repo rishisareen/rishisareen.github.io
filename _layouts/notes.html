@@ -68,8 +68,81 @@
             {{ content }}
           </div>
         </article>
+
+        <aside class="notes-toc-sidebar">
+          <nav class="toc" id="notes-toc">
+            <h4>Contents</h4>
+            <ul id="notes-toc-list"></ul>
+          </nav>
+        </aside>
       </main>
     </div>
+
+    <script>
+    (function() {
+      const tocList = document.getElementById('notes-toc-list');
+      const tocSidebar = document.querySelector('.notes-toc-sidebar');
+      const noteBody = document.querySelector('.note-body');
+
+      if (!tocList || !noteBody) return;
+
+      // Get all headings from the note content
+      const headings = noteBody.querySelectorAll('h2, h3');
+
+      // Hide TOC if fewer than 3 headings
+      if (headings.length < 3) {
+        tocSidebar.style.display = 'none';
+        return;
+      }
+
+      // Generate TOC
+      headings.forEach(function(heading, index) {
+        // Add ID to heading if it doesn't have one
+        if (!heading.id) {
+          heading.id = 'heading-' + index;
+        }
+
+        const li = document.createElement('li');
+        li.className = 'toc-' + heading.tagName.toLowerCase();
+
+        const a = document.createElement('a');
+        a.href = '#' + heading.id;
+        a.textContent = heading.textContent;
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          heading.scrollIntoView({ behavior: 'smooth' });
+          history.pushState(null, null, '#' + heading.id);
+        });
+
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+
+      // Highlight current section on scroll
+      const tocLinks = tocList.querySelectorAll('a');
+
+      function highlightCurrentSection() {
+        let current = '';
+
+        headings.forEach(function(heading) {
+          const rect = heading.getBoundingClientRect();
+          if (rect.top <= 100) {
+            current = heading.id;
+          }
+        });
+
+        tocLinks.forEach(function(link) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', highlightCurrentSection);
+      highlightCurrentSection();
+    })();
+    </script>
 
   </body>
 </html>
