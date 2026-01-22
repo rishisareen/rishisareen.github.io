@@ -43,7 +43,7 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 
 
 ## My Notes
-### 1. **Chapter 1 : Self Image**
+### **Chapter 1 : Self Image**
 
 * This chapter starts from the basics : we all have self image, many of our acts are consistent with our self image. And, the loophole is, we can change our self image. In fact, it is literally impossible to really think positively about a particular situation as long as you hold a negative concept of your “self.”
 
@@ -52,20 +52,15 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 > Dr. Maltz makes it clear that all of us have goals, whether we intentionally articulate them or not. The brain and nervous system are continually leading us in the direction of images we think about consciously, or images that are so much a part of us that we’re led toward them on autopilot. The alcoholic or drug addict has goals just as much as the entrepreneur, politician, professional athlete, or mother-to-be. With this in mind, we can become aware of what’s “under the hood”—and whether or not we want the goals we’re unconsciously moving toward, or the ones that we consciously choose and work toward.
 
 * Like any other servo-mechanism, it must have a clear-cut goal, objective, or “problem” to work on. 
-
 * The goals that our own Creative Mechanism seeks to achieve are mental images, or mental pictures, which we create by the use of imagination. The key goal-image is our self-image. **Our self-image prescribes the limits for the accomplishment of any particular goals. It prescribes the “area of the possible.”** <u>Hence, everything starts with self image. And that is why visualization is so powerful</u> 
-
 * Dr Maltz says the method itself is simple. It consists of learning, practising and experiencing new habits of thinking, imagining, remembering, and acting in order to  
-
   * develop an adequate and realistic self-image, and 
   * use your Creative Mechanism to bring success and happiness in achieving particular goals.
-
 * Basically success will feed on success. Your improved self image will make bigger goals believable and the belief will help to achieve them. 
 
 ### Chapter 2 : Discovering the success mechanism within you
 
 * Focus of this chapter is humans have evolved to have success mechanism that goes beyond survival needs. 
-
   *  For an animal “to live” simply means that certain physical needs must be met. Animals cannot select their goals. Their goals (self-preservation and procreation) are preset, so to speak. And their success mechanism is limited to these built-in goal-images, which we call “instincts.” 
   * Man, on the other hand, has something animals don’t: Creative Imagination. Thus man of all creatures is more than a creature, he is also a creator. With his imagination he can formulate a variety of goals. Man alone can direct his Success Mechanism by the use of imagination, or imaging ability.
 * Various examples are given how when are learning, everything is an effort (like child learning to hold a pencil and write). But once we learn, it goes into subsconscious so that our mental energy is saved for future learning. And this 
@@ -81,18 +76,14 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 ### Chapter 3. Imagination : The First Key to Your Success Mechanism
 
 * Previous chapters covered that mind is powerful and self image is the key to everything. And once you set a goal, your mind works on achieving it in background. 
-
 * This chapter digs into fact that Your nervous system cannot tell the difference between an imagined experience and a real experience. In either case, it reacts automatically to information that you give to it from your forebrain. The brain and nervous system that react automatically to the environment are the same brain and nervous system that tell us what the environment is.
-
 
 > For example, if a good hypnotic subject is told that he is at the North Pole, he will not only shiver and appear to be cold, his body will react just as if he were cold and goose pimples will develop. The same phenomenon has been demonstrated on wide-awake college students by asking them to imagine that one of their hands is immersed in ice water. Thermometer readings show that the temperature does drop in the “treated” hand. Tell a hypnotized subject that your finger is a red hot poker, and he will not only grimace with pain at your touch, but his cardiovascular and lymphatic systems will react just as if your finger were a red hot poker and produce inflammation and perhaps a blister on the skin.
   >
 
-
 * You act, and feel, not according to what things are really like, but according to the image your mind holds of what they are like. You have certain mental images of yourself, your world, and the people around you, and you behave as though these images were the truth, the reality, rather than the things they represent.
 
 * So, how to use this knowledge? This para summarize this well
-
 
 > As Alex Morrison said, you must first clearly see a thing in your mind before you can do it. When you do see a thing clearly in your mind, the creative Success Mechanism within you takes over and does the job much better than you could do it by conscious effort, or “willpower.” 
 >
