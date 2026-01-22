@@ -902,7 +902,7 @@ a.pagination-item:hover {
 .notes-content {
   flex: 1;
   padding: 2rem 3rem;
-  max-width: 48rem;
+  max-width: 60rem;
 }
 
 .note-date {
@@ -913,7 +913,16 @@ a.pagination-item:hover {
 }
 
 .note-body {
-  line-height: 1.7;
+  line-height: 1.5;
+}
+
+.note-body blockquote {
+  font-size: 0.9rem;
+}
+
+.note-body ul {
+  margin-left: 1rem;
+  padding-left: 0.5rem;
 }
 
 @media (max-width: 48em) {
