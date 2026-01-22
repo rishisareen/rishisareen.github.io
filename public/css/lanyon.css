@@ -145,6 +145,10 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
+.notes-page .site-header {
+  margin-bottom: 0;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;
@@ -901,7 +905,7 @@ a.pagination-item:hover {
 
 .notes-content {
   flex: 1;
-  padding: 2rem 3rem;
+  padding: 1.5rem 3rem;
   max-width: 48rem;
 }
 
@@ -909,11 +913,45 @@ a.pagination-item:hover {
   display: block;
   color: #999;
   font-size: 0.875rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .note-body {
-  line-height: 1.7;
+  line-height: 1.5;
+}
+
+/* Compact spacing for notes on desktop */
+@media (min-width: 48em) {
+  .notes-page .note-body h1,
+  .notes-page .note-body h2,
+  .notes-page .note-body h3,
+  .notes-page .note-body h4,
+  .notes-page .note-body h5,
+  .notes-page .note-body h6 {
+    margin-top: 0.75em;
+    margin-bottom: 0.2em;
+  }
+
+  .notes-page .note-body p,
+  .notes-page .note-body ul,
+  .notes-page .note-body ol,
+  .notes-page .note-body blockquote {
+    margin-bottom: 0.75rem;
+  }
+
+  .notes-page .note-body ul,
+  .notes-page .note-body ol {
+    margin-top: 0.5rem;
+  }
+
+  .notes-page .note-body li {
+    margin-bottom: 0.25rem;
+  }
+
+  .notes-page .page-title {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 48em) {
