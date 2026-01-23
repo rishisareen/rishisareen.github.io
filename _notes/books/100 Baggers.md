@@ -171,6 +171,78 @@ I loved the book ; it is clearly written, full of real-world examples and logica
 
 
 
+### Chapter 9 : Secrets of an 18,000 Bagger
+
+* This chapter starts with analysis of Berkshire Hathways whose stock rose 18000 times from 1965 to 50 years later. One of the key strength of Warren Buffet was he had free money from his insurance business where premium are paid first and then claim to be settled later. That gave them a float at very low (or negative) rate of interest. Berkshire had a negative cost of borrowing in 29 out of 47 years!!!
+
+* This chapter propose investing in other holding company models which can be a potential 100 baggers. The leaders of holding companies are, essentially,  money managers with structural advantages in how they invest. They  have permanent capital, unlike, say, a mutual fund manager who must  deal with constant inflows and outflows. Holding companies also build  businesses, as opposed to just buying and selling stocks.
+
+  >  Now that we have analyzed the gold standard of investing, let’s ask,  is it possible that other Berkshire Hathaways exist? Let’s consider the  holding company.  A publicly traded investment holding company is one where the management team has wide freedom to invest as they see fit. They can invest  in firms they own in the holding company. Or they can invest in outside  firms. They can invest in public entities or private ones. They can even  invest in different industries.  The best-in-class example is the aforementioned Warren Buffett’s Berkshire Hathaway. It owns publicly traded stocks such as Coca-Cola and IBM.  But it also owns companies outright, such as GEICO and See’s Candies. It is  involved in a mix of industries, everything from insurance to retail. 
+  >
+  > Berkshire Hathaway is the model investment holding company. It’s compounded value by almost 20 percent annually since 1965 (resulting in that  18,000-bagger). There are others, some of which we’ve mentioned: Leucadia  National, Loews Corp., Brookfield Asset Management and Fairfax Financial  Holdings. These are the most famous, with long track records of beating the  market and compounding money year after year after year—for decades. 
+
+
+
+### Chapter 10 : Kelly's Heroes : Bet Big
+
+* The idea of this chapter is simple : **bet big on your best ideas.**
+* Kell's formula is introduced in this chapter. John L Kelly (Bell Labs) sought an answer to a question. Let us say a gambler has a tipoff as to how a race will likely go. It is not 100 percent reliable, but it does  give him an edge. Assuming he can bet at the same odds as everyone else,  how much of his bankroll should he bet?  Kelly’s answer reduces to this, the risk taker’s version of E = mc2:  f = edge/odds. 
+* The maths doesn't matter much for me, main takeaway is. I will work to select 10 solid stocks, and put 10% in each stock. 
+
+
+
+### Chapter 11 : Stock Buybacks : Accelerated Returns
+
+* A buyback is when a company buys back its own stock. As a company  buys back shares, its future earnings, dividends and assets concentrate in  the hands of an ever-shrinking shareholder base.  Many companies are doing buybacks these days. In a slow- to no-growth  economy, this tactic is becoming a more important driver of earnings-pershare growth. 
+* A powerful example is shared of a stock Autonation, which buyback its stock from 2000 onwards and retired the shares. Annualized, share grew more than 15% per year **for 13 years.**
+
+![image-20260122175010614](https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/01/22/image-20260122175010614%7Bextension%7D)
+
+* It is important what are the reasons for buyback. Bad reason is where the management wants to increase the value of its share, so it buyback from market and retire the shares, so value of remaining shares increase. As Warren Buffet puts in his 2000 letter to shareholders
+
+> *There is only one combination of facts that makes it advisable for  a company to repurchase its shares: First, the company has available funds—cash plus sensible borrowing capacity—beyond the  near-term needs of the business and, second, finds its stock selling  in the market below its intrinsic value, conservatively calculated.* 
+
+* The reasoning is simple: if a fine  business is selling in the marketplace for far less than intrinsic value,  what more certain or more profitable utilization of capital can there  be than significant enlargement of the interests of all owners at that  bargain price? The competitive nature of corporate acquisition activity almost guarantees the payment of a full—frequently more than  full price—when a company buys the entire ownership of another  enterprise. But the auction nature of security markets often allows finely-run companies the opportunity to purchase portions of their  own businesses at a price under 50% of that needed to acquire the  same earning power through the negotiated acquisition of another  enterprise. (emphasis added)  When done right, buybacks can accelerate the compounding of returns. 
+* **It’s a potential clue. When you find a company that drives its shares  outstanding lower over time and seems to have a knack for buying at  good prices, you should take a deeper look. You may have found a candidate for a 100-bagger.** 
+
+
+
+### Chapter 12 : Keep competitors out 
+
+* The most famous topic comes now - the discussion of "moat". In the overwhelming number of cases, a company needs to do something  well for a very long time if it is to become a 100-bagger. Persistence is as  essential to a 100-bagger as gin to a martini. 
+* Various types of moats are captured
+  * **You have a strong brand** : Tiffany, Oreo etc. It may not allow for premium prices, but it inspires loyalty and ensures recurring customers. That is a moat
+  * **It costs a lot to switch** : Banks. They dont have much differentiating factors among them, but it is a hassle to switch. That is a moat.
+  * **You enjoy network effect** : So many internet companies are based on it. Microsoft, Whatsapp, Instagram, Facebook. 
+  * **You do something cheaper than everyone else**. Walmart, Amazon...
+  * **You are the biggest**. Amazon, Reliance Jio - it prevents competitors due to cost of replication.
+
+> An interesting point here about the  size of the firm relative to the market: “Imagine a market where the fixed  costs are high, and prices are low. Imagine that prices are so low that you  need 55% of the market just to break even. How many competitors will  that market support? One. Not two, not three... one.”  The firm that gets that 55 percent is in a commanding position. It can  keep prices just high enough that it can keep others out and earn a good  return. “What matters is the amount of the market you need to capture to  make it hard for others to compete,” 
+
+* Maubossin did study on industry moats. One of the finding was some industries are better at creating values than others. But in every good and bad industry, there are ways to make money. 
+>  Mauboussin suggests creating an industry map. This details all the  players that touch an industry. For airlines this would include aircraft  lessors (such as Air Lease), manufacturers (Boeing), parts suppliers (B/E  Aerospace) and more. This is beyond the scope of what an individual  investor would do, but even though you aren’t likely to make your own  industry map, it’s a useful mental model. 
+>
+>  What Mauboussin aims to do is show where the profit in an industry  winds up. These profit pools can guide you on where you might focus  your energies. For example, aircraft lessors make good returns; travel  agents and freight forwarders make even-better returns.  Mauboussin’s industry analysis also shows that industry stability is  another factor in determining the durability of a moat. “Generally speaking,” he writes, “stable industries are more conducive to sustainable value  creation. Unstable industries present substantial competitive challenges  and opportunities.” 
+
+* Last topic is mean reversion and importance of gross margin
+
+> gross margin is a good indication of the price people are  willing to pay relative to the input costs required to provide the good. It’s a  measure of value added for the customer. Not every company shows a huge gross margin. “Amazon’s are pretty mediocre,” Berry pointed out in an email  to me, “but it is clear that the value added is in the selection and the convenience, not in the good itself (which could be found anywhere). But if you  can’t see how or where a company adds value for customers in its business  model, then you can be pretty sure that it won’t be a 100-bagger.
+
+> I’d sum up this way: It is great to have a moat, but true moats are  rare and not so easy to identify all the time. Therefore, you should look  for clear signs of moats in a business—if it’s not clear, you probably are  talking yourself into it— you may also want to find evidence of that moat  in a firm’s financial statements. ** ** 
+
+
+
+### Chapter 13 : Misclellaneous Mentation on 100-Baggers
+
+* Curious name of the title. Chris answers this in the first paragraph
+
+  > Definition: men·ta·tion (men- t -sh n/) noun. technical. 1. mental activity. 
+  >
+  > In going back over the well-thumbed pages of my library of recent books on mental technique, I have come upon a number of  provocative passages which I marked with a pencil but, for one  reason or another, was unable to fit into any of my preceding  chapters. I have decided to take up this group of miscellaneous  matters here, treating the various passages in the order in which  I come to them. 
+
+
+
+
 
 ## Favorite Quotes
 * “Every human problem is an investment opportunity if you can anticipate  the solution,” the old gentleman told me. “Except for thieves, who would  buy locks?” 
