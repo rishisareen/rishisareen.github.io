@@ -240,11 +240,48 @@ I loved the book ; it is clearly written, full of real-world examples and logica
   >
   > In going back over the well-thumbed pages of my library of recent books on mental technique, I have come upon a number of  provocative passages which I marked with a pencil but, for one  reason or another, was unable to fit into any of my preceding  chapters. I have decided to take up this group of miscellaneous  matters here, treating the various passages in the order in which  I come to them. 
 
+* Some of the key tips from this chapter are:
 
+1. Don't chase returns. An obvious tip, but re-iterating that chasing short term returns is useless unless you have an army of Quant people and resoruces to predict the stock price movement and what will happen in next 8-12 months. MOhnish Pabrai said it nicely:
 
+> When asked about this underperformance, he replied, “I think it  is an irrelevant data point. There is nothing intelligent that one can  say about short periods like 10 months. I never make investments  with any thought to what will happen in a few months or even a  year.” (emphasis added) 
+
+2. Don't get bored. Another common and accurate advice.  Blaise Pascal famously said : "All of humanity's problems stem from man's inability to sit quietly in a room alone". Same in stock market - people think action is a sort of progress. Though time and again analysis tells that approach like Coffee Can beats the market and with far less stress. 
+
+> As the famed money manager Ralph Wanger used to say, investors  tend to like to “buy more lobsters as the price goes up.” Weird, since you  probably don’t exhibit this behavior elsewhere. You usually look for a deal  when it comes to gasoline or washing machines or cars. And you don’t  sell your house or golf clubs or sneakers because someone offers less than  what you paid. 
+
+> “Usually the market pays  what you might call an entertainment tax, a premium, for stocks with an  exciting story. So boring stocks sell at a discount. Buy enough of them and  you can cover your losses in high tech.” 
+
+This last line is brilliant. World is obsessed with IT stocks, with the story of great gross margin, low distribution cost, new gen wealth creation. While all of that is true, end of day it is cash flow management and overall growth. As everyone is running after IT stocks, their Price can be very inflated. Where as "boring stocks" like Control Panel which makes printing solution for all industrial products and growing at 20% annually is available at 9x of earning.
+
+3. Don't get snookered : avoid scams. Always look for incentive for management  - short term incentives can lead to shortcuts, dishonest routes. Also, do not fall into charisma of CEO. This was mentioned in another study ; some great investors avoid meetings CEOs to not fall for "Halo Effect" or Personal bias. 
+   1. Warren Buffett Rarely relies on management meetings for investment decisions. He said : *If I need to meet management to understand the business, I don’t understand the business.*
+   2. Charlie Munger was very skeptical of “CEO charisma.” He believed humans are terrible at judging integrity and competence from interaction. Preferred to judge by **long-term behavior in filings and capital allocation**.
+   3. Peter Lynch, Joeh Greenblatt, Howard Marks all preferred looking at "what the company does", documents, history and incentives. 
+   4. The research is damning. Jason Voss, CFA, explains why body language doesn't work for detecting deception [CFA Institute](https://rpc.cfainstitute.org/research/multimedia/2021/truth-vs-lies-using-text-based-analysis-to-detect-deception) : humans perform barely better than random chance (about 54% vs 50%) at detecting lies through body language.
+
+4. Do Ignore Forecasters. 
+
+> Many investors watch these estimates like hawks and rely on them in  their buy and sell decisions. The problem is these estimates are wrong often, and by a wide margin. One large study covered nearly 95,000 consensus estimates from more than two decades. It found the average estimate  was off by more than 40 percent! 
+
+> Attempting to invest on the back of economic forecasts is an exercise  in extreme folly, even in normal times. Economists are probably  the one group who make astrologers look like professionals when  it comes to telling the future.... They have missed every recession  in the last four decades! And it isn’t just growth that economists  can’t forecast: it’s also inflation, bond yields, and pretty much  everything else. 
+
+![image-20260123103639556](https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/01/23/image-20260123103639556%7Bextension%7D)
+
+* Warren Buffett remarked this in 1994 shareholder letter
+
+> We will continue to ignore political and economic forecasts which  are an expensive distraction for many investors and businessmen.  Thirty years ago, no one could have foreseen the huge expansion of  the Vietnam War, wage and price controls, two oil shocks, the resignation of a president, the dissolution of the Soviet Union, a one-day drop  in the Dow of 508 points, or treasury bill yields fluctuating between  2.8% and 17.4%.... But, surprise—none of these blockbuster events  made the slightest dent in Ben Graham’s investment principles. 
+
+5. Don't get attached to an idea
+
+> People take easily, though, to big ideas: The new economy. Peak oil.  The Chinese century. The Great Moderation. All of these things are just  abstract ideas. They are predictions about how the world might look.  But they are far from concrete experience—and hence likely to lead you  astray. And each of the abstractions I mentioned has led investors astray.  “Investment,” author John Train once wrote, “is the craft of the specific.”  It’s about why A is a better investment than B. “It’s extraordinary how much  time the public spends on the unknowable.” I’ve learned to identify and  accept the unknowable. I’ve learned to distrust grand theories. 
 
 
 ## Favorite Quotes
 * “Every human problem is an investment opportunity if you can anticipate  the solution,” the old gentleman told me. “Except for thieves, who would  buy locks?” 
 
 * Investing is, arguably, more art than science,  anyway. If investing well were all about statistics, then the best investors  would be statisticians. And that is not the case.  We’re looking for insights and wisdom, not hard laws and proofs. 
+
+* "In Africa, where there are no antelope, there are no lions" (Phelps, warning against the scam artists)
+
+* "Never invest in any idea you can't illustrate with a crayon" -- Peter Lynch
