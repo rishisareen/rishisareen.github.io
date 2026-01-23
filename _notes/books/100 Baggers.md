@@ -18,7 +18,7 @@ date: 2026-01-19
 </div>
 
 
-## Summary
+### Summary
 This book is about 100-baggers. It is study of stocks that returns $100 for every $1 invested. 
 
 This is a well structured book ; divided into two parts. In first part, Christopher gives stories and examples of companies which achieved 100 baggers. Then he goes into analysis of what is common between these companies and what we can learn from it and refine our search for 100 baggers with this approach. 
@@ -26,7 +26,7 @@ This is a well structured book ; divided into two parts. In first part, Christop
 I loved the book ; it is clearly written, full of real-world examples and logical breakdown of common themes between the 100 baggers stocks. 
 
 
-## My Notes
+### My Notes
 ### **Chapter 1 : Introducing 100-Baggers**
 
 * He introduces us to the famous book "100 to 1 in the stock market" by Thomas Phelps, where the original study of 100 baggers was done.  Some of the key notes mentioned from that book:
@@ -353,16 +353,9 @@ This last line is brilliant. World is obsessed with IT stocks, with the story of
 
 > Further, you might point to periods where stocks got bubbly. In 1998  or 1999, Coke was trading for 50 times earnings. It was a sell then. But  then again, would Coke have qualified for a buy based on our 100-bagger  principles? I don’t think so. It was a sell even by those lights. 
 
+	
 
-
-
-
-
-
-
-
-
-## Favorite Quotes
+### Favorite Quotes
 * “Every human problem is an investment opportunity if you can anticipate  the solution,” the old gentleman told me. “Except for thieves, who would  buy locks?” 
 
 * Investing is, arguably, more art than science,  anyway. If investing well were all about statistics, then the best investors  would be statisticians. And that is not the case.  We’re looking for insights and wisdom, not hard laws and proofs. 
