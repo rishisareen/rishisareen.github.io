@@ -5,7 +5,10 @@ date: 2026-01-19
 ---
 Further Reading:
 * Motilal Oswal 100x Report 
+	* Check what was the initial market size / revenue of those companies which went 100x. Check which year it was and if I need to adjust to current level for inflation. I am wondering if 100 crore is a good place to start with. 
+	* From the book 100 Baggers: "**The median sales figure of the 365 names in the study was about $170 million**. This is unadjusted for inflation. It simply shows you that 100-baggers can start off as sizable companies. Sales of $170 million makes for a substantial business in any era."
 * Motilal Oswal Annual Wealth Creation Report
+	* 
 * **The Outsiders: Eight Unconventional CEOs and Their Radically Rational Blueprint for Success** *
 * Research companies in 100 Baggers Outsiders next recommendation : Page 97 onwards
 * Michael Mauboussin, a strategist at Credit Suisse, has also done some  good work on moats. “Measuring the Moat: Assessing the Magnitude and  Sustainability of Value Creation” is a 70-page report on the issue. (You can  find it free online.) 

@@ -277,6 +277,91 @@ This last line is brilliant. World is obsessed with IT stocks, with the story of
 > People take easily, though, to big ideas: The new economy. Peak oil.  The Chinese century. The Great Moderation. All of these things are just  abstract ideas. They are predictions about how the world might look.  But they are far from concrete experience—and hence likely to lead you  astray. And each of the abstractions I mentioned has led investors astray.  “Investment,” author John Train once wrote, “is the craft of the specific.”  It’s about why A is a better investment than B. “It’s extraordinary how much  time the public spends on the unknowable.” I’ve learned to identify and  accept the unknowable. I’ve learned to distrust grand theories. 
 
 
+
+### Chapter 14: In case of next great depression
+
+* Small chapter, some good points. Particularly which sort of stocks do not make comeback from depression
+  * Stocks which were grossly overpriced to being with
+  * Stocks which suffers from permanent impairment - market changed fundamentally
+  * Stock which were massively diluted. Mostly when a company issues a bunch of new shares to raise money to cover losses or pay back debt. It is like adding water to your beer and sharing it.
+
+
+
+### Chapter 15 : 100-Baggers Distilled : Essental Principles
+
+* We reached end of the book. In this chapter, Chris summarizes the discussion so far ; putting down the "essence" of the entire book. His (and also from an investor Charles Akre) approach is simple and easy to understand. He calls it his threelegged stool. He looks for  • 
+  1. **Businesses that have historically compounded value per share  at very high rates;** 
+  2. **Highly skilled managers who have a history of treating shareholders as though they are partners; and  •** 
+  3. **Businesses that can reinvest their free cash flow in a manner  that continues to earn above-average returns.** 
+
+* Akre (who has been investing since 1968) says
+
+> “Over a period of years, our thinking has  focused more and more on the issue of reinvestment as the single most  critical ingredient in a successful investment idea, once you have already  identified an outstanding business.” 
+>
+> As an aside, you’ll note the absence of dividends. When a company  pays a dividend, it has that much less capital to reinvest. Instead, you  have it in your pocket—after paying taxes. Ideally, you want to find a  company that can reinvest those dollars at a high rate. You wind up with  a bigger pile at the end of the day and pay less in taxes. 
+
+* Another important point noted is ignoring the noise : How currency is acting, how interest rates are changing, how markets are reacting. That is why coffee can approach is proposed - find quality stock and trust that over larger time horizon, all the noise will not matter if growth is there. 
+* Some essential principles for finding 100 baggers:
+1. You have to look for them : "When looking for big game, be not tempted to shoot anything small"
+2. Growth, Growth and more Growth : This is the most repeated advice in the book. And worth repeating. 
+   *  So, you need growth—and lots of it. But not just any growth. You  want value-added growth. You want “good growth.” If a company doubles its sales, but also doubles the shares outstanding, that’s no good. You  want to focus on growth in sales and earnings per share. 
+   *  Earnings are the reported numbers, whatever they are. Earnings power,  however, reflects the ability of the stock to earn above-average rates of return on capital at above-average growth rates. It’s essentially a longer-term  assessment of competitive strengths. 
+   *  earnings may rise but the underlying earnings power may be weakening. For  example, a company might have great earnings but a high percentage  may come from one-off sources. 
+3. Lower Multiples preferred : You do not want to pay stupid prices
+   * Let’s say you pay 50 times earnings for a company that generated  $1 in earnings last year. Think what you need to happen to make it a  100-bagger. You need earnings to go up a hundredfold and you need the  price–earnings ratio to stay where it is at 50. If the price–earnings ratio  falls to 25, then you need earnings to rise 200-fold.  Don’t make investing so hard. 
+   * But on the other hand, you shouldn’t go dumpster diving if you want  to turn up 100-baggers. Great stocks have a ready fan club, and many will  spend most of their time near their 52-week highs, as you’d expect. It is  rare to get a truly great business at dirt-cheap prices.
+   * Charlie Munger said : "Over the long term, it’s hard for a stock to earn a much better  return than the business which underlies it earns. If the business  earns 6% on capital over 40 years and you hold it for that 40  years, you’re not going to make much different than a 6% return—even if you originally buy it at a huge discount. Conversely,  if a business earns 18% on capital over 20 or 30 years, even if you  pay an expensive looking price, you’ll end up with a fine result. "
+    ![image-20260123134223376](https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/01/23/image-20260123134223376%7Bextension%7D)
+
+   * At the end of 20 years, a company returning 18 percent on capital  winds up with a pile nearly eight times larger. The lesson: don’t miss out  on the chance to acquire great businesses at fair prices, and you can clearly  see why in this chart. 
+
+   * **PEG Ratio** : “One way to look at it is by using something called the PEG ratio,”  Goodman suggests. “The PEG ratio is simply the (P/E Ratio)/(Annual  EPS Growth Rate). If earnings grow 20%, for example, then a P/E of 20 is  justified. Anything too far above 1x could be too expensive.” 
+
+4. Economic Moats are a necessity
+
+> “Obviously,” Phelps concludes, “dividends are an expensive luxury for  an investor seeking maximum growth. If you must have income, don’t expect your financial doctor to match the capital gains that might have been  obtainable without dividends. When you buy a cow to milk, don’t plan to  race her against your neighbor’s horse.” 
+
+* If dividends are a drag, borrowed money is an accelerant. A company  that earns 15 percent on its capital could raise it to, say, 20 percent by  taking on some debt. But this raises the risk of the stock too. 
+
+5. Smaller companies preferred
+
+* Apple, as great as it has been and is, won’t become a 100-bagger from  current levels. The market values the stock at $750 billion. A hundredfold  return from here would take it to $75 trillion. That’s more than four times  the size of the US economy. It could be a good stock for some time yet,  but the law of large numbers starts to work against you at some point. 
+* On the other hand, you shouldn’t assume you need to dive into microcaps and buy 25-cent stocks. **The median sales figure of the 365 names in  the study was about $170 million**. This is unadjusted for inflation. It simply  shows you that 100-baggers can start off as sizable companies. Sales of  $170 million makes for a substantial business in any era. 
+
+6. Owner-Operator Preferred
+   >  I would also remind you of something you should never forget: No  one creates a stock so you can make money. Every stock is available to you  only because somebody wanted to sell it.  Thinking about that in the abstract, there seems to be no reason why  you should expect to make money in a stock. But investing with owner-operators is a good reason to think you will. Because then you become a partner.  You invest your money in the same securities the people who control the  business own. What’s good for them is good for you. And vice versa. 
+   >
+   > It’s not perfect, but it’s often better than investing with management  that aren’t owners. **It helps solve the age-old agency problem. Seek out  and prefer owner-operators.** 
+
+7. You need time : Use coffee can approach as crutch
+   * Deserves separate article. But theory is solid : do not try to time the market, but give your stocks time in the market. 
+
+8. You need a really good filter
+   >  There is a world of noise out there. The financial media is particularly  bad. Every day, something important happens, or so they would have  you believe. They narrate every twist in the market. They cover every Fed  meeting. They document the endless stream of economic data and reports.  They give a platform for an unending parade of pundits. Everybody wants  to try to call the market, or predict where interest rates will go or the price  of oil or whatever.  My own study of 100-baggers shows what a pathetic waste of time  this all is. It’s a great distraction in your hunt for 100-baggers.  To get over this, you have to first understand that stock prices move  for all kinds of reasons. Sometimes stocks make huge moves in a month,  up or down, and yet the business itself changes more slowly over time.  
+
+9. Luck Helps
+
+   * As with everything in life :)
+
+   > To be sure, given our natural human commitment to the idea that  we live in a rational world, we are inclined to think that there is  always an ultimate reason.... All of this is perfectly natural but also totally futile. The only ultimately rational attitude is to sit  loosely in the saddle of life and to come to terms with the idea of  chance as such. 
+
+10. You should be a reluctant seller. The right reasons of sell can be :
+    * You’ve made a mistake—that is, “the factual background of the  particular company is less favorable than originally believed.”  • 
+    * The stock no longer meets your investment criteria. 
+    * You want to switch into something better—although an investor  should be careful here and only switch if “very sure of his ground.” 
+    * It has gotten too expensive and you would not pick it again today if you do your study. 
+
+> Further, you might point to periods where stocks got bubbly. In 1998  or 1999, Coke was trading for 50 times earnings. It was a sell then. But  then again, would Coke have qualified for a buy based on our 100-bagger  principles? I don’t think so. It was a sell even by those lights. 
+
+
+
+
+
+
+
+
+
+
 ## Favorite Quotes
 * “Every human problem is an investment opportunity if you can anticipate  the solution,” the old gentleman told me. “Except for thieves, who would  buy locks?” 
 
@@ -285,3 +370,7 @@ This last line is brilliant. World is obsessed with IT stocks, with the story of
 * "In Africa, where there are no antelope, there are no lions" (Phelps, warning against the scam artists)
 
 * "Never invest in any idea you can't illustrate with a crayon" -- Peter Lynch
+
+* "When looking for big game, be not tempted to shoot anything small". (On focusing the energy to find stocks which will move the needle)
+
+* "When you buy a cow to milk, don’t plan to  race her against your neighbor’s horse.”  (Phelps on folly of chasing dividends while still expecting growth on capital)
