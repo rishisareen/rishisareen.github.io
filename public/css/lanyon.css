@@ -968,13 +968,14 @@ a.pagination-item:hover {
 }
 
 .notes-toc-sidebar .toc a {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   color: #666;
   text-decoration: none;
   border-bottom: none;
   display: block;
   line-height: 1.4;
   transition: color 0.15s;
+  -webkit-text-size-adjust: 100%;
 }
 
 .notes-toc-sidebar .toc a:hover {
