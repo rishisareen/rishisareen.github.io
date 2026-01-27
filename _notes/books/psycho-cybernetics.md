@@ -494,6 +494,29 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 
 
 
+### Chapter 11 : How to unlock your real personality
+
+* It starts with interesting question - "why does everyone loves a baby". He goes on to answer:
+
+> There is no superficiality, no phoniness, no hypocrisy. In his own language, which consists mostly of either crying or cooing, the baby expresses his real feelings. He “says what he means.” There is no guile. The baby is emotionally honest. He exemplifies to the nth degree the psychological dictum “Be yourself.” He has no qualms about expressing himself. He is not in the least inhibited.
+
+* Topic of "purpose tremor" is also discussed
+
+> Attempting to pour a liquid into the mouth of a very small-necked bottle often results in the same kind of behavior. You can hold your hand perfectly steady, until you try to accomplish your purpose, then for some strange reason you quiver and shake. In medical circles, we call this “purpose tremor.”
+
+* Excessive carefulness, or being too anxious not to make an error, is a form of excessive negative feedback. Dr Maltz says that we can get too conscious
+
+> When you become too consciously concerned about “what others think”; when you become too careful to consciously try to please other people; when you become too sensitive to the real or fancied disapproval of other people—then you have excessive negative feedback, inhibition, and poor performance. 
+>
+> **The way to make a good impression on other people is: Never consciously “try” to make a good impression on them. Never act, or fail to act, purely for consciously contrived effect. Never “wonder” consciously what the other person is thinking of you, how he is judging you.**
+
+* A practical tip was shared on how to be less conscious : visualize as you are interacting with your parents or your loved ones and you are just being you. 
+* Society, or more commonly childhood experiences can prevent us from self-expressing ourselves
+
+> Yet self-expression may become morally “wrong” as far as your conscience is concerned, if you were squelched, shut-up, shamed, humiliated, or perhaps punished as a child for speaking up, expressing your ideas, “showing off.” Such a child “learns” that it is “wrong” to express himself, to hold himself out as having any worthwhile ideas, or perhaps to speak at all.
+
+> If you are among the millions who suffer unhappiness and failure because of inhibition—you need to deliberately practice disinhibition. You need to practice being less careful, less concerned, less conscientious. You need to practice speaking before you think instead of thinking before you speak—acting without thinking, instead of thinking or “considering carefully” before you act.
+
 
 
 
