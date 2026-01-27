@@ -298,7 +298,7 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 
 
 
-## Chapter 8 : Ingredients of the "Success Type" Personality
+### Chapter 8 : Ingredients of the "Success Type" Personality
 
 * This chapter is mixture of points covered so far in previous chapters. Here Maltz gives his view of what a SUCCESS personality looks like. He defines it as :
 
@@ -348,7 +348,6 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
   * Emptiness 
 
 
-
 #### **Frustration:** 
 
 * Frustration is an emotional feeling that develops whenever some important goal cannot be realized or when some strong desire is thwarted. We need to understand **that our “doing” can never be as good as our intentions. We also learn to accept the fact that perfection is neither necessary nor required, and that approximations are good enough for all practical purposes. We learn to tolerate a certain amount of frustration without becoming upset about it.**
@@ -369,7 +368,7 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 
 > Dr. Konrad Lorenz, the famous Viennese doctor and animal sociologist, told psychiatrists at the Postgraduate Center for Psychotherapy (now the Postgraduate Center for Mental Health), in New York City, that the study of animal behavior for many years has shown that aggressive behavior is basic and fundamental, and that an animal cannot feel or express affection until channels have been provided for the expression of aggression. Dr. Emanuel K. Schwartz, then assistant dean of the center, said that Dr. Lorenz’s discoveries have tremendous implications for man and may require us to reevaluate our total view of human relations. They indicate, he said, that **providing a proper outlet for aggression is as important, if not more so, than providing for love and tenderness.**
 
-`In one of Osho's meditation, before we go into calm chanting, Osho makes one scream loudly to give outlet to pending steam / aggression. Only when that steam is out, one can focus on being calm.*`
+`*In one of Osho's meditation, before we go into calm chanting, Osho makes one scream loudly to give outlet to pending steam / aggression. Only when that steam is out, one can focus on being calm.*`
 
 * Often it is frustration which is finding its outlet as aggression
 
