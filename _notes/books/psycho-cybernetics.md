@@ -298,6 +298,203 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 
 
 
+## Chapter 8 : Ingredients of the "Success Type" Personality
+
+* This chapter is mixture of points covered so far in previous chapters. Here Maltz gives his view of what a SUCCESS personality looks like. He defines it as :
+
+  * Sense of direction 
+  * Understanding 
+  * Courage 
+  * Compassion 
+  * Esteem 
+  * Self-Confidence 
+  * Self-Acceptance
+
+* Sense of Direction : 
+
+> “Functionally, a man is somewhat like a bicycle,” I told him. “A bicycle maintains its poise and equilibrium only so long as it is going forward towards something. You have a good bicycle. Your trouble is you are trying to maintain your balance sitting still, with no place to go. It’s no wonder you feel shaky.”
+
+* **Understanding** : A powerful reminder that having a common understanding of point of view is not a given thing. And communication is critical
+
+> **Understanding depends on good communication**. Communication is vital to any guidance system or computer. You cannot react appropriately if the information you act on is faulty or misunderstood. **Most of our failures in human relations are due to “misunderstandings.” We expect other people to react and respond and come to the same conclusions as we do from a given set of “facts” or “circumstances.” We should remember what we said in an earlier chapter—no one reacts to “things as they are,” but to his own mental images. Most of the time the other person’s reaction or position is not taken in order to make us suffer, nor to be hardheaded, or malicious, but because he “understands” and interprets the situation differently from us.** He is merely responding appropriately to what—to him—seems to be the truth about the situation. To give the other person credit for being sincere, if mistaken, rather than willful and malicious, can do much to smooth out human relations and bring about better understanding between people. Ask yourself, “How does this appear—to him?”
+
+> **BE WILLING TO SEE THE TRUTH** : Oftentimes, we color incoming sensory data by our own fears, anxieties, or desires. But to deal effectively with environment, we must be willing to acknowledge the truth about it. Only when we understand what it is can we respond appropriately.
+
+* **Courage** : Courage to take action
+* **Compassion** 
+
+> It is a psychological fact that our feelings about ourselves tend to correspond to our feelings about other people. When a person begins to feel more compassion about others, he invariably begins to feel more compassion toward himself.
+
+* **Esteem** : Similar to self-image, having good esteem is a virtue and not a vice. 
+* Self-Confidence
+* Self-Acceptance
+* This was average chapter ; nothing wow or mind influencing revelation. Most of points here are captured in the previous chapters. 
+
+
+
+### Chapter 9 : The Failure Mechanism
+
+* In contrast to the previous chapter which focused on what are the success behavior, this chapter takes on what are the common cause of failures and how you can recogize and avoid them.
+
+> Steam boilers have pressure gauges that show when the pressure is reaching the danger point. By recognizing the potential danger, corrective action can be taken—and safety assured.
+
+* As with the previous chapter, Dr Maltz here structure the signals of "Failure Mechanism" as
+  * Frustration, hopelessness, futility 
+  * Aggressiveness (misdirected) 
+  * Insecurity
+  * Loneliness (lack of “oneness”) 
+  * Uncertainty 
+  * Resentment 
+  * Emptiness 
+
+
+
+#### **Frustration:** 
+
+* Frustration is an emotional feeling that develops whenever some important goal cannot be realized or when some strong desire is thwarted. We need to understand **that our “doing” can never be as good as our intentions. We also learn to accept the fact that perfection is neither necessary nor required, and that approximations are good enough for all practical purposes. We learn to tolerate a certain amount of frustration without becoming upset about it.**
+
+> Chronic frustration usually means that the goals we have set for ourselves are unrealistic, or the image we have of ourselves is inadequate, or both.
+
+* Frustration as a way of solving problem does not work. I loved this paragraph
+
+> Expressing frustration, discontent, or dissatisfaction is a way of responding to problems that we all “learned” as infants. If an infant is hungry he expresses discontent by crying. A warm, tender hand then appears magically out of nowhere and brings milk. If he is uncomfortable, he again expresses his dissatisfaction with the status quo, and the same warm hands appear magically again and solve his problem by making him comfortable. **Many children continue to get their way, and have their problems solved by overindulgent parents, by merely expressing their feelings of frustration. All they have to do is feel frustrated and dissatisfied and the problem is solved. This way of life “works” for the infant and for some small children. It does not work in adult life. Yet many of us continue to try it, by feeling discontented and expressing our grievances against life, apparently in the hope that life itself will take pity—rush in and solve our problem for us—if only we feel badly enough.**
+
+
+
+#### Aggressiveness
+
+* Aggression is fundamental to humans (or all animals)
+
+> Aggressiveness itself is not an abnormal behavior pattern as some psychiatrists once believed. Aggressiveness—along with emotional steam—is very necessary in reaching a goal. We must go out after what we want in an aggressive rather than in a defensive or tentative manner. We must grapple with problems aggressively. The mere fact of having an important goal is enough to create emotional steam in our boiler and bring aggressive tendencies into play. 
+
+> Dr. Konrad Lorenz, the famous Viennese doctor and animal sociologist, told psychiatrists at the Postgraduate Center for Psychotherapy (now the Postgraduate Center for Mental Health), in New York City, that the study of animal behavior for many years has shown that aggressive behavior is basic and fundamental, and that an animal cannot feel or express affection until channels have been provided for the expression of aggression. Dr. Emanuel K. Schwartz, then assistant dean of the center, said that Dr. Lorenz’s discoveries have tremendous implications for man and may require us to reevaluate our total view of human relations. They indicate, he said, that **providing a proper outlet for aggression is as important, if not more so, than providing for love and tenderness.**
+
+`In one of Osho's meditation, before we go into calm chanting, Osho makes one scream loudly to give outlet to pending steam / aggression. Only when that steam is out, one can focus on being calm.*`
+
+* Often it is frustration which is finding its outlet as aggression
+
+> However, trouble ensues when we are blocked or frustrated in achieving our goal. The failure-type personality does not direct his aggressiveness toward the accomplishment of a worthwhile goal. Instead it is used in such self-destructive channels as ulcers, high blood pressure, worry, excessive smoking, and compulsive overwork; or it may be turned on other persons in the form of irritability, rudeness, gossip, nagging, fault-finding.
+
+
+
+#### Insecurity 
+
+* It should be obvious but insecurity is largely tied to self image
+
+> The feeling of insecurity is based on a concept or belief of inner inadequacy. If you feel that you do not “measure up” to what is required, you feel insecure. A great deal of insecurity is not due to the fact that our inner resources are actually inadequate, but due to the fact that we use a false measuring stick. We compare our actual abilities to an imagined “ideal,” perfect, or absolute self. Thinking of yourself in terms of absolutes induces insecurity.
+
+
+
+#### Loneliness 
+
+>  Loneliness All of us are lonely at times. Again, it is a natural penalty we pay for being human and individual. But it is the extreme and chronic feeling of loneliness—of being cut off and alienated from other people—that is a symptom of the failure mechanism.
+
+> Loneliness is a way of self-protection. Lines of communication with other people—and especially any emotional ties—are cut down. It is a way to protect our idealized self against exposure, hurt, humiliation. The lonely personality is afraid of other people. Develop some social skill that will add to the happiness of other people: dancing, bridge, playing the piano, tennis, conversation.
+
+
+
+#### Uncertainty
+
+* Slightly linked to insecurity, as uncertainty can also be a way to make decision
+
+> Uncertainty is a way of avoiding mistakes, and responsibility. It is based on the fallacious premise that if no decision is made, nothing can go wrong. Being “wrong” holds untold horrors to the person who tries to conceive of himself as perfect. He is never wrong, and always perfect in all things. If he were ever wrong, his picture of a perfect, all-powerful self would crumble. Therefore, decision-making becomes a life-or-death matter.
+
+* Though the nature of learning is by making mistakes and correcting. So action despite being uncertain is where progress is made
+
+> It is in the nature of things that we progress by acting, making mistakes, and correcting course. A guided torpedo literally arrives at its target by making a series of mistakes and continually correcting its course. You cannot correct your course if you are standing still.
+>
+> Use self-esteem for yourself, instead of against yourself, by convincing yourself of this truth: Big men and big personalities make mistakes and admit them. It is the little man who is afraid to admit he has been wrong. 
+
+
+
+#### Resentment
+
+* This was one of my favorite Failure mechanism. Lot of people hold on to resentment. That aspect is deconstructed here
+
+> Resentment is also a “way,” or an attempt, to wipe out or eradicate a real or fancied wrong or injustice that has already happened. The resentful person is trying to “prove his case” before the court of life, so to speak. If he can feel resentful enough, and thereby “prove” the injustice, some magic process will reward him by making “not so” the event or circumstance that caused the resentment. In this sense resentment is a mental resistance to, a non-acceptance of, something which has already happened. The word itself comes from two Latin words: re meaning “back,” and sentire meaning “to feel.” Resentment is an emotional rehashing, or refighting, of some event in the past. You cannot win, because you are attempting to do the impossible—change the past.
+
+> Habitually feeling that you are a victim of injustice, you begin to picture yourself in the role of a victimized person. You carry around an inner feeling that is looking for an external peg to hang itself on. It is then easy to see so called evidence of injustice, or fancy you have been wronged, in the most innocent remark or neutral circumstance.
+
+* Being resentful means you are letting someone else decide your emotions. Brilliant!
+
+> The resentful person turns over his reins to other people. They are allowed to dictate how he shall feel, how he shall act. He is wholly dependent on other people, just as a beggar is.
+
+> If you feel that other people “owe” you eternal gratitude, undying appreciation, or continual recognition of your superlative worth, you will feel resentment when these “debts” are not paid. If life owes you a living, you become resentful when it isn’t forthcoming. Resentment is therefore inconsistent with creative goal-striving. In creative goal-striving you are the actor, not the passive recipient. You set your goals. No one owes you anything. You go out after your own goals. You become responsible for your own success and happiness. Resentment doesn’t fit into this picture, and because it doesn’t it is a Failure Mechanism.
+
+
+
+#### Emptiness
+
+* So many bad decisions are made when people are scared of being alone. Emptiness and an inadequate self-image go together. 
+
+> A person who has the capacity to enjoy still alive within him finds enjoyment in many ordinary and simple things in life. He also enjoys whatever success in a material way he has achieved. The person in whom the capacity to enjoy is dead can find enjoyment in nothing. No goal is worth working for.
+
+> **Emptiness is a symptom that you are not living creatively. You either have no goal that is important enough to you, or you are not using your talents and efforts in striving toward an important goal.**
+
+* This is insighful. Striving towards goal gives a meaning, it is not escaping from anything. But rather choosing what you want to pursue. 
+
+* The chapter is closed with a brilliant example of how to **Glance at Negatives, but focus on Positives**
+
+> Automobiles come equipped with negative indicators placed directly in front of the driver, to tell you when the battery is not charging, when the engine is becoming too hot, when the oil pressure is becoming too low, etc. **To ignore these negatives might ruin your car. However, there is no need to become unduly upset if some negative signal flashes. You merely stop at a service station or a garage, and take positive action to correct. A negative signal does not mean the car is no good. All cars overheat at times. However, the driver of the automobile does not look at the control panel exclusively and continuously.** To do so might be disastrous. He must focus his gaze through the windshield, look where he is going, and keep his primary attention on his goal—where he wants to go. He merely glances at the negative indicators from time to time. When he does, he does not fix upon them or dwell upon them. He quickly focuses his sight ahead of him again and concentrates on the positive goal of where he wants to go.
+
+
+
+### Chapter 10 : How to remove emotional scars
+
+* An important chapter. Dr Maltz talks about like physical injury leave scars as way of healing marks, same happens with emotions. But it can alienate you from the life. 
+
+> We form emotional or spiritual “scars” for self-protection. We are very apt to become hardened of heart, callous toward the world, and to withdraw within a protective shell. This scar tissue, however, not only “protects” them from the individual who originally hurt them—it “protects” them against all other human beings. An emotional wall is built through which neither friend nor foe can pass.
+
+* He gives three rules to immunize against emotional hurts
+
+1. Be too big to feel threatened 
+
+> It is a well-known psychological fact that the people who become offended the easiest have the lowest self-esteem. We are “hurt” by those things we conceive of as threats to our ego or self-esteem.
+>
+> Healthy self-images do not bruise easily. When a person has adequate self-esteem, little slights offer no threat at all—they are simply “passed over” and ignored.
+
+2. Self-Reliant, Responsible attitude makes you less vulnerable 
+
+> The person who has little or no self-reliance, who feels emotionally dependent on others, makes himself most vulnerable to emotional hurts. Every human being wants and needs love and affection. But the creative, self-reliant person also feels a need to give love. His emphasis is as much (or more) on the giving as on the getting. He doesn’t expect love to be handed to him on a silver platter. **Nor does he have a compulsive need that “everybody” must love him and approve of him. He has sufficient ego-security to tolerate the fact that a certain number of people will dislike him and disapprove**. He feels some sense of responsibility for his life and conceives of **himself primarily as one who acts, determines, gives, goes after what he wants, rather than as a person who is the passive recipient of all the good things in life**. The passive-dependent person turns his entire destiny over to other people, circumstances, luck. Life owes him a living and other people owe him consideration, appreciation, love, happiness. He makes unreasonable demands and claims on other people and feels cheated, wronged, hurt, when they aren’t fulfilled. Because life just isn’t built that way, he is seeking the impossible and leaving himself “wide open” to emotional hurts and injuries. Someone has said that the neurotic personality is forever “bumping into” reality.
+
+3. Relax away emotional hurt
+
+* This was interesting and a different perspective. Dr Maltz ties down this to another aspect of what happens to us is mostly our response to the event
+
+> If there is no tension present, there is no disfiguring emotional scar left. Have you ever noticed how easy it is to “get your feelings hurt,” or “take offense,” when you are suffering tensions brought about by frustration, fear, anger, or depression?
+
+> When we “feel hurt” or “feel offended,” the feeling is entirely a matter of our own response. **In fact the feeling is our response.**
+
+> **Scientific experiments have shown that it is absolutely impossible to feel fear, anger, anxiety, or negative emotions of any kind while the muscles of the body are kept perfectly relaxed. We have to “do something” to feel fear, anger, anxiety**. “No man is hurt but by himself,” said Diogenes. “Nothing can work me damage except myself,” said St. Bernard. “The harm that I sustain I carry about with me, and am never a real sufferer but by my own fault.”
+
+#### Forgiveness 
+
+* From the discussion on how to immunize, now the discussion turns to how to heal from the emotional scars of the past. Forgiveness is a scalpel that removes emotional scars. This section digs deeper into it - first by suggesting we forgive completely and then next level is understanding there was nothing to forgive
+
+> Forgiveness Is a Scalpel That Removes Emotional Scars “‘I can forgive, but I cannot forget,’ is only another way of saying ‘I will not forgive,’” said Henry Ward Beecher. “Forgiveness ought to be like a cancelled note—torn in two, and burned up, so that it never can be shown against one.” Your forgiveness should be forgotten, as well as the wrong which was forgiven. Forgiveness that is remembered, and dwelt upon, reinfects the wound you are attempting to cauterize. If you are too proud of your forgiveness, or remember it too much, you are very apt to feel that the other person owes you something for forgiving him. You forgive him one debt, but in doing so, he incurs another, much like the operators of small loan companies who cancel one note and make out a new one every two weeks.
+
+> Another fallacy is that forgiveness places us in a superior position, or is a method of winning out over our enemy.
+
+* On how to forgive
+
+> Therapeutic forgiveness is not difficult. The only difficulty is to secure your own willingness to give up and do without your sense of condemnation—your willingness to cancel out the debt, with no mental reservations. We find it difficult to forgive only because we like our sense of condemnation. We get a perverse and morbid enjoyment out of nursing our wounds. As long as we can condemn another, we can feel superior to him.
+
+> Your reasons for forgiveness are important. **True forgiveness comes only when we are able to see, and emotionally accept, that there is and was nothing for us to forgive**. We should not have condemned or hated the other person in the first place.
+
+> What you and I must see after the fact in practicing therapeutic forgiveness: that we ourselves err when we hate a person because of his mistakes, or when we condemn him, or classify him as a certain type of person, confusing his person with his behavior; or when we mentally incur a debt that the other person must “pay” before being restored to our good graces, and our emotional acceptance.
+
+* Forgive yourself as well as others
+
+> Forgive Yourself as Well as Others Not only do we incur emotional wounds from others, most of us inflict them on ourselves. We beat ourselves over the head with self-condemnation, remorse, and regret. We beat ourselves down with self-doubt. We cut ourselves up with excessive guilt. **Remorse and regret are attempts to emotionally live in the past. Excessive guilt is an attempt to make right in the past something we did wrong or thought of as wrong in the past.**
+
+> We need to recognize our own errors as mistakes. Otherwise we could not correct course. “Steering” or “guidance” would be impossible. But it is futile and fatal to hate or condemn ourselves for our mistakes.
+>
+> **You Make Mistakes. Mistakes Do Not Make “You”**
+>
+> One of the biggest mistakes we can make is to confuse our behavior with our “self” … to conclude that because we did a certain act it characterizes us as a certain sort of person. It clarifies thinking if we can see that mistakes involve something we do—they refer to actions, and to be realistic we should use verbs denoting action, rather than nouns denoting a state of being, in describing them. For example, to say “I failed” (verb form) is but to recognize an error and can help lead to future success.
+
+
+
 
 
 
@@ -307,4 +504,12 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 > The very word “disease” means a state of unhappiness—“dis-ease.”
 
 > “Men are disturbed not by the things that happen, but by their opinion of the things that happen.”
+>
+> "The greatest mistake a man can make is to be afraid of making one." —Elbert Hubbard
+>
+> No man ever became great or good except through many and great mistakes. —William E. Gladstone 
+>
+> We learn wisdom from failure much more than from success; we often discover what will do, by finding out what will not do; and probably he who never made a mistake never made a discovery. —Samuel Smiles
+>
+> 
 
