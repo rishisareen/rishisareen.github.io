@@ -353,7 +353,7 @@ This last line is brilliant. World is obsessed with IT stocks, with the story of
 
 > Further, you might point to periods where stocks got bubbly. In 1998  or 1999, Coke was trading for 50 times earnings. It was a sell then. But  then again, would Coke have qualified for a buy based on our 100-bagger  principles? I don’t think so. It was a sell even by those lights. 
 
-	
+​	
 
 ### Favorite Quotes
 * “Every human problem is an investment opportunity if you can anticipate  the solution,” the old gentleman told me. “Except for thieves, who would  buy locks?” 
