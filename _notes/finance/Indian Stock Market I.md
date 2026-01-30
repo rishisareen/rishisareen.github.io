@@ -3,13 +3,15 @@ layout: notes
 title: "Understanding Indian Stock Market"
 date: 2026-01-19
 ---
-To understand Indian Stock Market, first step is understand its composition and its top players and how it has evolved so far. These are my notes for same study. 
+My notes to understand Indian Stock Market from high level and then go to macroscopic view.
+
+First step is to understand where is this market, where all stocks are available to buy and sell. 
 
 
 
-## 1. What are BSE and NSE 
+## 1. Indian Stock Exchanges : BSE and NSE 
 
-Before we go into the Indian listed companies, let's first unpack what are the exchange. Simply put, Stock Exchanges are where we can buy and sell our shares. 
+What are Stock Exchanges? Simply, they are platform / infrastructure where we can buy and sell our shares. 
 
 In India, we've two biggest exchanges : **BSE** and **NSE**
 
