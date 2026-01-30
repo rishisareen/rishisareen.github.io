@@ -153,10 +153,15 @@
       const sidebar = document.getElementById('notes-sidebar');
 
       if (toggle && sidebar) {
-        toggle.addEventListener('click', function() {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          console.log('Toggle clicked');
           sidebar.classList.toggle('show');
           toggle.classList.toggle('active');
+          console.log('Sidebar classes:', sidebar.className);
         });
+      } else {
+        console.log('Toggle or sidebar not found', toggle, sidebar);
       }
     })();
     </script>

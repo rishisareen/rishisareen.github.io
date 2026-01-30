@@ -1025,11 +1025,13 @@ a.pagination-item:hover {
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  z-index: 100;
+  z-index: 1000;
   transition: background 0.2s;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.mobile-sidebar-toggle:hover {
+.mobile-sidebar-toggle:hover,
+.mobile-sidebar-toggle:active {
   background: #333;
 }
 
@@ -1052,7 +1054,7 @@ a.pagination-item:hover {
   }
 
   .notes-sidebar {
-    display: none;
+    display: none !important;
     width: 100%;
     height: auto;
     position: relative;
@@ -1064,7 +1066,7 @@ a.pagination-item:hover {
   }
 
   .notes-sidebar.show {
-    display: block;
+    display: block !important;
   }
 
   .notes-content {
