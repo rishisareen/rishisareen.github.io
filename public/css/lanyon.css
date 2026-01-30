@@ -1016,6 +1016,7 @@ a.pagination-item:hover {
   }
 
   .notes-sidebar {
+    display: none;
     width: 100%;
     height: auto;
     position: relative;
