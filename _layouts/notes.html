@@ -17,8 +17,12 @@
       </div>
     </header>
 
+    <button class="mobile-sidebar-toggle" id="mobile-sidebar-toggle">
+      <span>☰</span> Notes
+    </button>
+
     <div class="notes-layout">
-      <aside class="notes-sidebar">
+      <aside class="notes-sidebar" id="notes-sidebar">
         <nav class="notes-nav">
           {% assign folders = "" | split: "" %}
           {% assign root_notes = "" | split: "" %}
@@ -141,6 +145,19 @@
 
       window.addEventListener('scroll', highlightCurrentSection);
       highlightCurrentSection();
+    })();
+
+    // Mobile sidebar toggle
+    (function() {
+      const toggle = document.getElementById('mobile-sidebar-toggle');
+      const sidebar = document.getElementById('notes-sidebar');
+
+      if (toggle && sidebar) {
+        toggle.addEventListener('click', function() {
+          sidebar.classList.toggle('show');
+          toggle.classList.toggle('active');
+        });
+      }
     })();
     </script>
 
