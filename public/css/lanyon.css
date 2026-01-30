@@ -915,7 +915,7 @@ a.pagination-item:hover {
 
 .note-body {
   line-height: 1.7;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   color: #333;
 }
