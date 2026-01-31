@@ -3,9 +3,11 @@ layout: notes
 title: "Part 2 : The Players"
 date: 2026-01-22
 ---
-## *The IPL Auction: Sizing Up India’s 5,000 Stocks*
+# *The IPL Auction: Sizing Up India’s 5,000 Stocks*
 
-In Part 1, we looked at the scoreboard (the Sensex and Nifty 50). But to understand how the game is actually played, we have to look at the players. There are more than **2,000 listed companies** in India, but they are not created equal. Some are global giants, while others are tiny, risky startups.
+In Part 1, we looked at the scoreboard (the Sensex and Nifty 50). But to understand how the game is actually played, we have to look at the players. 
+
+There are more than **5,000 listed companies** in India, but they are not created equal. Some are global giants, while others are tiny, risky startups.
 
 To understand how these stocks behave and why their returns differ, we must classify them by their "price tag". In finance, we call this **Market Capitalization**.
 
@@ -36,23 +38,18 @@ As of Jan 2026 :
 | **Mid Cap**      | 101 – 250 | **₹34,700 Cr**              | **₹60,000 Cr**           | **₹90 Lakh Cr**    |
 | **Small Cap**    | 251 – 500 | **₹11,000 Cr**              | **₹18,000 Cr**           | **₹45 Lakh Cr**    |
 | **Micro Cap**    | 501 – 750 | **Under ₹11,000 Cr**        | **₹7,500 Cr**            | **₹11 Lakh Cr**    |
-	
+
 ### **Simple Ways to Think About These Buckets**
 
 - Only the **Mega Caps** average above ₹1 Lakh Crore. These are the names everyone knows. You will find HDFC, TCS, LIC, Reliance here.
 - A **Mid Cap** is roughly **3 times** a Small Cap but only **one fourth** of a Mega Cap.
 - **The Micro Cap Floor:** 
-
   - 501-750 Rank : This is what is typically watched by Mutual Funds / Institutions for investment.
   - 750 - 1000 Rank : These companies typically average between **₹1,000 Crore and ₹2,500 Crore**.
-
 - Beyond Rank 1000, many are effectively **penny stocks**. We ignore them for serious study. Here the data gets noisy : liquidity becomes an issue, financial filings and price manipulation are strongly possible here. 
 
-  
 
-
-
-## Why these classification exists?
+## 3. Why these classification exists?
 
 When I asked ChatGPT this question, this was the response :
 
@@ -117,9 +114,6 @@ This is where you find "hidden gems" like **Titagarh Rail** or **Gensol Engineer
 -  Investing here is like picking a player based on a tip from a local coach. 
 
 
-
-------
-
 ## 4. Summary : The Trade Off
 
 As you move down the ladder from Mega to Micro:
@@ -137,8 +131,6 @@ As you move down the ladder from Mega to Micro:
 | **Information**            | Abundant         | Available   | Scarce              |
 | **Volatility**             | Low              | Medium      | High                |
 
+## 5. Next Steps
 
-
-## Next Steps
-
-Now that you know how to pick your "team" based on size, we need to look at the historical performance. In the final article, we compare how these different tiers and other assets like Gold have performed over the last 20 years to see where the real wealth was made.
+Now that you know how to pick your "team" based on size, we need to look at the historical performance. In the next article, we compare how these different tiers and other assets like Gold have performed over the last 20 years to see where the real wealth was made.
