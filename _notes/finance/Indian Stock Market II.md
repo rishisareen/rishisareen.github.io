@@ -22,8 +22,7 @@ Market Cap is the **total value of a company as decided by the stock market.**
 If you want to buy the entire company from the market today by purchasing every share, this is what you would pay.
 
 **Formula** : 
-
-* Market Cap = Current Share Price × Total Number of Shares
+   `Market Cap = Current Share Price × Total Number of Shares`
 
 As of Jan 2026, India market is approx **450 lakh crore** by Market Cap. Remember this number ; we will refer this again. 
 
