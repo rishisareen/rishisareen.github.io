@@ -5,7 +5,7 @@ date: 2026-01-22
 ---
 # *The IPL Auction: Sizing Up India’s 5,000 Stocks*
 
-In Part 1, we looked at the scoreboard (the Sensex and Nifty 50). But to understand how the game is actually played, we have to look at the players. 
+In [Part 1](/notes/finance/indian-stock-market-1), we looked at the scoreboard (the Sensex and Nifty 50). But to understand how the game is actually played, we have to look at the players. 
 
 There are more than **5,000 listed companies** in India, but they are not created equal. Some are global giants, while others are tiny, risky startups.
 
@@ -133,4 +133,4 @@ As you move down the ladder from Mega to Micro:
 
 ## 5. Next Steps
 
-Now that you know how to pick your "team" based on size, we need to look at the historical performance. In the next article, we compare how these different tiers and other assets like Gold have performed over the last 20 years to see where the real wealth was made.
+Now that you know how to pick your "team" based on size, we need to look at the historical performance. In the [next article](/notes/finance/indian-stock-market-3), we compare how these different tiers and other assets like Gold have performed over the last 20 years to see where the real wealth was made.

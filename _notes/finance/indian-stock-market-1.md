@@ -86,5 +86,5 @@ We recently saw this play out with the 2025-2026 rebalancing.
 
 ## 5. Next Steps
 
-Now that we know *where* the market is, we need to understand *what* is inside it. In the [next article](./Indian Stock Market II.md), we will use an **IPL Auction** analogy to classify these 5,000+ companies by their "price tags" (Market Cap).
+Now that we know *where* the market is, we need to understand *what* is inside it. In the [next article](/notes/finance/indian-stock-market-2), we will use an **IPL Auction** analogy to classify these 5,000+ companies by their "price tags" (Market Cap).
 

@@ -85,7 +85,7 @@ Based on these 20 years of history, how should you view your portfolio?
 
 The data doesn't lie: the last 20 years have turned modest savings into life-changing wealth. But in investing, **the rearview mirror is always clearer than the windshield.**
 
-In our final part, we move beyond the history books and look at the **$16 Trillion Leap**. We’ll see why the 'Indian Dream' is no longer a political slogan : it’s a mathematical inevitability.
+In our [final part](/notes/finance/indian-stock-market-4), we move beyond the history books and look at the **$16 Trillion Leap**. We’ll see why the 'Indian Dream' is no longer a political slogan : it’s a mathematical inevitability.
 
 
 

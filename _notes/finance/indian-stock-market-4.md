@@ -6,7 +6,7 @@ date: 2026-01-31
 
 # *The $16 Trillion Leap: Why the Next 17 Years Will Change Everything*
 
-In our last part, we looked at the past. But investing is about the future. 
+In our [last part](/notes/finance/indian-stock-market-3), we looked at the past. But investing is about the future. 
 
 If you feel like you’ve "missed the bus" during covid high growth, the latest data from the [**Motilal Oswal 30th Wealth Creation Study**](https://www.motilaloswal.com/content/dam/mofsl-website-adobe/investor-relations/wealth-creation/wc30.pdf) shows that the bus hasn't even left the station : **India story is just getting started.** 
 
