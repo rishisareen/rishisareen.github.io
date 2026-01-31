@@ -17,11 +17,13 @@ That size is called **Market Capitalization**.
 
 ## What is Market Cap?
 
-It is total value of company as per stock market. 
+Market Cap is the **total value of a company as decided by the stock market.**
 
 If you want to buy the entire company from the market today by purchasing every share, this is what you would pay.
 
-Formula : Market Cap = Current Share Price × Total Number of Shares
+**Formula** : 
+
+* Market Cap = Current Share Price × Total Number of Shares
 
 As of Jan 2026, India market is approx **450 lakh crore** by Market Cap. Remember this number ; we will refer this again. 
 
@@ -29,8 +31,9 @@ As of Jan 2026, India market is approx **450 lakh crore** by Market Cap. Remembe
 
 ## How India Classifies Companies by Market Cap
 
-* In India, market capitalization categories are defined by the **Association of Mutual Funds in India (AMFI)** and updated every six months
-* As of Jan 2026,  this is how segments are defined
+In India, market capitalization categories are defined by the **Association of Mutual Funds in India (AMFI)** and updated every six months
+
+As of Jan 2026 :
 
 | **Category**     | **Rank**  | **The "Gate" (Min. M-Cap)** | **Typical Company Size** | Total Segment Size |
 | ---------------- | --------- | --------------------------- | ------------------------ | ------------------ |
@@ -48,13 +51,13 @@ As of Jan 2026, India market is approx **450 lakh crore** by Market Cap. Remembe
   - 501-750 Rank : This is what is typically watched by Mutual Funds / Institutions for investment.
   - 750 - 1000 Rank : These companies typically average between **₹1,000 Crore and ₹2,500 Crore**.
 
-- Beyond rank 1000, many are effectively **penny stocks**. We ignore them for serious study. Here the data gets noisy : liquidity becomes an issue, financial filings and price manipulation are strongly possible here. 
+- Beyond Rank 1000, many are effectively **penny stocks**. We ignore them for serious study. Here the data gets noisy : liquidity becomes an issue, financial filings and price manipulation are strongly possible here. 
 
   
 
 
 
-## What these classification exists
+## Why these classification exists
 
 When I asked ChatGPT on this, this is what it told me :
 
