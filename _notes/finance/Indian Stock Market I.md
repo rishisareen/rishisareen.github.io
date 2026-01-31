@@ -1,6 +1,6 @@
 ---
 layout: notes
-title: "Understanding Indian Stock Market"
+title: "Indian Stock Market - Introduction"
 date: 2026-01-19
 ---
 My notes to understand Indian Stock Market from high level and then go to macroscopic view.

@@ -1,6 +1,6 @@
 ---
 layout: notes
-title: "Understanding Indian Stocks by Size: From Giants to Hidden Gems"
+title: "Indian Stock Market - Market Cap"
 date: 2026-01-19
 ---
 In the previous note, we saw what the stock market is and who the big players are.
