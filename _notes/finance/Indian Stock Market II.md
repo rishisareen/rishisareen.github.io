@@ -1,6 +1,6 @@
 ---
 layout: notes
-title: "Indian Stock Market : Mega, Medium"
+title: "Understanding Indian Stocks by Size: From Giants to Hidden Gems"
 date: 2026-01-19
 ---
 In the previous note, we saw what the stock market is and who the big players are.
@@ -57,15 +57,15 @@ As of Jan 2026 :
 
 
 
-## Why these classification exists
+## Why these classification exists?
 
-When I asked ChatGPT on this, this is what it told me :
+When I asked ChatGPT this question, this was the response :
 
-*Markets are categorized into these tiers primarily to help investors and fund managers manage **risk, liquidity, and expectations**.* 
+> Markets are categorized into these tiers primarily to help investors and fund managers manage **risk, liquidity, and expectations**.
 
 Oh man, this sounds so technical and boring! As Steve Jobs [would say](https://youtu.be/MnrJzXM7a6o?t=395): "Yuck!"
 
-Let's explore it differently. We are talking about Indian markets. What do we indian love more than money? Cricket! 
+Let's understand it differently. We are talking about Indian markets. What do we indian love more than money? Cricket! 
 
 So, think of this as **IPL Mega option**. 
 
@@ -75,11 +75,12 @@ So, think of this as **IPL Mega option**.
 
 ### **1. Mega Cap (The Top Players)**
 
-These are companies that have been around for decades. They are stable. They move slowly. They rarely surprise.
+
 
 ![image-20260131132255176](https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/01/31/image-20260131132255176%7Bextension%7D)
 
-- 
+These are companies that have been around for decades. They are stable. They move slowly. They rarely surprise.
+
 - **Reliance Industries** is present in energy, retail, telecom.
 - **HDFC Bank** is steady and reliable in banking.
 - **Tata Consultancy Services** is a global IT leader.
@@ -144,8 +145,6 @@ These are the "Hidden Gems" often ignored by big institutional "coaches."
 - **Gensol Engineering :** Raw, niche talent in solar and EVs. They have incredible speed and potential, but they are still in the early stages of their career.
 - **Senco Gold :** A solid performer in the local Eastern India leagues, now showing the consistency needed to be picked up by the big franchises.
 
-- **The Reality:** Very few people are watching them (low liquidity). They have the smallest "Market Cap." Investing here is like picking a player based on a tip from a local coach. It’s high risk, but this is where the **"Hidden Gems"**live.
-
 **Traits**
 
 - Very high risk
@@ -153,7 +152,7 @@ These are the "Hidden Gems" often ignored by big institutional "coaches."
 - Poor information quality
 - Price manipulation possible
 
-This is where “hidden gems” exist and also where many investors lose money.
+This is where “hidden gems” exist and also where many investors lose money. Very few people are watching them (low liquidity). They have the smallest "Market Cap." Investing here is like picking a player based on a tip from a local coach. It’s high risk, but this is where the **"Hidden Gems"** live.
 
 
 
