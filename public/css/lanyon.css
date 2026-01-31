@@ -1008,7 +1008,7 @@ a.pagination-item:hover {
   display: flex;
   align-items: center;
   position: fixed;
-  top: 1rem;
+  top: 6.5rem;
   left: 1rem;
   background: #fff;
   color: #505050;
@@ -1019,7 +1019,7 @@ a.pagination-item:hover {
   font-weight: 400;
   cursor: pointer;
   z-index: 1000;
-  transition: background 0.2s, color 0.2s;
+  transition: left 0.3s ease-in-out, background 0.2s, color 0.2s;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -1032,6 +1032,7 @@ a.pagination-item:hover {
 .mobile-sidebar-toggle.active {
   background: #555;
   color: #fff;
+  left: calc(280px + 1rem);
 }
 
 .mobile-sidebar-toggle span {
