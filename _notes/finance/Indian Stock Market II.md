@@ -1,9 +1,11 @@
 ---
 layout: notes
-title: "Indian Stock Market - Market Cap"
-date: 2026-01-19
+title: "Part 2 : The Players"
+date: 2026-01-22
 ---
-In Article 1, we looked at the scoreboard (the Sensex and Nifty 50). But to understand how the game is actually played, we have to look at the players. There are more than **2,000 listed companies** in India, but they are not created equal. Some are global giants, while others are tiny, risky startups.
+## *The IPL Auction: Sizing Up India’s 5,000 Stocks*
+
+In Part 1, we looked at the scoreboard (the Sensex and Nifty 50). But to understand how the game is actually played, we have to look at the players. There are more than **2,000 listed companies** in India, but they are not created equal. Some are global giants, while others are tiny, risky startups.
 
 To understand how these stocks behave and why their returns differ, we must classify them by their "price tag". In finance, we call this **Market Capitalization**.
 
@@ -34,7 +36,7 @@ As of Jan 2026 :
 | **Mid Cap**      | 101 – 250 | **₹34,700 Cr**              | **₹60,000 Cr**           | **₹90 Lakh Cr**    |
 | **Small Cap**    | 251 – 500 | **₹11,000 Cr**              | **₹18,000 Cr**           | **₹45 Lakh Cr**    |
 | **Micro Cap**    | 501 – 750 | **Under ₹11,000 Cr**        | **₹7,500 Cr**            | **₹11 Lakh Cr**    |
-
+	
 ### **Simple Ways to Think About These Buckets**
 
 - Only the **Mega Caps** average above ₹1 Lakh Crore. These are the names everyone knows. You will find HDFC, TCS, LIC, Reliance here.

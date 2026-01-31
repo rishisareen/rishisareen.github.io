@@ -1,13 +1,9 @@
 ---
 layout: notes
-title: "Indian Stock Market - Introduction"
+title: "Part 1 : The Infrastructure"
 date: 2026-01-19
 ---
-# Indian Stock Market : The Gateway to the Indian Economy
-
-
-
-## The 450 Lakh Crore Opportunity
+# *The Stadium: Where India Trades ₹450 Lakh Crore*
 
 Before we start understanding anything about the stock market, we must look at the "Big Picture".
 
@@ -42,6 +38,19 @@ Most major companies, like Reliance or TCS, are **dual-listed** on both. This me
 
 
 
+### **1.1 How You Access the Exchange: The Gatekeepers (Brokers)**
+
+While the BSE and NSE provide the infrastructure, you cannot buy shares directly from them. You need a **Stockbroker** to act as an intermediary.
+
+In the last decade, India has seen a "Digital Revolution" in how people trade, led by two main types of platforms:
+
+- **Discount Brokers (The Tech Disruptors):** Platforms like **Zerodha** and **Groww** have democratized the market by offering low-cost, app-based trading. They are designed for the modern investor who prefers a "DIY" (Do-It-Yourself) approach with clean interfaces and zero or minimal brokerage fees for long-term investments.
+- **Full-Service Brokers (Traditional Banks):** These are often linked to your bank accounts, such as ICICI Direct, HDFC Securities, or Kotak Securities. They provide additional services like research reports and personal relationship managers, but usually charge higher fees.
+
+**The "Demat" Link:** To trade on these platforms, you need a **Demat Account** (to hold your shares in digital form) and a **Trading Account** (to buy and sell). Today, apps like Groww and Zerodha allow you to open both in minutes using just your Aadhaar and PAN card.
+
+
+
 ## 2. The Rules of the game
 
 * **Regulation:** Both operates under the strict regulation of the **Securities and Exchange Board of India (SEBI).**
@@ -49,8 +58,6 @@ Most major companies, like Reliance or TCS, are **dual-listed** on both. This me
 * **Offerings:** It facilitates trading in equities, derivatives (futures and options), debt instruments, mutual funds, and currencies.
 
 * **Trading Hours:** The equity market operates from 9:15 AM to 3:30 PM IST, Monday to Friday
-
-* BSE as a business is listed on NSE  (it cant list on its own exchange due to regulations), NSE is not yet listed. Infact, BSE was fastest growing stock in 2020-25 period (124% growth)
 
   
 
@@ -66,7 +73,7 @@ Both indices use a **Free-Float Market Capitalization** methodology, meaning onl
 
 #### **Interesting Notes :**
 
-* LIC, which has overall market cap of 6.5 lakh crore is NOT in sensex. This is because of "Free Float Market Cap" rule. Govt of India owns 96% of LIC, so only 4% of stock is tradable (which comes to 0.26 Lakh Crore)
+* LIC, which has overall market cap of 6.5 lakh crore is NOT in Sensex (or Nifty50). This is because of "Free Float Market Cap" rule. Govt of India owns 96% of LIC, so only 4% of stock is tradable (which comes to 0.26 Lakh Crore)
 * There are several other such examples : HAL, Coal India, Adani Total Gas, DMart. 
 
 
