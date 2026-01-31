@@ -850,15 +850,7 @@ a.pagination-item:hover {
 }
 
 .notes-sidebar {
-  width: 220px;
-  flex-shrink: 0;
-  background: #fafafa;
-  border-right: 1px solid #eee;
-  padding: 1.5rem 0;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
+  /* Base styles - overridden by media queries below */
 }
 
 .notes-nav {
@@ -904,6 +896,7 @@ a.pagination-item:hover {
   padding: 2rem 3rem;
   max-width: 60rem;
   position: relative;
+  margin: 0 auto;
 }
 
 .note-date {
@@ -1010,9 +1003,9 @@ a.pagination-item:hover {
   }
 }
 
-/* Mobile sidebar toggle button */
+/* Sidebar toggle button - visible on all screen sizes */
 .mobile-sidebar-toggle {
-  display: none;
+  display: block;
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -1044,39 +1037,56 @@ a.pagination-item:hover {
   font-size: 1.1rem;
 }
 
+/* Desktop: Floating sidebar */
 @media (min-width: 48.01em) {
-  .mobile-sidebar-toggle {
-    display: none !important;
+  .notes-sidebar {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 280px;
+    height: calc(100vh - 80px);
+    background: #fafafa;
+    border-right: 1px solid #eee;
+    padding: 1.5rem 0;
+    overflow-y: auto;
+    z-index: 999;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
   }
 
-  .notes-sidebar {
-    display: block !important;
+  .notes-sidebar.show {
+    display: block;
+  }
+
+  .notes-content {
+    margin-left: 0;
   }
 }
 
+/* Mobile: Floating sidebar */
 @media (max-width: 48em) {
-  .mobile-sidebar-toggle {
-    display: block !important;
-  }
-
   .notes-layout {
     flex-direction: column;
   }
 
   .notes-sidebar {
-    display: none !important;
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
     width: 100%;
-    height: auto;
-    position: relative;
-    border-right: none;
-    border-bottom: 1px solid #eee;
+    max-width: 300px;
+    height: calc(100vh - 80px);
+    background: #fafafa;
+    border-right: 1px solid #eee;
     padding: 1rem 0;
-    max-height: 70vh;
     overflow-y: auto;
+    z-index: 999;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
   }
 
   .notes-sidebar.show {
-    display: block !important;
+    display: block;
   }
 
   .notes-content {
