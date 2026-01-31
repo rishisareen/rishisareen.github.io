@@ -147,21 +147,19 @@
       highlightCurrentSection();
     })();
 
-    // Mobile sidebar toggle
+    // Sidebar toggle - Lanyon style
     (function() {
       const toggle = document.getElementById('mobile-sidebar-toggle');
       const sidebar = document.getElementById('notes-sidebar');
+      const layout = document.querySelector('.notes-layout');
 
-      if (toggle && sidebar) {
+      if (toggle && sidebar && layout) {
         toggle.addEventListener('click', function(e) {
           e.preventDefault();
-          console.log('Toggle clicked');
           sidebar.classList.toggle('show');
+          layout.classList.toggle('sidebar-open');
           toggle.classList.toggle('active');
-          console.log('Sidebar classes:', sidebar.className);
         });
-      } else {
-        console.log('Toggle or sidebar not found', toggle, sidebar);
       }
     })();
     </script>
