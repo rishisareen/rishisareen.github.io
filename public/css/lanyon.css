@@ -848,6 +848,8 @@ a.pagination-item:hover {
   display: block;
   min-height: calc(100vh - 80px);
   width: 100%;
+  position: relative;
+  overflow-x: hidden;
 }
 
 .notes-sidebar {
@@ -1094,10 +1096,6 @@ a.pagination-item:hover {
   overflow-y: auto;
   transition: left 0.3s ease-in-out;
   z-index: 999;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
 .notes-sidebar.show {
@@ -1105,17 +1103,12 @@ a.pagination-item:hover {
 }
 
 .notes-layout {
-  transition: transform 0.3s ease-in-out;
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  transition: margin-left 0.3s ease-in-out;
+  margin-left: 0;
 }
 
 .notes-layout.sidebar-open {
-  -webkit-transform: translateX(280px);
-  transform: translateX(280px);
+  margin-left: 280px;
 }
 
 /* Desktop styles */
@@ -1126,8 +1119,7 @@ a.pagination-item:hover {
   }
 
   .notes-layout.sidebar-open {
-    -webkit-transform: translateX(280px);
-    transform: translateX(280px);
+    margin-left: 280px;
   }
 }
 
@@ -1139,8 +1131,7 @@ a.pagination-item:hover {
   }
 
   .notes-layout.sidebar-open {
-    -webkit-transform: translateX(280px);
-    transform: translateX(280px);
+    margin-left: 280px;
   }
 
   .notes-content {
