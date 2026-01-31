@@ -845,8 +845,9 @@ a.pagination-item:hover {
  */
 
 .notes-layout {
-  display: flex;
+  display: block;
   min-height: calc(100vh - 80px);
+  width: 100%;
 }
 
 .notes-sidebar {
@@ -892,11 +893,12 @@ a.pagination-item:hover {
 }
 
 .notes-content {
-  flex: 1;
+  width: 100%;
   padding: 2rem 3rem;
   max-width: 60rem;
   position: relative;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .note-date {
@@ -1068,15 +1070,17 @@ a.pagination-item:hover {
 }
 
 .notes-layout {
-  transition: margin-left 0.3s ease-in-out;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+  transition: transform 0.3s ease-in-out;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .notes-layout.sidebar-open {
-  margin-left: 280px;
+  -webkit-transform: translateX(280px);
+  transform: translateX(280px);
 }
 
 /* Desktop styles */
@@ -1087,7 +1091,8 @@ a.pagination-item:hover {
   }
 
   .notes-layout.sidebar-open {
-    margin-left: 280px;
+    -webkit-transform: translateX(280px);
+    transform: translateX(280px);
   }
 }
 
@@ -1099,7 +1104,8 @@ a.pagination-item:hover {
   }
 
   .notes-layout.sidebar-open {
-    margin-left: 280px;
+    -webkit-transform: translateX(280px);
+    transform: translateX(280px);
   }
 
   .notes-content {
