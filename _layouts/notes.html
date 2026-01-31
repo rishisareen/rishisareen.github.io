@@ -19,6 +19,10 @@
 
     <input type="checkbox" class="notes-sidebar-checkbox" id="notes-sidebar-checkbox">
 
+    <label for="notes-sidebar-checkbox" class="notes-sidebar-toggle">
+      <span>☰</span> Notes
+    </label>
+
     <aside class="notes-sidebar" id="notes-sidebar">
         <nav class="notes-nav">
           {% assign folders = "" | split: "" %}
@@ -60,10 +64,6 @@
       </aside>
 
     <div class="notes-wrap">
-      <label for="notes-sidebar-checkbox" class="notes-sidebar-toggle">
-        <span>☰</span> Notes
-      </label>
-
       <main class="notes-content">
         <article class="note">
           <h1 class="page-title">{{ page.title }}</h1>

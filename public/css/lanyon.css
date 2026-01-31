@@ -1094,16 +1094,11 @@ a.pagination-item:hover {
   font-weight: 400;
   cursor: pointer;
   z-index: 1000;
-  -webkit-transition: -webkit-transform .3s ease-in-out;
-          transition: transform .3s ease-in-out;
-  -webkit-backface-visibility: hidden;
-      -ms-backface-visibility: hidden;
-          backface-visibility: hidden;
 }
 
 .notes-sidebar-toggle:hover,
 .notes-sidebar-toggle:active,
-#notes-sidebar-checkbox:checked ~ .notes-wrap .notes-sidebar-toggle {
+#notes-sidebar-checkbox:checked ~ .notes-sidebar-toggle {
   background: #555;
   color: #fff;
 }
@@ -1114,8 +1109,7 @@ a.pagination-item:hover {
 }
 
 /* The "Push" Effect - when checkbox is checked */
-#notes-sidebar-checkbox:checked ~ .notes-wrap,
-#notes-sidebar-checkbox:checked ~ .notes-wrap .notes-sidebar-toggle {
+#notes-sidebar-checkbox:checked ~ .notes-wrap {
   -webkit-transform: translateX(280px);
       -ms-transform: translateX(280px);
           transform: translateX(280px);
