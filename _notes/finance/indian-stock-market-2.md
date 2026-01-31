@@ -11,8 +11,6 @@ There are more than **5,000 listed companies** in India, but they are not create
 
 To understand how these stocks behave and why their returns differ, we must classify them by their "price tag". In finance, we call this **Market Capitalization**.
 
-
-
 ## 1. What is Market Cap?
 
 Market Cap is the **total value of a company as decided by the stock market.**
@@ -23,8 +21,6 @@ If you want to buy the entire company from the market today by purchasing every 
    `Market Cap = Current Share Price × Total Number of Shares`
 
 As of Jan 2026, the entire India market is worth approx **450 lakh crore**. Remember this number ; we will refer this again. 
-
-
 
 ## 2. The Classification : How India Ranks Companies
 
@@ -47,7 +43,6 @@ As of Jan 2026 :
   - 501-750 Rank : This is what is typically watched by Mutual Funds / Institutions for investment.
   - 750 - 1000 Rank : These companies typically average between **₹1,000 Crore and ₹2,500 Crore**.
 - Beyond Rank 1000, many are effectively **penny stocks**. We ignore them for serious study. Here the data gets noisy : liquidity becomes an issue, financial filings and price manipulation are strongly possible here. 
-
 
 ## 3. Why these classification exists?
 
@@ -81,8 +76,6 @@ These companies drive indices like **Nifty 50**. 60% of total indian market cap 
 
 ### **2. Mid Cap (The Seasoned Capped Players)**
 
-
-
 ![image-20260131132325231](https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/01/31/image-20260131132325231%7Bextension%7D)
 
 Companies like **Tata Elxsi**, **Polycab India**, and **Mazagon Dock** fit here.
@@ -91,8 +84,6 @@ Companies like **Tata Elxsi**, **Polycab India**, and **Mazagon Dock** fit here.
 
 - This is often called the **sweet spot** of the market.
 
-
-
 ### **3. Small Cap (The Under-19 Sensations)**
 
 ![image-20260131132450085](https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/01/31/image-20260131132450085%7Bextension%7D)
@@ -100,8 +91,6 @@ Companies like **Tata Elxsi**, **Polycab India**, and **Mazagon Dock** fit here.
 These are the rising stars in emerging sectors, like **Suzlon Energy**, **CDSL** or **Kalyan Jewellers**.
 
 - **Traits:** They have high growth potential but come with much higher volatility. They can hit "sixes" frequently, but they can also lose their "wicket" (value) quickly because there is less public information available.
-
-
 
 ### **4. Micro Cap (The Uncapped and Risky Local Talent)**
 
@@ -112,7 +101,6 @@ This is where you find "hidden gems" like **Titagarh Rail** or **Gensol Engineer
 - **Traits:** This is the high-risk, high-reward zone. Very few institutional "coaches" (Mutual Funds) are watching them. Information is scarce, and prices can be manipulated easily, but this is also where the biggest "multi-baggers" are born.
 
 -  Investing here is like picking a player based on a tip from a local coach. 
-
 
 ## 4. Summary : The Trade Off
 
@@ -132,5 +120,4 @@ As you move down the ladder from Mega to Micro:
 | **Volatility**             | Low              | Medium      | High                |
 
 ## 5. Next Steps
-
 Now that you know how to pick your "team" based on size, we need to look at the historical performance. In the [next article](/notes/finance/indian-stock-market-3), we compare how these different tiers and other assets like Gold have performed over the last 20 years to see where the real wealth was made.

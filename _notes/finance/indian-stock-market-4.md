@@ -12,8 +12,6 @@ If you feel like you’ve "missed the bus" during covid high growth, the latest 
 
 And this is not a political hyperbole, but backed by numers and a solid analysis. Even despite our inflation and our currency depreciation. 
 
-
-
 ## 1. The "Power of Four": From 4 to 16
 
 To understand where we are going, we need to look at how far we've come.
@@ -27,7 +25,6 @@ To understand where we are going, we need to look at how far we've come.
 ![image-20260131183821981](https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/01/31/image-20260131183821981%7Bextension%7D)
 
 
-
 ### **Why is this a big deal?** 
 
 When we went from $1T to $4T, we added $3 Trillion in value. 
@@ -35,7 +32,6 @@ When we went from $1T to $4T, we added $3 Trillion in value.
 But going from $4T to $16T means we are adding **$12 Trillion** in new value. 
 
 **<u>That extra $12 Trillion is like adding the entire wealth of Japan, Germany, and India *combined* into our country in less than two decades.</u>**
-
 
 
 ## 2. The "Wealth Effect": Why You Can't Sit on the Sidelines

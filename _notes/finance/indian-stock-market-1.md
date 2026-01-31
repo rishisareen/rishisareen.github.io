@@ -12,7 +12,6 @@ India is undergoing a massive shift of storing wealth from Gold and Real Estate 
 In this series of articles, I will capture what is happening, why it is happening and what we need to understand. 
 
 We start first by understanding the infrastructure which makes it all possible. 
-
 ## 1. Indian Stock Exchanges : BSE and NSE 
 
 What are Stock Exchanges? Simply, they are platform / infrastructure where we can buy and sell our shares. 
