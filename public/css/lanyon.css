@@ -1058,12 +1058,11 @@ a.pagination-item:hover {
   font-weight: 400;
   cursor: pointer;
   z-index: 1000;
-  transition: left 0.3s ease-in-out, background 0.2s, color 0.2s;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
   -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform .3s ease-in-out, background 0.2s, color 0.2s;
+          transition: transform .3s ease-in-out, background 0.2s, color 0.2s;
 }
 
 .mobile-sidebar-toggle:hover,
@@ -1075,7 +1074,9 @@ a.pagination-item:hover {
 .mobile-sidebar-toggle.active {
   background: #555;
   color: #fff;
-  left: calc(280px + 1rem);
+  -webkit-transform: translateX(280px);
+      -ms-transform: translateX(280px);
+          transform: translateX(280px);
 }
 
 .mobile-sidebar-toggle span {
@@ -1083,7 +1084,7 @@ a.pagination-item:hover {
   font-size: 1.2rem;
 }
 
-/* Sidebar slide effect - similar to Lanyon theme */
+/* Sidebar slide effect - Lanyon theme style */
 .notes-sidebar {
   position: fixed;
   top: 80px;
@@ -1094,46 +1095,36 @@ a.pagination-item:hover {
   border-right: 1px solid #eee;
   padding: 1.5rem 0;
   overflow-y: auto;
-  transition: left 0.3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+          transition: all .3s ease-in-out;
+  -webkit-backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+          backface-visibility: hidden;
   z-index: 999;
 }
 
 .notes-sidebar.show {
-  left: 0;
+  -webkit-transform: translateX(280px);
+      -ms-transform: translateX(280px);
+          transform: translateX(280px);
 }
 
 .notes-layout {
-  transition: margin-left 0.3s ease-in-out;
-  margin-left: 0;
+  -webkit-backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+          transition: transform .3s ease-in-out;
 }
 
 .notes-layout.sidebar-open {
-  margin-left: 280px;
+  -webkit-transform: translateX(280px);
+      -ms-transform: translateX(280px);
+          transform: translateX(280px);
 }
 
-/* Desktop styles */
-@media (min-width: 48.01em) {
-  .notes-sidebar {
-    width: 280px;
-    left: -280px;
-  }
-
-  .notes-layout.sidebar-open {
-    margin-left: 280px;
-  }
-}
-
-/* Mobile styles */
+/* Desktop and Mobile - same behavior */
 @media (max-width: 48em) {
-  .notes-sidebar {
-    width: 280px;
-    left: -280px;
-  }
-
-  .notes-layout.sidebar-open {
-    margin-left: 280px;
-  }
-
   .notes-content {
     padding: 1.5rem 1rem;
   }
