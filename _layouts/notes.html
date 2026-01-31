@@ -17,12 +17,9 @@
       </div>
     </header>
 
-    <button class="mobile-sidebar-toggle" id="mobile-sidebar-toggle">
-      <span>☰</span> Notes
-    </button>
+    <input type="checkbox" class="notes-sidebar-checkbox" id="notes-sidebar-checkbox">
 
-    <div class="notes-layout">
-      <aside class="notes-sidebar" id="notes-sidebar">
+    <aside class="notes-sidebar" id="notes-sidebar">
         <nav class="notes-nav">
           {% assign folders = "" | split: "" %}
           {% assign root_notes = "" | split: "" %}
@@ -62,6 +59,11 @@
         </nav>
       </aside>
 
+    <div class="notes-wrap">
+      <label for="notes-sidebar-checkbox" class="notes-sidebar-toggle">
+        <span>☰</span> Notes
+      </label>
+
       <main class="notes-content">
         <article class="note">
           <h1 class="page-title">{{ page.title }}</h1>
@@ -80,6 +82,7 @@
           </nav>
         </aside>
       </main>
+    </div>
     </div>
 
     <script>
@@ -145,22 +148,6 @@
 
       window.addEventListener('scroll', highlightCurrentSection);
       highlightCurrentSection();
-    })();
-
-    // Sidebar toggle - Lanyon style
-    (function() {
-      const toggle = document.getElementById('mobile-sidebar-toggle');
-      const sidebar = document.getElementById('notes-sidebar');
-      const layout = document.querySelector('.notes-layout');
-
-      if (toggle && sidebar && layout) {
-        toggle.addEventListener('click', function(e) {
-          e.preventDefault();
-          sidebar.classList.toggle('show');
-          layout.classList.toggle('sidebar-open');
-          toggle.classList.toggle('active');
-        });
-      }
     })();
     </script>
 
