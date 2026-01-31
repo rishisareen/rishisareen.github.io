@@ -938,6 +938,41 @@ a.pagination-item:hover {
   padding-left: 0.5rem;
 }
 
+.note-body ul ul {
+  margin-left: 0.75rem;
+  padding-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.note-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.note-body table th {
+  background: #f8f8f8;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 2px solid #ddd;
+}
+
+.note-body table td {
+  padding: 0.4rem 0.75rem;
+  border-bottom: 1px solid #eee;
+}
+
+.note-body table tr:last-child td {
+  border-bottom: none;
+}
+
+.note-body table tr:hover {
+  background: #fafafa;
+}
+
 /*
  * Notes TOC Sidebar (right side)
  */
