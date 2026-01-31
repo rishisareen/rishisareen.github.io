@@ -1044,9 +1044,19 @@ a.pagination-item:hover {
   font-size: 1.1rem;
 }
 
+@media (min-width: 48.01em) {
+  .mobile-sidebar-toggle {
+    display: none !important;
+  }
+
+  .notes-sidebar {
+    display: block !important;
+  }
+}
+
 @media (max-width: 48em) {
   .mobile-sidebar-toggle {
-    display: block;
+    display: block !important;
   }
 
   .notes-layout {
