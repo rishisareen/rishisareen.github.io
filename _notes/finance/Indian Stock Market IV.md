@@ -1,6 +1,6 @@
 ---
 layout: notes
-title: Part 4 : The $12 Trillion Leap
+title: "Part 4 : The $12 Trillion Leap"
 date: 2026-01-31
 ---
 

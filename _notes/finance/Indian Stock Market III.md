@@ -1,6 +1,6 @@
 ---
 layout: notes
-title: Part 3 : The Scorecard
+title: "Part 3 : The Scorecard"
 date: 2026-01-25
 ---
 
