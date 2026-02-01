@@ -10,12 +10,12 @@ This 4-part series is my personal roadmap for navigating India's ~$5.45 Trillion
 
 ## **The Series at a Glance**
 
-| Part | Title | The Mission |
-| :--- | :--- | :--- |
-| **[Part 1](/notes/finance/indian-stock-market-1)** | **The Stadium** | Understanding the BSE/NSE "playing field" and the tech disruptors like Zerodha and Groww. |
-| **[Part 2](/notes/finance/indian-stock-market-2)** | **The Players** | Using an **IPL Auction analogy** to classify stocks by their "price tags" (Market Cap). |
-| **[Part 3](/notes/finance/indian-stock-market-1)** | **The Scorecard** | Reviewing 20 years of data to see how stocks, gold, and real estate actually performed. |
-| **[Part 4](/notes/finance/indian-stock-market-4)** | **The $16T Leap** | Exploring why India’s projected growth to a $16 Trillion economy is a "compounding cycle" we can't ignore. |
+| Part                                               | Title             | The Mission                                                                                  |
+| :------------------------------------------------- | :---------------- | :------------------------------------------------------------------------------------------- |
+| **[Part 1](/notes/finance/indian-stock-market-1)** | **The Stadium**   | Understanding the BSE/NSE "playing field" and the tech disruptors like Zerodha and Groww.    |
+| **[Part 2](/notes/finance/indian-stock-market-2)** | **The Players**   | Using an **IPL Auction analogy** to classify stocks by their "price tags" (Market Cap).      |
+| **[Part 3](/notes/finance/indian-stock-market-1)** | **The Scorecard** | Reviewing 20 years of data to see how stocks, gold, and real estate actually performed.      |
+| **[Part 4](/notes/finance/indian-stock-market-4)** | **The $16T Leap** | Exploring India’s growth to a $16 Trillion economy is a "compounding cycle" we can't ignore. |
 
 ---
 

@@ -73,7 +73,10 @@ Both indices use a **Free-Float Market Capitalization** methodology, meaning onl
 
 ## 4. Why Index Inclusion is a Game Changer
 In the stock market, being part of the **Sensex 30** is like having a direct connection to a massive, high-pressure money pipe. Here is why it matters:
-When a stock enters the Sensex 30, **Passive Funds (ETFs)** which manage trillions of rupees—are legally required to buy it. Their software is programmed to mirror the index exactly. They don't care if the stock is "expensive" or "cheap"; if the rules say the stock is 2% of the index, the fund **must** use 2% of its cash to buy that stock. This creates a permanent, non-stop wave of buying pressure. The big get bigger. 
+When a stock enters the Sensex 30, **Passive Funds (ETFs)** which manage trillions of rupees are legally required to buy it. Their software is programmed to mirror the index exactly. They don't care if the stock is "expensive" or "cheap"; if the rules say the stock is 2% of the index, the fund **must** use 2% of its cash to buy that stock. This creates a permanent, non-stop wave of buying pressure. The big get bigger. 
+
+* Note : You can find about passive funds [here](https://www.indiapassivefunds.com). Today, 14 Lakh Crore is managed by passive funds. This is huge and only growing. 
+
 ### Real-World Example (Jan 2026 Update)
 
 We recently saw this play out with the 2025-2026 rebalancing.
