@@ -4,7 +4,7 @@ title: "Part 0 : The Roadmap"
 date: 2026-01-18
 ---
 # The India Growth Manual: A Student’s Guide to the Stock Market
-I believe that the best way to master a complex subject is to write about it. As I build systems to automate the screening of over 2,000 Indian companies, and find high growth stocks (or multibaggers, as I like to call it), I’ve documented the fundamental "infrastructure" of our market to clear my own thinking and help others get started.
+I believe that the best way to master a complex subject is to write about it. As I build systems to automate the analysis of over 5,000 Indian companies listed on stock market, and find high growth stocks (or multibaggers, as I like to call it), I’ve documented the fundamental "infrastructure" of our market to clear my own thinking and help others get started.
 
 This 4-part series is my personal roadmap for navigating India's ~$5.45 Trillion (₹450 Lakh Crore) economy. Whether you are a DIY investor or just curious about the "Big Picture," these notes are designed to simplify the noise.
 
