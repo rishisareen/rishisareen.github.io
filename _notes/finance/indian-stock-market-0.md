@@ -16,7 +16,7 @@ So, come and follow along. This entire series should not take more than 20-30" o
 | :------------------------------------------------- | :---------------- | :------------------------------------------------------------------------------------------- |
 | **[Part 1](/notes/finance/indian-stock-market-1)** | **The Stadium**   | Understand what exactly is Stock Market and what are Apps like Zerodha, Groww                |
 | **[Part 2](/notes/finance/indian-stock-market-2)** | **The Players**   | Go deeper and understand what the term Large Cap, Mid Cap mean                               |
-| **[Part 3](/notes/finance/indian-stock-market-1)** | **The Scorecard** | Reviewing 20 years of data to see how stocks, gold, and real estate actually performed.      |
+| **[Part 3](/notes/finance/indian-stock-market-3)** | **The Scorecard** | Reviewing 20 years of data to see how stocks, gold, and real estate actually performed.      |
 | **[Part 4](/notes/finance/indian-stock-market-4)** | **The $16T Leap** | Exploring India’s growth to a $16 Trillion economy is a "compounding cycle" we can't ignore. |
 
 ---
