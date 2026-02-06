@@ -271,3 +271,5 @@ Given the above, 100-fold growth in stock price can arise by any of the followin
 (e.g. 25-fold earnings growth with 4-fold valuation growth)..
 
 **So, if one starts with a high valuation, then all the burden of growth lies on the earning.** Hence, a less known stock with less valuation is usually attractive. 
+
+![image-20260206103729660](https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/02/06/image-20260206103729660%7Bextension%7D)
