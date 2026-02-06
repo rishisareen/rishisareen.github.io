@@ -245,7 +245,7 @@ In binary terms, for any given company, Quality can be High or Low and Growth ca
 
 ![image-20260206094422758](https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/02/06/image-20260206094422758%7Bextension%7D)
 
-### Element 4 : Longevity
+## Element 4 : Longevity
 
 This is sort of no brainer but whole idea is company grow for a longer period. Hence while good quality and good growth is important, the next axis is company's ability to sustain it for a longer period of time.
 
@@ -253,7 +253,7 @@ For a growing pond, lot of competitors will enter and drag down the return in an
 
 
 
-### Element 5 : Price
+## Element 5 : Price
 
 Company can tick all the factors : Good growth, good quality, solid moat. But if one overpays for the company, it is difficult to have a meaningful return. 
 
