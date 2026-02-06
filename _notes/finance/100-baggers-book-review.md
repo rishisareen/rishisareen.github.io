@@ -1,6 +1,6 @@
 ---
 layout: notes
-title: "Book Review: 100 Baggers (Draft)"
+title: "Book Review: 100 Baggers"
 date: 2026-01-19
 ---
 

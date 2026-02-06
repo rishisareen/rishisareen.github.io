@@ -17,3 +17,7 @@ Further Reading:
 * Agentic AI for finance : https://rpc.cfainstitute.org/research/the-automation-ahead-content-series/agentic-ai-for-finance#4257225834-3138560699
 
 	  
+
+
+
+* Understand and Automate Quality of Management aspect (captured in 100 Baggers)
