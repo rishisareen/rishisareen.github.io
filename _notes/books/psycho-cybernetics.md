@@ -517,21 +517,113 @@ I plan to use this book to chase my two goals : Hyrox and Finance. That is a sep
 
 > If you are among the millions who suffer unhappiness and failure because of inhibition—you need to deliberately practice disinhibition. You need to practice being less careful, less concerned, less conscientious. You need to practice speaking before you think instead of thinking before you speak—acting without thinking, instead of thinking or “considering carefully” before you act.
 
+### Chapter 12 : Do-It-Yourself Tranqulizer
+
+* This chapter is basically an expanded version of regular practice of mindfulness, or box breathing, or basically not reacting to everything. 
+
+> Over-Response Is a Bad Habit That Can Be Cured. Also, get clearly in your mind the fact that the outside signal in itself has no power over you; no power to move you. In the past you have obeyed it, responded to it, purely out of habit. You can, if you wish, form a new habit of not responding.
+
+> Today, more than ever, it’s vital to address the bad habit of over-response—to relax from doing—when we are assaulted by the stimuli of email, texts, and all manner of electronic communications.
+
+* He also talks about using visualizaiton to build a quiet room. I'm using this technique and find it very useful for a small reset
+
+>  Build Yourself a Quiet Room in Your Mind “Men seek retreats for themselves: houses in the country, sea-shores and mountains; and thou too art wont to desire such things very much,” said Marcus Aurelius. “But this is altogether a mark of the most common sort of men, for it is in thy power whenever thou shalt choose to retire into thyself. For nowhere, either with more quiet or more freedom from trouble, does a man retire than into his own soul, particularly when he has within him such thoughts that by looking into them he is immediately in perfect tranquility; and I affirm that tranquility is nothing else than the 
+
+> Your Own Decompression Chamber Each person needs a quiet room inside his own mind—a quiet center within him, like the deep of the ocean that is never disturbed, no matter how rough the waves may become on the surface. This quiet room within, which is built in imagination, works as a mental and emotional decompression chamber. It depressurizes you from tensions, worry, pressures, stresses, and strains, refreshes you, and enables you to return to your workaday world better prepared to cope with it.
+
+### Chapter 13 : How to turn a crisis into a creative opportunity 
+
+* Some practical advice on how to manage a crisis. The summary would be : Practice, dont over think, respond and not react
+
+> In order to perform well in a crisis: 
+>
+> (1) We need to learn certain skills under conditions where we will not be over-motivated; we need to practice without pressure. 
+>
+> (2) We need to learn to react to crises with an aggressive, rather than a defensive, attitude; to respond to the challenge in the situation, rather than to the menace; to keep our positive goal in mind. 
+>
+> (3) We need to learn to evaluate so-called crisis situations in their true perspective; to not make mountains out of molehills, or react as if every small challenge is a matter of life or death.
+
+* In practice, visualization is also recommended along with normal practice. 
+
+
+
+### Chapter 14 : How to get that winning feeling
+
+* This chapter goes into more detail on how to visualize the winning feeling
+
+> If there is one simple secret to the operation of your unconscious Creative Mechanism, it is this: call up, capture, evoke the feeling of success. When you feel successful and self-confident, you will act successfully. When the feeling is strong, you can literally do no wrong.
+
+>  It is much easier and more effective to simply define your goal or end result. Picture it to yourself clearly and vividly. Then simply capture the feeling you would experience if the desirable goal were already an accomplished fact. Then you are acting spontaneously and creatively. Then you are using the powers of your subconscious mind. Then your internal machinery is geared for success: to guide you in making the correct muscular motions and adjustments; to supply you with creative ideas, and to do whatever else is necessary in order to make the goal an accomplished fact.
+
+* And how to avoid the negative feeling
+
+> Remember that feeling follows imagery. Feeling coincides with, and is appropriate to, what our nervous system accepts as “real” or the “truth about environment.” Whenever we find ourselves experiencing undesirable feeling-tones, we should not concentrate on the undesirable feeling, even to the extent of driving it out. Instead, we should immediately concentrate on positive imagery—on filling the mind with wholesome, positive, desirable images, imaginations, and memories. If we do this, the negative feelings take care of themselves. They simply evaporate. We develop new feeling-tones appropriate to the new imagery.
+
+
+
+### Chapter 15: More Years of Life and More life in your years
+
+* The book comes to an end with this chapter. Dr Maltz reflects again on the power of belief
+
+> everyone, the scientist included, develops his own “over-beliefs” concerning known facts, which the facts themselves do not justify. As a practical measure, these “over-beliefs” are not only permissible, but necessary. Our assumption of a future goal, which sometimes we cannot see, is what dictates our present actions, and our “practical conduct.” Columbus had to assume that a great landmass lay to the westward before he could discover it. Otherwise he would not have sailed at all—or having sailed, would not have known whether to set his course to the south, east, north, or west.
+
+* He also digs a bit on the life force, which is also covered by other topics of universal consciousness (Good argument in Dan Brown latest novel Secret of Secrets and also by the work of Vadim Zeland)
+
+> For many years, individual scientists—psychologists, physiologists, biologists—have suspected that there was some sort of universal “energy” or vitality that ran the human machine. They also suspected that the amount of this energy available and the way it was utilized explained why some individuals were more resistant to disease than others, why some individuals aged faster than others, and why some hardy individuals lived longer than others. It was also fairly obvious that the source of this basic energy—whatever it might be—was something other than the surface energy we obtain from the food we eat. Caloric energy does not explain why one individual can snap back quickly from a serious operation, withstand long continued stress situations, or outlive another. We speak of such persons as having a “strong constitution.”
+
+* Some great points captured by Dr Dave Woynarowski, author of "The Immorality Edge"
+
+> Stem cell biology is the study of the regenerative and long-lived cells in our body. Almost every type of cell in the body can be re-created from stems cells, which are instrumental and absolutely necessary to make new healthy tissues in our body. 
+>
+> The telomere is a structure located at the end of every healthy chromosome. This time-keeper of the individual cell shortens as we age. The shortening process can be linked to just about every disease identified with aging, such as heart disease, diabetes, cancer, arthritis, and Alzheimer’s. It appears that increasing the telomere length in both regular and stem cells will add years to our life span and healthy life to our years. I believe that the true Fountain of Youth really does exist in our genetic blueprints. 
+>
+> While there is ongoing research and science into these issues, there is also information on how lifestyle and behavior affects how we age, and evidence that the inner workings of our cells and our bodies are directly affected by our mental outlook and how we treat ourselves. For instance, if not managed properly, stress can age people prematurely. 
+>
+> **Children who grow up in highly stressed environments have cellular components that “behave” ten or more years older than their biologic age. Their telomeres are shorter than average.**
+
+> If aging is brought about by a using up of our adaptation energy, as most experts in the field seem to think, then our indulging ourselves in negative components of the Failure Mechanism can literally make us old before our time by using up that energy faster.
+
+* Another very interesting supporting factor regarding the power of belief is placebo factor. Time and again, placebo factor works. Infact the whole homeopathy so called efficacy is largely driven by placebo factor (as there is no science there)
+
+> We do know this much: Mental attitudes can influence the body’s healing mechanisms. Placebos or sugar pills (capsules containing inert ingredients) have long been a medical mystery. They contain no medicine of any kind that could bring about a cure. Yet when placebos are given to a control group in order to test the effectiveness of a new drug, the group receiving the phony pills nearly always shows some improvement, and quite often as much as the group receiving the medicine. Students receiving placebos actually showed more immunization against colds than the group receiving a new cold medicine.
+
+* It closes with a good arument on do we sometime think ourselves into old age
+
+> It is a matter of common observation that some people between the ages of 40 and 50 begin to both look and act “old,” while others continue to act and look “young.” 
+>
+> A recent study found that the “oldsters” at 45 thought of themselves as middle-aged, past their prime, over the hill, while the “youngsters” at 45 still conceived of themselves as being this side of middle-aged. 
+>
+> At least two ways suggest themselves as to how we may think ourselves into old age. In expecting to grow “old” at a given age we may unconsciously set up a negative goal image for our Creative Mechanism to accomplish. Or, in expecting “old age” and fearing its onset, we may unwittingly do those very things necessary to bring it about. We begin to taper off on both physical and mental activity. Cutting out practically all vigorous physical activity, we tend to lose some of the flexibility of our joints. Lack of exercise causes our capillaries to constrict and virtually disappear, and the supply of life-giving blood through our tissues is drastically curtailed. Vigorous exercise is necessary to dilate the capillaries that feed all body tissues and remove waste products. It has definitely been established that lack of exercise and inactivity literally “dries up” the capillaries.
+>
+> Dr. Selye has cultivated animal cell cultures within a living animal’s body by implanting a hollow tube. For some unknown reason biologically, new and “young” cells form inside this tube. Untended, however, they die within a month. However, if the fluid in the tube is washed daily, and waste products removed, the cells live indefinitely. They remain eternally “young” and neither “age” nor “die.” Dr. Selye suggests that this may be the mechanism of aging, and that if so, “old age” can be postponed by slowing down the rate of waste production, or by helping the system to get rid of waste. In the human body the capillaries are the channels through which waste is removed. 
+
+> Faith, courage, interest, optimism, looking forward bring us new life and more life. Futility, pessimism, frustration, or living in the past are not only characteristic of “old age,” they also contribute to it.
+
+
+
+## My Final Thoughts
+
+This is a powerful book. But not an easy one. Dr Maltz is clearly very religious and he invokes god a lot. And this book is written in 1962, so it can be very flowerly in the language.
+
+But, despite all this, this is a wonderful book. The advices are practical and timeless. The central theme is power of visualization and self-belief to achieve the goal. And underlying all this, there is an importance of self-image. Dr Maltz carefully builds the case that so many of our negative behaviors are due to our bad self-image, and this is something we have to work on.
+
+Lot of self-help books trace back their origin to this book. What a wonderful book and I know I would be re-visiting this often.
+
 
 
 
 ## Favorite Quotes
-> Live life in “day-tight compartments,” Look neither forward nor backward beyond a 24-hour cycle. Live today as best you can. By living today well you do the most within your power to make tomorrow better.
+* Live life in “day-tight compartments,” Look neither forward nor backward beyond a 24-hour cycle. Live today as best you can. By living today well you do the most within your power to make tomorrow better.
 
-> The very word “disease” means a state of unhappiness—“dis-ease.”
+* The very word “disease” means a state of unhappiness—“dis-ease.”
 
-> “Men are disturbed not by the things that happen, but by their opinion of the things that happen.”
->
-> "The greatest mistake a man can make is to be afraid of making one." —Elbert Hubbard
->
-> No man ever became great or good except through many and great mistakes. —William E. Gladstone 
->
-> We learn wisdom from failure much more than from success; we often discover what will do, by finding out what will not do; and probably he who never made a mistake never made a discovery. —Samuel Smiles
->
-> 
+* “Men are disturbed not by the things that happen, but by their opinion of the things that happen.”
+
+* "The greatest mistake a man can make is to be afraid of making one." —Elbert Hubbard
+
+* No man ever became great or good except through many and great mistakes. —William E. Gladstone 
+
+* We learn wisdom from failure much more than from success; we often discover what will do, by finding out what will not do; and probably he who never made a mistake never made a discovery. —Samuel Smiles
+
+* Close scrutiny will show that most of these everyday so-called crisis situations are not life-or-death matters at all, but opportunities to either advance, or stay where you are.
 
