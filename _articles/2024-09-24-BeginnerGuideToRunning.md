@@ -50,7 +50,7 @@ For beginners, building both is crucial to avoid stress on the joints and overex
 
 #### 4. How to know you are running _easy_
 
-   - If you have a heart rate monitor, follow [MAF Method](/articles/maf-method-part1.html)
+   - If you have a heart rate monitor, follow [MAF Method](/articles/maf-method-part1/)
 
    - If you do not have a heart rate monitor, do the "sing a song" routine. Basically, if you can hum your favorite song comfortably, you are running at a comfortable pace. 
 

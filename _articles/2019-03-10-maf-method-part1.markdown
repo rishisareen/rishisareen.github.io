@@ -18,7 +18,7 @@ His secret? **Maffetone Method.**
 The approach is discussed in two parts:  
 
 - The science behind aerobic training  
-- [How-to approach the MAF Training](/articles/maf-method-part2)
+- [How-to approach the MAF Training](/articles/maf-method-part-2/)
 
 People usually jump on the "how-to" part. While it is important, understand the "why" part is also critical.  
 <br>
@@ -78,7 +78,7 @@ Dr Maffetone suggests adjustments based on these factors:
 - Category 3 : If you have been training consistently (at least four times weekly) for up to two years without any of the problems in above, keep the number (180–age) the same.  
 - Category 4 : Been training regularly for 2 years without problems? Add 5.   
 
-[In the next article](/articles/maf-method-part2), we will cover the training approach in detail.  
+[In the next article](/articles/maf-method-part2/), we will cover the training approach in detail.  
 
 
 

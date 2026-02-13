@@ -6,7 +6,7 @@ comments: true
 categories: Fitness
 ---
 
-In the [first part](/articles/maf-method-part1), we discussed the importance of Aerobic Base Building.  
+In the [first part](/articles/maf-method-part1/), we discussed the importance of Aerobic Base Building.  
 In this part, we focus on the "how-to" aspect of it. 
 <!--more-->
 
