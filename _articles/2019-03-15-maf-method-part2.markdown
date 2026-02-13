@@ -6,7 +6,7 @@ comments: true
 categories: Fitness
 ---
 
-In the [first part](http://rishisareen.com/running/maf-method-part1.html), we discussed the importance of Aerobic Base Building.  
+In the [first part](./articles/maf-method-part1), we discussed the importance of Aerobic Base Building.  
 In this part, we focus on the "how-to" aspect of it. 
 <!--more-->
 
@@ -55,6 +55,7 @@ Ensure to wet the strap before wearing it. And wash it with soap water after 3-4
 - Divide this 15min in 5 sets of 3min each.  
 - With each set, increase the intensity up to increase HR by 10-12beats. Target is to reach your MAF zone by end of the warmup  
   
+
 **Warmup Sample (Each set is of 3min)**  
 
 - Set1 => Normal Walk => HR: 80bpm for example    
@@ -97,8 +98,8 @@ It is a wonderful group, and most of the beginners questions are answered there.
 ## Tips for Advance Runners / Cyclists / Endurance Athlete
 1. If you want to increase MAF pace in lesser time, consider doing workout 4-5 times a week. Weekly mileage of 40-50km will give a very quick run.   
 2. As we discussed in [part1](http://rishisareen.com/running/maf-method-part1.html), Fat is most clean fuel to burn. Fasted runs helps not only to progress quicker in MAF pace, but also helps to burn fat as the fuel.  
-  
+
 That's it for now. I will add in more tips later.  
-  
+
 I've been following MAF method for more than a year. Not only it has made running a pleasure, but helped me to get faster while staying injury free. Two months back, I did a Half Marathon in 1:58, and my av HR was 154.  
 Feel free to reach out to me, would love to connect to people trying this out.  
