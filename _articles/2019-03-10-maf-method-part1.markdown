@@ -18,7 +18,7 @@ His secret? **Maffetone Method.**
 The approach is discussed in two parts:  
 
 - The science behind aerobic training  
-- [How-to approach the MAF Training](/articles/maf-method-part-2/)
+- [How-to approach the MAF Training](/articles/maf-method-part2/)
 
 People usually jump on the "how-to" part. While it is important, understand the "why" part is also critical.  
 <br>
