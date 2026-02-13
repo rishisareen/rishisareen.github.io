@@ -18,7 +18,7 @@ His secret? **Maffetone Method.**
 The approach is discussed in two parts:  
 
 - The science behind aerobic training  
-- [How-to approach the MAF Training](maf-method-part2.html)
+- [How-to approach the MAF Training](./articles/maf-method-part2)
 
 People usually jump on the "how-to" part. While it is important, understand the "why" part is also critical.  
 <br>
@@ -64,7 +64,8 @@ That’s why all elite athletes do 80% of their training at an easy speed or int
 It’s usually the amateurs that do 60 to 80% of their training more intensely in an effort to “catch up” the miles.  
  But the body’s just not built for that, so they get hurt.   
 
-# The MAF Formula  
+# The MAF Formula
+
 Dr. Maffetone, based on his research, has shown that your Maximum Aerobic Function peaks at a heart rate equal to 180 minus your Age.  
 
 {% include image.html file="/images/MAF/maf.png" description="Aerobic vs Anaerobic "%}
@@ -77,8 +78,7 @@ Dr Maffetone suggests adjustments based on these factors:
 - Category 3 : If you have been training consistently (at least four times weekly) for up to two years without any of the problems in above, keep the number (180–age) the same.  
 - Category 4 : Been training regularly for 2 years without problems? Add 5.   
 
-
-[In the next article](maf-method-part2.html), we will cover the training approach in detail.  
+[In the next article](./articles/maf-method-part2), we will cover the training approach in detail.  
 
 
 
