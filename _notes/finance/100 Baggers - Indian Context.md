@@ -178,7 +178,7 @@ For a stock to return 100x, two aspects need to improve : Its earning and its va
 3. Operating leverage – a function of the company’s operating cost structure; higher the fixed cost, lower the unit cost incidence and higher the operating leverage
 4. Financial Leverage – a function of the company’s capital structure; higher the debt-equity, higher the financial leverage and vice versa.
 
-### **The 6-Force Framework: Decomposing Earnings Growth**
+### **The 4 Lever Framework: Decomposing Earnings Growth**
 
 This framework is an application of the mathematical "chain rule" to financial statements. It decomposes **Earnings Per Share (EPS) Growth** into its constituent drivers to pinpoint the source of a company's performance.
 
@@ -236,27 +236,20 @@ This framework allows an investor to grade the **quality** of a company's growth
 >  We believe it is important to clearly distinguish between quality of a company and its growth prospects.
 
 *  **Quality**: Quality of a company is a function of (1) Quality of its management, and (2) Quality of business (mainly in terms of profitability measured in
-
 terms of return on capital i.e. RoCE and RoE).
 
 * **Growth**: Growth is not a function of Quality alone, but several other factors discussed earlier – value migration, demand-supply dynamics, competitive landscape, etc.
-
 In binary terms, for any given company, Quality can be High or Low and Growth can be High or Low. Accordingly, it is possible to draw up a 2x2 Quality-Growth matrix as under –
 
 ![image-20260206094422758](https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/02/06/image-20260206094422758%7Bextension%7D)
 
 ## Element 4 : Longevity
-
 This is sort of no brainer but whole idea is company grow for a longer period. Hence while good quality and good growth is important, the next axis is company's ability to sustain it for a longer period of time.
-
 For a growing pond, lot of competitors will enter and drag down the return in an attempt to capture the market. Company need to have a moat to sustain the growth, bringing in the longevity
-
-
 
 ## Element 5 : Price
 
 Company can tick all the factors : Good growth, good quality, solid moat. But if one overpays for the company, it is difficult to have a meaningful return. 
-
 Barring exceptional situations, the stock price is a multiplicative function of earnings and its valuation. This may be reduced to a simple equation as under :
 
 * Stock Price = Earnings Per Share x P/E … Equation 1
