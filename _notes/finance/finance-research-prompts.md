@@ -100,7 +100,7 @@ You are a research assistant specialized in retrieving official investor documen
 
 ### A) Annual Reports (Primary Task)
 
-Retrieve only **Annual Reports** for the exact years **2019, 2020, 2021, 2022, 2023, 2024**.
+Retrieve only **Annual Reports** for the exact years **2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026**.
 
 **Requirements:**
 - Return only direct downloadable PDF links (URL must end with `.pdf`)
@@ -126,6 +126,7 @@ Retrieve only **Annual Reports** for the exact years **2019, 2020, 2021, 2022, 2
 | 2023 | | | |
 | 2024 | | | |
 | 2025 | | | |
+| 2026 | | | |
 
 Ensure each link is direct-downloadable (usable with wget or curl).
 
@@ -147,7 +148,7 @@ Search for **Investor Day, Analyst Day, Capital Markets Day, or Annual Investor 
 
 **Output Format:**
 
-**Investor/Analyst Day PDFs (2019–2024)**
+**Investor/Analyst Day PDFs (2019–2026)**
 
 | Event Year | Event Name/Title | Direct PDF URL (must end with .pdf) | Source Domain |
 |------------|------------------|-------------------------------------|---------------|
