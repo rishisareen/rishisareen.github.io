@@ -12,7 +12,9 @@ The voice cut through 16 hours of exhaustion.
 
 <!--more-->
 
-I sprinted the red carpet, jumped, and finished strong. Behind me lay 3.8km of ocean, 180km of brutal Philippine hills, and a full marathon in tropical heat.
+I sprinted the red carpet, jumped, and finished strong. 
+
+I had just finished what is called "World's Toughest Single Day Endurance event". I swam for 3.8km, then cycled 180km in Brutal Philippines hill and then ran a full marathon (42.2km). Ironman. Only 0.01% of the world has completed one.
 
 Behind that lay two years of waking up at 4am, learning to swim from scratch, and one terrifying moment on a beach where I almost quit before the race even started.
 
@@ -22,7 +24,9 @@ But this story doesn't begin at a finish line. It begins with a conversation tha
 
 ## The Spark
 
-Summer of 2016. My friend Anubhav and I were chatting during office coffee break. As two friends full of more bravado and less common sense often do, he mentioned two big events happening soon in Delhi NCR : A 1500km cycle ride from Delhi to Mumbai, and a triathlon planned for early 2017, in middle of delhi winters. Something about the word "Triathlon" lit a fuse in me.
+Summer of 2016. My friend Anubhav and I were chatting during office coffee break. As it often happens, two friends full of more bravado and less common sense chat, he mentioned two big events happening soon in Delhi NCR : A 1500km cycle ride from Delhi to Mumbai, and a triathlon planned for early 2017, in middle of delhi winters. 
+
+Something about the word "Triathlon" lit a fuse in me.
 
 I went back to my desk and looked it up. Swim, Ride, Run. Three disciplines. One race.
 
@@ -34,7 +38,7 @@ Then I wrote down an honest assessment of where I stood :
 
 After weighing all this very carefully, I signed up for the Half Ironman distance. The hardest option available.
 
-A few weeks later, a bigger thought crystallized : I wanted to do a *full* Ironman before my 40th birthday. A 3.8km ocean swim, 180km bike, and a full 42.2km marathon. All in one day.
+A few weeks later, a bigger thought crystallized (do you see the patter here :)) : I wanted to do a *full* Ironman before my 40th birthday. A 3.8km ocean swim, 180km bike, and a full 42.2km marathon. All in one day.
 
 I was 38. No athletic background. Couldn't swim. Had never run more than 7km.
 
@@ -44,17 +48,17 @@ But what is life without a crazy goal or two?
 
 ## Learning the Hard Way
 
-**Swimming** was the biggest beast. Anubhav and I signed up with a coach at DDA Dwarka Sports Complex. It was a mess. Coaches kept changing, each contradicting the last. Someone would say kick more, another one wanted me to gain weight (you know fat floats better!)
+**Swimming** was the biggest beast. Anubhav and I signed up with a coach at Delhi Sports Complex. It was a mess. Coaches kept changing, each contradicting the last. Someone would say kick more, another one wanted me to gain weight (you know fat floats better!)
 
 The only useful thing I learned from them was how to stand in water.
 
-Then I discovered "Total Immersion" (On Tim Ferriss Podcast) : a method focused on efficiency and relaxation in the water. The geek in me loved it. I re-read the book, practiced the drills, and something clicked.
+Then, on Tim Ferriss podcast, I discovered "Total Immersion". TI, as it is called, is a method focused on efficiency and relaxation in the water. The geek in me loved it. I re-read the book, decided to self-learn by it. I would take the book to pool, practiced the drills, and something clicked.
 
 On my birthday, I swam 50 meters nonstop for the first time.
 
 By September, 1km nonstop. I could swim, relax, and let my mind wander. All at the same time.
 
-But the real battle was mental. Swimming at 6am in Delhi winters, leaving home in pitch dark. Moving to a 7ft deep pool with no one watching my back (Anubhav chose that 1500km Delhi to Mumbai ride). Some mornings I cursed myself. But I persisted. The fear faded.
+But the real battle was mental. Soon, winters came and local pool closed. Only option was pool an hour away. Swimming at 6am in Delhi winters, leaving home in pitch dark. Moving to a 7ft deep pool with no one watching my back (Anubhav chose that 1500km Delhi to Mumbai ride). Some mornings I cursed myself. But I persisted. The fear faded.
 
 **Running** came next. I improved fast. Until my knee started screaming at the 3km mark. The Airtel Delhi Half Marathon was coming up. I was adamant about running it.
 
@@ -72,7 +76,7 @@ In January 2017, I ran my first half marathon. Nearly 4 hours. Zero knee pain. I
 
 February 19, 2017. Delhi International Triathlon. My first ever triathlon : and I'd jumped straight into the Half Ironman distance.
 
-The alarm went off at 4am to a Bollywood song : "Aa dekhe jara, kis mein kitna hai dum." *Let's see who has the guts.* Apt (I still play this song before every race)
+The alarm went off at 4am to a Bollywood song : "Aa dekhe jara, kis mein kitna hai dum." *Let's see who has the guts.* Apt, very apt. (I still play this song before every race)
 
 Seven hours and 45 minutes later, it was done. I was hooked.
 
@@ -96,13 +100,13 @@ I hyperventilated, thrashed back to shore, stood there breathing hard.
 
 Remember, till date, all the swimming I've done in the pool. Where the floor is always visible. No one warned me of this. 
 
-I still remember that day. Every part of me wanted to walk away. But I knew  if I left now, the fear would be ten times worse on race day. My Ironman would be over before it began. The cliche saying came in my mind : "You didn't come this far only to come this far"
+I still remember that moment vividly. Every part of me wanted to walk away. But I knew if I left now, the fear would be ten times worse on race day. My Ironman would be over before it began. The cliche saying came in my mind : "You didn't come this far only to come this far"
 
 Deep breaths. Back in the water. Slow strokes. 100 meters. Pause. 150 meters. Turn back.
 
 I reached the shore grinning. I did it!!
 
-I still look back at that day : 1st June, two days before the race. Bravery isn't the absence of fear. It's doing things despite it.
+I still look back at that day : 1st June, two days before the race. As someone said - Bravery isn't the absence of fear. It's doing things despite it.
 
 {% include image.html file="/images/2018_06_03_IMPhi/PreRace/IM-Pre-5-FinishLine.jpg" description="India flag around the finish line at Subic Bay" %}
 
@@ -112,7 +116,7 @@ I still look back at that day : 1st June, two days before the race. Bravery isn'
 
 Asia's toughest Ironman course. 2000 meters of elevation on the bike. Seasoned athletes comparing it to Kona (World Toughest Ironman, world championship venue)
 
-**The swim** was almost anticlimax after all that panic, as it stormed the night before and sea water was all murky. 
+**The swim** was almost anticlimax after all that panic, as it stormed the night before and sea water was all murky.
 
 Counting breaths to drown out the chaos of a thousand jostling bodies, I entered the sea and started swimming. Exited after 1 hour 42 minutes. Right on plan.
 
