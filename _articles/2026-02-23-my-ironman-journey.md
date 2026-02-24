@@ -12,142 +12,172 @@ The voice cut through 16 hours of exhaustion.
 
 <!--more-->
 
-I sprinted the red carpet, jumped, and finished strong. Behind me lay 3.8km of ocean, 180km of brutal Philippine hills, and a full marathon in tropical heat. Behind that lay two years of waking up at 4am, learning to swim from scratch, and one terrifying moment on a beach in Subic Bay where I almost quit before the race even started.
+I sprinted the red carpet, jumped, and finished strong. Behind me lay 3.8km of ocean, 180km of brutal Philippine hills, and a full marathon in tropical heat.
 
-But this story doesn't begin at a finish line. It begins in a breakout area at work, with a conversation that changed everything.
+Behind that lay two years of waking up at 4am, learning to swim from scratch, and one terrifying moment on a beach where I almost quit before the race even started.
 
----
-
-It was the summer of 2016. My friend Anubhav and I were catching up, discussing upcoming sports events. He mentioned two : a 1500km Delhi-to-Mumbai cycling event and a triathlon planned for early 2017. Something about the word "triathlon" lit a fuse in me. I went back to my desk and looked it up.
-
-Swim, Ride, Run. Three disciplines. One race. And at the top of the pyramid sat the Half Ironman distance : 1.9km swim, 90km ride, 21.1km run. Eight and a half hours to finish it all.
-
-I paused and wrote down an honest assessment of where I stood:
-
-Swim: I could float. I couldn't breathe while swimming. 2 out of 10.
-Run: My longest run ever was 7km. 3 out of 10.
-Ride: I'd done a few century rides. The only sport where I wasn't a complete beginner. 5 out of 10.
-
-I looked at the three distance categories : Sprint, Olympic, Half Ironman ; weighed my current ability against the magnitude of the challenge, factored in my job, my family, the limited time available, and then, after this careful and measured analysis, signed up for the biggest and hardest one. The Half Ironman. It just ticked my internal flag of "is this crazy enough?"
-
-A few weeks later, while still processing what I'd gotten myself into, a bigger thought crystallized. I wanted to do a full Ironman before my 40th birthday. A 3.8km swim, 180km cycle, and a full 42.2km marathon : all in one day. That was the real bucket list item.
-
-Now, one should understand that I had no athletic background. I was 38. I didn't know how to swim. I had never run more than 7km in my entire life. I had no idea what it was going to take, or how much it would ask of me.
-
-But then, what is life without a crazy goal or two?
+But this story doesn't begin at a finish line. It begins with a conversation that changed everything.
 
 ---
 
-## Learning to Swim
+## The Spark
 
-Swimming was the biggest beast, and naturally the first focus area. Delhi's swim season runs from April to October, which gave me a narrow window.
+Summer of 2016. My friend Anubhav mentioned a triathlon planned for early 2017. Something about the word lit a fuse in me.
 
-Anubhav and I signed up with a coach at DDA Dwarka Sports Complex. It was a rough start. Coaches kept changing. Each had a contradictory method : one said hold your breath and go as far as you can; the other said breathe every stroke. They all pushed for fast, aggressive leg kicks, which is fine for short distance but terrible if you need to save your legs for 180km of cycling and a marathon afterward.
+I went back to my desk and looked it up. Swim, Ride, Run. Three disciplines. One race.
 
-The only useful thing I learned from those coaches was how to stand in water.
+Then I wrote down an honest assessment of where I stood :
 
-I recalled a Tim Ferriss podcast about something called "Total Immersion" : a method focused on moving through water efficiently while staying relaxed. It resonated with the geek in me. I re-read the book, started practicing the drills, and something finally clicked. Maybe it was the commitment to the Half Ironman. Maybe it was having Anubhav there to watch my back. Maybe I was just ready. Whatever it was, I started swimming . Properly.
+Swim : I could float. Couldn't breathe while swimming. **2 out of 10.**
+Run : Longest distance ever : 7km. **3 out of 10.**
+Ride : A few century rides. Not a complete beginner. **5 out of 10.**
 
-On my birthday that year, I swam 50 meters nonstop for the first time. It felt awesome. By September, I'd gone from 50 meters to 1km nonstop. Swimming became enjoyable. I could swim, relax, and let my mind wander. All at the same time.
+After weighing all this very carefully, I signed up for the Half Ironman distance. The hardest option available.
 
-But the real battle was mental. When the outdoor pool closed, I moved to Sirifort, swimming at 6am in the Delhi winter, leaving home in pitch dark and cold. Later, I moved to Talkatora, which had a deep 7ft pool. I was terrified. No Anubhav to watch my back (he chose that 1500km Delhi to Mumbai ride). Some mornings I cursed myself for taking such hassles. But I persisted. And eventually, the fear faded.
+A few weeks later, a bigger thought crystallized : I wanted to do a *full* Ironman before my 40th birthday. A 3.8km ocean swim, 180km bike, and a full 42.2km marathon. All in one day.
 
-## Learning to Run
+I was 38. No athletic background. Couldn't swim. Had never run more than 7km.
 
-Pool season ended in October. Time to become Forrest Gump.
-
-I improved quickly at first — pace dropped from 8.5 min/km to 7.5. Max distance jumped to 15km. But then my left knee started screaming. Within a few weeks, the pain was so bad I felt it by the 3km mark. I had increased my mileage too fast, and my posture was wrong.
-
-The Airtel Delhi Half Marathon was coming up. I was adamant about running it. Injury? "No Pain, No Gain", I told myself. But my coach and friends scolded me into withdrawing. "Live to die another day." I hated that decision. But it was the right one.
-
-I paused, studied running form, discovered Gordon Pirie's philosophy of relaxed, form-focused running, changed my shoes, and started over. The knee pain disappeared after ten days of rest. In January 2017, I ran my first half marathon in the Aravalli Hills. It took nearly 4 hours with all the breaks. But there was zero knee pain, and I was buzzing for more.
-
-## The First Triathlon
-
-February 19, 2017. Delhi International Triathlon. My first ever triathlon and I'd jumped straight into the Half Ironman distance.
-
-The alarm went off at 4am to a Bollywood song I still remember to this day: "Aa dekhe jara, kis mein kitna hai dum." Let's see who has the guts. Apt.
-
-The swim went well :  59 minutes, right on plan. The cycling was uneventful ;  training on those Delhi roads paid off. And then came the run, my weakest discipline. It was turning into a hot day. I ran and walked, linking up with fellow first-timers from Nasik and Mumbai, all of us egging each other on.
-
-Seven hours and 45 minutes. My first triathlon was done. I was hooked.
+But what is life without a crazy goal or two?
 
 ---
 
-## The Road to Ironman
+## Learning the Hard Way
 
-Over the next year, I completed two more Half Ironmans, inching closer to the real goal. In early 2018, I pulled the trigger and signed up for Ironman Philippines , the first full Ironman to be held in Subic Bay. I picked it for one simple reason: it was the closest race to my 40th birthday.
+**Swimming** was the biggest beast. Anubhav and I signed up with a coach at DDA Dwarka Sports Complex. It was a mess — coaches kept changing, each contradicting the last.
 
-Anubhav and I flew to Subic four days early. We needed open water swim practice. Neither of us had ever swum in the sea.
+The only useful thing I learned from them was how to stand in water.
 
-On the practice day, Anubhav was in the water before I'd even figured out my borrowed Garmin watch. Standing alone on the beach did nothing to calm my nerves. I gathered courage and started swimming. The first 50 meters were fine. Then the sea floor dropped away. The crystal-clear water meant I could see exactly how far down the bottom was. My mind declared: "Panic. You are going to die." I hyperventilated, thrashed my way back to shallow water, and stood on the shore, breathing hard.
+Then I discovered "Total Immersion" : a method focused on efficiency and relaxation in the water. The geek in me loved it. I re-read the book, practiced the drills, and something clicked.
 
-I weighed my options. I didn't want to go back in. But I also knew that if I walked away now, the fear would be ten times worse the next time. My race would be over before it began.
+On my birthday, I swam 50 meters nonstop for the first time.
 
-A few deep breaths. Back in the water. Slow strokes. At 100 meters my watch buzzed and I paused, letting my heart rate settle. At 150 meters I turned back. The return was easy. I reached the shore grinning. The mental barrier was broken.
+By September, 1km nonstop. I could swim, relax, and let my mind wander. All at the same time.
 
-I still look back at this day (1st June, 2 days before the race). It was very easy to quit, the temptation was there, the fear was there. But I realized later that Bravery is actually doing things despite of the fear. 
+But the real battle was mental. Swimming at 6am in Delhi winters, leaving home in pitch dark. Moving to a 7ft deep pool with no one watching my back (Anubhav chose that 1500km Delhi to Mumbai ride). Some mornings I cursed myself. But I persisted. The fear faded.
+
+**Running** came next. I improved fast — until my knee started screaming at the 3km mark. The Airtel Delhi Half Marathon was coming up. I was adamant about running it.
+
+My coach scolded me into withdrawing. "Live to die another day."
+
+I hated that decision. It was the right one.
+
+Changed shoes. Fixed form. Started over. In January 2017, I ran my first half marathon. Nearly 4 hours. Zero knee pain. I was buzzing.
+
+---
+
+## First Triathlon
+
+February 19, 2017. Delhi International Triathlon. My first ever triathlon — and I'd jumped straight into the Half Ironman distance.
+
+The alarm went off at 4am to a Bollywood song : "Aa dekhe jara, kis mein kitna hai dum." *Let's see who has the guts.* Apt.
+
+Seven hours and 45 minutes later, it was done. I was hooked.
+
+---
+
+## The Moment I Almost Quit
+
+Two more Half Ironmans later, I signed up for the real thing : Ironman Philippines, Subic Bay. I picked it because it was closest to my 40th birthday.
+
+Anubhav and I flew in four days early for sea swim practice. Neither of us had ever swum in the ocean.
+
+Practice day. Anubhav was in the water before I'd even figured out my borrowed Garmin. Standing alone on the beach did nothing for my nerves.
+
+I started swimming. First 50 meters, fine.
+
+Then the sea floor dropped away. Crystal-clear water. I could see exactly how far down the bottom was.
+
+My mind declared : "Panic. You are going to die."
+
+I hyperventilated, thrashed back to shore, stood there breathing hard.
+
+Every part of me wanted to walk away. But I knew — if I left now, the fear would be ten times worse on race day. My Ironman would be over before it began.
+
+Deep breaths. Back in the water. Slow strokes. 100 meters. Pause. 150 meters. Turn back.
+
+I reached the shore grinning.
+
+I still look back at that day — June 1st, two days before the race. Bravery isn't the absence of fear. It's doing things despite it.
+
+{% include image.html file="/images/2018_06_03_IMPhi/PreRace/IM-Pre-5-FinishLine.jpg" description="India flag around the finish line at Subic Bay" %}
+
+---
 
 ## Race Day : June 3, 2018
 
-The race that seasoned athletes were comparing to Kona (World Toughest Ironman). Asia's toughest Ironman course. 2000 meters of elevation on the bike leg alone.
+Asia's toughest Ironman course. 2000 meters of elevation on the bike. Seasoned athletes comparing it to Kona.
 
-The swim was almost anticlimactic after all that practice-day panic. Rolling start, chaos at the beginning : shoving, kicking, jostling in a compact area with a thousand other athletes. I focused on counting my breaths, a tip from a swim camp. Counting distracts the mind from chaos and locks you into rhythm. First 1.9km in 52 minutes. Second loop in 50. Total swim: 1 hour 42 minutes.
+**The swim** was almost anticlimactic after all that panic. Counting breaths to drown out the chaos of a thousand jostling bodies. 1 hour 42 minutes. Right on plan.
 
-And then the bike.
+{% include image.html file="/images/2018_06_03_IMPhi/Race/IM-Swim-1.JPG" description="Survived the swim" %}
 
-If I had to describe the cycling course in one word, it would be "brutal." A 6% grade climb within the first few kilometers, with strong headwinds. People were getting off their bikes and walking. I stopped at every hydration station, refueled, and kept grinding. At the 130km mark, heavy rain made the roads slippery. When the rain stopped, headwinds took its place. Those next 20 kilometers were agony — body tired, climbs relentless, every pedal stroke a struggle. I found other athletes and started chatting to distract myself. That dark phase, where you want to stop and the mind is begging you to quit — I learned to just keep talking, keep moving.
+**The bike** was brutal. A 6% climb in the opening kilometers. Heavy rain at 130km. Relentless headwinds after that. Every pedal stroke a negotiation with my body.
 
-It took me nearly 8 hours to finish the bike : over an hour slower than my worst estimates.
+Nearly 8 hours — over an hour slower than my worst estimate.
 
-Then came the marathon. My debut Ironman was also my debut marathon. I had never run more than 25km in training. It was 5pm when I started, 11 hours into the race. My body was stiff. My legs were heavy. The original sub-15-hour goal was gone. I recalculated: sub-16 was possible if I stayed injury-free.
+{% include image.html file="/images/2018_06_03_IMPhi/Race/IM-Bike-3.JPG" description="Attitude is still thumbs up" %}
 
-First 10km came in 75 minutes. Then I met Vijay, another first-timer, and we ran together for 25 kilometers : walking, running, pushing each other. With 7km left and 40 minutes to make sub-16, I went all out. That pace was something I hadn't done even on fresh legs. Those last kilometers were agonizing and beautiful at once. I constantly told my mind to shut up. I overtook people. As the finish line drew closer, I could hear Mike Reilly's voice announcing finishers.
+**The marathon.** My debut Ironman was also my debut marathon. 5pm. Eleven hours in. Never run more than 25km in training.
+
+I met Vijay, another first-timer. We ran and walked together for 25 kilometers, pushing each other through the dark phase.
+
+With 7km left and 40 minutes to make sub-16, I went all out. A pace I hadn't done even on fresh legs. Those last kilometers were agonizing and beautiful. I told my mind to shut up. I overtook people. Mike Reilly's voice grew louder.
 
 I sprinted the red carpet. Jumped at the end.
 
-"From India, first-time triathlete, Rishi Sareen, you are an Ironman."
+**15 hours, 57 minutes. Two months before I turned 40.**
 
-15 hours, 57 minutes. Two months before I turned 40.
-
----
-
-## The Journey After
-
-That first Ironman was never meant to be the last. The bug had bitten too deep.
-
-In 2019, I raced Ironman Copenhagen. A cold, rainy day in Denmark. My wetsuit felt like it was strangling me during the practice swim. I panicked in the murky water and retreated to shore, just as I had in Philippines. But on race day, experience kicked in — I stayed calm, found my rhythm, and put up a 1:30 swim. The bike was rolling hills in the rain. The run was four brutal laps past the finish line, each time being taunted by the red carpet I couldn't yet cross. I finished in 14 hours 22 minutes, disappointed I didn't hit sub-13 but grateful for the lessons.
-
-Then Covid wiped out 2020 and 2021. Three years without a race. But I kept training, quietly building a stronger base.
-
-In September 2022, I lined up for Ironman Italy. I'd had a bad bout of Covid just weeks before and could barely train in August. The sub-12 dream was dead. Friends reminded me I wasn't a professional :  I was in this for fitness and fun. I let go of expectations and just went out to race.
-
-Something magical happened. My nutrition was dialed in for the first time. I stayed aero on the bike. And during the marathon, I didn't walk once — a first for me in a full Ironman. I finished in 13 hours 16 minutes, and I was grinning the entire last loop.
-
-Barcelona 2024 was the breakthrough. A sub-12-hour finish : a time I once thought was beyond me. Every lesson from every previous race came together. The swim panic that plagued my early races had mellowed into a manageable flutter. The nutrition mistakes from Copenhagen were ironed out. The walking in the marathon was replaced by steady, confident running.
-
-And then Frankfurt 2025 made it five. So far. 
+{% include image.html file="/images/2018_06_03_IMPhi/Race/Race.JPG" description="The finish line" %}
 
 ---
 
-## What This Journey Taught Me
+## What Came After
 
-People often ask me why. Why put yourself through 16 hours of pain? Why wake up at 4am in Delhi winters to swim in freezing pools? Why sign up for something when you can barely float?
+That first Ironman was never the end. The bug had bitten too deep.
 
-The honest answer is that I never set out to become a triathlete. I set out to prove to myself that "impossible" is just a word. That a 38-year-old with no athletic background can learn to swim, then run, then put it all together and cross a finish line where someone announces your name and calls you an Ironman.
+**Copenhagen 2019.** Cold, rainy Denmark. Panicked again during the practice swim — wetsuit felt like it was strangling me. But race day? Experience kicked in. Finished with the Indian flag on my shoulders. 14:22.
 
-Along the way, I discovered a few truths that extended well beyond racing.
+{% include image.html file="/images/2019_08_18_IMCPH/Race/20190818-12-FinishLine-3.JPG" description="Carrying the Indian flag at Copenhagen" %}
 
-Start small and be consistent. I didn't build to an Ironman overnight. I built from 50-meter swims and 7km runs, one small step at a time. Consistency beat excellence every single time.
+**Covid** wiped out three years of racing. But I kept training. Quietly building.
 
-Live to die another day. I learned to pull back when I needed to :  skipping the Delhi Half Marathon when my knee was shot, adjusting plans when work or life got heavy. Playing the long game meant staying injury-free and showing up the next day.
+**Italy 2022.** Bad Covid weeks before the race. Friends reminded me I'm not a professional — I'm in this for fitness and fun. I let go of expectations.
 
-Put it out there. I told everyone I met about my goal. That public commitment turned quitting into something that wasn't even an option.
+Something magical happened. Nutrition dialed in. Stayed aero on the bike. And the marathon? Didn't walk once. First time ever in an Ironman. 13:16, grinning the entire last loop.
 
-Embrace the suck. There are dark phases in every Ironman :  at the 130km mark on the bike when the headwinds are relentless, at kilometer 35 of the marathon when your legs have nothing left. Those moments don't go away. You just learn to keep moving through them.
+{% include image.html file="/images/20220918_IM Italy/RishiFinish.jpg" description="The hard earned medal at Italy" %}
 
-Five Ironmans later, I still get nervous before races. I still have moments in the water where my heart rate spikes and my brain says "turn back." The difference is that now I know what's on the other side of that fear.
+**Barcelona 2024.** The breakthrough. Sub-12 hours — a time I once thought was beyond me. Every lesson from every race, finally clicking together.
 
-The red carpet. The voice on the loudspeaker. And the best six words in endurance sports:
+**Frankfurt 2025** made it five. So far.
 
-"Rishi Sareen, you are an Ironman."
+---
+
+## Why Any of This Matters
+
+People ask me why. Why 16 hours of pain? Why 4am alarms in Delhi winters? Why sign up when you can barely float?
+
+Here's what I've learned : the Ironman was never really about the Ironman.
+
+It was about discovering that the person I thought I was — the non-athlete, the guy who couldn't swim, the 38-year-old who had no business being on a starting line — was just a story I'd been telling myself.
+
+And stories can be rewritten.
+
+Every time I stood on a beach terrified to get in the water. Every time my knee screamed and I had to choose between ego and patience. Every time I hit the 130km mark and my mind begged me to stop. Those were the moments that changed me. Not the finish lines. The dark phases.
+
+The lesson isn't about triathlon. It's simpler than that.
+
+**Do hard things.**
+
+Not because they'll be fun. Not because you'll be good at them. Do them because on the other side of that fear, that exhaustion, that voice telling you to quit — there's a version of you that doesn't exist yet.
+
+Start small. Be consistent. Tell everyone what you're chasing so quitting isn't an option. And when it sucks — and it will — keep moving. The struggle *is* the point.
+
+Five Ironmans later, I still get nervous before every race. My heart still spikes in open water. My mind still whispers "turn back."
+
+But I know what's on the other side now. And that changes everything.
+
+The red carpet. The voice on the loudspeaker. And six words that remind me what's possible :
+
+**"Rishi Sareen, you are an Ironman."**
