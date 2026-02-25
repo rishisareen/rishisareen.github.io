@@ -158,7 +158,7 @@ But the journey also showed me my darker side.
 
 In Copenhagen, it rained the entire bike ride. Cold, shivering, miserable. I must have quit ten times during those seven hours. I just didn't say it out loud. In Philippines, I stood on a beach and genuinely wanted to walk away from two years of preparation. In Italy, weeks after Covid, I questioned whether I even belonged on the starting line.
 
-Those moments don't make the highlight reel. But they're the ones that matter. Because when you've talked yourself out of quitting enough times, something shifts. You start to trust yourself differently. Not in a loud, chest-thumping way. In a quiet way. A knowing.
+People don't talk about these moments of doubt / struggle often. But they're the ones that matter. Because when you've talked yourself out of quitting enough times, something shifts deep inside you. You start to trust yourself differently. Not in a loud, alpha way. In a quiet way. 
 
 *I've been in dark places before. I came through. I'll come through again.*
 
