@@ -142,27 +142,37 @@ This June (2025), in Frankfurt I did my fifth full ironman. So far.
 
 ## Why Any of This Matters
 
-People ask me why. Why 16 hours of pain? Why 4am alarms in Delhi winters? Why sign up when you can barely float?
+People ask me why I started.
 
-Here's what I've learned : the Ironman was never really about the Ironman.
+I don't have a clean answer. I wasn't chasing a dream since childhood. There was no dramatic turning point. I was 38. Life had followed the path that was laid out for me : study, job, marriage, kids. All good things. All chosen for me before I knew I was choosing.
 
-It was about discovering that the person I thought I was : the non-athlete, the guy who couldn't swim, the 38-year-old who had no business being on a starting line , was just a story I'd been telling myself.
+Mid-life crisis? Maybe. A quiet restlessness that something was missing? Maybe. I honestly don't know why I started.
 
-**And stories can be rewritten.**
+But I know what it did to me.
 
-Every time I stood on a beach terrified to get in the water. Every time my knee screamed and I had to choose between ego and patience. Every time I hit the 130km mark and my mind begged me to stop. Those were the moments that changed me. Not the finish lines. The dark phases.
+Here's what nobody tells you about training for an Ironman. It's not the race that changes you. It's the 5am alarm on a Tuesday when it's 4 degrees outside and you have to get in a pool. It's the long ride on a Saturday when your friends are at brunch. It's saying no to the third drink because you have a 20km run tomorrow. It's boring. It's repetitive. It's deeply unglamorous.
 
-The lesson isn't about triathlon. It's simpler than that.
+And in that unglamorous grind, I discovered something I didn't know about myself : I can be consistent. Not talented. Not gifted. Consistent. Show up, do the work, repeat. For months. For years. That was new. That changed everything.
 
-**Do hard things.**
+But the journey also showed me my darker side.
 
-Not because they'll be fun. Not because you'll be good at them. Do them because on the other side of that fear, that exhaustion, that voice telling you to quit , there's a version of you that doesn't exist yet.
+In Copenhagen, it rained the entire bike ride. Cold, shivering, miserable. I must have quit ten times during those seven hours. I just didn't say it out loud. In Philippines, I stood on a beach and genuinely wanted to walk away from two years of preparation. In Italy, weeks after Covid, I questioned whether I even belonged on the starting line.
 
-Start small. Be consistent. Tell everyone what you're chasing so quitting isn't an option. And when it sucks, and it will, keep moving. The struggle *is* the point.
+Those moments don't make the highlight reel. But they're the ones that matter. Because when you've talked yourself out of quitting enough times, something shifts. You start to trust yourself differently. Not in a loud, chest-thumping way. In a quiet way. A knowing.
+
+*I've been in dark places before. I came through. I'll come through again.*
+
+That belief doesn't stay in triathlon. It bleeds into everything. Into work. Into relationships. Into the moments when life gets hard and there's no finish line in sight.
+
+I'm not going to tell you to go sign up for an Ironman. That was my thing. Your thing might be completely different.
+
+But I will say this : do something that scares you. Something where you're not sure you'll make it. Something unglamorous and hard and long enough that you'll have to meet yourself on the bad days, not just the good ones.
+
+Because the point was never the medal. The point was finding out who I am when everything in me says stop, and I keep going anyway.
 
 Five Ironmans later, I still get nervous before every race. My heart still spikes in open water. My mind still whispers "turn back."
 
-But I know what's on the other side now. And that changes everything.
+But I know what's on the other side now.
 
 The red carpet. The voice on the loudspeaker. And six words that remind me what's possible :
 
