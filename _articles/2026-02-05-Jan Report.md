@@ -4,10 +4,9 @@ title: Monthly Review  Jan 2026
 date: 2026-02-05 10:00:00 +0530
 comments: true
 categories:
-  - Triathlon
+  - Productivity
 ---
-	
-# Monthly Review: January 2026
+
 
 This is the first edition of my monthly review, inspired by my friend Protima. This is my attempt to take an honest look at how each month went across the pillars that matter to me. 
 
@@ -84,4 +83,4 @@ My affirmation for January was *"I am a warrior monk."* I'm carrying it forward.
 
 ---
 
-*This is part of a monthly series where I review my life across the pillars that matter to me. The goal isn't perfection — it's awareness. If you know where you are, you can choose where to go.*
+*This is part of a monthly series where I review my life across the pillars that matter to me. The goal isn't perfection, it's awareness and constant course correction. If you know where you are, you can choose where to go.*
