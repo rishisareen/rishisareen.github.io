@@ -7,8 +7,6 @@ tags: [Books, Reviews, Self-Help]
 
 ---
 
-# Book Review: Meditation for Mortals
-
 <div style="display: flex; align-items: flex-start; gap: 20px;">
   <div style="flex: 0 0 auto; width: 100px; height: auto;">
     <img src="https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/04/13/images%7Bextension%7D" alt="[Book Title] Cover" style="width: 100px; height: auto; border: 1px solid #ddd; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);">
