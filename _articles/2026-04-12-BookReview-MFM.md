@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Book Review: Meditation for Mortals"
 date: 2026-04-12
 categories: [Book Reviews]
@@ -30,8 +30,6 @@ The book is divided into 28 chapters, supposed to be read one chapter a day. The
 
 
 ## My Notes
-
-
 
 ### Week 1 : Being Finite
 
@@ -215,9 +213,3 @@ Olivier finishes this lovely book with this last poignant para:
 > Everyone is screwed up, broken, clingy, and scared, even the people who seem to have it more or less together. They are much more like you than you would believe. So try not to compare your insides to their outsides.
 >
 > ‘The nature of finite things as such is to have the seed of passing away as their essential being: the hour of their birth is the hour of their death.’
->
-
-
-
-
-
