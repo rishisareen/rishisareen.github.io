@@ -23,7 +23,7 @@ tags: [Books, Reviews, Self-Help]
 
 ## Summary
 
-Such an amazing book. I'm fan of Olivier's writing, his previous book "four thousand weeks" turned the conventioned advice of productivity in its head - rather than attacking the todo list or learning new ways of "being productive", he made me think on the finite life (we have approx 4000 weeks of life, hence the name). That book made a huge impact on me. And hence i was keen to read this one.
+Such an amazing book. I'm fan of Olivier's writing, his previous book "four thousand weeks" turned the conventioned advice of productivity in its head - rather than attacking the todo list or learning new ways of "being productive", he made me think on the finite life (we have approx 4000 weeks of life, hence the name). That book made a huge impact on me. And hence i was keen to read this one
 
 Before I pen my thoughts on the book, one note - the title sucks. "Meditation for Mortals" is confusing - this is not a book about meditation at all. Musings, maybe. I feel he should have gone with something more reflective of the content. Like "how to live when you can't do everything", "Letting go of infinite to-do list". Anyways!
 
