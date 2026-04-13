@@ -2,7 +2,7 @@
 layout: article
 title: "Book Review: Meditation for Mortals"
 date: 2026-04-12
-categories: [Book Reviews]
+categories: [Books]
 tags: [Books, Reviews, Self-Help] 
 
 ---

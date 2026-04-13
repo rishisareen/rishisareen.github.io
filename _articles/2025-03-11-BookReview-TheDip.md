@@ -3,7 +3,7 @@ layout: article
 title: "Book Review: The Dip"
 date: 2025-03-11
 categories: [Books]
-tags: [Books, Reviews, Genre] # Replace 'Genre' with appropriate tags like Fiction, Non-Fiction, etc.
+tags: [Books, Reviews, Genre] 
 
 ---
 
