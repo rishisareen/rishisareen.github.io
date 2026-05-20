@@ -576,12 +576,96 @@
   .grid.list-view .card-footer { flex: 0 1 auto; flex-direction: column; gap: 4px; padding: 0; }
   .grid.list-view .price-badge { font-size: 16px; }
 
+  /* Mobile filter button — hidden on desktop */
+  .mobile-filter-btn {
+    display: none;
+    background: var(--espresso);
+    color: var(--cream);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(43,24,16,0.15);
+  }
+  .mobile-filter-btn .badge {
+    background: var(--amber);
+    color: white;
+    border-radius: 10px;
+    padding: 1px 7px;
+    font-size: 11px;
+    margin-left: 2px;
+    font-weight: 600;
+  }
+  .mobile-filter-btn:hover { background: var(--coffee); }
+
+  /* Sidebar close button — mobile only */
+  .sidebar-close {
+    display: none;
+    background: none;
+    border: 1px solid var(--line);
+    color: var(--cocoa);
+    font-size: 18px;
+    line-height: 1;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+  }
+  .sidebar-close:hover { background: var(--cream-2); }
+
+  /* Backdrop for mobile drawer */
+  .sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(43,24,16,0.45);
+    z-index: 998;
+  }
+  .sidebar-backdrop.open { display: block; }
+
   /* RESPONSIVE */
   @media (max-width: 900px) {
     .layout { grid-template-columns: 1fr; }
-    .sidebar { position: static; max-height: none; border-right: none; border-bottom: 1px solid var(--line); }
     .main { padding: 16px; }
     .grid { grid-template-columns: 1fr; }
+    .header { padding: 20px 18px 18px; }
+    .header h1 { font-size: 22px; }
+    .header p { font-size: 12px; }
+
+    .mobile-filter-btn { display: inline-flex; }
+    .sidebar-close { display: inline-flex; }
+
+    /* Sidebar becomes a slide-in drawer */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 88%;
+      max-width: 340px;
+      max-height: 100vh;
+      z-index: 999;
+      transform: translateX(-100%);
+      transition: transform 0.25s ease;
+      box-shadow: 4px 0 20px rgba(43,24,16,0.2);
+      border-right: 1px solid var(--line);
+      border-bottom: none;
+    }
+    .sidebar.open { transform: translateX(0); }
+
+    .toolbar { gap: 10px; }
+    .toolbar-left { gap: 10px; width: 100%; }
+    .sort-wrap { flex: 1; min-width: 0; }
+    .sort-wrap select { max-width: 100%; width: 100%; }
+    .view-toggle button { padding: 6px 10px; font-size: 11px; }
+    .results-count { width: 100%; font-size: 14px; }
   }
 </style>
 </head>
@@ -598,9 +682,16 @@
   </div>
 </div>
 
+<div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+
 <div class="layout">
-  <aside class="sidebar">
-    <h2>Filters <button class="reset-btn" id="resetBtn">Reset</button></h2>
+  <aside class="sidebar" id="sidebar">
+    <h2>Filters
+      <span style="display:inline-flex;align-items:center;">
+        <button class="reset-btn" id="resetBtn">Reset</button>
+        <button class="sidebar-close" id="sidebar-close" aria-label="Close filters">×</button>
+      </span>
+    </h2>
 
     <div class="search-wrap">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -668,6 +759,10 @@
   <main class="main">
     <div class="toolbar">
       <div class="toolbar-left">
+        <button class="mobile-filter-btn" id="mobile-filter-btn" aria-label="Open filters">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+          Filters<span class="badge" id="filter-badge" style="display:none;">0</span>
+        </button>
         <div class="results-count">Showing <strong id="count">0</strong> of <span id="total">0</span></div>
         <div class="sort-wrap">
           <span>Sort:</span>
@@ -851,6 +946,28 @@ document.getElementById('disclaimer-btn').addEventListener('click', () => {
   document.getElementById('disclaimer').classList.toggle('open');
 });
 
+// Mobile filter drawer
+const sidebarEl = document.getElementById('sidebar');
+const backdropEl = document.getElementById('sidebar-backdrop');
+function openSidebar() {
+  sidebarEl.classList.add('open');
+  backdropEl.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSidebar() {
+  sidebarEl.classList.remove('open');
+  backdropEl.classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('mobile-filter-btn').addEventListener('click', openSidebar);
+document.getElementById('sidebar-close').addEventListener('click', closeSidebar);
+backdropEl.addEventListener('click', closeSidebar);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSidebar(); });
+// Auto-close when viewport returns to desktop
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 900) closeSidebar();
+});
+
 document.getElementById('sort-select').addEventListener('change', e => {
   if (!e.target.value) {
     state.sortField = null;
@@ -1030,6 +1147,20 @@ function render() {
   document.getElementById('total').textContent = DATA.length;
   document.getElementById('stat-shown').textContent = rows.length;
   renderTags();
+
+  // Update mobile filter badge
+  const activeCount =
+    (state.search ? 1 : 0) +
+    state.brands.size + state.roasts.size + state.processes.size + state.sources.size +
+    (state.district ? 1 : 0) + (state.estate ? 1 : 0) + (state.sample ? 1 : 0) +
+    ((state.priceMin > priceMinBound || state.priceMax < priceMaxBound) ? 1 : 0);
+  const badge = document.getElementById('filter-badge');
+  if (activeCount > 0) {
+    badge.style.display = 'inline-block';
+    badge.textContent = activeCount;
+  } else {
+    badge.style.display = 'none';
+  }
 }
 
 render();
