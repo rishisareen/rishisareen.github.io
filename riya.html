@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Riya — College &amp; Branch Explorer (CSE / ECE focus)</title>
+<title>Riya — College &amp; Branch Explorer</title>
 <style>
   :root{
     --navy:#1f3864; --blue:#2e5496; --ltblue:#d6e0f0; --gold:#bf9000;
@@ -28,8 +28,14 @@
     padding:5px 11px; border-radius:999px; font-size:12.5px; font-weight:600; white-space:nowrap;}
   .chip b{font-weight:800;}
 
+  .tabs{display:flex; gap:8px; margin-top:16px;}
+  .tabs button{appearance:none; cursor:pointer; border:1.5px solid var(--line); background:#fff; color:var(--navy);
+    font-size:14px; font-weight:700; padding:11px 18px; border-radius:12px 12px 0 0; font-family:inherit; transition:.15s;}
+  .tabs button:hover{border-color:var(--blue);}
+  .tabs button.active{background:var(--navy); border-color:var(--navy); color:#fff;}
+
   .panel{background:var(--card); border:1px solid var(--line); border-radius:14px;
-    padding:14px 16px; margin-top:16px; box-shadow:0 2px 10px rgba(31,56,100,.05);}
+    padding:14px 16px; margin-top:14px; box-shadow:0 2px 10px rgba(31,56,100,.05);}
   .filterhead{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;}
   .filterhead h2{font-size:14px; margin:0; color:var(--navy); letter-spacing:.02em;}
   .count{font-size:12.5px; color:var(--muted); font-weight:600;}
@@ -61,17 +67,21 @@
   td.branch{color:#33404e;}
   td.note{color:var(--muted); font-size:12px;}
   td.closing{text-align:center; font-weight:700; font-variant-numeric:tabular-nums;}
+  td.yr{text-align:center; font-variant-numeric:tabular-nums;}
+  td.yr.y25{font-weight:800; color:var(--navy);}
 
   .pill{display:inline-block; padding:3px 10px; border-radius:999px; font-size:11.5px; font-weight:700; white-space:nowrap;}
   .p-jac{background:var(--jac-bg); color:var(--jac);} .p-josaa{background:var(--josaa-bg); color:var(--josaa);}
   .p-cse{background:var(--cse-bg); color:var(--cse);} .p-ece{background:var(--ece-bg); color:var(--ece);} .p-other{background:var(--oth-bg); color:var(--oth);}
   .c-safe{background:var(--safe-bg); color:var(--safe);} .c-moderate{background:var(--mod-bg); color:var(--mod);}
   .c-reach{background:var(--reach-bg); color:var(--reach);} .c-unlikely{background:var(--unl-bg); color:var(--unl);}
+  .t-eased{color:var(--safe); font-weight:700;} .t-tight{color:var(--unl); font-weight:700;} .t-new{color:var(--muted); font-weight:700;}
 
   .empty{padding:30px; text-align:center; color:var(--muted); font-size:14px;}
   .legend{margin-top:14px; font-size:12px; color:var(--muted); line-height:1.8;}
   .legend .pill{margin-right:4px;}
   .foot{margin-top:14px; font-size:11.5px; color:var(--muted); line-height:1.6;}
+  .hidden{display:none;}
 
   @media (max-width:760px){
     thead{display:none;}
@@ -81,11 +91,12 @@
     tbody tr.top{background:#fffdf3; border-color:#f0e2b8;}
     tbody tr:hover, tbody tr.top:hover{background:inherit;}
     tbody td{border:none; padding:3px 0; display:flex; justify-content:space-between; gap:12px; align-items:flex-start;}
-    tbody td::before{content:attr(data-label); font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); font-weight:700; flex:0 0 84px;}
+    tbody td::before{content:attr(data-label); font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); font-weight:700; flex:0 0 96px;}
     td.rank{position:absolute; top:10px; left:12px; width:auto; padding:0;}
     td.rank::before{content:"";}
     td .cellval{text-align:right; flex:1;}
     td.college .cellval{font-weight:800; color:var(--navy);}
+    .tabs button{flex:1; padding:11px 8px; font-size:13px;}
   }
 </style>
 </head>
@@ -94,7 +105,7 @@
 
   <header class="hero">
     <h1>College &amp; Branch Explorer</h1>
-    <p>All branches and chance levels for Riya. Use the filters to narrow by system, branch type, or chance. ★ marks the recommended CSE/ECE picks.</p>
+    <p>Riya's CSE/ECE options with admission chances, plus the 3-year JAC cutoff trend — in one place.</p>
     <div class="chips">
       <span class="chip">CRL <b>22,022</b></span>
       <span class="chip">Percentile <b>98.6213</b></span>
@@ -104,6 +115,13 @@
     </div>
   </header>
 
+  <div class="tabs">
+    <button id="tab-shortlist" class="active" onclick="switchTab('shortlist')">Shortlist &amp; chances</button>
+    <button id="tab-trend" onclick="switchTab('trend')">JAC cutoff trend 2023–25</button>
+  </div>
+
+  <!-- ================= VIEW 1: SHORTLIST ================= -->
+  <div id="view-shortlist">
   <div class="panel">
     <div class="filterhead"><h2>FILTERS</h2><span class="count" id="count"></span></div>
 
@@ -155,23 +173,68 @@
 
   <div class="legend">
     <strong>Chance</strong> (vs CRL 22,022):
-    <span class="pill c-safe">Safe</span> closing ≥ +4,000 ·
-    <span class="pill c-moderate">Moderate</span> 0 to +4,000 (borderline) ·
+    <span class="pill c-safe">Safe</span> ≥ +4,000 ·
+    <span class="pill c-moderate">Moderate</span> 0 to +4,000 ·
     <span class="pill c-reach">Reach</span> up to 5,000 below ·
     <span class="pill c-unlikely">Unlikely</span> well below.<br>
-    <strong>★</strong> = recommended CSE/ECE pick. &nbsp; <strong>Route</strong>: Girl-Child = DTU/NSUT 5% female quota · Female = JoSAA female-only seats · Women-only = IGDTUW · gen-neutral = open merit.
+    <strong>★</strong> = recommended CSE/ECE pick. <strong>Route</strong>: Girl-Child = DTU/NSUT 5% female quota · Female = JoSAA female-only · Women-only = IGDTUW · gen-neutral = open merit.
+  </div>
+  <div class="foot">
+    DTU &amp; NSUT figures use the Girl-Child (female) closing rank; IIIT-Delhi uses gender-neutral (no female quota there). 2025 Round-5 / JoSAA 2024–25 final-round closings. Confirm on the live 2026 OR-CR before locking choices.
+  </div>
   </div>
 
-  <div class="foot">
-    DTU &amp; NSUT figures use the Girl-Child (female) closing rank; IIIT-Delhi uses gender-neutral (no female quota there). Figures = JAC Delhi 2025 Round-5 &amp; JoSAA 2024–25 final-round closing ranks. Cutoffs drift ~1,000–3,000 ranks yearly — confirm on the live 2026 JoSAA / JAC OR-CR before locking choice order.
+  <!-- ================= VIEW 2: TREND ================= -->
+  <div id="view-trend" class="hidden">
+  <div class="panel">
+    <div class="filterhead"><h2>JAC CUTOFF TREND — FILTERS</h2><span class="count" id="tcount"></span></div>
+    <div class="fgroup">
+      <div class="flabel">Cutoff basis</div>
+      <div class="seg" data-tgroup="basis">
+        <button class="active" data-val="GL">Girl-Child (GL)</button>
+        <button data-val="GN">Gender-neutral</button>
+      </div>
+    </div>
+    <div class="fgroup">
+      <div class="flabel">College</div>
+      <select id="tcollege" class="sel"><option value="all">All colleges</option></select>
+    </div>
+    <div class="fgroup">
+      <div class="flabel">Branch type</div>
+      <div class="seg" data-tgroup="type">
+        <button class="active" data-val="all">All branches</button>
+        <button data-val="CSE">CSE</button>
+        <button data-val="ECE">ECE</button>
+        <button data-val="Other">Other</button>
+      </div>
+    </div>
+    <div class="searchrow"><input id="tsearch" type="search" placeholder="Search college or branch…" autocomplete="off"></div>
   </div>
+
+  <table id="ttbl">
+    <thead>
+      <tr><th>College</th><th>Branch</th><th>Type</th><th>2023</th><th>2024</th><th>2025</th><th>Trend<br>(’25 vs ’24)</th></tr>
+    </thead>
+    <tbody id="trows"></tbody>
+  </table>
+  <div class="empty" id="tempty" style="display:none;">No branches match these filters.</div>
+
+  <div class="legend">
+    Default basis = <strong>Girl-Child (GL)</strong>, the 5% female supernumerary pool (Riya's relevant pool). Switch to <strong>Gender-neutral</strong> above for the open-merit trend. All ranks = Delhi-region, final round, JEE Main CRL; a <strong>smaller rank = more competitive</strong>.
+    <span class="t-eased">▲ eased</span> = 2025 higher (easier) than 2024; <span class="t-tight">▼ tighter</span> = harder; <span class="t-new">No prior / —</span> = no GL data that year.
+  </div>
+  <div class="foot">
+    <strong>Girl-Child (GL) availability:</strong> NSUT has GL cutoffs for all three years; <strong>DTU's 5% GL quota began only in 2025</strong> (so 2023/24 show “—”); <strong>IGDTUW</strong> is women-only, so every figure is already a female cutoff; <strong>IIIT-Delhi has NO girl-child quota</strong> and is excluded from the GL view — switch to Gender-neutral to see it. IGDTUW 2024 = careers360/collegedunia (indicative); all else official JAC Delhi Round-5 PDFs. NSUT's non-CS core branches (ICE/MEEV/CE/GI) have very high, volatile GL ranks.
+  </div>
+  </div>
+
 </div>
 
 <script>
 const HER_RANK = 22022;
-// [top, system, college, branch, type, route, closing, note]
+
+/* ---------- SHORTLIST DATA: [top, system, college, branch, type, route, closing, note] ---------- */
 const DATA = [
- // ---------- recommended CSE/ECE picks (★) ----------
  [1,"JAC","IIIT-Delhi","Electronics & Communication (ECE)","ECE","Delhi-region (gen-neutral)",25106,"Her #1-preference college; top CS/ECE institute."],
  [1,"JAC","IIIT-Delhi","Electronics & VLSI (EVE)","ECE","Delhi-region (gen-neutral)",28282,"Safest branch for her at IIIT-Delhi."],
  [1,"JAC","DTU","Electronics & Communication (ECE)","ECE","Girl-Child (GL) quota",26356,"Top Delhi college; safe via 5% girl-child quota."],
@@ -201,8 +264,6 @@ const DATA = [
  [1,"JoSAA","BIT Mesra","Computer Science (CSE)","CSE","Female pool (GFTI)",23503,"Reputed GFTI; CSE via female pool."],
  [1,"JoSAA","IIIT Bhubaneswar","Computer Science (CSE)","CSE","All-India (GFTI)",31001,"Safe CSE seat."],
  [1,"JAC","IGDTUW","IT / AI & ML","CSE","Women-only",64223,"Safe CS-allied options at IGDTUW."],
-
- // ---------- additional CSE ----------
  [0,"JoSAA","IIIT Sri City","Computer Science (CSE)","CSE","Other-State",24055,"CSE at a CS-focused IIIT."],
  [0,"JoSAA","IIIT Una","Computer Science (CSE)","CSE","Other-State",25680,"CSE at a CS-focused IIIT."],
  [0,"JoSAA","IIIT Bhagalpur","Computer Science (CSE)","CSE","Other-State",34146,"Safe CSE at a newer IIIT."],
@@ -231,8 +292,6 @@ const DATA = [
  [0,"JoSAA","IIIT Allahabad","Information Technology (IT)","CSE","Other-State · Female",10101,"Top IIIT but IT closes far below her rank."],
  [0,"JoSAA","NIT Delhi","Computer Science (CSE)","CSE","Home-State (gen-neutral)",8971,"CSE out of reach even home-state."],
  [0,"JoSAA","NIT Delhi","AI & Data Science","CSE","Home-State (gen-neutral)",9420,"Out of reach."],
-
- // ---------- additional ECE ----------
  [0,"JAC","NSUT","ECE — AI & ML (ECAM, East)","ECE","Girl-Child (GL) quota",69943,"Safe ECE-family seat."],
  [0,"JAC","IGDTUW","ECE — AI","ECE","Women-only",75759,"Safe."],
  [0,"JAC","IGDTUW","Electronics & Communication (ECE)","ECE","Women-only",79574,"Safe."],
@@ -246,8 +305,6 @@ const DATA = [
  [0,"JoSAA","NIT Durgapur","Electronics & Communication (ECE)","ECE","Other-State · Female",20568,"Just misses — reach."],
  [0,"JoSAA","NIT Delhi","Electronics & Communication (ECE)","ECE","Home-State (gen-neutral)",12508,"Open pool out of reach; use female pool row."],
  [0,"JoSAA","IIIT Allahabad","Electronics & Communication (ECE)","ECE","Other-State · Female",15613,"Top IIIT; ECE closes below her rank."],
-
- // ---------- Other (EE / core) ----------
  [0,"JoSAA","NIT Delhi","Civil Engineering","Other","Home-State (gen-neutral)",28420,"Home-state; open-pool seat. Safe."],
  [0,"JoSAA","NIT Delhi","Mechanical Engineering","Other","Home-State · Female",36212,"Home-state female pool. Safe."],
  [0,"JoSAA","NIT Surathkal (NITK)","Mechanical Engineering","Other","Other-State · Female",22425,"Top-5 NIT; borderline (female pool)."],
@@ -279,18 +336,131 @@ const DATA = [
  [0,"JAC","IGDTUW","Mechanical & Automation (MAE)","Other","Women-only",92818,"Safe."],
 ];
 
+/* ---------- TREND DATA (GNGND / gen-neutral CRL): [college, branch, type, 2023, 2024, 2025] ---------- */
+const TREND = [
+ ["DTU","Computer Science & Engineering (CSE)","CSE",12948,13567,11352],
+ ["DTU","CSE — Data Science & Analytics (CSDA)","CSE",null,null,12442],
+ ["DTU","Information Technology (IT)","CSE",16364,17916,14561],
+ ["DTU","Software Engineering (SE)","CSE",19231,21614,18706],
+ ["DTU","IT — Cyber Security (ITCY)","CSE",null,null,19027],
+ ["DTU","Mathematics & Computing (MCE)","CSE",22071,24053,20458],
+ ["DTU","Electronics & Communication (ECE)","ECE",27432,28173,22278],
+ ["DTU","Electronics — VLSI (EVDT)","ECE",null,null,24842],
+ ["DTU","Electrical Engineering (EE)","Other",37615,37098,31589],
+ ["DTU","Engineering Physics","Other",54957,53492,45024],
+ ["DTU","Mechanical Engineering (ME)","Other",52903,54356,44365],
+ ["DTU","Mechanical — Automotive","Other",56083,56014,45443],
+ ["DTU","Chemical Engineering","Other",63692,62712,49816],
+ ["DTU","Production & Industrial Engineering","Other",69236,65734,51783],
+ ["DTU","Civil Engineering","Other",72407,71914,56161],
+ ["DTU","Environmental Engineering","Other",81658,75960,58622],
+ ["DTU","Bio-Technology","Other",80740,76007,59055],
+ ["NSUT","CSE — Artificial Intelligence (CSAI)","CSE",6254,9717,7946],
+ ["NSUT","Computer Science & Engineering (CSE)","CSE",10174,12803,10907],
+ ["NSUT","CSE — Data Science (CSDS)","CSE",13019,15264,12614],
+ ["NSUT","Information Technology (IT)","CSE",16910,19074,16301],
+ ["NSUT","IT — Network & Info Security (ITNS)","CSE",19799,21874,19226],
+ ["NSUT","Mathematics & Computing (MAC)","CSE",22419,24436,20967],
+ ["NSUT","Electronics & Communication (ECE)","ECE",29503,30182,25052],
+ ["NSUT","Electronics — VLSI (EVDT)","ECE",null,31542,26229],
+ ["NSUT","CSE — Big Data Analytics (East)","CSE",32224,35335,28092],
+ ["NSUT","CSE — Internet of Things (East)","CSE",35521,39235,31856],
+ ["NSUT","Electrical Engineering (EE)","Other",40849,39515,34252],
+ ["NSUT","ECE — AI & ML (East, ECAM)","ECE",46984,47145,36172],
+ ["NSUT","Instrumentation & Control (ICE)","Other",49807,49909,39133],
+ ["NSUT","Mechanical Engineering (ME)","Other",59268,61154,48319],
+ ["NSUT","Mechanical — Electric Vehicles (West)","Other",80654,75156,55009],
+ ["NSUT","Bio-Technology (BT)","Other",83392,79890,60434],
+ ["NSUT","Civil Engineering (West)","Other",92386,84121,61299],
+ ["NSUT","Geoinformatics (West)","Other",99027,88631,62530],
+ ["IIIT-Delhi","CSE — Artificial Intelligence (CSAI)","CSE",8514,9457,7009],
+ ["IIIT-Delhi","Computer Science & Engineering (CSE)","CSE",11874,12599,10557],
+ ["IIIT-Delhi","CS & Applied Maths (CSAM)","CSE",14725,18485,15152],
+ ["IIIT-Delhi","CS & Economics (CSEcon)","CSE",null,null,15165],
+ ["IIIT-Delhi","CS & Design (CSD)","CSE",17905,20158,17205],
+ ["IIIT-Delhi","CS & Biosciences (CSB)","CSE",23874,28239,23012],
+ ["IIIT-Delhi","CS & Social Sciences (CSSS)","CSE",23404,26054,23202],
+ ["IIIT-Delhi","Electronics & Communication (ECE)","ECE",26955,28736,25106],
+ ["IIIT-Delhi","Electronics & VLSI (EVE)","ECE",31093,33297,28282],
+ ["IGDTUW","CSE — Artificial Intelligence","CSE",51288,45739,44405],
+ ["IGDTUW","Computer Science & Engineering (CSE)","CSE",58531,53980,50687],
+ ["IGDTUW","Information Technology (IT)","CSE",66326,68272,64223],
+ ["IGDTUW","AI & Machine Learning (AIML)","CSE",71162,69333,64133],
+ ["IGDTUW","Mathematics & Computing (MAC)","CSE",null,null,69001],
+ ["IGDTUW","ECE — AI","ECE",85981,80292,75759],
+ ["IGDTUW","Electronics & Communication (ECE)","ECE",90900,82462,79574],
+ ["IGDTUW","Mechanical & Automation (MAE)","Other",103589,98257,92818],
+];
+
+/* ---------- GIRL-CHILD TREND (GL pool, Delhi, CRL): [college, branch, type, 2023, 2024, 2025] ----------
+   NSUT: GL existed all 3 years. DTU: GL only from 2025. IGDTUW: women-only (all female). IIIT-D: no GL quota (excluded). */
+const TREND_GL = [
+ ["NSUT","CSE — Artificial Intelligence (CSAI)","CSE",13805,16573,14127],
+ ["NSUT","Computer Science & Engineering (CSE)","CSE",17278,18509,18652],
+ ["NSUT","CSE — Data Science (CSDS)","CSE",18900,20647,20125],
+ ["NSUT","Information Technology (IT)","CSE",21473,23859,22065],
+ ["NSUT","IT — Network & Info Security (ITNS)","CSE",22410,25681,24421],
+ ["NSUT","Mathematics & Computing (MAC)","CSE",24528,30048,25534],
+ ["NSUT","Electronics & Communication (ECE)","ECE",42783,37404,32842],
+ ["NSUT","Electronics — VLSI (EVDT)","ECE",null,39639,38500],
+ ["NSUT","CSE — Big Data Analytics (East)","CSE",58035,55920,46242],
+ ["NSUT","CSE — Internet of Things (East)","CSE",63912,70486,52490],
+ ["NSUT","Electrical Engineering (EE)","Other",73752,70420,57483],
+ ["NSUT","ECE — AI & ML (East, ECAM)","ECE",127492,82978,69943],
+ ["NSUT","Instrumentation & Control (ICE)","Other",141565,83030,72920],
+ ["NSUT","Mechanical Engineering (ME)","Other",95101,88025,86822],
+ ["NSUT","Mechanical — Electric Vehicles (West)","Other",165570,105529,90397],
+ ["NSUT","Bio-Technology (BT)","Other",93836,83821,88803],
+ ["NSUT","Civil Engineering (West)","Other",183548,107062,95702],
+ ["NSUT","Geoinformatics (West)","Other",189270,116027,95857],
+ ["DTU","Computer Science & Engineering (CSE)","CSE",null,null,15118],
+ ["DTU","CSE — Data Science & Analytics (CSDA)","CSE",null,null,19590],
+ ["DTU","Information Technology (IT)","CSE",null,null,20121],
+ ["DTU","Software Engineering (SE)","CSE",null,null,20996],
+ ["DTU","IT — Cyber Security (ITCY)","CSE",null,null,23570],
+ ["DTU","Mathematics & Computing (MCE)","CSE",null,null,23503],
+ ["DTU","Electronics & Communication (ECE)","ECE",null,null,26356],
+ ["DTU","Electronics — VLSI (EVDT)","ECE",null,null,27868],
+ ["DTU","Electrical Engineering (EE)","Other",null,null,42199],
+ ["DTU","Engineering Physics","Other",null,null,56476],
+ ["DTU","Mechanical Engineering (ME)","Other",null,null,79234],
+ ["DTU","Mechanical — Automotive","Other",null,null,57002],
+ ["DTU","Chemical Engineering","Other",null,null,55917],
+ ["DTU","Production & Industrial Engineering","Other",null,null,83392],
+ ["DTU","Civil Engineering","Other",null,null,85250],
+ ["DTU","Environmental Engineering","Other",null,null,88486],
+ ["DTU","Bio-Technology","Other",null,null,80880],
+ ["IGDTUW","CSE — Artificial Intelligence","CSE",51288,45739,44405],
+ ["IGDTUW","Computer Science & Engineering (CSE)","CSE",58531,53980,50687],
+ ["IGDTUW","Information Technology (IT)","CSE",66326,68272,64223],
+ ["IGDTUW","AI & Machine Learning (AIML)","CSE",71162,69333,64133],
+ ["IGDTUW","Mathematics & Computing (MAC)","CSE",null,null,69001],
+ ["IGDTUW","ECE — AI","ECE",85981,80292,75759],
+ ["IGDTUW","Electronics & Communication (ECE)","ECE",90900,82462,79574],
+ ["IGDTUW","Mechanical & Automation (MAE)","Other",103589,98257,92818],
+];
+
 function chanceOf(c){const m=c-HER_RANK; return m>=4000?"Safe":m>=0?"Moderate":m>=-5000?"Reach":"Unlikely";}
 const chTier={Safe:0,Moderate:1,Reach:2,Unlikely:3};
 const sysName=s=>s==="JAC"?"JAC Delhi":"JoSAA";
 const typeClass={CSE:"p-cse",ECE:"p-ece",Other:"p-other"};
+const fmt=n=>n.toLocaleString('en-IN');
 
+/* ===== Tabs ===== */
+function switchTab(t){
+  document.getElementById("view-shortlist").classList.toggle("hidden",t!=="shortlist");
+  document.getElementById("view-trend").classList.toggle("hidden",t!=="trend");
+  document.getElementById("tab-shortlist").classList.toggle("active",t==="shortlist");
+  document.getElementById("tab-trend").classList.toggle("active",t==="trend");
+}
+
+/* ===== Shortlist view ===== */
 const ROWS = DATA.map((r,i)=>({top:r[0]===1,system:r[1],college:r[2],branch:r[3],type:r[4],route:r[5],closing:r[6],note:r[7],idx:i}));
 const filters={system:"all",college:"all",type:"all",chance:"all",q:""};
 const rowsEl=document.getElementById("rows"), emptyEl=document.getElementById("empty"), countEl=document.getElementById("count");
 const collegeEl=document.getElementById("college");
 
 function populateColleges(){
-  // unique colleges available under the current system filter, in first-appearance order
   const seen=new Set(), list=[];
   for(const r of ROWS){
     if(filters.system!=="all" && r.system!==filters.system) continue;
@@ -300,7 +470,6 @@ function populateColleges(){
   collegeEl.innerHTML='<option value="all">All colleges</option>'+
     list.map(c=>`<option value="${c.replace(/"/g,'&quot;')}">${c}</option>`).join("");
 }
-
 function render(){
   const q=filters.q.trim().toLowerCase();
   let list=ROWS.filter(r=>{
@@ -327,7 +496,7 @@ function render(){
       <td class="branch" data-label="Branch"><span class="cellval">${r.branch}</span></td>
       <td data-label="Type"><span class="pill ${typeClass[r.type]}">${r.type}</span></td>
       <td data-label="Route"><span class="cellval">${r.route}</span></td>
-      <td class="closing" data-label="Closing CRL">${r.closing.toLocaleString('en-IN')}</td>
+      <td class="closing" data-label="Closing CRL">${fmt(r.closing)}</td>
       <td data-label="Chance"><span class="pill c-${ch.toLowerCase()}">${ch}</span></td>
       <td class="note" data-label="Notes"><span class="cellval">${r.note}</span></td>
     </tr>`;
@@ -336,19 +505,80 @@ function render(){
   emptyEl.style.display=list.length===0?"block":"none";
   countEl.textContent=list.length+(list.length===1?" option":" options");
 }
-document.querySelectorAll(".seg").forEach(seg=>{
+document.querySelectorAll('.seg[data-group]').forEach(seg=>{
   seg.addEventListener("click",e=>{
     const btn=e.target.closest("button"); if(!btn) return;
     seg.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
     btn.classList.add("active"); filters[seg.dataset.group]=btn.dataset.val;
-    if(seg.dataset.group==="system") populateColleges();  // refresh college list for the chosen system
+    if(seg.dataset.group==="system") populateColleges();
     render();
   });
 });
 collegeEl.addEventListener("change",e=>{filters.college=e.target.value; render();});
 document.getElementById("search").addEventListener("input",e=>{filters.q=e.target.value; render();});
+
+/* ===== Trend view ===== */
+const mkT=arr=>arr.map(r=>({college:r[0],branch:r[1],type:r[2],y23:r[3],y24:r[4],y25:r[5]}));
+const TROWS_GN=mkT(TREND), TROWS_GL=mkT(TREND_GL);
+const tfilters={basis:"GL",college:"all",type:"all",q:""};
+const trowsEl=document.getElementById("trows"), temptyEl=document.getElementById("tempty"), tcountEl=document.getElementById("tcount");
+const tcollegeEl=document.getElementById("tcollege");
+const activeTrend=()=>tfilters.basis==="GL"?TROWS_GL:TROWS_GN;
+function populateTColleges(){
+  const seen=new Set(), list=[];
+  for(const r of activeTrend()){ if(!seen.has(r.college)){seen.add(r.college); list.push(r.college);} }
+  tfilters.college="all";
+  tcollegeEl.innerHTML='<option value="all">All colleges</option>'+list.map(c=>`<option value="${c}">${c}</option>`).join("");
+}
+function trendCell(v){return v==null?'<span class="t-new">—</span>':fmt(v);}
+function trendDir(y24,y25){
+  if(y24==null||y25==null) return '<span class="t-new">No prior</span>';
+  if(y25>y24) return '<span class="t-eased">▲ eased</span>';
+  if(y25<y24) return '<span class="t-tight">▼ tighter</span>';
+  return '—';
+}
+function trender(){
+  const q=tfilters.q.trim().toLowerCase();
+  const list=activeTrend().filter(r=>{
+    if(tfilters.college!=="all" && r.college!==tfilters.college) return false;
+    if(tfilters.type!=="all" && r.type!==tfilters.type) return false;
+    if(q && !(r.college.toLowerCase().includes(q)||r.branch.toLowerCase().includes(q))) return false;
+    return true;
+  });
+  let html="";
+  list.forEach(r=>{
+    html+=`<tr>
+      <td class="college" data-label="College"><span class="cellval">${r.college}</span></td>
+      <td class="branch" data-label="Branch"><span class="cellval">${r.branch}</span></td>
+      <td data-label="Type"><span class="pill ${typeClass[r.type]}">${r.type}</span></td>
+      <td class="yr" data-label="2023">${trendCell(r.y23)}</td>
+      <td class="yr" data-label="2024">${trendCell(r.y24)}</td>
+      <td class="yr y25" data-label="2025">${trendCell(r.y25)}</td>
+      <td class="yr" data-label="Trend">${trendDir(r.y24,r.y25)}</td>
+    </tr>`;
+  });
+  trowsEl.innerHTML=html;
+  temptyEl.style.display=list.length===0?"block":"none";
+  tcountEl.textContent=list.length+(list.length===1?" branch":" branches");
+}
+tcollegeEl.addEventListener("change",e=>{tfilters.college=e.target.value; trender();});
+document.querySelectorAll('.seg[data-tgroup]').forEach(seg=>{
+  seg.addEventListener("click",e=>{
+    const btn=e.target.closest("button"); if(!btn) return;
+    const g=seg.dataset.tgroup;
+    seg.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    if(g==="basis"){ tfilters.basis=btn.dataset.val; populateTColleges(); }
+    else { tfilters.type=btn.dataset.val; }
+    trender();
+  });
+});
+document.getElementById("tsearch").addEventListener("input",e=>{tfilters.q=e.target.value; trender();});
+
 populateColleges();
 render();
+populateTColleges();
+trender();
 </script>
 </body>
 </html>
