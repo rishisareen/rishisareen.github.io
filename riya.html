@@ -160,6 +160,15 @@
       </div>
     </div>
 
+    <div class="fgroup">
+      <div class="flabel">Sort by</div>
+      <div class="seg" data-group="sort">
+        <button class="active" data-val="rec">Recommended (★)</button>
+        <button data-val="crlasc">Closing CRL ↑ low→high</button>
+        <button data-val="crldesc">Closing CRL ↓ high→low</button>
+      </div>
+    </div>
+
     <div class="searchrow"><input id="search" type="search" placeholder="Search college or branch…" autocomplete="off"></div>
   </div>
 
@@ -461,7 +470,7 @@ function switchTab(t){
 
 /* ===== Shortlist view ===== */
 const ROWS = DATA.map((r,i)=>({top:r[0]===1,system:r[1],college:r[2],branch:r[3],type:r[4],route:r[5],closing:r[6],note:r[7],idx:i}));
-const filters={system:"all",college:"all",type:"all",chance:"all",q:""};
+const filters={system:"all",college:"all",type:"all",chance:"all",sort:"rec",q:""};
 const rowsEl=document.getElementById("rows"), emptyEl=document.getElementById("empty"), countEl=document.getElementById("count");
 const collegeEl=document.getElementById("college");
 
@@ -486,6 +495,8 @@ function render(){
     return true;
   });
   list.sort((a,b)=>{
+    if(filters.sort==="crlasc") return a.closing-b.closing;
+    if(filters.sort==="crldesc") return b.closing-a.closing;
     if(a.top!==b.top) return a.top?-1:1;
     if(a.top&&b.top) return a.idx-b.idx;
     const t=chTier[chanceOf(a.closing)]-chTier[chanceOf(b.closing)];
