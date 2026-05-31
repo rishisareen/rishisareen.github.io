@@ -43,6 +43,9 @@
   .searchrow{margin-top:12px;}
   .searchrow input{width:100%; padding:10px 14px; border:1.5px solid var(--line); border-radius:10px; font-size:14px; font-family:inherit; color:var(--ink);}
   .searchrow input:focus{outline:none; border-color:var(--blue);}
+  select.sel{width:100%; max-width:420px; padding:9px 12px; border:1.5px solid var(--line); border-radius:10px;
+    font-size:14px; font-family:inherit; color:var(--ink); background:#fff; cursor:pointer;}
+  select.sel:focus{outline:none; border-color:var(--blue);}
 
   table{width:100%; border-collapse:separate; border-spacing:0; margin-top:16px; font-size:13px;}
   thead th{position:sticky; top:0; background:var(--navy); color:#fff; text-align:left; padding:11px 10px; font-size:12px; font-weight:700; z-index:2;}
@@ -111,6 +114,11 @@
         <button data-val="JAC">JAC Delhi</button>
         <button data-val="JoSAA">JoSAA</button>
       </div>
+    </div>
+
+    <div class="fgroup">
+      <div class="flabel">College <span style="text-transform:none;font-weight:600;color:#9aa7b5;">(list narrows to the chosen system)</span></div>
+      <select id="college" class="sel"><option value="all">All colleges</option></select>
     </div>
 
     <div class="fgroup">
@@ -277,13 +285,27 @@ const sysName=s=>s==="JAC"?"JAC Delhi":"JoSAA";
 const typeClass={CSE:"p-cse",ECE:"p-ece",Other:"p-other"};
 
 const ROWS = DATA.map((r,i)=>({top:r[0]===1,system:r[1],college:r[2],branch:r[3],type:r[4],route:r[5],closing:r[6],note:r[7],idx:i}));
-const filters={system:"all",type:"all",chance:"all",q:""};
+const filters={system:"all",college:"all",type:"all",chance:"all",q:""};
 const rowsEl=document.getElementById("rows"), emptyEl=document.getElementById("empty"), countEl=document.getElementById("count");
+const collegeEl=document.getElementById("college");
+
+function populateColleges(){
+  // unique colleges available under the current system filter, in first-appearance order
+  const seen=new Set(), list=[];
+  for(const r of ROWS){
+    if(filters.system!=="all" && r.system!==filters.system) continue;
+    if(!seen.has(r.college)){ seen.add(r.college); list.push(r.college); }
+  }
+  filters.college="all";
+  collegeEl.innerHTML='<option value="all">All colleges</option>'+
+    list.map(c=>`<option value="${c.replace(/"/g,'&quot;')}">${c}</option>`).join("");
+}
 
 function render(){
   const q=filters.q.trim().toLowerCase();
   let list=ROWS.filter(r=>{
     if(filters.system!=="all" && r.system!==filters.system) return false;
+    if(filters.college!=="all" && r.college!==filters.college) return false;
     if(filters.type!=="all" && r.type!==filters.type) return false;
     if(filters.chance!=="all" && chanceOf(r.closing)!==filters.chance) return false;
     if(q && !(r.college.toLowerCase().includes(q)||r.branch.toLowerCase().includes(q))) return false;
@@ -318,10 +340,14 @@ document.querySelectorAll(".seg").forEach(seg=>{
   seg.addEventListener("click",e=>{
     const btn=e.target.closest("button"); if(!btn) return;
     seg.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
-    btn.classList.add("active"); filters[seg.dataset.group]=btn.dataset.val; render();
+    btn.classList.add("active"); filters[seg.dataset.group]=btn.dataset.val;
+    if(seg.dataset.group==="system") populateColleges();  // refresh college list for the chosen system
+    render();
   });
 });
+collegeEl.addEventListener("change",e=>{filters.college=e.target.value; render();});
 document.getElementById("search").addEventListener("input",e=>{filters.q=e.target.value; render();});
+populateColleges();
 render();
 </script>
 </body>
