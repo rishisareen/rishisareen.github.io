@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0f172a">
+<title>APSIC Mobility</title>
+<style>
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f8fafc;
+    color: #0f172a;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    height: 100dvh;
+  }
+  /* Header */
+  header {
+    flex: 0 0 auto;
+    padding: 0.75rem 1rem;
+    background: #0f172a;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  header h1 {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  header .progress {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #94a3b8;
+    background: rgba(255,255,255,0.08);
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+  }
+  /* Slider */
+  .slider {
+    flex: 1 1 auto;
+    overflow: hidden;
+    position: relative;
+    touch-action: pan-y;
+  }
+  .track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+  }
+  .slide {
+    flex: 0 0 100%;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 1rem 1rem 5rem 1rem;
+  }
+  .slide h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    line-height: 1.2;
+  }
+  .slide .prescription {
+    font-size: 1rem;
+    color: #475569;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+  .slide img {
+    width: 100%;
+    max-height: 240px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    margin-bottom: 1rem;
+  }
+  /* Timer card */
+  .timer-card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 1.25rem 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    text-align: center;
+  }
+  .timer-display {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #0f172a;
+    font-variant-numeric: tabular-nums;
+    margin: 0.5rem 0 1rem 0;
+  }
+  .timer-display.counting { color: #2563eb; }
+  .timer-display.done { color: #16a34a; }
+  .timer-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.15s, transform 0.05s;
+  }
+  .timer-btn:active { transform: scale(0.98); }
+  .timer-btn.running { background: #ef4444; }
+  .timer-btn.done { background: #16a34a; }
+  .timer-btn:disabled { background: #cbd5e1; cursor: not-allowed; }
+  .set-progress {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  .set-dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: #e2e8f0;
+    transition: background 0.2s;
+  }
+  .set-dot.done { background: #16a34a; }
+  .set-dot.active { background: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.2); }
+  .set-label {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+  }
+  /* Reps card */
+  .reps-card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 1.25rem 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    text-align: center;
+  }
+  .reps-card .big-num {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #0f172a;
+  }
+  .reps-card .big-num-label {
+    color: #64748b;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 0.5rem;
+  }
+  /* Instructions */
+  .info {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    margin-bottom: 1rem;
+  }
+  .info p { margin-bottom: 0.65rem; line-height: 1.5; font-size: 0.95rem; }
+  .info p:last-child { margin-bottom: 0; }
+  .info strong { color: #0f172a; }
+  .info .cue { color: #1e40af; }
+  .info .watch { color: #b91c1c; }
+  /* Video */
+  .video-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.9rem;
+    background: #fff;
+    color: #0f172a;
+    border: 2px solid #e2e8f0;
+    border-radius: 0.75rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+  .video-link:active { background: #f1f5f9; }
+  /* Nav */
+  nav {
+    flex: 0 0 auto;
+    padding: 0.6rem 1rem calc(0.6rem + env(safe-area-inset-bottom)) 1rem;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+  }
+  nav button {
+    flex: 1;
+    padding: 0.75rem;
+    background: #f1f5f9;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: #0f172a;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  nav button:disabled { opacity: 0.4; cursor: not-allowed; }
+  nav button:active:not(:disabled) { background: #e2e8f0; }
+  .dots {
+    display: flex;
+    gap: 0.3rem;
+    align-items: center;
+  }
+  .nav-dot {
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 50%;
+    background: #cbd5e1;
+  }
+  .nav-dot.active { background: #0f172a; transform: scale(1.4); }
+  /* Done slide */
+  .slide.done {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+  }
+  .slide.done .emoji { font-size: 5rem; margin-bottom: 1rem; }
+  .slide.done h2 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+  .slide.done p { color: #475569; margin-bottom: 1.5rem; line-height: 1.5; max-width: 320px; }
+  .slide.done button {
+    padding: 1rem 2rem;
+    background: #16a34a;
+    color: #fff;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>APSIC Mobility</h1>
+  <div class="progress" id="progress">1 / 8</div>
+</header>
+
+<div class="slider" id="slider">
+  <div class="track" id="track"></div>
+</div>
+
+<nav>
+  <button id="prev">← Prev</button>
+  <div class="dots" id="dots"></div>
+  <button id="next">Next →</button>
+</nav>
+
+<script>
+const exercises = [
+  {
+    num: 1,
+    title: "Posterior Pelvic Tilt",
+    image: "images/apsic/01-posterior-pelvic-tilt.png",
+    video: "https://www.youtube.com/results?search_query=posterior+pelvic+tilt+supine+exercise+physio",
+    prescription: "25 reps",
+    type: "reps",
+    bigNum: "25",
+    bigNumLabel: "Reps",
+    setup: "Lie on back, knees bent, feet flat hip-width, arms relaxed at sides.",
+    do: "Exhale and gently tilt pelvis backward so the low back flattens into the mat. Hold 2s. Release. ×25.",
+    cue: "Belly button drawn down toward the floor. Pelvis only - hips stay on the mat.",
+    watch: "If your hips lift, you're doing a bridge - reduce range."
+  },
+  {
+    num: 2,
+    title: "Single Knee to Chest",
+    image: "images/apsic/02-single-knee-to-chest.png",
+    video: "https://www.youtube.com/results?search_query=single+knee+to+chest+stretch+supine+physio",
+    prescription: "15s hold × 3 per side (6 sets)",
+    type: "timer",
+    duration: 15,
+    sets: 6,
+    setLabels: ["Right", "Left", "Right", "Left", "Right", "Left"],
+    setup: "Lie on back, one leg straight or bent, other knee starts bent.",
+    do: "Hug one knee toward chest with hands around the shin. Gentle pull to mild stretch in low back / glute. Hold 15s. Switch.",
+    cue: "Pull from the shin, not the kneecap. Neck and shoulders relaxed on the mat.",
+    watch: "Don't lift the head - keep it down."
+  },
+  {
+    num: 3,
+    title: "Both Knees to Chest",
+    image: "images/apsic/03-both-knees-to-chest.png",
+    video: "https://www.youtube.com/results?search_query=double+knee+to+chest+stretch+supine",
+    prescription: "30s hold × 1",
+    type: "timer",
+    duration: 30,
+    sets: 1,
+    setLabels: ["Hold"],
+    setup: "Lie on back.",
+    do: "Bring both knees toward chest. Arms wrap around shins. Hold 30s.",
+    cue: "Tailbone heavy on the mat. Slow deep breathing - feel the spine lengthen.",
+    watch: "Don't rock forward to 'pull harder' - settle and breathe."
+  },
+  {
+    num: 4,
+    title: "Bridge Pose (80% range)",
+    image: "images/apsic/04-bridge-pose.png",
+    video: "https://www.youtube.com/results?search_query=glute+bridge+physio+low+back+safe+80+percent",
+    prescription: "15s hold × 5 reps",
+    type: "timer",
+    duration: 15,
+    sets: 5,
+    setLabels: ["Rep 1", "Rep 2", "Rep 3", "Rep 4", "Rep 5"],
+    setup: "Lie on back, knees bent, feet hip-width flat, arms by sides palms down.",
+    do: "Press through heels and lift hips only to 80% of full range. Hold 15s. Lower slowly. ×5.",
+    cue: "Drive from the GLUTES, not from the lower back. Line from knees to shoulders.",
+    watch: "DO NOT arch the low back to lift higher. 80% only - this is the most important rule."
+  },
+  {
+    num: 5,
+    title: "Spinal Twist (Supine)",
+    image: "images/apsic/05-spinal-twist.png",
+    video: "https://www.youtube.com/results?search_query=supine+spinal+twist+stretch+physio",
+    prescription: "15s hold × 3 per side (6 sets)",
+    type: "timer",
+    duration: 15,
+    sets: 6,
+    setLabels: ["Right", "Left", "Right", "Left", "Right", "Left"],
+    setup: "Lie on back, knees bent, feet on floor. Arms out wide in a T, palms down.",
+    do: "Slowly drop both knees together to one side. Keep both shoulders pressed to the mat. Look the opposite way. Hold 15s. Return to center. Switch sides.",
+    cue: "The twist comes from low/mid spine, not from 'throwing' the knees down.",
+    watch: "If a shoulder lifts off the mat, don't go as far. Slow."
+  },
+  {
+    num: 6,
+    title: "Bird Dog (with hold)",
+    image: "images/apsic/06-bird-dog.png",
+    video: "https://www.youtube.com/results?search_query=bird+dog+exercise+physio+hold",
+    prescription: "10s hold × 3 per side (6 sets)",
+    type: "timer",
+    duration: 10,
+    sets: 6,
+    setLabels: ["R arm + L leg", "L arm + R leg", "R arm + L leg", "L arm + R leg", "R arm + L leg", "L arm + R leg"],
+    setup: "All-fours / table top. Hands under shoulders, knees under hips. Extra padding under the grounded knee. Spine neutral.",
+    do: "Extend opposite arm + leg straight out until roughly horizontal. Hold 10s. Return. Switch.",
+    cue: "Imagine a glass of water on your low back - don't spill it. No twist, no hip drop.",
+    watch: "Reach only as far as you can keep the spine neutral. Range follows control."
+  },
+  {
+    num: 7,
+    title: "Seated Nerve Mobility",
+    image: null,
+    video: "https://youtu.be/HkXkUjffCYw",
+    videoLabel: "Watch physio's demo",
+    prescription: "15 reps per side (2 sets)",
+    type: "reps",
+    bigNum: "15",
+    bigNumLabel: "Reps × 2 sides",
+    setup: "Sit on a HIGH STOOL (not a chair) so the feet hang freely. Sit tall.",
+    do: "Extend one knee straight out AND tuck chin down to chest. Then bend the knee back AND lift chin to look up. That's 1 rep. ×15. Switch.",
+    cue: "This is sciatic nerve FLOSSING - sliding the nerve back and forth, not stretching. Move smoothly.",
+    watch: "Stop if it triggers shooting pain down the leg. Mild stretch OK, sharp pain not."
+  },
+  {
+    num: 8,
+    title: "Child Pose",
+    image: "images/apsic/08-child-pose.png",
+    video: "https://www.youtube.com/results?search_query=child+pose+stretch+yoga+lower+back",
+    prescription: "30s hold × 1",
+    type: "timer",
+    duration: 30,
+    sets: 1,
+    setLabels: ["Hold"],
+    setup: "Kneel on the floor, knees apart for comfort.",
+    do: "Sit hips back toward heels, fold forward, arms extended straight in front, forehead to mat. Hold 30s.",
+    cue: "Sink, don't strain. Breathe into your back. Let the spine lengthen passively.",
+    watch: "Relax the shoulders. If you can't sit on heels, place a cushion between heels and seat."
+  }
+];
+
+const track = document.getElementById('track');
+const dotsEl = document.getElementById('dots');
+const progressEl = document.getElementById('progress');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const slider = document.getElementById('slider');
+
+let currentIndex = 0;
+
+function buildSlide(ex, i) {
+  const slide = document.createElement('section');
+  slide.className = 'slide';
+  slide.dataset.index = i;
+
+  let interactive = '';
+  if (ex.type === 'timer') {
+    const dots = Array.from({length: ex.sets}, (_, k) =>
+      `<div class="set-dot" data-set="${k}"></div>`
+    ).join('');
+    interactive = `
+      <div class="timer-card">
+        <div class="set-label" id="setLabel-${i}">Set 1 of ${ex.sets}${ex.setLabels ? ' - ' + ex.setLabels[0] : ''}</div>
+        <div class="timer-display" id="timer-${i}">${ex.duration}</div>
+        <button class="timer-btn" id="timerBtn-${i}">▶ Start Hold</button>
+        <div class="set-progress">${dots}</div>
+      </div>
+    `;
+  } else {
+    interactive = `
+      <div class="reps-card">
+        <div class="big-num">${ex.bigNum}</div>
+        <div class="big-num-label">${ex.bigNumLabel}</div>
+      </div>
+    `;
+  }
+
+  const imageHtml = ex.image
+    ? `<img src="${ex.image}" alt="${ex.title}" loading="lazy">`
+    : `<div style="background:#fff;border-radius:0.75rem;padding:1.25rem;text-align:center;color:#64748b;margin-bottom:1rem;box-shadow:0 1px 4px rgba(0,0,0,0.06);">Visual reference: tap the video link below for the physio's demo.</div>`;
+
+  const videoLabel = ex.videoLabel || 'Watch demo video';
+
+  slide.innerHTML = `
+    <h2>${ex.num}. ${ex.title}</h2>
+    <div class="prescription">${ex.prescription}</div>
+    ${imageHtml}
+    ${interactive}
+    <div class="info">
+      <p><strong>Setup:</strong> ${ex.setup}</p>
+      <p><strong>Do:</strong> ${ex.do}</p>
+      <p class="cue"><strong>Cue:</strong> ${ex.cue}</p>
+      <p class="watch"><strong>Watch:</strong> ${ex.watch}</p>
+    </div>
+    <a class="video-link" href="${ex.video}" target="_blank" rel="noopener">🎥 ${videoLabel}</a>
+  `;
+
+  track.appendChild(slide);
+
+  if (ex.type === 'timer') {
+    setupTimer(i, ex);
+  }
+}
+
+function buildDoneSlide() {
+  const slide = document.createElement('section');
+  slide.className = 'slide done';
+  slide.innerHTML = `
+    <div class="emoji">✅</div>
+    <h2>Round complete!</h2>
+    <p>Do 2-3 rounds per session, twice a day. Heat 10 min to lower back before each session.</p>
+    <button id="restart">Start over</button>
+  `;
+  track.appendChild(slide);
+  slide.querySelector('#restart').addEventListener('click', () => goTo(0));
+}
+
+function buildDots() {
+  const total = exercises.length;
+  for (let i = 0; i < total; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'nav-dot';
+    dotsEl.appendChild(dot);
+  }
+}
+
+function updateUI() {
+  const total = exercises.length;
+  const onDone = currentIndex >= total;
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  progressEl.textContent = onDone ? '✓ Done' : `${currentIndex + 1} / ${total}`;
+  Array.from(dotsEl.children).forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+  prevBtn.disabled = currentIndex === 0;
+  nextBtn.disabled = currentIndex >= total;
+  nextBtn.textContent = currentIndex === total - 1 ? 'Finish →' : 'Next →';
+}
+
+function goTo(i) {
+  const total = exercises.length;
+  currentIndex = Math.max(0, Math.min(total, i));
+  updateUI();
+}
+
+// Timer logic per slide
+const timerState = {};
+function setupTimer(i, ex) {
+  timerState[i] = { running: false, remaining: ex.duration, currentSet: 0, interval: null };
+
+  const display = () => document.getElementById(`timer-${i}`);
+  const btn = () => document.getElementById(`timerBtn-${i}`);
+  const setLabel = () => document.getElementById(`setLabel-${i}`);
+  const dots = () => document.querySelectorAll(`#track .slide[data-index="${i}"] .set-dot`);
+
+  function renderSetState() {
+    dots().forEach((d, k) => {
+      d.classList.remove('done', 'active');
+      if (k < timerState[i].currentSet) d.classList.add('done');
+      else if (k === timerState[i].currentSet) d.classList.add('active');
+    });
+    const idx = timerState[i].currentSet;
+    if (idx < ex.sets) {
+      const label = ex.setLabels ? ' - ' + ex.setLabels[idx] : '';
+      setLabel().textContent = `Set ${idx + 1} of ${ex.sets}${label}`;
+    } else {
+      setLabel().textContent = `All ${ex.sets} sets complete`;
+    }
+  }
+  renderSetState();
+
+  function setBtn(label, cls) {
+    const b = btn();
+    b.textContent = label;
+    b.className = 'timer-btn' + (cls ? ' ' + cls : '');
+  }
+
+  function tick() {
+    timerState[i].remaining -= 1;
+    display().textContent = timerState[i].remaining;
+    if (timerState[i].remaining <= 0) {
+      clearInterval(timerState[i].interval);
+      timerState[i].running = false;
+      timerState[i].currentSet += 1;
+      display().classList.add('done');
+      beep();
+      vibrate();
+      renderSetState();
+
+      if (timerState[i].currentSet >= ex.sets) {
+        setBtn('✓ Done - Swipe Next', 'done');
+        progressEl.classList.add('exercise-complete');
+      } else {
+        timerState[i].remaining = ex.duration;
+        display().textContent = ex.duration;
+        display().classList.remove('done');
+        setBtn('▶ Start Next Set');
+      }
+    }
+  }
+
+  btn().addEventListener('click', () => {
+    if (timerState[i].currentSet >= ex.sets) {
+      // Reset to start over
+      timerState[i].currentSet = 0;
+      timerState[i].remaining = ex.duration;
+      display().textContent = ex.duration;
+      display().classList.remove('done');
+      renderSetState();
+      setBtn('▶ Start Hold');
+      return;
+    }
+    if (!timerState[i].running) {
+      timerState[i].running = true;
+      display().classList.add('counting');
+      display().classList.remove('done');
+      setBtn('⏸ Pause', 'running');
+      timerState[i].interval = setInterval(tick, 1000);
+    } else {
+      timerState[i].running = false;
+      display().classList.remove('counting');
+      clearInterval(timerState[i].interval);
+      setBtn('▶ Resume');
+    }
+  });
+}
+
+// Audio + haptic feedback
+let audioCtx = null;
+function beep() {
+  try {
+    if (!audioCtx) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') audioCtx.resume();
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    osc.frequency.value = 880;
+    osc.type = 'sine';
+    gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.4);
+    osc.start();
+    osc.stop(audioCtx.currentTime + 0.4);
+  } catch (e) {}
+}
+function vibrate() {
+  if (navigator.vibrate) navigator.vibrate([100, 50, 100]);
+}
+
+// Swipe handling
+let touchStartX = 0;
+let touchStartY = 0;
+let touchEndX = 0;
+let touchEndY = 0;
+let swipeStartTime = 0;
+
+slider.addEventListener('touchstart', (e) => {
+  touchStartX = e.touches[0].clientX;
+  touchStartY = e.touches[0].clientY;
+  swipeStartTime = Date.now();
+}, {passive: true});
+
+slider.addEventListener('touchend', (e) => {
+  touchEndX = e.changedTouches[0].clientX;
+  touchEndY = e.changedTouches[0].clientY;
+  const dx = touchEndX - touchStartX;
+  const dy = touchEndY - touchStartY;
+  const elapsed = Date.now() - swipeStartTime;
+  if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5 && elapsed < 600) {
+    if (dx < 0) goTo(currentIndex + 1);
+    else goTo(currentIndex - 1);
+  }
+}, {passive: true});
+
+prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+
+// Keyboard
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') goTo(currentIndex - 1);
+  else if (e.key === 'ArrowRight') goTo(currentIndex + 1);
+});
+
+// Build everything
+exercises.forEach((ex, i) => buildSlide(ex, i));
+buildDoneSlide();
+buildDots();
+updateUI();
+</script>
+
+</body>
+</html>
