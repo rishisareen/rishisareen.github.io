@@ -91,14 +91,17 @@
   .tldate{text-align:right; padding-right:22px; font-weight:800; font-size:12.5px; color:var(--navy); padding-top:11px; white-space:nowrap;}
   .tldot{position:absolute; left:97px; top:13px; width:17px; height:17px; border-radius:50%;
     border:3px solid #fff; box-shadow:0 0 0 1px var(--line); z-index:2;}
-  .d-jac{background:var(--gold);} .d-josaa{background:var(--josaa);} .d-both{background:var(--blue);}
-  .tlcard{margin-left:30px; background:#fff; border:1px solid var(--line); border-left-width:4px;
+  .d-jac{background:#2563eb;} .d-josaa{background:#ea580c;} .d-both{background:#7c3aed;}
+  .tlcard{margin-left:30px; background:#fff; border:1px solid var(--line); border-left-width:5px;
     border-radius:10px; padding:9px 13px; box-shadow:0 2px 8px rgba(31,56,100,.05);}
-  .lc-jac{border-left-color:var(--gold);} .lc-josaa{border-left-color:var(--josaa);} .lc-both{border-left-color:var(--blue);}
-  .tlcard.her{border-left-color:var(--safe); background:#f1faf2; border-color:#bfe6c6;}
-  .tlcard.crit{border-left-color:var(--unl); background:#fff5f6; border-color:#f3cdd2;}
-  .tlcard .sys{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.04em; padding:2px 8px; border-radius:999px; margin-bottom:4px;}
-  .s-jac{background:var(--jac-bg); color:var(--jac);} .s-josaa{background:var(--josaa-bg); color:var(--josaa);} .s-both{background:#e7eefb; color:var(--blue);}
+  .lc-jac{border-left-color:#2563eb; background:#eff5ff; border-color:#cfe0fb;}
+  .lc-josaa{border-left-color:#ea580c; background:#fff6ef; border-color:#fad9c2;}
+  .lc-both{border-left-color:#7c3aed; background:#f7f4ff; border-color:#e0d6fa;}
+  .tlcard.her{border-left-color:var(--safe); background:#edfaef; border-color:#aadcb4;}
+  .tlcard.crit{border-left-color:var(--unl); background:#fff2f4; border-color:#f3c2c9;}
+  .tlcard .sys{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.04em; padding:2px 9px; border-radius:999px; margin-bottom:4px;}
+  .s-jac{background:#2563eb; color:#fff;} .s-josaa{background:#ea580c; color:#fff;} .s-both{background:#7c3aed; color:#fff;}
+  .dt-jac{color:#1d4ed8;} .dt-josaa{color:#c2410c;} .dt-both{color:#6d28d9;}
   .tlcard .ev{font-size:13.5px; color:var(--ink); line-height:1.4;}
   .tlcard .tag{display:inline-block; font-size:10.5px; font-weight:800; padding:1px 7px; border-radius:6px; margin-left:6px;}
   .tag-her{background:var(--safe-bg); color:var(--safe);} .tag-crit{background:var(--unl-bg); color:var(--unl);}
@@ -565,12 +568,25 @@ const typeClass={CSE:"p-cse",ECE:"p-ece",Other:"p-other"};
 const fmt=n=>n.toLocaleString('en-IN');
 
 /* ===== Tabs ===== */
-function switchTab(t){
-  ["shortlist","trend","nits","keydates"].forEach(v=>{
+const TABS=["shortlist","trend","nits","keydates"];
+const TAB_ALIAS={dates:"keydates",calendar:"keydates",timeline:"keydates",schedule:"keydates",
+  nit:"nits",trends:"trend",cutoff:"trend",list:"shortlist",chances:"shortlist"};
+function applyTab(t){
+  TABS.forEach(v=>{
     document.getElementById("view-"+v).classList.toggle("hidden",v!==t);
     document.getElementById("tab-"+v).classList.toggle("active",v===t);
   });
 }
+function tabFromHash(){
+  let h=decodeURIComponent(location.hash.replace(/^#/,"")).toLowerCase();
+  h=TAB_ALIAS[h]||h;
+  return TABS.includes(h)?h:"shortlist";
+}
+function switchTab(t){
+  applyTab(t);
+  if(location.hash.replace(/^#/,"")!==t) history.replaceState(null,"","#"+t);
+}
+window.addEventListener("hashchange",()=>applyTab(tabFromHash()));
 
 /* ===== Shortlist view ===== */
 const ROWS = DATA.map((r,i)=>({top:r[0]===1,system:r[1],college:r[2],branch:r[3],type:r[4],route:r[5],closing:r[6],note:r[7],idx:i}));
@@ -813,7 +829,7 @@ function krender(){
     const sysl=sys==="JAC"?"JAC Delhi":sys==="JoSAA"?"JoSAA":"Both";
     const tag = kind==="her"?'<span class="tag tag-her">★ her day</span>':kind==="crit"?'<span class="tag tag-crit">⚠ deadline</span>':"";
     html+=`<div class="tlrow">
-      <div class="tldate">${d}</div>
+      <div class="tldate dt-${sysc}">${d}</div>
       <div class="tldot d-${sysc}"></div>
       <div class="tlcard lc-${sysc} ${kind}">
         <span class="sys s-${sysc}">${sysl}</span>
@@ -837,6 +853,7 @@ populateTColleges();
 trender();
 nrender();
 krender();
+applyTab(tabFromHash());   // honor #tab in the URL on load (e.g. #keydates)
 </script>
 </body>
 </html>
