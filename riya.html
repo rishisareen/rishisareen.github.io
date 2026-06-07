@@ -83,6 +83,33 @@
   .foot{margin-top:14px; font-size:11.5px; color:var(--muted); line-height:1.6;}
   .hidden{display:none;}
 
+  /* ---------- timeline (key dates) ---------- */
+  .tl{position:relative; margin-top:16px; padding-left:8px;}
+  .tl::before{content:""; position:absolute; left:104px; top:6px; bottom:6px; width:3px;
+    background:linear-gradient(180deg,var(--jac-bg),var(--josaa-bg)); border-radius:2px;}
+  .tlrow{position:relative; display:grid; grid-template-columns:96px 1fr; gap:0; margin-bottom:12px; align-items:start;}
+  .tldate{text-align:right; padding-right:22px; font-weight:800; font-size:12.5px; color:var(--navy); padding-top:11px; white-space:nowrap;}
+  .tldot{position:absolute; left:97px; top:13px; width:17px; height:17px; border-radius:50%;
+    border:3px solid #fff; box-shadow:0 0 0 1px var(--line); z-index:2;}
+  .d-jac{background:var(--gold);} .d-josaa{background:var(--josaa);} .d-both{background:var(--blue);}
+  .tlcard{margin-left:30px; background:#fff; border:1px solid var(--line); border-left-width:4px;
+    border-radius:10px; padding:9px 13px; box-shadow:0 2px 8px rgba(31,56,100,.05);}
+  .lc-jac{border-left-color:var(--gold);} .lc-josaa{border-left-color:var(--josaa);} .lc-both{border-left-color:var(--blue);}
+  .tlcard.her{border-left-color:var(--safe); background:#f1faf2; border-color:#bfe6c6;}
+  .tlcard.crit{border-left-color:var(--unl); background:#fff5f6; border-color:#f3cdd2;}
+  .tlcard .sys{display:inline-block; font-size:10.5px; font-weight:800; letter-spacing:.04em; padding:2px 8px; border-radius:999px; margin-bottom:4px;}
+  .s-jac{background:var(--jac-bg); color:var(--jac);} .s-josaa{background:var(--josaa-bg); color:var(--josaa);} .s-both{background:#e7eefb; color:var(--blue);}
+  .tlcard .ev{font-size:13.5px; color:var(--ink); line-height:1.4;}
+  .tlcard .tag{display:inline-block; font-size:10.5px; font-weight:800; padding:1px 7px; border-radius:6px; margin-left:6px;}
+  .tag-her{background:var(--safe-bg); color:var(--safe);} .tag-crit{background:var(--unl-bg); color:var(--unl);}
+  @media (max-width:620px){
+    .tl::before{left:8px;}
+    .tlrow{grid-template-columns:1fr;}
+    .tldate{text-align:left; padding-left:30px; padding-right:0; padding-top:0; padding-bottom:3px;}
+    .tldot{left:1px; top:2px;}
+    .tlcard{margin-left:30px;}
+  }
+
   @media (max-width:760px){
     thead{display:none;}
     table, tbody, tr, td{display:block; width:100%;}
@@ -118,6 +145,8 @@
   <div class="tabs">
     <button id="tab-shortlist" class="active" onclick="switchTab('shortlist')">Shortlist &amp; chances</button>
     <button id="tab-trend" onclick="switchTab('trend')">JAC cutoff trend 2023–25</button>
+    <button id="tab-nits" onclick="switchTab('nits')">All 31 NITs</button>
+    <button id="tab-keydates" onclick="switchTab('keydates')">Key dates</button>
   </div>
 
   <!-- ================= VIEW 1: SHORTLIST ================= -->
@@ -237,6 +266,78 @@
   </div>
   </div>
 
+  <!-- ================= VIEW 3: ALL NITs ================= -->
+  <div id="view-nits" class="hidden">
+  <div class="panel">
+    <div class="filterhead"><h2>ALL 31 NITs — CSE / IT / ECE / EE</h2><span class="count" id="ncount"></span></div>
+    <div class="fgroup">
+      <div class="flabel">NIT</div>
+      <select id="nnit" class="sel"><option value="all">All NITs</option></select>
+    </div>
+    <div class="fgroup">
+      <div class="flabel">Branch</div>
+      <div class="seg" data-ngroup="branch">
+        <button class="active" data-val="all">All</button>
+        <button data-val="CSE">CSE</button>
+        <button data-val="IT">IT</button>
+        <button data-val="ECE">ECE</button>
+        <button data-val="EE">EE</button>
+      </div>
+    </div>
+    <div class="fgroup">
+      <div class="flabel">Chance (female pool)</div>
+      <div class="seg" data-ngroup="chance">
+        <button class="active" data-val="all">All</button>
+        <button data-val="Safe">Safe</button>
+        <button data-val="Moderate">Moderate</button>
+        <button data-val="Reach">Reach</button>
+        <button data-val="Unlikely">Unlikely</button>
+      </div>
+    </div>
+    <div class="searchrow"><input id="nsearch" type="search" placeholder="Search NIT…" autocomplete="off"></div>
+  </div>
+
+  <table id="ntbl">
+    <thead>
+      <tr><th>NIT</th><th>Branch</th><th>Quota</th><th>Gen-Neutral<br>closing</th><th>Female-pool<br>closing</th><th>Chance</th><th>Notes</th></tr>
+    </thead>
+    <tbody id="nrows"></tbody>
+  </table>
+  <div class="empty" id="nempty" style="display:none;">No branches match these filters.</div>
+
+  <div class="legend">
+    Closing ranks = <strong>JEE Main CRL, 2025 final round</strong>. Quota shown is HER applicable one: <strong>Other-State</strong> everywhere, <strong>Home-State</strong> at NIT Delhi. <strong>Chance</strong> compares her CRL 22,022 to the <strong>female-pool</strong> closing (she's female): <span class="pill c-safe">Safe</span> <span class="pill c-moderate">Moderate</span> <span class="pill c-reach">Reach</span> <span class="pill c-unlikely">Unlikely</span>.
+  </div>
+  <div class="foot">
+    Only NIT Surathkal, Kurukshetra, Jalandhar, Raipur and Srinagar offer a separate IT branch; the rest run CSE only (specializations not shown). Major NITs = official JoSAA 2025 Round-6 OR-CR; the six smaller NE NITs (Meghalaya, Sikkim, Arunachal, Nagaland, Manipur, Mizoram) are directional — verify on josaa.nic.in. Spot/CSAB rounds excluded.
+  </div>
+  </div>
+
+  <!-- ================= VIEW 4: KEY DATES ================= -->
+  <div id="view-keydates" class="hidden">
+  <div class="panel">
+    <div class="filterhead"><h2>KEY DATES 2026 — JAC Delhi &amp; JoSAA combined</h2></div>
+    <div class="fgroup">
+      <div class="flabel">Show</div>
+      <div class="seg" data-kgroup="sys">
+        <button class="active" data-val="all">Both systems</button>
+        <button data-val="JAC">JAC Delhi only</button>
+        <button data-val="JoSAA">JoSAA only</button>
+      </div>
+    </div>
+    <div class="legend" style="margin-top:10px;">
+      <span class="pill s-jac">JAC Delhi</span> <span class="pill s-josaa">JoSAA</span> <span class="pill s-both">Both</span> &nbsp;·&nbsp;
+      <span class="tag tag-her">★ her day</span> <span class="tag tag-crit">⚠ deadline</span> &nbsp; She can run <strong>both</strong> processes in parallel.
+    </div>
+  </div>
+
+  <div class="tl" id="timeline"></div>
+
+  <div class="foot">
+    Sources: JAC Delhi Counselling Schedule 2026 &amp; JoSAA 2026 Schedule of Events (both in the folder). JoSAA Round 5 is the final round for IITs/IISc; for NITs/IIITs/GFTIs the JoSAA rounds finish and remaining vacancies move to CSAB special rounds (csab.nic.in) from ~22 July. Times are IST; always confirm on the official portals.
+  </div>
+  </div>
+
 </div>
 
 <script>
@@ -254,6 +355,7 @@ const DATA = [
  [1,"JAC","IIIT-Delhi","CS & Social Sciences (CSSS)","CSE","Delhi-region (gen-neutral)",23202,"CS degree at IIIT-D; bonus-point eligible. Borderline."],
  [1,"JAC","DTU","Electronics & VLSI (EVDT)","ECE","Girl-Child (GL) quota",27868,"Safe ECE-family seat at DTU."],
  [1,"JAC","NSUT","Electronics & VLSI (EVDT)","ECE","Girl-Child (GL) quota",38500,"Safe ECE-family seat at NSUT."],
+ [1,"JoSAA","IIIT Pune","Electronics & Communication (ECE)","ECE","All-India (open merit)",27380,"NEW — clears on open merit; safe ECE at a decent IIIT."],
  [1,"JAC","IGDTUW","CSE — Artificial Intelligence","CSE","Women-only",44405,"Premium CSE; her safest route to a core CS degree."],
  [1,"JAC","IGDTUW","Computer Science & Engineering (CSE)","CSE","Women-only",50687,"Clean core-CSE seat in Delhi. Safe."],
  [1,"JAC","NSUT","CSE — Big Data Analytics (East)","CSE","Girl-Child (GL) quota",46242,"An actual CSE branch at NSUT. Safe."],
@@ -261,6 +363,8 @@ const DATA = [
  [1,"JoSAA","IIIT Kota","Computer Science (CSE)","CSE","Other-State",22179,"CS-focused IIIT; realistic CSE (borderline)."],
  [1,"JoSAA","IIIT Nagpur","Computer Science (CSE)","CSE","Other-State",24711,"CS-focused IIIT; realistic CSE."],
  [1,"JoSAA","IIIT Sonepat","Computer Science (CSE)","CSE","Other-State",25246,"CSE at a CS-focused IIIT, near Delhi."],
+ [1,"JoSAA","IIIT Pune","Computer Science (CSE)","CSE","All-India · Female",30716,"NEW — safe CSE via female pool (open merit ~21k just misses)."],
+ [1,"JoSAA","NIT Srinagar","Computer Science (CSE)","CSE","Other-State (open merit)",26171,"NEW — clears on open merit; verify (medium confidence)."],
  [1,"JoSAA","NIT Jalandhar","Electronics & Communication (ECE)","ECE","Other-State · Female",23262,"NIT ECE near Delhi (female pool)."],
  [1,"JoSAA","MANIT Bhopal","Electronics & Communication (ECE)","ECE","Other-State · Female",22084,"NIT ECE; borderline via female pool."],
  [1,"JoSAA","NIT Raipur","Electronics & Communication (ECE)","ECE","Other-State · Female",26938,"Safe NIT ECE in the female pool."],
@@ -462,10 +566,10 @@ const fmt=n=>n.toLocaleString('en-IN');
 
 /* ===== Tabs ===== */
 function switchTab(t){
-  document.getElementById("view-shortlist").classList.toggle("hidden",t!=="shortlist");
-  document.getElementById("view-trend").classList.toggle("hidden",t!=="trend");
-  document.getElementById("tab-shortlist").classList.toggle("active",t==="shortlist");
-  document.getElementById("tab-trend").classList.toggle("active",t==="trend");
+  ["shortlist","trend","nits","keydates"].forEach(v=>{
+    document.getElementById("view-"+v).classList.toggle("hidden",v!==t);
+    document.getElementById("tab-"+v).classList.toggle("active",v===t);
+  });
 }
 
 /* ===== Shortlist view ===== */
@@ -591,10 +695,148 @@ document.querySelectorAll('.seg[data-tgroup]').forEach(seg=>{
 });
 document.getElementById("tsearch").addEventListener("input",e=>{tfilters.q=e.target.value; trender();});
 
+/* ===== All-NITs view ===== */
+// [nit, quota, cse_gn, cse_f, it_gn, it_f, ece_gn, ece_f, ee_gn, ee_f, note]
+const NITRAW=[
+ ["NIT Trichy","OS",1449,2599,null,null,3283,6458,5637,10135,"EE=EEE"],
+ ["NIT Surathkal (NITK)","OS",1827,3986,3160,6735,4347,7008,6872,11234,"EE=EEE"],
+ ["NIT Warangal","OS",2409,4938,null,null,5057,8861,7788,14231,"EE=EEE"],
+ ["NIT Rourkela","OS",3431,5524,null,null,5785,10842,10623,18535,""],
+ ["NIT Calicut","OS",5222,8205,null,null,8314,12856,11727,21093,"EE=EEE"],
+ ["MNNIT Allahabad","OS",4594,10173,null,null,8532,14971,11665,20844,""],
+ ["MNIT Jaipur","OS",5601,8485,null,null,9667,15895,14665,23400,""],
+ ["VNIT Nagpur","OS",6359,11732,null,null,10545,16938,15125,22683,"EE=EEE"],
+ ["SVNIT Surat","OS",8130,14644,null,null,14086,20713,19406,29064,""],
+ ["NIT Delhi","HS",10165,18497,null,null,15523,27834,21491,40113,"Home-state = your quota"],
+ ["NIT Kurukshetra","OS",7037,11578,8600,16341,12163,20128,17242,25530,""],
+ ["NIT Jalandhar","OS",11262,19838,14615,25166,16180,26952,20115,32378,""],
+ ["NIT Jamshedpur","OS",8902,18219,null,null,12868,25080,18345,31488,""],
+ ["MANIT Bhopal","OS",9249,16148,null,null,14205,24250,20770,31132,""],
+ ["NIT Durgapur","OS",9836,16484,null,null,13888,21668,19972,30762,""],
+ ["NIT Raipur","OS",13559,21653,16763,26688,20044,28810,27378,39412,""],
+ ["NIT Patna","OS",14996,24676,null,null,20558,32454,27921,42229,""],
+ ["NIT Hamirpur","OS",12586,20822,null,null,18733,29052,25590,38413,""],
+ ["NIT Andhra Pradesh","OS",18548,24130,null,null,25707,31426,34473,41210,"EE=EEE"],
+ ["NIT Goa","OS",12511,13339,null,null,16935,25449,23326,26968,"EE=EEE"],
+ ["NIT Uttarakhand","OS",18039,28529,null,null,26226,33827,32287,33741,"EE=EEE"],
+ ["NIT Silchar","OS",12665,22468,null,null,18068,31185,25920,40537,""],
+ ["NIT Agartala","OS",22013,38997,null,null,28758,44750,35580,55221,""],
+ ["NIT Puducherry","OS",18515,18657,null,null,24073,28650,29032,37184,"EE=EEE"],
+ ["NIT Srinagar","OS",26171,44583,33379,50448,36651,50625,43282,58026,""],
+ ["NIT Meghalaya","OS",20039,35153,null,null,29484,43057,36106,43307,"EE=EEE; smaller NIT"],
+ ["NIT Sikkim","OS",28284,35891,null,null,37004,44971,42538,51162,"EE=EEE; smaller NIT"],
+ ["NIT Arunachal Pradesh","OS",28514,40714,null,null,40722,43507,45212,50543,"smaller NIT"],
+ ["NIT Nagaland","OS",31391,38249,null,null,42889,51406,47335,54153,"EE=EEE; smaller NIT"],
+ ["NIT Manipur","OS",30611,43862,null,null,40126,49722,47728,55730,"smaller NIT"],
+ ["NIT Mizoram","OS",33181,43362,null,null,43128,53289,47514,56224,"smaller NIT"],
+];
+const NROWS=[];
+for(const r of NITRAW){
+  const [nit,quota,cg,cf,ig,iff,eg,ef,eeg,eef,note]=r;
+  const br=[["CSE",cg,cf],["IT",ig,iff],["ECE",eg,ef],["EE",eeg,eef]];
+  for(const [b,gn,fem] of br){ if(gn!=null) NROWS.push({nit,quota,branch:b,gn,fem,note:b==="EE"?note:(b==="CSE"&&quota==="HS"?note:"")}); }
+}
+const nbTypeClass={CSE:"p-cse",IT:"p-cse",ECE:"p-ece",EE:"p-other"};
+const nfilters={nit:"all",branch:"all",chance:"all",q:""};
+const nrowsEl=document.getElementById("nrows"), nemptyEl=document.getElementById("nempty"), ncountEl=document.getElementById("ncount");
+const nnitEl=document.getElementById("nnit");
+nnitEl.innerHTML='<option value="all">All NITs</option>'+NITRAW.map(r=>`<option value="${r[0]}">${r[0]}</option>`).join("");
+function nrender(){
+  const q=nfilters.q.trim().toLowerCase();
+  const list=NROWS.filter(r=>{
+    if(nfilters.nit!=="all" && r.nit!==nfilters.nit) return false;
+    if(nfilters.branch!=="all" && r.branch!==nfilters.branch) return false;
+    if(nfilters.chance!=="all" && chanceOf(r.fem)!==nfilters.chance) return false;
+    if(q && !r.nit.toLowerCase().includes(q)) return false;
+    return true;
+  });
+  let html="";
+  list.forEach(r=>{
+    const ch=chanceOf(r.fem);
+    html+=`<tr>
+      <td class="college" data-label="NIT"><span class="cellval">${r.nit}</span></td>
+      <td data-label="Branch"><span class="pill ${nbTypeClass[r.branch]}">${r.branch}</span></td>
+      <td class="yr" data-label="Quota">${r.quota}</td>
+      <td class="yr" data-label="Gen-Neutral">${fmt(r.gn)}</td>
+      <td class="yr y25" data-label="Female">${fmt(r.fem)}</td>
+      <td data-label="Chance"><span class="pill c-${ch.toLowerCase()}">${ch}</span></td>
+      <td class="note" data-label="Notes"><span class="cellval">${r.note||""}</span></td>
+    </tr>`;
+  });
+  nrowsEl.innerHTML=html;
+  nemptyEl.style.display=list.length===0?"block":"none";
+  ncountEl.textContent=list.length+(list.length===1?" branch":" branches");
+}
+nnitEl.addEventListener("change",e=>{nfilters.nit=e.target.value; nrender();});
+document.querySelectorAll('.seg[data-ngroup]').forEach(seg=>{
+  seg.addEventListener("click",e=>{
+    const btn=e.target.closest("button"); if(!btn) return;
+    seg.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active"); nfilters[seg.dataset.ngroup]=btn.dataset.val; nrender();
+  });
+});
+document.getElementById("nsearch").addEventListener("input",e=>{nfilters.q=e.target.value; nrender();});
+
+/* ===== Key dates timeline ===== */
+// [dateLabel, system (JAC/JoSAA/Both), text, kind ("","her","crit")]
+const EVENTS=[
+ ["May 28","JAC","JAC registration & choice-filling <b>opens</b> (₹1,500 fee).",""],
+ ["Jun 2","JoSAA","JoSAA registration & choice-filling <b>opens</b>.",""],
+ ["Jun 9","JAC","JAC registration & choice-filling <b>CLOSES</b>.","crit"],
+ ["Jun 11","JoSAA","JoSAA choice-filling <b>CLOSES</b> — choices auto-lock (5 PM).","crit"],
+ ["Jun 13","JoSAA","JoSAA <b>Round 1</b> seat allocation.",""],
+ ["Jun 15","JAC","JAC <b>Round 1</b> result (after 5 PM).",""],
+ ["Jun 24","JAC","<b>Her Round 1 reporting day</b> — Delhi General, CRL ≤ 25,000.","her"],
+ ["Jun 25","JAC","JAC Round 1 seat-freeze deadline.",""],
+ ["Jun 26","Both","JoSAA R1 reporting/fee deadline · JAC choice-editing <b>re-opens</b> (Jun 26–28 — last chance to edit).",""],
+ ["Jun 30","JoSAA","JoSAA <b>Round 2</b> seat allocation.",""],
+ ["Jul 1","JAC","JAC <b>Round 2</b> result.",""],
+ ["Jul 3","Both","JAC R2 freeze · JoSAA R2 reporting/withdrawal deadline.",""],
+ ["Jul 6","JoSAA","JoSAA <b>Round 3</b> seat allocation.",""],
+ ["Jul 7","JAC","JAC <b>Round 3</b> result.",""],
+ ["Jul 8","Both","JAC R3 reporting · JoSAA R3 reporting deadline.",""],
+ ["Jul 10","JoSAA","JoSAA <b>Round 4</b> seat allocation.",""],
+ ["Jul 12","JAC","JAC withdrawal-with-<b>REFUND</b> deadline (10:30 PM).","crit"],
+ ["Jul 14","JAC","JAC <b>Round 4</b> result.",""],
+ ["Jul 16","Both","JAC R4 freeze · JoSAA <b>Round 5 (final)</b> seat allocation.",""],
+ ["Jul 20","Both","JAC <b>upgradation</b> result · JoSAA R5 reporting deadline.",""],
+ ["Jul 21","Both","JAC upgradation freeze (2 PM) + spot-round vacancies · JoSAA NIT+ withdrawal ends.",""],
+ ["Jul 22–24","JoSAA","CSAB special rounds begin for leftover NIT/IIIT/GFTI seats (csab.nic.in).",""],
+];
+const kfilter={sys:"all"};
+const tlEl=document.getElementById("timeline");
+function krender(){
+  let html="";
+  EVENTS.forEach(([d,sys,txt,kind])=>{
+    if(kfilter.sys!=="all" && sys!=="Both" && sys!==kfilter.sys) return;
+    const sysc=sys==="JAC"?"jac":sys==="JoSAA"?"josaa":"both";
+    const sysl=sys==="JAC"?"JAC Delhi":sys==="JoSAA"?"JoSAA":"Both";
+    const tag = kind==="her"?'<span class="tag tag-her">★ her day</span>':kind==="crit"?'<span class="tag tag-crit">⚠ deadline</span>':"";
+    html+=`<div class="tlrow">
+      <div class="tldate">${d}</div>
+      <div class="tldot d-${sysc}"></div>
+      <div class="tlcard lc-${sysc} ${kind}">
+        <span class="sys s-${sysc}">${sysl}</span>
+        <div class="ev">${txt}${tag}</div>
+      </div>
+    </div>`;
+  });
+  tlEl.innerHTML=html;
+}
+document.querySelectorAll('.seg[data-kgroup]').forEach(seg=>{
+  seg.addEventListener("click",e=>{
+    const btn=e.target.closest("button"); if(!btn) return;
+    seg.querySelectorAll("button").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active"); kfilter.sys=btn.dataset.val; krender();
+  });
+});
+
 populateColleges();
 render();
 populateTColleges();
 trender();
+nrender();
+krender();
 </script>
 </body>
 </html>
