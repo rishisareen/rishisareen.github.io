@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Hong Kong Disneyland · Game Plan</title>
+<style>
+  :root{
+    --bg:#eef3fb; --card:#ffffff; --soft:#f3f7fd;
+    --ink:#16243a; --muted:#54647f; --faint:#8fa0bd;
+    --line:#e2e9f4; --shadow:0 1px 3px rgba(20,40,80,.06),0 8px 22px rgba(20,40,80,.06);
+    --ice:#3aa0e6; --ice2:#6c7ff0; --purple:#8a63d6; --gold:#e8a13a; --pink:#e0529c; --green:#1ba37e; --red:#e0584f;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:54px}
+  .wrap{max-width:600px;margin:0 auto;padding:0 15px}
+  /* Header */
+  header{position:relative;text-align:center;color:#fff;padding:34px 16px 30px;overflow:hidden;
+    background:linear-gradient(160deg,#5b8fe6 0%,#6c7ff0 45%,#8a63d6 100%)}
+  header::after{content:"❄";position:absolute;font-size:200px;opacity:.07;top:-30px;right:-20px;transform:rotate(15deg)}
+  header h1{font-size:1.55rem;font-weight:800;letter-spacing:.2px;position:relative}
+  header .sub{margin-top:7px;font-size:.95rem;font-weight:600;opacity:.95;position:relative}
+  header .date{margin-top:3px;font-size:.82rem;opacity:.85;position:relative}
+  .facts{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:14px;position:relative}
+  .facts span{font-size:.72rem;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;padding:4px 11px;backdrop-filter:blur(4px)}
+  /* Sections */
+  h2{font-size:1.05rem;font-weight:800;margin:26px 0 12px;display:flex;align-items:center;gap:9px}
+  h2 .ic{font-size:1.15rem}
+  .lead{font-size:.9rem;color:var(--muted);margin:-4px 0 14px}
+  /* Ride cards */
+  .ride{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:14px 15px;margin-bottom:11px;display:flex;gap:13px;align-items:flex-start;position:relative;overflow:hidden}
+  .ride .num{flex:0 0 30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:.92rem;color:#fff;background:linear-gradient(150deg,var(--ice),var(--ice2));margin-top:2px}
+  .ride .rb{flex:1;min-width:0}
+  .ride .rname{font-weight:700;font-size:1rem}
+  .ride .rland{font-size:.75rem;color:var(--faint);margin-top:1px}
+  .ride .rnote{font-size:.83rem;color:var(--muted);margin-top:6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .tag{font-size:.68rem;font-weight:700;border-radius:7px;padding:3px 8px;white-space:nowrap}
+  .t-top{background:rgba(232,161,58,.16);color:#b67712}
+  .t-excl{background:rgba(138,99,214,.15);color:#6f49bf}
+  .t-thrill{background:rgba(224,88,79,.14);color:#c23c34}
+  .t-indoor{background:rgba(58,160,230,.14);color:#1f7fc4}
+  .t-rope{background:rgba(27,163,126,.15);color:#0f8a66}
+  /* Timeline */
+  .tl{position:relative;margin-left:6px;padding-left:22px}
+  .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--ice),var(--purple))}
+  .slot{position:relative;margin-bottom:15px}
+  .slot::before{content:"";position:absolute;left:-22px;top:3px;width:14px;height:14px;border-radius:50%;
+    background:#fff;border:3px solid var(--ice2)}
+  .slot.dawn::before{border-color:var(--gold)}
+  .slot.noon::before{border-color:var(--green)}
+  .slot.night::before{border-color:var(--purple)}
+  .slot .when{font-size:.74rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--ice2)}
+  .slot.dawn .when{color:var(--gold)}.slot.noon .when{color:var(--green)}.slot.night .when{color:var(--purple)}
+  .slot .what{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);
+    padding:11px 13px;margin-top:5px}
+  .slot .what .h{font-weight:700;font-size:.92rem}
+  .slot .what .d{font-size:.82rem;color:var(--muted);margin-top:3px}
+  /* Tip cards */
+  .tip{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    padding:13px 14px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
+  .tip .ti{font-size:1.4rem;flex:0 0 auto;line-height:1.1}
+  .tip .th{font-weight:700;font-size:.93rem}
+  .tip .td{font-size:.83rem;color:var(--muted);margin-top:3px}
+  /* Compare box */
+  .box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:15px;margin-bottom:11px}
+  .box .bt{font-weight:800;font-size:.96rem;display:flex;align-items:center;gap:8px}
+  .box .bp{font-size:.8rem;color:var(--green);font-weight:700;margin-top:2px}
+  .box ul{margin:9px 0 0;padding-left:18px}
+  .box li{font-size:.84rem;color:var(--muted);margin-bottom:4px}
+  .box .rec{margin-top:9px;font-size:.78rem;background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:8px 10px;color:var(--ink)}
+  /* Know list */
+  .know{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:6px 4px}
+  .know .k{display:flex;gap:11px;padding:11px 12px;border-bottom:1px solid var(--line)}
+  .know .k:last-child{border-bottom:0}
+  .know .ki{font-size:1.15rem;flex:0 0 22px;text-align:center}
+  .know .kk{font-weight:700;font-size:.86rem}
+  .know .kv{font-size:.83rem;color:var(--muted);margin-top:1px}
+  .note{color:var(--faint);font-size:.76rem;margin-top:20px;text-align:center;line-height:1.6}
+  b{color:var(--ink)}
+  a{color:#3a56d4}
+</style>
+</head>
+<body>
+<header>
+  <h1>❄️ Hong Kong Disneyland</h1>
+  <div class="sub">Family Game Plan</div>
+  <div class="date">Saturday · 13 June 2026 · Rishi, Riya &amp; Ryan</div>
+  <div class="facts">
+    <span>🏰 Smallest Disney — do it all in a day</span>
+    <span>📅 Saturday = busy</span>
+    <span>🌡️ Hot &amp; rainy season</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <h2><span class="ic">🚇</span> Getting there</h2>
+  <p class="lead">From Sheung Wan: MTR to <b>Sunny Bay</b>, change to the themed <b>Disneyland Resort line</b> (Mickey windows!). ~45–50 min total. Aim to arrive <b>30–60 min before opening</b>.</p>
+
+  <h2><span class="ic">🎯</span> Priority Rides</h2>
+  <p class="lead">Hit these in order — the first four draw 60–90 min lines within 15 min of opening. ⭐ = unmissable, 💜 = found only in Hong Kong.</p>
+
+  <div class="ride"><div class="num">1</div><div class="rb">
+    <div class="rname">Mystic Manor</div><div class="rland">Mystic Point · trackless dark ride</div>
+    <div class="rnote">The park's crown jewel and exists nowhere else in the world. No height limit, no English needed, fully indoor. If you do one thing, do this.</div>
+    <div class="tags"><span class="tag t-top">⭐ Crown jewel</span><span class="tag t-excl">💜 HK-exclusive</span><span class="tag t-indoor">❄️ Indoor</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">2</div><div class="rb">
+    <div class="rname">Frozen Ever After</div><div class="rland">World of Frozen · boat ride</div>
+    <div class="rnote">Gentle, gorgeous Arendelle boat journey. The headliner land — lines explode at opening, so ride at rope-drop.</div>
+    <div class="tags"><span class="tag t-top">⭐ Headliner</span><span class="tag t-rope">🏃 Rope-drop</span><span class="tag t-indoor">❄️ Indoor</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">3</div><div class="rb">
+    <div class="rname">Wandering Oaken's Sliding Sleighs</div><div class="rland">World of Frozen · family coaster</div>
+    <div class="rnote">Fun, not-too-intense coaster — perfect for all three of you. Hong Kong exclusive. Pair it with Frozen Ever After first thing.</div>
+    <div class="tags"><span class="tag t-excl">💜 HK-exclusive</span><span class="tag t-thrill">🎢 Coaster</span><span class="tag t-rope">🏃 Rope-drop</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">4</div><div class="rb">
+    <div class="rname">Big Grizzly Mountain Runaway Mine Cars</div><div class="rland">Grizzly Gulch · coaster</div>
+    <div class="rnote">One of the best rides in the park — a launchy mine-train with surprises. Great for the teens.</div>
+    <div class="tags"><span class="tag t-top">⭐ Best coaster</span><span class="tag t-thrill">🎢 Thrill</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">5</div><div class="rb">
+    <div class="rname">Hyperspace Mountain</div><div class="rland">Tomorrowland · indoor coaster</div>
+    <div class="rnote">Space Mountain with a Star Wars overlay — dark, fast, fun. Good midday (indoor, heat-proof).</div>
+    <div class="tags"><span class="tag t-thrill">🎢 Thrill</span><span class="tag t-indoor">❄️ Indoor</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">6</div><div class="rb">
+    <div class="rname">Iron Man Experience</div><div class="rland">Tomorrowland · motion simulator</div>
+    <div class="rnote">Fly through HK skyline with Iron Man — 3D simulator, great for Marvel fans. Indoor.</div>
+    <div class="tags"><span class="tag t-thrill">🦾 Marvel</span><span class="tag t-indoor">❄️ Indoor</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">7</div><div class="rb">
+    <div class="rname">Ant-Man and The Wasp: Nano Battle!</div><div class="rland">Tomorrowland · shooting dark ride</div>
+    <div class="rnote">Interactive blaster ride — light, fun, low wait. Easy win between the big ones.</div>
+    <div class="tags"><span class="tag t-thrill">🔫 Interactive</span><span class="tag t-indoor">❄️ Indoor</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">+</div><div class="rb">
+    <div class="rname">Fill-ins &amp; shows</div><div class="rland">around the park</div>
+    <div class="rnote"><b>Jungle River Cruise</b> &amp; <b>Tarzan's Treehouse</b> (Adventureland), <b>RC Racer</b> (Toy Story Land), and the <b>Festival of the Lion King</b> stage show — all good lower-stress afternoon picks.</div>
+    <div class="tags"><span class="tag t-indoor">🎭 Shows</span></div>
+  </div></div>
+
+  <h2><span class="ic">🗺️</span> Suggested Flow</h2>
+  <div class="tl">
+    <div class="slot dawn"><div class="when">Before opening · ~9:00–9:30</div>
+      <div class="what"><div class="h">Arrive early + Early Entry</div>
+        <div class="d">Be at the gate 30–60 min before open. With the Early Park Entry Pass you get a 1-hr head start — head straight to World of Frozen.</div></div></div>
+    <div class="slot"><div class="when">Rope-drop hour</div>
+      <div class="what"><div class="h">World of Frozen → Grizzly → Mystic Manor</div>
+        <div class="d">Wandering Oaken's + Frozen Ever After back-to-back, then Big Grizzly Mountain, then Mystic Manor — all before the crowd builds (~by 11am).</div></div></div>
+    <div class="slot noon"><div class="when">Late morning → lunch</div>
+      <div class="what"><div class="h">Tomorrowland thrills + mobile-order lunch</div>
+        <div class="d">Hyperspace Mountain, Iron Man, Ant-Man (use Premier Access here). Mobile-order lunch ~11:30 — Arendelle dining in World of Frozen is the themed pick.</div></div></div>
+    <div class="slot noon"><div class="when">Afternoon · hottest hours</div>
+      <div class="what"><div class="h">Indoor rides + shows, re-rides</div>
+        <div class="d">Festival of the Lion King, Adventureland, Toy Story Land. Duck into air-conditioned rides during peak heat/rain. Re-ride favourites with Premier Access.</div></div></div>
+    <div class="slot night"><div class="when">Evening</div>
+      <div class="what"><div class="h">Dinner → "Momentous" nighttime show</div>
+        <div class="d">Grab a Main Street / castle spot <b>20–30 min early</b> — the projection-and-fireworks show is the day's highlight. Shop Main Street on the way out.</div></div></div>
+  </div>
+
+  <h2><span class="ic">💡</span> Tips &amp; Tricks</h2>
+  <div class="tip"><div class="ti">🏃</div><div><div class="th">Rope-drop World of Frozen first</div><div class="td">Frozen rides hit 60–90 min within 15 min of opening on a weekend. Go there before anything else.</div></div></div>
+  <div class="tip"><div class="ti">🎟️</div><div><div class="th">Buy the Early Park Entry Pass (~HK$199)</div><div class="td">On Klook/Trip.com. One hour early = clear both Frozen rides + Grizzly + Mystic Manor before general crowds. Best-value add-on for a busy Saturday.</div></div></div>
+  <div class="tip"><div class="ti">⚡</div><div><div class="th">Premier Access — buy a day ahead</div><div class="td">It's dynamically priced and cheaper in advance than same-day. Worth it on a Saturday for the long-wait rides.</div></div></div>
+  <div class="tip"><div class="ti">📱</div><div><div class="th">Live by the HKDL app</div><div class="td">Real-time wait times, show schedule, mobile food ordering, and Premier Access — all in one. Check opening time the night before.</div></div></div>
+  <div class="tip"><div class="ti">🌧️</div><div><div class="th">Beat heat &amp; rain</div><div class="td">June is hot, humid &amp; typhoon season. Carry water, sun cover and a poncho; cluster indoor rides (Mystic Manor, Iron Man, Frozen) at midday.</div></div></div>
+  <div class="tip"><div class="ti">🍔</div><div><div class="th">Mobile-order lunch ~11am</div><div class="td">Beat the noon queue by ordering ahead in the app for a midday pickup.</div></div></div>
+  <div class="tip"><div class="ti">💳</div><div><div class="th">Pay with Magnus Burgundy in HK$</div><div class="td">Lowest forex (2%). Always choose to be charged in HKD, never INR (avoid DCC).</div></div></div>
+
+  <h2><span class="ic">⚡</span> Skip-the-line options</h2>
+  <div class="box">
+    <div class="bt">🎟️ Early Park Entry Pass</div>
+    <div class="bp">~HK$199 · best single value</div>
+    <ul><li>1 hour before official opening</li><li>Enough to ride both Frozen rides + Big Grizzly + Mystic Manor crowd-free</li><li>Free for Disney hotel guests; anyone can buy on Klook/Trip.com</li></ul>
+  </div>
+  <div class="box">
+    <div class="bt">⚡ Premier Access — 3 attractions</div>
+    <div class="bp">Entry-level skip-the-line</div>
+    <ul><li>Covers the longest waits: <b>Big Grizzly, Mystic Manor, Iron Man</b></li><li>Best value on a moderately busy day</li></ul>
+  </div>
+  <div class="box">
+    <div class="bt">⚡ Premier Access — 8 attractions</div>
+    <div class="bp">~US$72 · for busy days</div>
+    <ul><li>Adds Frozen Ever After, Hyperspace Mountain, Ant-Man, Winnie the Pooh &amp; more</li><li>What most people should buy on a weekend</li></ul>
+    <div class="rec">👉 For your Saturday: <b>Early Entry Pass + 8-attraction Premier Access</b> = walk-on most headliners all day. Buy both a day ahead.</div>
+  </div>
+
+  <h2><span class="ic">📋</span> Good to know</h2>
+  <div class="know">
+    <div class="k"><div class="ki">🕙</div><div><div class="kk">Opening hours</div><div class="kv">Usually 10:00–10:30am open; check the app the night before for 13 Jun.</div></div></div>
+    <div class="k"><div class="ki">🎫</div><div><div class="kk">Tickets</div><div class="kv">Buy your dated 13 Jun ticket in advance — cheaper, and guarantees entry on a busy date.</div></div></div>
+    <div class="k"><div class="ki">🎢</div><div><div class="kk">Pace</div><div class="kv">Smallest Disney park — with early entry + Premier Access you'll finish everything AND the night show without rushing.</div></div></div>
+    <div class="k"><div class="ki">🦌</div><div><div class="kk">For the teens (17 &amp; 12)</div><div class="kv">Skip toddler rides; focus on the coasters, Marvel sims, Mystic Manor and the night show.</div></div></div>
+    <div class="k"><div class="ki">🌙</div><div><div class="kk">Don't leave before dark</div><div class="kv">"Momentous" is the best thing in the park — plan dinner around it.</div></div></div>
+  </div>
+
+  <p class="note">Tips reflect 2026 info — confirm exact opening hours, show times &amp; Premier Access prices in the official HKDL app on the day.</p>
+</div>
+</body>
+</html>
