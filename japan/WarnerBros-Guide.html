@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Warner Bros Studio Tour Tokyo · Guide</title>
+<style>
+  :root{
+    --bg:#f2f0ea; --card:#ffffff; --soft:#f6f3ec;
+    --ink:#23202c; --muted:#5b5566; --faint:#9a93a3;
+    --line:#e7e2d6; --shadow:0 1px 3px rgba(40,30,20,.07),0 8px 22px rgba(40,30,20,.07);
+    --gold:#b8902a; --burg:#8a2942; --navy:#2a2a4a; --slyth:#1f7a52; --purple:#7a4fb0;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:54px}
+  .wrap{max-width:600px;margin:0 auto;padding:0 15px}
+  header{position:relative;text-align:center;color:#f3e9c8;padding:34px 16px 30px;overflow:hidden;
+    background:linear-gradient(160deg,#23223e 0%,#3a2236 60%,#5a2034 100%)}
+  header::after{content:"⚡";position:absolute;font-size:190px;opacity:.09;top:-10px;right:0;transform:rotate(12deg)}
+  header h1{font-size:1.4rem;font-weight:800;letter-spacing:.2px;position:relative;color:#f0d98a}
+  header .sub{margin-top:7px;font-size:.95rem;font-weight:600;opacity:.95;position:relative}
+  header .date{margin-top:3px;font-size:.82rem;opacity:.82;position:relative}
+  .facts{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:14px;position:relative}
+  .facts span{font-size:.72rem;background:rgba(240,217,138,.12);border:1px solid rgba(240,217,138,.3);border-radius:999px;padding:4px 11px}
+  h2{font-size:1.05rem;font-weight:800;margin:26px 0 12px;display:flex;align-items:center;gap:9px}
+  h2 .ic{font-size:1.15rem}
+  .lead{font-size:.9rem;color:var(--muted);margin:-4px 0 14px}
+  .ride{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:14px 15px;margin-bottom:11px;display:flex;gap:13px;align-items:flex-start}
+  .ride .num{flex:0 0 30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:.92rem;color:#fff;background:linear-gradient(150deg,var(--gold),var(--burg));margin-top:2px}
+  .ride .rb{flex:1;min-width:0}
+  .ride .rname{font-weight:700;font-size:1rem}
+  .ride .rland{font-size:.75rem;color:var(--faint);margin-top:1px}
+  .ride .rnote{font-size:.83rem;color:var(--muted);margin-top:6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .tag{font-size:.68rem;font-weight:700;border-radius:7px;padding:3px 8px;white-space:nowrap}
+  .t-top{background:rgba(184,144,42,.18);color:#8a6a14}
+  .t-excl{background:rgba(122,79,176,.15);color:#5f3a96}
+  .t-eat{background:rgba(31,122,82,.15);color:#136446}
+  .t-photo{background:rgba(138,41,66,.13);color:#7a233a}
+  .tl{position:relative;margin-left:6px;padding-left:22px}
+  .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--burg))}
+  .slot{position:relative;margin-bottom:15px}
+  .slot::before{content:"";position:absolute;left:-22px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--gold)}
+  .slot.mid::before{border-color:var(--burg)}.slot.end::before{border-color:var(--navy)}
+  .slot .when{font-size:.74rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--gold)}
+  .slot.mid .when{color:var(--burg)}.slot.end .when{color:var(--navy)}
+  .slot .what{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);padding:11px 13px;margin-top:5px}
+  .slot .what .h{font-weight:700;font-size:.92rem}
+  .slot .what .d{font-size:.82rem;color:var(--muted);margin-top:3px}
+  .tip{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:13px 14px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
+  .tip .ti{font-size:1.4rem;flex:0 0 auto;line-height:1.1}
+  .tip .th{font-weight:700;font-size:.93rem}
+  .tip .td{font-size:.83rem;color:var(--muted);margin-top:3px}
+  .alert{background:linear-gradient(150deg,#fff7e6,#fdeecf);border:1px solid #ecd9a6;border-radius:14px;padding:13px 14px;margin-bottom:10px}
+  .alert .th{font-weight:800;font-size:.9rem;color:#8a6a14}
+  .alert .td{font-size:.83rem;color:#6f5a2a;margin-top:3px}
+  .know{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:6px 4px}
+  .know .k{display:flex;gap:11px;padding:11px 12px;border-bottom:1px solid var(--line)}
+  .know .k:last-child{border-bottom:0}
+  .know .ki{font-size:1.15rem;flex:0 0 22px;text-align:center}
+  .know .kk{font-weight:700;font-size:.86rem}
+  .know .kv{font-size:.83rem;color:var(--muted);margin-top:1px}
+  .note{color:var(--faint);font-size:.76rem;margin-top:20px;text-align:center;line-height:1.6}
+  b{color:var(--ink)}a{color:#7a233a}
+</style>
+</head>
+<body>
+<header>
+  <h1>⚡ Warner Bros. Studio Tour Tokyo</h1>
+  <div class="sub">The Making of Harry Potter — Visit Guide</div>
+  <div class="date">Friday · 19 June 2026 · Rishi, Riya &amp; Ryan</div>
+  <div class="facts">
+    <span>🏰 World's largest indoor HP studio</span>
+    <span>🚶 Walk-through · self-paced</span>
+    <span>☔ All indoor — rain-proof</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="alert">
+    <div class="th">🎟️ Book ahead — and note the rules</div>
+    <div class="td">Timed entry <b>sells out</b> and <b>prices rise from 1 July</b>. Once booked the <b>date/time can't be changed</b> (if bought direct) — so book a <b>free-cancellation reseller</b> for flexibility. Your visit falls inside the <b>"An Invitation from Hogwarts"</b> special event (18 Mar – 6 Sep 2026).</div>
+  </div>
+
+  <h2><span class="ic">🚇</span> Getting there</h2>
+  <p class="lead">From Tamachi (Pullman): head to <b>Toshimaen Station</b> (Toei Mita / Seibu-Ikebukuro lines), ~50–60 min, then a short walk to the Studio. Arrive <b>~20 min before your timed slot</b>.</p>
+
+  <h2><span class="ic">✨</span> Don't-Miss Highlights</h2>
+  <p class="lead">It's a self-paced walk-through of real film sets. ⭐ = iconic · 💜 = Tokyo-exclusive.</p>
+
+  <div class="ride"><div class="num">1</div><div class="rb">
+    <div class="rname">The Great Hall</div><div class="rland">the grand opening reveal</div>
+    <div class="rnote">Your tour begins with the doors swinging open into the full-size Great Hall — the jaw-drop moment. Soak it in.</div>
+    <div class="tags"><span class="tag t-top">⭐ Iconic</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">2</div><div class="rb">
+    <div class="rname">Diagon Alley</div><div class="rland">the wizarding high street</div>
+    <div class="rnote">Wander Ollivanders, Gringotts, Weasleys' Wizard Wheezes and more — one of the most photogenic sets on the tour.</div>
+    <div class="tags"><span class="tag t-top">⭐ Iconic</span><span class="tag t-photo">📸 Photo spot</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">3</div><div class="rb">
+    <div class="rname">Hogwarts Express &amp; Platform 9¾</div><div class="rland">board the train</div>
+    <div class="rnote">Step onto the real Platform 9¾ and into the Hogwarts Express carriages. Classic photo with the trolley.</div>
+    <div class="tags"><span class="tag t-top">⭐ Iconic</span><span class="tag t-photo">📸 Photo spot</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">4</div><div class="rb">
+    <div class="rname">Ministry of Magic</div><div class="rland">Tokyo-exclusive</div>
+    <div class="rnote">Step into the grand Atrium with towering Floo-Network fireplaces — and watch a video of your <b>own green-flame arrival</b>. Not in any other studio tour.</div>
+    <div class="tags"><span class="tag t-excl">💜 Tokyo-only</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">5</div><div class="rb">
+    <div class="rname">Quidditch green-screen experience</div><div class="rland">Tokyo-exclusive</div>
+    <div class="rnote">Get composited into a roaring Gryffindor-vs-Slytherin match — fun interactive moment unique to Tokyo.</div>
+    <div class="tags"><span class="tag t-excl">💜 Tokyo-only</span><span class="tag t-photo">📸 Interactive</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">6</div><div class="rb">
+    <div class="rname">The Forbidden Forest</div><div class="rland">creatures &amp; effects</div>
+    <div class="rnote">Walk among giant trees with Buckbeak and Aragog, with atmospheric mist and lighting. Great for the kids.</div>
+    <div class="tags"><span class="tag t-top">⭐ Atmospheric</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">7</div><div class="rb">
+    <div class="rname">Sets, costumes &amp; the Hogwarts model</div><div class="rland">throughout · grand finale</div>
+    <div class="rnote">Dumbledore's office, Gryffindor common room, creature shop, and the breathtaking large-scale Hogwarts castle model near the end.</div>
+    <div class="tags"><span class="tag t-top">⭐ Finale</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">🍺</div><div class="rb">
+    <div class="rname">Butterbeer &amp; Backlot Café</div><div class="rland">midway break</div>
+    <div class="rnote">Try the famous (non-alcoholic) Butterbeer and themed snacks — a good rest point halfway through.</div>
+    <div class="tags"><span class="tag t-eat">🍺 Must-try</span></div>
+  </div></div>
+
+  <h2><span class="ic">🗺️</span> Suggested Flow <span style="font-weight:600;color:var(--faint);font-size:.85rem">(~4–5 hrs)</span></h2>
+  <div class="tl">
+    <div class="slot"><div class="when">Your timed slot</div>
+      <div class="what"><div class="h">Great Hall → core sets</div>
+        <div class="d">Tour starts with the Great Hall reveal, then self-paced: Dumbledore's office, Gryffindor common room, moving staircases.</div></div></div>
+    <div class="slot mid"><div class="when">Midway</div>
+      <div class="what"><div class="h">Diagon Alley + Butterbeer break</div>
+        <div class="d">Explore Diagon Alley, then pause at the Backlot Café for Butterbeer before the second half.</div></div></div>
+    <div class="slot mid"><div class="when">Second half</div>
+      <div class="what"><div class="h">Forbidden Forest → Platform 9¾ → Tokyo-exclusives</div>
+        <div class="d">Forbidden Forest, Hogwarts Express, then the Tokyo-only <b>Ministry of Magic</b> and <b>Quidditch green-screen</b>.</div></div></div>
+    <div class="slot end"><div class="when">Finale</div>
+      <div class="what"><div class="h">Hogwarts model → gift shop</div>
+        <div class="d">End at the giant castle model, then the gift shop. Total ~4–5 hrs on your feet.</div></div></div>
+    <div class="slot end"><div class="when">After</div>
+      <div class="what"><div class="h">Ikebukuro</div>
+        <div class="d">Toshimaen is close to Ikebukuro — easy afternoon stop for food &amp; shopping on the way back.</div></div></div>
+  </div>
+
+  <h2><span class="ic">💡</span> Tips &amp; Tricks</h2>
+  <div class="tip"><div class="ti">⏱️</div><div><div class="th">Block out 4–6 hours</div><div class="td">It's the world's largest indoor HP facility — rushing wastes it. Don't schedule anything tight afterwards.</div></div></div>
+  <div class="tip"><div class="ti">👟</div><div><div class="th">Wear comfortable shoes</div><div class="td">It's a long time on your feet with few places to sit. Dress for walking.</div></div></div>
+  <div class="tip"><div class="ti">🎟️</div><div><div class="th">Buy via a free-cancellation reseller</div><div class="td">Direct tickets can't be date-changed once booked. A reseller (GetYourGuide/Klook) keeps flexibility — and book before the <b>1 July price rise</b>.</div></div></div>
+  <div class="tip"><div class="ti">🕙</div><div><div class="th">Arrive ~20 min before your slot</div><div class="td">No refunds for late arrival/no-show. Allow buffer for the 50–60 min journey from Tamachi.</div></div></div>
+  <div class="tip"><div class="ti">🪄</div><div><div class="th">Decide on extras in advance</div><div class="td">Interactive wands and green-screen broomstick photos cost extra — decide so you're not upsold on the spot.</div></div></div>
+  <div class="tip"><div class="ti">☔</div><div><div class="th">Perfect rainy-day pick</div><div class="td">Entirely indoor — ideal if 19 June turns wet during tsuyu (rainy season). Weekday (Fri) also means lighter crowds.</div></div></div>
+  <div class="tip"><div class="ti">💳</div><div><div class="th">Pay on Magnus Burgundy in JPY</div><div class="td">Lowest forex (2%); decline DCC (paying in INR). Stack the Mastercard/Klook offer if it applies.</div></div></div>
+
+  <h2><span class="ic">📋</span> Good to know</h2>
+  <div class="know">
+    <div class="k"><div class="ki">🏰</div><div><div class="kk">What it is</div><div class="kv">A walk-through of real film sets &amp; props — not rides. Self-guided at your own pace.</div></div></div>
+    <div class="k"><div class="ki">🎉</div><div><div class="kk">Special event</div><div class="kv">"An Invitation from Hogwarts" (18 Mar–6 Sep 2026) — extra magic during your visit.</div></div></div>
+    <div class="k"><div class="ki">🍽️</div><div><div class="kk">Food</div><div class="kv">Backlot Café + Butterbeer; allow time for a sit-down break midway.</div></div></div>
+    <div class="k"><div class="ki">📸</div><div><div class="kk">Photos</div><div class="kv">Great Hall, Diagon Alley, Platform 9¾, Hogwarts model — best photo spots.</div></div></div>
+    <div class="k"><div class="ki">🚇</div><div><div class="kk">Return</div><div class="kv">Pair with Ikebukuro afterwards — it's on the way back to Tamachi.</div></div></div>
+  </div>
+
+  <p class="note">Tips reflect 2026 info — confirm your timed-entry slot, event details &amp; prices on wbstudiotour.jp before you book.</p>
+</div>
+</body>
+</html>

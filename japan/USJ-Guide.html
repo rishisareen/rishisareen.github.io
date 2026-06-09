@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Universal Studios Japan · Game Plan</title>
+<style>
+  :root{
+    --bg:#f1f4fb; --card:#ffffff; --soft:#f4f7fd;
+    --ink:#1a1f2e; --muted:#56627a; --faint:#94a0b8;
+    --line:#e4e9f2; --shadow:0 1px 3px rgba(20,30,60,.06),0 8px 22px rgba(20,30,60,.06);
+    --mario:#e23b3b; --blue:#2b6fe0; --luigi:#27a35a; --gold:#e8a13a; --purple:#8a63d6; --pink:#e0529c;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:54px}
+  .wrap{max-width:600px;margin:0 auto;padding:0 15px}
+  header{position:relative;text-align:center;color:#fff;padding:34px 16px 30px;overflow:hidden;
+    background:linear-gradient(160deg,#e23b3b 0%,#2b6fe0 100%)}
+  header::after{content:"★";position:absolute;font-size:200px;opacity:.08;top:-20px;right:-10px;transform:rotate(-12deg)}
+  header h1{font-size:1.5rem;font-weight:800;letter-spacing:.2px;position:relative}
+  header .sub{margin-top:7px;font-size:.95rem;font-weight:600;opacity:.96;position:relative}
+  header .date{margin-top:3px;font-size:.82rem;opacity:.88;position:relative}
+  .facts{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:14px;position:relative}
+  .facts span{font-size:.72rem;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:4px 11px}
+  h2{font-size:1.05rem;font-weight:800;margin:26px 0 12px;display:flex;align-items:center;gap:9px}
+  h2 .ic{font-size:1.15rem}
+  .lead{font-size:.9rem;color:var(--muted);margin:-4px 0 14px}
+  .ride{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:14px 15px;margin-bottom:11px;display:flex;gap:13px;align-items:flex-start}
+  .ride .num{flex:0 0 30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:.92rem;color:#fff;background:linear-gradient(150deg,var(--mario),var(--blue));margin-top:2px}
+  .ride .rb{flex:1;min-width:0}
+  .ride .rname{font-weight:700;font-size:1rem}
+  .ride .rland{font-size:.75rem;color:var(--faint);margin-top:1px}
+  .ride .rnote{font-size:.83rem;color:var(--muted);margin-top:6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .tag{font-size:.68rem;font-weight:700;border-radius:7px;padding:3px 8px;white-space:nowrap}
+  .t-top{background:rgba(232,161,58,.16);color:#b67712}
+  .t-new{background:rgba(39,163,90,.16);color:#16894a}
+  .t-thrill{background:rgba(226,59,59,.14);color:#c12f2f}
+  .t-need{background:rgba(43,111,224,.14);color:#1f5fc4}
+  .t-anime{background:rgba(138,99,214,.15);color:#6f49bf}
+  .tl{position:relative;margin-left:6px;padding-left:22px}
+  .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--mario),var(--blue))}
+  .slot{position:relative;margin-bottom:15px}
+  .slot::before{content:"";position:absolute;left:-22px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--blue)}
+  .slot.dawn::before{border-color:var(--gold)}.slot.noon::before{border-color:var(--luigi)}.slot.night::before{border-color:var(--purple)}
+  .slot .when{font-size:.74rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--blue)}
+  .slot.dawn .when{color:var(--gold)}.slot.noon .when{color:var(--luigi)}.slot.night .when{color:var(--purple)}
+  .slot .what{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);padding:11px 13px;margin-top:5px}
+  .slot .what .h{font-weight:700;font-size:.92rem}
+  .slot .what .d{font-size:.82rem;color:var(--muted);margin-top:3px}
+  .tip{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:13px 14px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
+  .tip .ti{font-size:1.4rem;flex:0 0 auto;line-height:1.1}
+  .tip .th{font-weight:700;font-size:.93rem}
+  .tip .td{font-size:.83rem;color:var(--muted);margin-top:3px}
+  .box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:15px;margin-bottom:11px}
+  .box .bt{font-weight:800;font-size:.96rem;display:flex;align-items:center;gap:8px}
+  .box .bp{font-size:.8rem;color:var(--luigi);font-weight:700;margin-top:2px}
+  .box ul{margin:9px 0 0;padding-left:18px}
+  .box li{font-size:.84rem;color:var(--muted);margin-bottom:4px}
+  .box .rec{margin-top:9px;font-size:.78rem;background:var(--soft);border:1px solid var(--line);border-radius:9px;padding:8px 10px;color:var(--ink)}
+  .know{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:6px 4px}
+  .know .k{display:flex;gap:11px;padding:11px 12px;border-bottom:1px solid var(--line)}
+  .know .k:last-child{border-bottom:0}
+  .know .ki{font-size:1.15rem;flex:0 0 22px;text-align:center}
+  .know .kk{font-weight:700;font-size:.86rem}
+  .know .kv{font-size:.83rem;color:var(--muted);margin-top:1px}
+  .note{color:var(--faint);font-size:.76rem;margin-top:20px;text-align:center;line-height:1.6}
+  b{color:var(--ink)}a{color:#1f5fc4}
+</style>
+</head>
+<body>
+<header>
+  <h1>⭐ Universal Studios Japan</h1>
+  <div class="sub">Family Game Plan</div>
+  <div class="date">Tuesday · 16 June 2026 · Rishi, Riya &amp; Ryan</div>
+  <div class="facts">
+    <span>🎮 Super Nintendo World</span>
+    <span>🎉 25th Anniversary — record crowds</span>
+    <span>⚡ Express Pass essential</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <h2><span class="ic">🚆</span> Getting there</h2>
+  <p class="lead">From Namba (Swissôtel): JR to <b>Universal-City Station</b> (~15–20 min, easy). Arrive <b>before opening</b> — the 25th-anniversary crowds are huge this year.</p>
+
+  <h2><span class="ic">⚠️</span> Read this first</h2>
+  <p class="lead">2026 is USJ's <b>25th Anniversary</b> + <b>Cool Japan</b> (Detective Conan, Jujutsu Kaisen, Frieren) — crowds are at an all-time high. Two non-negotiables: <b>(1)</b> get a <b>Super Nintendo World Area Timed Entry</b> the instant the park opens (free, in the app) — slots can vanish by 10:30am — <b>or</b> have it bundled in an Express Pass; <b>(2)</b> an <b>Express Pass is essential</b>, not a luxury, this year.</p>
+
+  <h2><span class="ic">🎯</span> Priority Rides</h2>
+  <p class="lead">⭐ = unmissable · 🆕 = newest · 🎢 = thrill · 🎟️ = needs timed entry/Express.</p>
+
+  <div class="ride"><div class="num">1</div><div class="rb">
+    <div class="rname">Mario Kart: Koopa's Challenge</div><div class="rland">Super Nintendo World · AR dark ride</div>
+    <div class="rnote">The headliner — physical sets + AR goggles to throw shells and race Bowser. Brilliant for adults and older kids. Needs SNW timed entry or Express.</div>
+    <div class="tags"><span class="tag t-top">⭐ Headliner</span><span class="tag t-need">🎟️ Timed entry</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">2</div><div class="rb">
+    <div class="rname">Donkey Kong's Mine-Cart Madness</div><div class="rland">Donkey Kong Country · coaster</div>
+    <div class="rnote">USJ's newest headliner — a clever coaster that "jumps" gaps in the track like the game. Thrilling but not extreme.</div>
+    <div class="tags"><span class="tag t-new">🆕 Newest</span><span class="tag t-thrill">🎢 Coaster</span><span class="tag t-need">🎟️ Timed entry</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">3</div><div class="rb">
+    <div class="rname">The Flying Dinosaur</div><div class="rland">Jurassic Park · flying coaster</div>
+    <div class="rnote">The park's biggest thrill — you fly face-down, pterosaur-style. One of the best coasters in Asia. Perfect for the teens.</div>
+    <div class="tags"><span class="tag t-top">⭐ Top thrill</span><span class="tag t-thrill">🎢 Intense</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">4</div><div class="rb">
+    <div class="rname">Harry Potter and the Forbidden Journey</div><div class="rland">Wizarding World · dark ride</div>
+    <div class="rnote">Soar around Hogwarts on a robotic-arm ride — still a classic. Walk Hogsmeade and try Butterbeer while you're there.</div>
+    <div class="tags"><span class="tag t-top">⭐ Classic</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">5</div><div class="rb">
+    <div class="rname">Hollywood Dream – The Ride <span style="color:var(--faint)">(+ Backdrop)</span></div><div class="rland">Hollywood · coaster</div>
+    <div class="rnote">Smooth speed coaster with a music soundtrack; the "Backdrop" version runs it backwards. Pick your poison.</div>
+    <div class="tags"><span class="tag t-thrill">🎢 Coaster</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">6</div><div class="rb">
+    <div class="rname">Yoshi's Adventure</div><div class="rland">Super Nintendo World · gentle</div>
+    <div class="rnote">Slow, scenic ride with the best views over the land — a nice breather between the big ones.</div>
+    <div class="tags"><span class="tag t-need">🎟️ Timed entry</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">7</div><div class="rb">
+    <div class="rname">Cool Japan 2026 limited attractions</div><div class="rland">Detective Conan · Jujutsu Kaisen · Frieren</div>
+    <div class="rnote">Limited-time anime experiences for the 25th anniversary. Worth it if anyone's a fan — these often need their own timed entry/Express slot.</div>
+    <div class="tags"><span class="tag t-anime">🎌 Limited-time</span><span class="tag t-need">🎟️ May need entry</span></div>
+  </div></div>
+
+  <div class="ride"><div class="num">+</div><div class="rb">
+    <div class="rname">Fill-ins</div><div class="rland">around the park</div>
+    <div class="rnote"><b>Minion Mayhem</b>, <b>JAWS</b>, <b>Jurassic Park – The Ride</b>, and the night shows/parade. Good lower-wait picks between headliners.</div>
+    <div class="tags"><span class="tag t-top">🎭 Shows &amp; fill-ins</span></div>
+  </div></div>
+
+  <h2><span class="ic">🗺️</span> Suggested Flow</h2>
+  <div class="tl">
+    <div class="slot dawn"><div class="when">Before opening</div>
+      <div class="what"><div class="h">Arrive early + lock Nintendo entry</div>
+        <div class="d">Be at the gate 30–45 min before open. The moment you're in (or in the app), grab your <b>Super Nintendo World Area Timed Entry</b> — unless your Express Pass already includes it.</div></div></div>
+    <div class="slot"><div class="when">Morning</div>
+      <div class="what"><div class="h">Biggest Express rides first</div>
+        <div class="d">Hit <b>Flying Dinosaur</b> and <b>Harry Potter Forbidden Journey</b> early with Express, while everyone else queues for Nintendo.</div></div></div>
+    <div class="slot noon"><div class="when">Your Nintendo time slot</div>
+      <div class="what"><div class="h">Super Nintendo World + Donkey Kong</div>
+        <div class="d">Mario Kart → Mine-Cart Madness → Yoshi. If you bought Power-Up Bands, play the interactive games. Mobile-order lunch around now.</div></div></div>
+    <div class="slot noon"><div class="when">Afternoon</div>
+      <div class="what"><div class="h">Hollywood Dream, Cool Japan, shows</div>
+        <div class="d">Hollywood Dream coaster, the anime limited attractions, Minion Park, and any stage shows. Use indoor rides during peak heat.</div></div></div>
+    <div class="slot night"><div class="when">Evening</div>
+      <div class="what"><div class="h">Night parade / show + re-rides</div>
+        <div class="d">Catch the nighttime entertainment, then re-ride favourites as waits drop near closing.</div></div></div>
+  </div>
+
+  <h2><span class="ic">💡</span> Tips &amp; Tricks</h2>
+  <div class="tip"><div class="ti">⚡</div><div><div class="th">Express Pass is essential in 2026</div><div class="td">25th-anniversary crowds make it a must, not a luxury. <b>Express Pass 7</b> is the most balanced — covers the top rides and removes the Nintendo uncertainty. Buy in advance (dynamic pricing).</div></div></div>
+  <div class="tip"><div class="ti">🎟️</div><div><div class="th">Secure Nintendo timed entry ASAP</div><div class="td">Free Area Timed Entry slots are issued in the app and can sell out by ~10:30am. Grab it the second you enter — or skip the worry with an Express Pass that includes it.</div></div></div>
+  <div class="tip"><div class="ti">📱</div><div><div class="th">The USJ app runs your day</div><div class="td">Timed entry, live wait times, mobile food order, show times. Download &amp; set up before you arrive.</div></div></div>
+  <div class="tip"><div class="ti">🍄</div><div><div class="th">Power-Up Band (optional)</div><div class="td">Buy if the kids want the interactive Nintendo games (punch blocks, collect keys). Not needed just to ride.</div></div></div>
+  <div class="tip"><div class="ti">🧍</div><div><div class="th">Use Single Rider lines</div><div class="td">For Flying Dinosaur, Hollywood Dream &amp; others — big time-saver if you don't mind splitting up briefly.</div></div></div>
+  <div class="tip"><div class="ti">💳</div><div><div class="th">Pay smart on tickets</div><div class="td">Route the (priciest) ticket+Express bundle through your <b>Axis Forex card for 25% off via Klook</b> if you have it; otherwise Magnus Burgundy, billed in JPY.</div></div></div>
+  <div class="tip"><div class="ti">🌧️</div><div><div class="th">Hot &amp; rainy season</div><div class="td">Water, sun cover, poncho. Cluster indoor rides (Mario Kart, Forbidden Journey, Minion) at midday.</div></div></div>
+
+  <h2><span class="ic">⚡</span> Express Pass — which one?</h2>
+  <div class="box">
+    <div class="bt">⚡ Express Pass 7</div>
+    <div class="bp">Recommended for 2026</div>
+    <ul><li>Covers 7 rides incl. the highest-demand ones</li><li>Versions exist that <b>include Super Nintendo World timed entry</b> — pick one of those</li><li>Removes the biggest uncertainty of the day</li></ul>
+    <div class="rec">👉 Best choice for your visit. Confirm the EP7 variant you buy <b>includes Nintendo Area entry</b>.</div>
+  </div>
+  <div class="box">
+    <div class="bt">⚡ Express Pass 4</div>
+    <div class="bp">Cheaper, lighter</div>
+    <ul><li>Covers 4 rides — fine on a quieter day, but 2026 is not quiet</li><li>Often still needs you to grab Nintendo entry separately</li></ul>
+  </div>
+  <div class="box">
+    <div class="bt">🆓 Free Area Timed Entry</div>
+    <div class="bp">App lottery — no cost</div>
+    <ul><li>Only way into Super Nintendo World without an Express Pass</li><li>Sells out fast on busy days — act at park open</li></ul>
+  </div>
+
+  <h2><span class="ic">📋</span> Good to know</h2>
+  <div class="know">
+    <div class="k"><div class="ki">🎫</div><div><div class="kk">Tickets</div><div class="kv">All three of you pay adult fare (USJ child = 4–11; Ryan is 12). Buy dated tickets ahead.</div></div></div>
+    <div class="k"><div class="ki">🕙</div><div><div class="kk">Hours</div><div class="kv">Vary by date — often opens 8:30–9:00am on busy days. Check the app the night before.</div></div></div>
+    <div class="k"><div class="ki">🎮</div><div><div class="kk">Headliner focus</div><div class="kv">Super Nintendo World + Donkey Kong is the reason to come — protect that timed entry above all.</div></div></div>
+    <div class="k"><div class="ki">🍺</div><div><div class="kk">Don't miss</div><div class="kv">Butterbeer in Hogsmeade; themed food in Mushroom Kingdom.</div></div></div>
+    <div class="k"><div class="ki">🌙</div><div><div class="kk">Stay for the night show</div><div class="kv">Evening entertainment + dropping waits make the last hours great.</div></div></div>
+  </div>
+
+  <p class="note">Tips reflect 2026 info — confirm exact hours, Express Pass variants/prices &amp; Cool Japan line-up in the official USJ app on the day.</p>
+</div>
+</body>
+</html>

@@ -94,6 +94,14 @@
   a{color:#3a56d4}
   .pax{display:inline-flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:10px}
   .pax .p{font-size:.72rem;background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px 11px;color:var(--muted)}
+  .guide{display:flex;align-items:center;gap:13px;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;box-shadow:var(--shadow);padding:13px 14px;margin-bottom:10px;text-decoration:none;color:var(--ink);transition:.15s;min-height:52px}
+  .guide:active{transform:scale(.99)}
+  .guide .gic{flex:0 0 44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;color:#fff}
+  .guide .gtxt{display:flex;flex-direction:column;min-width:0}
+  .guide .gname{font-weight:700;font-size:.95rem}
+  .guide .gmeta{font-size:.77rem;color:var(--faint);margin-top:1px}
+  .guide .garr{margin-left:auto;color:var(--faint);font-size:1.3rem;font-weight:700}
   @media (max-width:430px){
     .wrap{padding:0 12px}
     header{padding:24px 0 18px}
@@ -139,9 +147,9 @@
       <span class="status">—</span>
     </div>
     <div class="leg">
-      <div class="pt"><div class="code">DEL</div><div class="time">22:10</div><div class="date">Thu 11 Jun</div></div>
+      <div class="pt"><div class="code">DEL</div><div class="time">22:10</div><div class="date">Wed 11 Jun</div></div>
       <div class="path"><span class="dur">~5h 35m</span><span class="plane">✈️</span></div>
-      <div class="pt"><div class="code">HKG</div><div class="time">06:15</div><div class="date">Fri 12 Jun</div></div>
+      <div class="pt"><div class="code">HKG</div><div class="time">06:15</div><div class="date">Thu 12 Jun</div></div>
     </div>
     <div class="row"><span class="chip">Red-eye</span><span class="chip">Delhi → Hong Kong</span></div>
     <div class="row"><a class="statusbtn" href="https://www.google.com/search?q=AI314+flight+status" target="_blank" rel="noopener">🟢 On-time / delay status <span class="arr">↗</span></a></div>
@@ -219,6 +227,23 @@
     <div class="addr">Shibaura, Minato (Tamachi Stn, JR Yamanote) · Conf <b>QKPSFRBF</b> ·
       <a href="https://www.google.com/maps/search/Pullman+Tokyo+Tamachi" target="_blank" rel="noopener">Map ↗</a></div>
   </div>
+
+  <h2 class="sec">📖 Park Guides</h2>
+  <a class="guide" href="HK-Disneyland-Guide.html">
+    <span class="gic" style="background:linear-gradient(150deg,#5b8fe6,#8a63d6)">🏰</span>
+    <span class="gtxt"><span class="gname">Hong Kong Disneyland</span><span class="gmeta">Sat 13 Jun · rides, tips &amp; suggested flow</span></span>
+    <span class="garr">›</span>
+  </a>
+  <a class="guide" href="USJ-Guide.html">
+    <span class="gic" style="background:linear-gradient(150deg,#e23b3b,#2b6fe0)">⭐</span>
+    <span class="gtxt"><span class="gname">Universal Studios Japan</span><span class="gmeta">Tue 16 Jun · Express Pass &amp; Nintendo plan</span></span>
+    <span class="garr">›</span>
+  </a>
+  <a class="guide" href="WarnerBros-Guide.html">
+    <span class="gic" style="background:linear-gradient(150deg,#b8902a,#8a2942)">⚡</span>
+    <span class="gtxt"><span class="gname">Warner Bros Studio Tokyo</span><span class="gmeta">Fri 19 Jun · Harry Potter highlights</span></span>
+    <span class="garr">›</span>
+  </a>
 
   <h2 class="sec">🗓️ Tentative Itinerary</h2>
   <div class="day"><div class="dnum"><div class="d">12</div><div class="m">Jun</div><div class="w">Fri</div></div>
