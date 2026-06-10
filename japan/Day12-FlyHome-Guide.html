@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Day 12 · Fly Home</title>
+<style>
+  :root{
+    --bg:#fbf3e9; --card:#ffffff; --soft:#fdf7f0;
+    --ink:#2a2014; --muted:#6b5a44; --faint:#a99270;
+    --line:#f2e3cf; --shadow:0 1px 3px rgba(120,70,10,.06),0 8px 22px rgba(120,70,10,.07);
+    --amber:#e08a2b; --amber2:#b06a14; --gold:#e8a13a; --green:#1ba37e; --blue:#4f6ef0; --purple:#8a63d6;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:54px}
+  .wrap{max-width:600px;margin:0 auto;padding:0 15px}
+  /* Header */
+  header{position:relative;text-align:center;color:#fff;padding:34px 16px 30px;overflow:hidden;
+    background:linear-gradient(160deg,#edb24a 0%,#e08a2b 45%,#c97718 100%)}
+  header::after{content:"✈️";position:absolute;font-size:170px;opacity:.09;top:-18px;right:-14px;transform:rotate(8deg)}
+  header h1{font-size:1.55rem;font-weight:800;letter-spacing:.2px;position:relative}
+  header .sub{margin-top:7px;font-size:.95rem;font-weight:600;opacity:.95;position:relative}
+  header .date{margin-top:3px;font-size:.82rem;opacity:.85;position:relative}
+  .facts{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:14px;position:relative}
+  .facts span{font-size:.72rem;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;padding:4px 11px;backdrop-filter:blur(4px)}
+  .back{display:inline-block;margin:16px 0 -8px;font-size:.82rem;color:var(--amber2);text-decoration:none;font-weight:600}
+  /* Sections */
+  h2{font-size:1.05rem;font-weight:800;margin:26px 0 12px;display:flex;align-items:center;gap:9px}
+  h2 .ic{font-size:1.15rem}
+  .lead{font-size:.9rem;color:var(--muted);margin:-4px 0 14px}
+  /* Steps (hotel -> airport) */
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:14px 15px;margin-bottom:11px;display:flex;gap:13px;align-items:flex-start;position:relative;overflow:hidden}
+  .step .num{flex:0 0 30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:.92rem;color:#fff;background:linear-gradient(150deg,var(--amber),var(--amber2));margin-top:2px}
+  .step .sb{flex:1;min-width:0}
+  .step .sname{font-weight:700;font-size:1rem}
+  .step .smeta{font-size:.75rem;color:var(--faint);margin-top:1px}
+  .step .snote{font-size:.83rem;color:var(--muted);margin-top:6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .tag{font-size:.68rem;font-weight:700;border-radius:7px;padding:3px 8px;white-space:nowrap}
+  .t-key{background:rgba(224,138,43,.16);color:#a35e0c}
+  .t-time{background:rgba(79,110,240,.13);color:#3a56d4}
+  .t-cost{background:rgba(27,163,126,.15);color:#0f8a66}
+  .t-warn{background:rgba(214,72,72,.14);color:#b33030}
+  /* Timeline */
+  .tl{position:relative;margin-left:6px;padding-left:22px}
+  .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--amber),var(--purple))}
+  .slot{position:relative;margin-bottom:15px}
+  .slot::before{content:"";position:absolute;left:-22px;top:3px;width:14px;height:14px;border-radius:50%;
+    background:#fff;border:3px solid var(--amber)}
+  .slot.dawn::before{border-color:var(--gold)}
+  .slot.noon::before{border-color:var(--green)}
+  .slot.night::before{border-color:var(--purple)}
+  .slot .when{font-size:.74rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--amber)}
+  .slot.dawn .when{color:var(--gold)}.slot.noon .when{color:var(--green)}.slot.night .when{color:var(--purple)}
+  .slot .what{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);
+    padding:11px 13px;margin-top:5px}
+  .slot .what .h{font-weight:700;font-size:.92rem}
+  .slot .what .d{font-size:.82rem;color:var(--muted);margin-top:3px}
+  /* Tip cards */
+  .tip{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    padding:13px 14px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
+  .tip .ti{font-size:1.4rem;flex:0 0 auto;line-height:1.1}
+  .tip .th{font-weight:700;font-size:.93rem}
+  .tip .td{font-size:.83rem;color:var(--muted);margin-top:3px}
+  /* Know list */
+  .know{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:6px 4px}
+  .know .k{display:flex;gap:11px;padding:11px 12px;border-bottom:1px solid var(--line)}
+  .know .k:last-child{border-bottom:0}
+  .know .ki{font-size:1.15rem;flex:0 0 22px;text-align:center}
+  .know .kk{font-weight:700;font-size:.86rem}
+  .know .kv{font-size:.83rem;color:var(--muted);margin-top:1px}
+  .note{color:var(--faint);font-size:.76rem;margin-top:20px;text-align:center;line-height:1.6}
+  b{color:var(--ink)}
+  a{color:#3a56d4}
+</style>
+</head>
+<body>
+<header>
+  <h1>✈️ Day 12 · Fly Home</h1>
+  <div class="sub">JL39 to Delhi · Tokyo Haneda T3</div>
+  <div class="date">Tuesday · 23 June 2026 · Rishi, Riya &amp; Ryan</div>
+  <div class="facts">
+    <span>✈️ JL39 · 10:55 → 16:10</span>
+    <span>🛫 HND Terminal 3</span>
+    <span>☀️ Daytime nonstop · ~9h15</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <a class="back" href="./trip.html">‹ Back to trip overview</a>
+
+  <h2><span class="ic">🧳</span> Hotel → Airport</h2>
+  <p class="lead">Japan Airlines <b>JL39</b> departs Haneda <b>Terminal 3</b> at <b>10:55</b>, landing Delhi <b>16:10 same day</b> — a daytime nonstop (economy award on Asia Miles). The morning is relaxed if you're out the door by 07:30.</p>
+
+  <div class="step"><div class="num">1</div><div class="sb">
+    <div class="sname">Night before: pack &amp; check in</div><div class="smeta">Pullman Tokyo Tamachi</div>
+    <div class="snote">Packing done, both Pullman bookings settled (main <b>QKPSFRBF</b> + the extension night). Do <b>JAL online check-in</b> — it opens 24h before departure. Set <b>~06:00 alarms</b>.</div>
+    <div class="tags"><span class="tag t-key">Online check-in</span><span class="tag t-key">Settle both bookings</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">2</div><div class="sb">
+    <div class="sname">~07:00–07:30 · Leave the hotel</div><div class="smeta">Two easy routes to HND T3</div>
+    <div class="snote"><b>(a) Train:</b> Toei Asakusa Line from <b>Mita Station</b> (3 min walk from the hotel) runs <b>DIRECT to Haneda T3</b> via the Keikyu through-service — <b>~25–30 min</b>, tap with ICOCA. Easiest, no transfers. <b>(b) Taxi:</b> ~25–30 min, <b>~¥6,000–7,000</b> — the fallback if it's raining or the bags are unwieldy.</div>
+    <div class="tags"><span class="tag t-time">~25–30 min</span><span class="tag t-cost">Train: ICOCA</span><span class="tag t-cost">Taxi ~¥6–7k</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">3</div><div class="sb">
+    <div class="sname">~08:00 · At Haneda Terminal 3</div><div class="smeta">JAL counters → security → immigration</div>
+    <div class="snote"><b>JAL bag drop</b> (allowance per the award booking), then security and exit immigration. Mid-morning queues can build, so don't dawdle landside.</div>
+    <div class="tags"><span class="tag t-warn">Queues 30+ min possible</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">4</div><div class="sb">
+    <div class="sname">Lounge breakfast</div><div class="smeta">Priority Pass · HND T3 airside</div>
+    <div class="snote"><b>Priority Pass</b> via Axis Magnus Burgundy (dad) + guest/Atlas visits — HND T3 has PP options (e.g. <b>TIAT Lounge</b>). Have breakfast there before the long flight.</div>
+    <div class="tags"><span class="tag t-key">Priority Pass</span><span class="tag t-cost">Free with guests</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">5</div><div class="sb">
+    <div class="sname">10:55 · Wheels up</div><div class="smeta">JL39 · HND → DEL</div>
+    <div class="snote">Departs <b>10:55</b>, lands Delhi <b>16:10 same day</b> — about <b>9h15</b> in the air. Daytime flight, so stay awake and land in Delhi ready for an early night.</div>
+    <div class="tags"><span class="tag t-time">~9h15 flight</span><span class="tag t-key">Lands DEL 16:10</span></div>
+  </div></div>
+
+  <h2><span class="ic">🗓️</span> The Morning, Hour by Hour</h2>
+  <p class="lead">No sightseeing today — just a clean, unhurried run to the airport with time for a proper lounge breakfast.</p>
+
+  <div class="tl">
+    <div class="slot dawn">
+      <div class="when">⏰ 06:00 · Wake</div>
+      <div class="what"><div class="h">Alarms, final pack check, checkout</div>
+        <div class="d">Sweep the room — chargers, passports, ICOCA cards, sealed tax-free bags. Settle anything outstanding at the desk.</div></div>
+    </div>
+    <div class="slot dawn">
+      <div class="when">🚶 07:15 · Depart</div>
+      <div class="what"><div class="h">Leave the Pullman</div>
+        <div class="d">Walk 3 min to Mita Station for the direct Asakusa Line train to HND T3 — or hop in a taxi if the weather or bags say so.</div></div>
+    </div>
+    <div class="slot">
+      <div class="when">🛫 08:00 · Airport</div>
+      <div class="what"><div class="h">Bag drop, security, immigration</div>
+        <div class="d">JAL counters at T3, then through security and exit immigration while the queues are still manageable.</div></div>
+    </div>
+    <div class="slot noon">
+      <div class="when">🥐 09:00 · Lounge</div>
+      <div class="what"><div class="h">Priority Pass breakfast</div>
+        <div class="d">TIAT Lounge (or another PP option) airside — eat properly, top up water bottles, last souvenir browse on the way out.</div></div>
+    </div>
+    <div class="slot night">
+      <div class="when">🚪 10:20 · Gate</div>
+      <div class="what"><div class="h">Head to the gate for JL39</div>
+        <div class="d">Boarding ahead of the 10:55 departure. Next stop: Delhi, 16:10.</div></div>
+    </div>
+  </div>
+
+  <h2><span class="ic">💡</span> Worth Knowing</h2>
+
+  <div class="tip"><div class="ti">💴</div><div>
+    <div class="th">Spend-down yen — but keep the ICOCAs</div>
+    <div class="td">Burn leftover yen on konbini/airport snacks, or keep coins as souvenirs. <b>ICOCA cards stay valid 10 years</b> — keep them for the next Japan trip. (Refunds are <b>JR West stations only</b> — back in Kansai, not possible in Tokyo — so keeping them is the move.)</div></div></div>
+
+  <div class="tip"><div class="ti">🛍️</div><div>
+    <div class="th">Tax-free bags in carry-on</div>
+    <div class="td">Keep sealed tax-free purchases in <b>carry-on</b> if possible — customs can ask to check the sealed bags on exit.</div></div></div>
+
+  <div class="tip"><div class="ti">🍫</div><div>
+    <div class="th">Save souvenir shopping for T3</div>
+    <div class="td">Haneda T3 has solid last-minute souvenir shopping airside — Tokyo Banana, KitKats, character goods. Don't overbuy in town; the airport has it all.</div></div></div>
+
+  <div class="tip"><div class="ti">⏱️</div><div>
+    <div class="th">Watch the clock</div>
+    <div class="td">International cutoff is <b>~60 min before departure</b>, but immigration queues at HND T3 mid-morning can run <b>30+ minutes</b>. Being airside by ~09:00 keeps everything stress-free.</div></div></div>
+
+  <h2><span class="ic">📌</span> Quick Reference</h2>
+  <div class="know">
+    <div class="k"><div class="ki">✈️</div><div><div class="kk">Flight</div>
+      <div class="kv">JL39 · Haneda T3 <b>10:55</b> → Delhi <b>16:10</b> · daytime nonstop ~9h15</div></div></div>
+    <div class="k"><div class="ki">🚇</div><div><div class="kk">Train to airport</div>
+      <div class="kv">Mita Stn → HND T3 · Asakusa Line direct (Keikyu through-service) · ~25–30 min</div></div></div>
+    <div class="k"><div class="ki">🏨</div><div><div class="kk">Leave hotel</div>
+      <div class="kv">Pullman Tokyo Tamachi · out the door <b>07:00–07:30</b></div></div></div>
+    <div class="k"><div class="ki">🛋️</div><div><div class="kk">Lounge</div>
+      <div class="kv">Priority Pass (Axis Magnus Burgundy + guests) · e.g. TIAT Lounge at T3</div></div></div>
+    <div class="k"><div class="ki">💳</div><div><div class="kk">ICOCA</div>
+      <div class="kv"><b>Keep the cards</b> — valid 10 years · refunds only at JR West stations (Kansai)</div></div></div>
+  </div>
+
+  <p class="note">
+    That's a wrap on 11 nights · HK → Osaka → Tokyo.<br>
+    Safe travels home — Japan will still be there for the ICOCA cards' next outing.
+  </p>
+</div>
+
+</body>
+</html>

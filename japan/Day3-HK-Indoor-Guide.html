@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Day 3 · Hong Kong Indoor Day</title>
+<style>
+  :root{
+    --bg:#fbeef4; --card:#ffffff; --soft:#fdf3f8;
+    --ink:#2a1a24; --muted:#6b5460; --faint:#a98ea0;
+    --line:#f1dce8; --shadow:0 1px 3px rgba(120,20,70,.06),0 8px 22px rgba(120,20,70,.07);
+    --pink:#d6488a; --pink2:#b83a87; --gold:#e8a13a; --green:#1ba37e; --blue:#4f6ef0; --purple:#8a63d6;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:54px}
+  .wrap{max-width:600px;margin:0 auto;padding:0 15px}
+  /* Header */
+  header{position:relative;text-align:center;color:#fff;padding:34px 16px 30px;overflow:hidden;
+    background:linear-gradient(160deg,#e0529c 0%,#d6488a 45%,#b83a87 100%)}
+  header::after{content:"⛈️";position:absolute;font-size:170px;opacity:.09;top:-18px;right:-14px;transform:rotate(8deg)}
+  header h1{font-size:1.55rem;font-weight:800;letter-spacing:.2px;position:relative}
+  header .sub{margin-top:7px;font-size:.95rem;font-weight:600;opacity:.95;position:relative}
+  header .date{margin-top:3px;font-size:.82rem;opacity:.85;position:relative}
+  .facts{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:14px;position:relative}
+  .facts span{font-size:.72rem;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;padding:4px 11px;backdrop-filter:blur(4px)}
+  .back{display:inline-block;margin:16px 0 -8px;font-size:.82rem;color:var(--pink2);text-decoration:none;font-weight:600}
+  /* Sections */
+  h2{font-size:1.05rem;font-weight:800;margin:26px 0 12px;display:flex;align-items:center;gap:9px}
+  h2 .ic{font-size:1.15rem}
+  .lead{font-size:.9rem;color:var(--muted);margin:-4px 0 14px}
+  /* Steps (airport -> hotel) */
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:14px 15px;margin-bottom:11px;display:flex;gap:13px;align-items:flex-start;position:relative;overflow:hidden}
+  .step .num{flex:0 0 30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:.92rem;color:#fff;background:linear-gradient(150deg,var(--pink),var(--pink2));margin-top:2px}
+  .step .sb{flex:1;min-width:0}
+  .step .sname{font-weight:700;font-size:1rem}
+  .step .smeta{font-size:.75rem;color:var(--faint);margin-top:1px}
+  .step .snote{font-size:.83rem;color:var(--muted);margin-top:6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .tag{font-size:.68rem;font-weight:700;border-radius:7px;padding:3px 8px;white-space:nowrap}
+  .t-key{background:rgba(214,72,138,.14);color:#b3306f}
+  .t-time{background:rgba(79,110,240,.13);color:#3a56d4}
+  .t-cost{background:rgba(27,163,126,.15);color:#0f8a66}
+  .t-warn{background:rgba(232,161,58,.18);color:#b67712}
+  /* Timeline */
+  .tl{position:relative;margin-left:6px;padding-left:22px}
+  .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--pink),var(--purple))}
+  .slot{position:relative;margin-bottom:15px}
+  .slot::before{content:"";position:absolute;left:-22px;top:3px;width:14px;height:14px;border-radius:50%;
+    background:#fff;border:3px solid var(--pink)}
+  .slot.dawn::before{border-color:var(--gold)}
+  .slot.noon::before{border-color:var(--green)}
+  .slot.night::before{border-color:var(--purple)}
+  .slot .when{font-size:.74rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--pink)}
+  .slot.dawn .when{color:var(--gold)}.slot.noon .when{color:var(--green)}.slot.night .when{color:var(--purple)}
+  .slot .what{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);
+    padding:11px 13px;margin-top:5px}
+  .slot .what .h{font-weight:700;font-size:.92rem}
+  .slot .what .d{font-size:.82rem;color:var(--muted);margin-top:3px}
+  /* Tip cards */
+  .tip{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    padding:13px 14px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
+  .tip .ti{font-size:1.4rem;flex:0 0 auto;line-height:1.1}
+  .tip .th{font-weight:700;font-size:.93rem}
+  .tip .td{font-size:.83rem;color:var(--muted);margin-top:3px}
+  /* Know list */
+  .know{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:6px 4px}
+  .know .k{display:flex;gap:11px;padding:11px 12px;border-bottom:1px solid var(--line)}
+  .know .k:last-child{border-bottom:0}
+  .know .ki{font-size:1.15rem;flex:0 0 22px;text-align:center}
+  .know .kk{font-weight:700;font-size:.86rem}
+  .know .kv{font-size:.83rem;color:var(--muted);margin-top:1px}
+  .note{color:var(--faint);font-size:.76rem;margin-top:20px;text-align:center;line-height:1.6}
+  b{color:var(--ink)}
+  a{color:#3a56d4}
+</style>
+</head>
+<body>
+<header>
+  <h1>⛈️ Day 3 · Hong Kong</h1>
+  <div class="sub">Indoor day — M+ &amp; markets</div>
+  <div class="date">Sunday · 14 June 2026 · Rishi, Riya &amp; Ryan</div>
+  <div class="facts">
+    <span>⛈️ Squally showers forecast</span>
+    <span>🏛️ M+ museum day</span>
+    <span>🚋 Markets between showers</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <a class="back" href="./trip.html">‹ Back to trip overview</a>
+
+  <h2><span class="ic">🌧️</span> Why Today Is Indoors</h2>
+  <p class="lead">The Hong Kong Observatory forecasts <b>heavy squally showers</b> all day, so this day is deliberately built around covered places: a world-class museum, connected malls, a covered tram and canopied night-market stalls. <b>Ngong Ping 360 is skipped</b> — the cable car suspends in storms. Base remains the <b>ibis Hong Kong Central &amp; Sheung Wan</b>, and everyone has an Octopus card, so moving between dry spots is a tap-and-go affair.</p>
+
+  <h2><span class="ic">🗓️</span> The Day, Hour by Hour</h2>
+  <p class="lead">The structure is simple: one big indoor anchor (M+), covered wandering in the afternoon, and a canopied night market once the worst of the rain usually eases.</p>
+
+  <div class="tl">
+    <div class="slot dawn">
+      <div class="when">🥣 ~09:00 · Breakfast</div>
+      <div class="what"><div class="h">Relaxed breakfast near the hotel</div>
+        <div class="d">No early start today. Walk to a <b>cha chaan teng</b> (classic HK diner) or a congee shop near Sheung Wan — congee, pineapple buns, milk tea. Linger until the first shower band passes.</div></div>
+    </div>
+    <div class="slot dawn">
+      <div class="when">🏛️ ~10:30 · The anchor</div>
+      <div class="what"><div class="h">M+ — West Kowloon Cultural District</div>
+        <div class="d">Asia's leading museum of <b>visual culture</b> — huge, modern and fully indoor, easily 2–3 hours. The teens will like the <b>design &amp; film galleries</b> and the giant LED facade. <b>Getting there:</b> MTR to <b>Kowloon Station / Elements mall</b> (covered walkway across) or Austin. Standard galleries are ticketed — <b>buy 3 tickets online ahead</b> to walk straight in.</div></div>
+    </div>
+    <div class="slot noon">
+      <div class="when">🍜 ~13:00 · Lunch</div>
+      <div class="what"><div class="h">Lunch inside Elements mall</div>
+        <div class="d">Elements is connected to M+ and Kowloon Station, so you stay completely dry. Big spread of options from noodle shops to food court — pick whatever the kids are in the mood for.</div></div>
+    </div>
+    <div class="slot noon">
+      <div class="when">🚋 ~15:00 · Covered wandering</div>
+      <div class="what"><div class="h">MTR back to Central — IFC mall or the "ding ding" tram</div>
+        <div class="d">Browse <b>IFC mall</b>, or ride the historic <b>double-decker tram</b> — covered, cheap, tap Octopus — from Sheung Wan towards <b>Causeway Bay</b> and back. Grab the upstairs front seats: it's a brilliant rainy-day sightseeing ride through the heart of the island.</div></div>
+    </div>
+    <div class="slot">
+      <div class="when">🏮 ~18:00 · Night market</div>
+      <div class="what"><div class="h">Temple Street Night Market + street food dinner</div>
+        <div class="d">MTR to <b>Jordan or Yau Ma Tei</b>. The stalls have <b>canopies</b>, and you can duck into arcades between showers. Dinner is street food along the market — clay-pot rice, skewers, dai pai dong stalls. If energy allows, hop one stop to <b>Mong Kok</b> for the Ladies' Market.</div></div>
+    </div>
+    <div class="slot night">
+      <div class="when">🧳 ~21:00 · Pack up</div>
+      <div class="what"><div class="h">MTR back to Sheung Wan — pack for Osaka</div>
+        <div class="d">Tomorrow is the <b>early flight to Osaka</b> — you leave the hotel at <b>~05:45</b>. Pack tonight, lay out clothes, charge everything, and get to bed early.</div></div>
+    </div>
+  </div>
+
+  <h2><span class="ic">💡</span> Worth Knowing</h2>
+
+  <div class="tip"><div class="ti">☂️</div><div>
+    <div class="th">Umbrellas + light rain jackets</div>
+    <div class="td">Carry both — squalls come in fast bands. Cheap umbrellas are at any 7-Eleven if one gets shredded by the wind.</div></div></div>
+
+  <div class="tip"><div class="ti">📱</div><div>
+    <div class="th">Use the HKO app's rain radar</div>
+    <div class="td">The Hong Kong Observatory app shows shower bands in real time — time your dashes between MTR exits, malls and market canopies around the gaps.</div></div></div>
+
+  <div class="tip"><div class="ti">🎟️</div><div>
+    <div class="th">Book M+ tickets online</div>
+    <div class="td">Buy the 3 tickets on the M+ website before you go — you skip the ticket queue and walk straight into the galleries, which matters on a wet Sunday when everyone else has the same indoor idea.</div></div></div>
+
+  <div class="tip"><div class="ti">😴</div><div>
+    <div class="th">Tonight = pack &amp; early night</div>
+    <div class="td">The Osaka flight means a <b>05:45 hotel departure</b> tomorrow. Don't let the night market run late — packed bags and an early lights-out beat a groggy travel day.</div></div></div>
+
+  <h2><span class="ic">📌</span> Quick Reference</h2>
+  <div class="know">
+    <div class="k"><div class="ki">🏛️</div><div><div class="kk">M+</div>
+      <div class="kv">West Kowloon Cultural District · closed Mondays — open Sunday · book tickets online</div></div></div>
+    <div class="k"><div class="ki">🚋</div><div><div class="kk">"Ding ding" tram</div>
+      <div class="kv">HK$3 flat fare, any distance · tap Octopus when getting off</div></div></div>
+    <div class="k"><div class="ki">🏮</div><div><div class="kk">Temple Street Night Market</div>
+      <div class="kv">Jordan / Yau Ma Tei MTR · stalls liven up from ~6 pm onwards</div></div></div>
+    <div class="k"><div class="ki">✈️</div><div><div class="kk">Tomorrow's wake-up plan</div>
+      <div class="kv">Flight <b>UO686</b> to Osaka 8:45 am · leave hotel <b>~05:45</b> · Airport Express from Hong Kong Station</div></div></div>
+  </div>
+
+  <p class="note">
+    Day 3 of the Hong Kong leg — built for the rain, not against it.<br>
+    Stay flexible: if the radar shows a dry window, grab it; if not, there's always another mall.
+  </p>
+</div>
+
+</body>
+</html>

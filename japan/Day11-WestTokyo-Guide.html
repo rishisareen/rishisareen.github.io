@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Day 11 · West Tokyo</title>
+<style>
+  :root{
+    --bg:#eef1fb; --card:#ffffff; --soft:#f3f5fd;
+    --ink:#1b2236; --muted:#56607e; --faint:#8d97b8;
+    --line:#e0e6f7; --shadow:0 1px 3px rgba(30,50,140,.06),0 8px 22px rgba(30,50,140,.07);
+    --pink:#4f6ef0; --pink2:#3a56d4; --gold:#e8a13a; --green:#1ba37e; --blue:#4f6ef0; --purple:#8a63d6;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:54px}
+  .wrap{max-width:600px;margin:0 auto;padding:0 15px}
+  /* Header */
+  header{position:relative;text-align:center;color:#fff;padding:34px 16px 30px;overflow:hidden;
+    background:linear-gradient(160deg,#6c7ff0 0%,#4f6ef0 45%,#3a56d4 100%)}
+  header::after{content:"🗼";position:absolute;font-size:170px;opacity:.09;top:-18px;right:-14px;transform:rotate(8deg)}
+  header h1{font-size:1.55rem;font-weight:800;letter-spacing:.2px;position:relative}
+  header .sub{margin-top:7px;font-size:.95rem;font-weight:600;opacity:.95;position:relative}
+  header .date{margin-top:3px;font-size:.82rem;opacity:.85;position:relative}
+  .facts{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:14px;position:relative}
+  .facts span{font-size:.72rem;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;padding:4px 11px;backdrop-filter:blur(4px)}
+  .back{display:inline-block;margin:16px 0 -8px;font-size:.82rem;color:var(--pink2);text-decoration:none;font-weight:600}
+  /* Sections */
+  h2{font-size:1.05rem;font-weight:800;margin:26px 0 12px;display:flex;align-items:center;gap:9px}
+  h2 .ic{font-size:1.15rem}
+  .lead{font-size:.9rem;color:var(--muted);margin:-4px 0 14px}
+  /* Steps */
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:14px 15px;margin-bottom:11px;display:flex;gap:13px;align-items:flex-start;position:relative;overflow:hidden}
+  .step .num{flex:0 0 30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:.92rem;color:#fff;background:linear-gradient(150deg,var(--pink),var(--pink2));margin-top:2px}
+  .step .sb{flex:1;min-width:0}
+  .step .sname{font-weight:700;font-size:1rem}
+  .step .smeta{font-size:.75rem;color:var(--faint);margin-top:1px}
+  .step .snote{font-size:.83rem;color:var(--muted);margin-top:6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .tag{font-size:.68rem;font-weight:700;border-radius:7px;padding:3px 8px;white-space:nowrap}
+  .t-key{background:rgba(79,110,240,.14);color:#3a56d4}
+  .t-time{background:rgba(138,99,214,.14);color:#6f48c4}
+  .t-cost{background:rgba(27,163,126,.15);color:#0f8a66}
+  .t-warn{background:rgba(232,161,58,.18);color:#b67712}
+  /* Timeline */
+  .tl{position:relative;margin-left:6px;padding-left:22px}
+  .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--pink),var(--purple))}
+  .slot{position:relative;margin-bottom:15px}
+  .slot::before{content:"";position:absolute;left:-22px;top:3px;width:14px;height:14px;border-radius:50%;
+    background:#fff;border:3px solid var(--pink)}
+  .slot.dawn::before{border-color:var(--gold)}
+  .slot.noon::before{border-color:var(--green)}
+  .slot.night::before{border-color:var(--purple)}
+  .slot .when{font-size:.74rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--pink)}
+  .slot.dawn .when{color:var(--gold)}.slot.noon .when{color:var(--green)}.slot.night .when{color:var(--purple)}
+  .slot .what{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);
+    padding:11px 13px;margin-top:5px}
+  .slot .what .h{font-weight:700;font-size:.92rem}
+  .slot .what .d{font-size:.82rem;color:var(--muted);margin-top:3px}
+  /* Tip cards */
+  .tip{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    padding:13px 14px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
+  .tip .ti{font-size:1.4rem;flex:0 0 auto;line-height:1.1}
+  .tip .th{font-weight:700;font-size:.93rem}
+  .tip .td{font-size:.83rem;color:var(--muted);margin-top:3px}
+  /* Know list */
+  .know{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:6px 4px}
+  .know .k{display:flex;gap:11px;padding:11px 12px;border-bottom:1px solid var(--line)}
+  .know .k:last-child{border-bottom:0}
+  .know .ki{font-size:1.15rem;flex:0 0 22px;text-align:center}
+  .know .kk{font-weight:700;font-size:.86rem}
+  .know .kv{font-size:.83rem;color:var(--muted);margin-top:1px}
+  .note{color:var(--faint);font-size:.76rem;margin-top:20px;text-align:center;line-height:1.6}
+  b{color:var(--ink)}
+  a{color:#3a56d4}
+</style>
+</head>
+<body>
+<header>
+  <h1>🗼 Day 11 · West Tokyo</h1>
+  <div class="sub">Harajuku → Meiji → Shinjuku</div>
+  <div class="date">Monday · 22 June 2026 · Rishi, Riya &amp; Ryan</div>
+  <div class="facts">
+    <span>🏨 Pullman Tokyo Tamachi</span>
+    <span>🚆 Yamanote Line day</span>
+    <span>🧳 Last full day — pack tonight</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <a class="back" href="./trip.html">‹ Back to trip overview</a>
+
+  <div class="tip" style="margin-top:18px"><div class="ti">🏰</div><div>
+    <div class="th">If you chose DisneySea instead</div>
+    <div class="td">Date-locked tickets needed in advance; weekday Monday = decent crowds; this city loop then folds into earlier evenings.</div></div></div>
+
+  <h2><span class="ic">🚆</span> Getting There</h2>
+  <p class="lead">One ticket today: the <b>Yamanote Line loop</b> from Tamachi handles everything. Harajuku in the morning, Shinjuku in the afternoon, back to Tamachi at night — tap in and out with Suica/IC.</p>
+
+  <div class="step"><div class="num">1</div><div class="sb">
+    <div class="sname">Tamachi → Harajuku</div><div class="smeta">JR Yamanote Line (counter-clockwise)</div>
+    <div class="snote">~20 min, no transfers. Depart <b>~09:00</b> — Monday morning means lighter crowds at the shrine and Takeshita Street opens up gradually from ~10:00.</div>
+    <div class="tags"><span class="tag t-time">~20 min</span><span class="tag t-key">Tap with Suica/IC</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">2</div><div class="sb">
+    <div class="sname">Harajuku → Shinjuku</div><div class="smeta">JR Yamanote Line, 2 stops</div>
+    <div class="snote">~5 min hop after lunch. The Metropolitan Government Building is a <b>~10 min walk</b> from Shinjuku Station's west exit (follow the underground passage signs).</div>
+    <div class="tags"><span class="tag t-time">~5 min + walk</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">3</div><div class="sb">
+    <div class="sname">Shinjuku → Tamachi</div><div class="smeta">JR Yamanote Line</div>
+    <div class="snote">~20 min direct, trains every few minutes until late. Aim to be back by <b>~20:00</b> — there's packing and front-desk admin tonight.</div>
+    <div class="tags"><span class="tag t-time">~20 min</span><span class="tag t-warn">Don't stay out late</span></div>
+  </div></div>
+
+  <h2><span class="ic">🗓️</span> The Day, Hour by Hour</h2>
+  <p class="lead">A classic west-side loop: forest calm first, teen chaos second, skyline and lantern alleys to finish. Last full day — end it with bags half-packed.</p>
+
+  <div class="tl">
+    <div class="slot dawn">
+      <div class="when">🚆 ~09:00 · Roll out</div>
+      <div class="what"><div class="h">Yamanote: Tamachi → Harajuku</div>
+        <div class="d">~20 min on the loop line. Exit at Harajuku — the shrine entrance is literally next to the station.</div></div>
+    </div>
+    <div class="slot dawn">
+      <div class="when">⛩️ ~09:15 · Meiji Jingu</div>
+      <div class="what"><div class="h">Forested shrine — calm before the shopping chaos</div>
+        <div class="d">A genuine forest in the middle of Tokyo, right next to Harajuku station. Walk under the <b>giant torii</b>, past the <b>sake barrel wall</b>, to the main shrine. Free, peaceful, and a perfect contrast to what comes next. <b>~1 hr loop</b>.</div></div>
+    </div>
+    <div class="slot">
+      <div class="when">🌈 ~10:30 · Takeshita Street</div>
+      <div class="what"><div class="h">Harajuku — teen heaven</div>
+        <div class="d">Crepes (<b>Marion Crepes</b> or <b>Angels Heart</b>), giant rainbow cotton candy, <b>purikura photo booths</b>, thrift &amp; kawaii shops — Riya and Ryan will not want to leave. Then drift down <b>Cat Street</b> toward Omotesando for calmer, designer-lined streets.</div></div>
+    </div>
+    <div class="slot noon">
+      <div class="when">🥟 ~12:30 · Lunch</div>
+      <div class="what"><div class="h">Around Harajuku / Omotesando</div>
+        <div class="d">Gyoza is the reliable crowd-pleaser here, or pick one of the trendy cafés along Cat Street / Omotesando. Refuel properly — the afternoon is on foot too.</div></div>
+    </div>
+    <div class="slot">
+      <div class="when">🏙️ ~14:00 · Shinjuku skyline</div>
+      <div class="what"><div class="h">Tokyo Metropolitan Government Building — FREE deck</div>
+        <div class="d">Yamanote 2 stops to Shinjuku, then the <b>free observation deck on the 45th floor (202 m)</b> — full city panorama, <b>Mt Fuji on a clear day</b>. Optional green break after: <b>Shinjuku Gyoen</b> (¥500, last entry varies — gates close ~17:30–18:00; June = <b>iris season</b>).</div></div>
+    </div>
+    <div class="slot night">
+      <div class="when">🏮 ~17:00 · Shinjuku evening</div>
+      <div class="what"><div class="h">Omoide Yokocho → Kabukicho neon → Don Quijote</div>
+        <div class="d"><b>Omoide Yokocho ("Memory Lane")</b> — tiny lantern-lit yakitori alleys by the station. Atmospheric; go early with kids (smoky and small, but fine pre-7pm). Then the <b>Kabukicho neon walk</b> + the <b>3D Godzilla head</b> on the Toho building, and <b>Don Quijote</b> for last-night souvenir chaos.</div></div>
+    </div>
+    <div class="slot night">
+      <div class="when">🧳 ~20:00 · Back &amp; PACK</div>
+      <div class="what"><div class="h">Tamachi — packing + front-desk admin</div>
+        <div class="d"><b>JL39 leaves Haneda 10:55 tomorrow</b> — leave the Pullman <b>~07:00–07:30</b>. Tonight: pack everything, and <b>settle Accor points / both room bookings at the front desk</b> so the morning is just checkout-and-go.</div></div>
+    </div>
+  </div>
+
+  <h2><span class="ic">💡</span> Worth Knowing</h2>
+
+  <div class="tip"><div class="ti">📅</div><div>
+    <div class="th">Monday works in your favour</div>
+    <div class="td">Lighter crowds everywhere today — Meiji Jingu, Takeshita Street and the observation deck are all noticeably calmer than on a weekend.</div></div></div>
+
+  <div class="tip"><div class="ti">🗼</div><div>
+    <div class="th">Metro Govt deck — free and open late</div>
+    <div class="td">Last entry ~22:00, so it also works as an evening backup. One of the two towers is closed on some Mondays — check which tower (North or South) is open today before going up.</div></div></div>
+
+  <div class="tip"><div class="ti">💴</div><div>
+    <div class="th">Use up loose yen at Don Quijote</div>
+    <div class="td">Perfect place to burn remaining cash on snacks and souvenirs — and it's <b>tax-free with passports</b>, so bring all three.</div></div></div>
+
+  <div class="tip"><div class="ti">⚖️</div><div>
+    <div class="th">Bag weigh-in tonight</div>
+    <div class="td">JL economy is typically <b>23 kg × 2 pieces each</b> — but check the JAL award baggage allowance on the booking to be sure. Better to shuffle weight tonight than at the Haneda counter.</div></div></div>
+
+  <h2><span class="ic">📌</span> Quick Reference</h2>
+  <div class="know">
+    <div class="k"><div class="ki">⛩️</div><div><div class="kk">Meiji Jingu</div>
+      <div class="kv">Free · open dawn–dusk · entrance beside Harajuku station</div></div></div>
+    <div class="k"><div class="ki">🍓</div><div><div class="kk">Takeshita Street</div>
+      <div class="kv">Crepes + purikura photo booths · busiest from late morning</div></div></div>
+    <div class="k"><div class="ki">🏙️</div><div><div class="kk">TMG observation deck</div>
+      <div class="kv">FREE · 45F (202 m) · ~10 min walk from Shinjuku west exit</div></div></div>
+    <div class="k"><div class="ki">🏮</div><div><div class="kk">Omoide Yokocho</div>
+      <div class="kv">Yakitori alleys by Shinjuku station · go from ~17:00 with kids</div></div></div>
+    <div class="k"><div class="ki">🦖</div><div><div class="kk">Godzilla head</div>
+      <div class="kv">Hotel Gracery / Toho building, Kabukicho — look up</div></div></div>
+    <div class="k"><div class="ki">✈️</div><div><div class="kk">Tomorrow</div>
+      <div class="kv">JL39 departs Haneda 10:55 · leave Pullman 07:00–07:30</div></div></div>
+  </div>
+
+  <p class="note">
+    Day 11 — the last full day, so timings are a guide, not a schedule.<br>
+    Let the teens linger in Harajuku; just protect the 20:00 packing deadline.
+  </p>
+</div>
+
+</body>
+</html>

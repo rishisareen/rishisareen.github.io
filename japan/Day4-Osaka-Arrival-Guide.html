@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Day 4 · Fly to Osaka</title>
+<style>
+  :root{
+    --bg:#ecf7f4; --card:#ffffff; --soft:#f1faf7;
+    --ink:#1a2a26; --muted:#546b64; --faint:#8ea9a0;
+    --line:#d9efe9; --shadow:0 1px 3px rgba(12,90,76,.06),0 8px 22px rgba(12,90,76,.07);
+    --teal:#12a18a; --teal2:#0c8a76; --gold:#e8a13a; --green:#1ba37e; --blue:#4f6ef0; --purple:#8a63d6;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:54px}
+  .wrap{max-width:600px;margin:0 auto;padding:0 15px}
+  /* Header */
+  header{position:relative;text-align:center;color:#fff;padding:34px 16px 30px;overflow:hidden;
+    background:linear-gradient(160deg,#19b89e 0%,#12a18a 45%,#0c8a76 100%)}
+  header::after{content:"🐙";position:absolute;font-size:170px;opacity:.09;top:-18px;right:-14px;transform:rotate(8deg)}
+  header h1{font-size:1.55rem;font-weight:800;letter-spacing:.2px;position:relative}
+  header .sub{margin-top:7px;font-size:.95rem;font-weight:600;opacity:.95;position:relative}
+  header .date{margin-top:3px;font-size:.82rem;opacity:.85;position:relative}
+  .facts{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:14px;position:relative}
+  .facts span{font-size:.72rem;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;padding:4px 11px;backdrop-filter:blur(4px)}
+  .back{display:inline-block;margin:16px 0 -8px;font-size:.82rem;color:var(--teal2);text-decoration:none;font-weight:600}
+  /* Sections */
+  h2{font-size:1.05rem;font-weight:800;margin:26px 0 12px;display:flex;align-items:center;gap:9px}
+  h2 .ic{font-size:1.15rem}
+  .lead{font-size:.9rem;color:var(--muted);margin:-4px 0 14px}
+  /* Steps (airport -> hotel) */
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:14px 15px;margin-bottom:11px;display:flex;gap:13px;align-items:flex-start;position:relative;overflow:hidden}
+  .step .num{flex:0 0 30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:.92rem;color:#fff;background:linear-gradient(150deg,var(--teal),var(--teal2));margin-top:2px}
+  .step .sb{flex:1;min-width:0}
+  .step .sname{font-weight:700;font-size:1rem}
+  .step .smeta{font-size:.75rem;color:var(--faint);margin-top:1px}
+  .step .snote{font-size:.83rem;color:var(--muted);margin-top:6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .tag{font-size:.68rem;font-weight:700;border-radius:7px;padding:3px 8px;white-space:nowrap}
+  .t-key{background:rgba(18,161,138,.14);color:#0c8a76}
+  .t-time{background:rgba(79,110,240,.13);color:#3a56d4}
+  .t-cost{background:rgba(27,163,126,.15);color:#0f8a66}
+  .t-warn{background:rgba(232,161,58,.18);color:#b67712}
+  /* Timeline */
+  .tl{position:relative;margin-left:6px;padding-left:22px}
+  .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--teal),var(--purple))}
+  .slot{position:relative;margin-bottom:15px}
+  .slot::before{content:"";position:absolute;left:-22px;top:3px;width:14px;height:14px;border-radius:50%;
+    background:#fff;border:3px solid var(--teal)}
+  .slot.dawn::before{border-color:var(--gold)}
+  .slot.noon::before{border-color:var(--green)}
+  .slot.night::before{border-color:var(--purple)}
+  .slot .when{font-size:.74rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--teal)}
+  .slot.dawn .when{color:var(--gold)}.slot.noon .when{color:var(--green)}.slot.night .when{color:var(--purple)}
+  .slot .what{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);
+    padding:11px 13px;margin-top:5px}
+  .slot .what .h{font-weight:700;font-size:.92rem}
+  .slot .what .d{font-size:.82rem;color:var(--muted);margin-top:3px}
+  /* Tip cards */
+  .tip{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    padding:13px 14px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
+  .tip .ti{font-size:1.4rem;flex:0 0 auto;line-height:1.1}
+  .tip .th{font-weight:700;font-size:.93rem}
+  .tip .td{font-size:.83rem;color:var(--muted);margin-top:3px}
+  /* Know list */
+  .know{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:6px 4px}
+  .know .k{display:flex;gap:11px;padding:11px 12px;border-bottom:1px solid var(--line)}
+  .know .k:last-child{border-bottom:0}
+  .know .ki{font-size:1.15rem;flex:0 0 22px;text-align:center}
+  .know .kk{font-weight:700;font-size:.86rem}
+  .know .kv{font-size:.83rem;color:var(--muted);margin-top:1px}
+  .note{color:var(--faint);font-size:.76rem;margin-top:20px;text-align:center;line-height:1.6}
+  b{color:var(--ink)}
+  a{color:#3a56d4}
+</style>
+</head>
+<body>
+<header>
+  <h1>✈️ Day 4 · Fly to Osaka</h1>
+  <div class="sub">Fly to Osaka · Dotonbori evening</div>
+  <div class="date">Monday · 15 June 2026 · Rishi, Riya &amp; Ryan</div>
+  <div class="facts">
+    <span>✈️ UO686 · HKG 08:45 → KIX 13:30</span>
+    <span>🏨 Swissôtel Nankai Osaka</span>
+    <span>🐙 Dotonbori neon &amp; street food tonight</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <a class="back" href="./trip.html">‹ Back to trip overview</a>
+
+  <h2><span class="ic">🛫</span> Airport → Hotel</h2>
+  <p class="lead">Out of the ibis by <b>~05:45</b> — taxi or MTR to Hong Kong Station, Airport Express to HKG, and you're wheels-up at <b>08:45</b>. HK Express Ultra Lite fare, but <b>checked bags &amp; seats are already added</b>. Note: HK Express is <b>strict on cabin baggage weight</b>.</p>
+
+  <div class="step"><div class="num">1</div><div class="sb">
+    <div class="sname">HKG departure</div><div class="smeta">Leave hotel 05:45 · Airport Express</div>
+    <div class="snote">Taxi or MTR to <b>Hong Kong Station</b> → Airport Express (~24 min) to HKG. Bag drop at the <b>HK Express counter</b> (do <b>online check-in the day before</b>), then security &amp; immigration.</div>
+    <div class="tags"><span class="tag t-key">Online check-in day before</span><span class="tag t-warn">Strict cabin bag weight</span><span class="tag t-time">~24 min train</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">2</div><div class="sb">
+    <div class="sname">Land KIX 13:30 — immigration</div><div class="smeta">Kansai International, arrivals</div>
+    <div class="snote">Fill in <b>Visit Japan Web</b> beforehand — one QR code covers <b>immigration + customs</b> — or use the paper forms handed out on the plane. Then collect the checked bags.</div>
+    <div class="tags"><span class="tag t-key">Visit Japan Web QR</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">3</div><div class="sb">
+    <div class="sname">Buy 3 ICOCA cards + grab yen</div><div class="smeta">JR ticket office / machines, KIX</div>
+    <div class="snote">Buy <b>3 physical ICOCA cards</b> (JR ticket office or machines, <b>cash top-up</b>) — your tap card for trains, metro, buses &amp; konbini across Japan, <b>including Tokyo</b>. Pull <b>yen</b> from the <b>7-Eleven ATM</b> in the terminal.</div>
+    <div class="tags"><span class="tag t-key">Cash top-up</span><span class="tag t-cost">3 × adult cards</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">4</div><div class="sb">
+    <div class="sname">Nankai line KIX → Namba</div><div class="smeta">Nankai station inside the airport</div>
+    <div class="snote">Two options: the <b>Rapi:t limited express</b> (~39 min, reserved seats, ~¥1,490 — the cool retro-futuristic blue train, fun with kids) or the <b>Airport Express</b> (~45 min, ~¥970). <b>Swissôtel Nankai Osaka sits directly above Namba Station</b> — no transfers, just take the escalators up.</div>
+    <div class="tags"><span class="tag t-time">~39–45 min</span><span class="tag t-cost">¥970–1,490</span><span class="tag t-key">No transfers</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">5</div><div class="sb">
+    <div class="sname">Check in &amp; rest</div><div class="smeta">Swissôtel Nankai Osaka, above Namba Stn</div>
+    <div class="snote">Check in with confirmation <b>QKPSFPBK</b>, then <b>rest an hour</b> — the Dotonbori evening is the payoff, and tomorrow is a big USJ day.</div>
+    <div class="tags"><span class="tag t-key">Conf QKPSFPBK</span></div>
+  </div></div>
+
+  <h2><span class="ic">🌃</span> The Evening, Hour by Hour</h2>
+  <p class="lead">Dotonbori is a <b>10-minute walk</b> from the hotel — neon, canal, and Osaka's famous street food. Back by ~21:30: tomorrow is a rope-drop USJ morning.</p>
+
+  <div class="tl">
+    <div class="slot dawn">
+      <div class="when">🚶 ~17:30 · Head out</div>
+      <div class="what"><div class="h">Walk to Dotonbori</div>
+        <div class="d">An easy <b>10-min walk</b> from the hotel. First stop: the <b>Glico Running Man</b> sign — best photo angle is from <b>Ebisubashi bridge</b> — then wander the neon-lit canal.</div></div>
+    </div>
+    <div class="slot">
+      <div class="when">🐙 ~18:15 · Street food crawl</div>
+      <div class="what"><div class="h">Takoyaki → kushikatsu → ramen</div>
+        <div class="d"><b>Takoyaki</b> at <b>Wanaka</b> or <b>Kukuru</b> → <b>kushikatsu</b> at <b>Daruma</b> (remember the famous <b>"no double dipping"</b> rule) → <b>ramen</b> at <b>Ichiran</b>. Graze as you go — small portions everywhere.</div></div>
+    </div>
+    <div class="slot noon">
+      <div class="when">🛍️ ~19:45 · Arcade stroll</div>
+      <div class="what"><div class="h">Shinsaibashi-suji shopping arcade</div>
+        <div class="d">The long <b>covered shopping arcade</b> running north from Dotonbori — perfect even if it rains. Great for souvenir browsing and people-watching.</div></div>
+    </div>
+    <div class="slot">
+      <div class="when">🎡 ~20:45 · One last look</div>
+      <div class="what"><div class="h">Don Quijote ferris wheel building</div>
+        <div class="d">Swing past the canal-side <b>Don Quijote</b> with its yellow oval <b>ferris wheel</b> bolted to the facade — peak Dotonbori weirdness, and the store itself is a rabbit hole.</div></div>
+    </div>
+    <div class="slot night">
+      <div class="when">🌙 ~21:30 · Back to base</div>
+      <div class="what"><div class="h">Walk back to the Swissôtel</div>
+        <div class="d">Big <b>USJ day tomorrow</b> — you want to be at the gates before park open (rope-drop), so lights out at a reasonable hour tonight.</div></div>
+    </div>
+  </div>
+
+  <h2><span class="ic">💡</span> Worth Knowing</h2>
+
+  <div class="tip"><div class="ti">📱</div><div>
+    <div class="th">Visit Japan Web = faster arrival</div>
+    <div class="td">Filling in Visit Japan Web before the flight gives you one QR code for immigration + customs — it genuinely saves time in the KIX arrivals queue.</div></div></div>
+
+  <div class="tip"><div class="ti">🚆</div><div>
+    <div class="th">The Rapi:t is worth it</div>
+    <div class="td">Book Rapi:t reserved seats at the Nankai counter on arrival — the retro-futuristic blue train is half the fun, and reserved seats mean no scramble with luggage.</div></div></div>
+
+  <div class="tip"><div class="ti">🏪</div><div>
+    <div class="th">Konbini run before bed</div>
+    <div class="td">Hit a convenience store near the hotel for breakfast + drinks for USJ — eating on the way to the park saves precious rope-drop minutes tomorrow.</div></div></div>
+
+  <div class="tip"><div class="ti">🎢</div><div>
+    <div class="th">Set up USJ tonight</div>
+    <div class="td">Download and set up the USJ app and check your Express Pass details tonight, so tomorrow morning is purely about getting to the gates early.</div></div></div>
+
+  <h2><span class="ic">📌</span> Quick Reference</h2>
+  <div class="know">
+    <div class="k"><div class="ki">🏨</div><div><div class="kk">Hotel</div>
+      <div class="kv">Swissôtel Nankai Osaka · directly above Namba Station · Conf <b>QKPSFPBK</b></div></div></div>
+    <div class="k"><div class="ki">✈️</div><div><div class="kk">Flight</div>
+      <div class="kv">HK Express <b>UO686</b> · HKG 08:45 → KIX 13:30 · bags &amp; seats already added</div></div></div>
+    <div class="k"><div class="ki">💳</div><div><div class="kk">ICOCA</div>
+      <div class="kv">3 adult cards, cash top-up · trains, metro, buses &amp; konbini across Japan incl. Tokyo</div></div></div>
+    <div class="k"><div class="ki">🐙</div><div><div class="kk">Dotonbori</div>
+      <div class="kv">10 min walk from the hotel · Glico sign photo from Ebisubashi bridge</div></div></div>
+    <div class="k"><div class="ki">🎢</div><div><div class="kk">Tomorrow</div>
+      <div class="kv">Universal Studios Japan · arrive before park open (rope-drop)</div></div></div>
+  </div>
+
+  <p class="note">
+    Day 4 — Hong Kong leg ends, Japan leg begins. Timings are a guide, not a schedule.<br>
+    The travel day is the work; Dotonbori at night is the reward.
+  </p>
+</div>
+
+</body>
+</html>

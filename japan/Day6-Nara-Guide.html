@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Day 6 · Nara Day Trip</title>
+<style>
+  :root{
+    --bg:#ecf7f4; --card:#ffffff; --soft:#f1faf7;
+    --ink:#1a2a24; --muted:#54665e; --faint:#8ea99e;
+    --line:#d9efe9; --shadow:0 1px 3px rgba(20,120,90,.06),0 8px 22px rgba(20,120,90,.07);
+    --teal:#12a18a; --teal2:#0c8a76; --gold:#e8a13a; --green:#1ba37e; --blue:#4f6ef0; --purple:#8a63d6;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:54px}
+  .wrap{max-width:600px;margin:0 auto;padding:0 15px}
+  /* Header */
+  header{position:relative;text-align:center;color:#fff;padding:34px 16px 30px;overflow:hidden;
+    background:linear-gradient(160deg,#19b89e 0%,#12a18a 45%,#0c8a76 100%)}
+  header::after{content:"🦌";position:absolute;font-size:170px;opacity:.09;top:-18px;right:-14px;transform:rotate(8deg)}
+  header h1{font-size:1.55rem;font-weight:800;letter-spacing:.2px;position:relative}
+  header .sub{margin-top:7px;font-size:.95rem;font-weight:600;opacity:.95;position:relative}
+  header .date{margin-top:3px;font-size:.82rem;opacity:.85;position:relative}
+  .facts{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:14px;position:relative}
+  .facts span{font-size:.72rem;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;padding:4px 11px;backdrop-filter:blur(4px)}
+  .back{display:inline-block;margin:16px 0 -8px;font-size:.82rem;color:var(--teal2);text-decoration:none;font-weight:600}
+  /* Sections */
+  h2{font-size:1.05rem;font-weight:800;margin:26px 0 12px;display:flex;align-items:center;gap:9px}
+  h2 .ic{font-size:1.15rem}
+  .lead{font-size:.9rem;color:var(--muted);margin:-4px 0 14px}
+  /* Steps (Namba -> Nara) */
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:14px 15px;margin-bottom:11px;display:flex;gap:13px;align-items:flex-start;position:relative;overflow:hidden}
+  .step .num{flex:0 0 30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:.92rem;color:#fff;background:linear-gradient(150deg,var(--teal),var(--teal2));margin-top:2px}
+  .step .sb{flex:1;min-width:0}
+  .step .sname{font-weight:700;font-size:1rem}
+  .step .smeta{font-size:.75rem;color:var(--faint);margin-top:1px}
+  .step .snote{font-size:.83rem;color:var(--muted);margin-top:6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .tag{font-size:.68rem;font-weight:700;border-radius:7px;padding:3px 8px;white-space:nowrap}
+  .t-key{background:rgba(18,161,138,.14);color:#0c8a76}
+  .t-time{background:rgba(79,110,240,.13);color:#3a56d4}
+  .t-cost{background:rgba(27,163,126,.15);color:#0f8a66}
+  .t-warn{background:rgba(232,161,58,.18);color:#b67712}
+  /* Timeline */
+  .tl{position:relative;margin-left:6px;padding-left:22px}
+  .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--teal),var(--purple))}
+  .slot{position:relative;margin-bottom:15px}
+  .slot::before{content:"";position:absolute;left:-22px;top:3px;width:14px;height:14px;border-radius:50%;
+    background:#fff;border:3px solid var(--teal)}
+  .slot.dawn::before{border-color:var(--gold)}
+  .slot.noon::before{border-color:var(--green)}
+  .slot.night::before{border-color:var(--purple)}
+  .slot .when{font-size:.74rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--teal)}
+  .slot.dawn .when{color:var(--gold)}.slot.noon .when{color:var(--green)}.slot.night .when{color:var(--purple)}
+  .slot .what{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);
+    padding:11px 13px;margin-top:5px}
+  .slot .what .h{font-weight:700;font-size:.92rem}
+  .slot .what .d{font-size:.82rem;color:var(--muted);margin-top:3px}
+  /* Tip cards */
+  .tip{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    padding:13px 14px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
+  .tip .ti{font-size:1.4rem;flex:0 0 auto;line-height:1.1}
+  .tip .th{font-weight:700;font-size:.93rem}
+  .tip .td{font-size:.83rem;color:var(--muted);margin-top:3px}
+  /* Know list */
+  .know{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:6px 4px}
+  .know .k{display:flex;gap:11px;padding:11px 12px;border-bottom:1px solid var(--line)}
+  .know .k:last-child{border-bottom:0}
+  .know .ki{font-size:1.15rem;flex:0 0 22px;text-align:center}
+  .know .kk{font-weight:700;font-size:.86rem}
+  .know .kv{font-size:.83rem;color:var(--muted);margin-top:1px}
+  .note{color:var(--faint);font-size:.76rem;margin-top:20px;text-align:center;line-height:1.6}
+  b{color:var(--ink)}
+  a{color:#3a56d4}
+</style>
+</head>
+<body>
+<header>
+  <h1>🦌 Day 6 · Nara Day Trip</h1>
+  <div class="sub">Bowing deer → Great Buddha → Lantern forest</div>
+  <div class="date">Wednesday · 17 June 2026 · Rishi, Riya &amp; Ryan</div>
+  <div class="facts">
+    <span>🏨 Base: Swissôtel Nankai Osaka</span>
+    <span>🚆 Kintetsu line · ~40 min</span>
+    <span>🦌 1,200+ free-roaming deer</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <a class="back" href="./trip.html">‹ Back to trip overview</a>
+
+  <h2><span class="ic">🚆</span> Getting to Nara</h2>
+  <p class="lead">The Swissôtel sits <b>directly above Namba Station</b>, so the day starts with an elevator ride. Take the <b>Kintetsu line</b> — it drops you a 5-minute walk from the deer, while JR Nara is much farther out.</p>
+
+  <div class="step"><div class="num">1</div><div class="sb">
+    <div class="sname">Down to Osaka-Namba Station</div><div class="smeta">Kintetsu Namba — below the hotel</div>
+    <div class="snote">Head down from the Swissôtel into the station complex and follow signs for the <b>Kintetsu line</b> towards Nara. Your <b>ICOCA cards</b> work fine here — just tap in.</div>
+    <div class="tags"><span class="tag t-key">ICOCA OK</span><span class="tag t-time">0 min from hotel</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">2</div><div class="sb">
+    <div class="sname">Kintetsu express (kyuko) → Kintetsu-Nara</div><div class="smeta">~40–45 min · no reservation needed</div>
+    <div class="snote">The regular <b>express / kyuko</b> takes ~40–45 min for <b>~¥680</b> — tap on with ICOCA and hop aboard. <i>Upgrade option:</i> the <b>Limited Express</b> with reserved seats does it in ~35 min for an extra <b>~¥520 seat fee</b> — comfy, guaranteed seats together.</div>
+    <div class="tags"><span class="tag t-time">~40–45 min</span><span class="tag t-cost">~¥680 (+¥520 Ltd Exp)</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">3</div><div class="sb">
+    <div class="sname">Arrive Kintetsu-Nara — the right station</div><div class="smeta">5 min walk to Nara Park</div>
+    <div class="snote"><b>Kintetsu-Nara is the best arrival point</b> — just a 5-minute stroll to the park and the first deer. (JR Nara station is much farther from everything; avoid it.)</div>
+    <div class="tags"><span class="tag t-key">5 min to the park</span><span class="tag t-warn">Not JR Nara</span></div>
+  </div></div>
+
+  <h2><span class="ic">🗓️</span> The Day, Hour by Hour</h2>
+  <p class="lead">An out-and-back loop: deer first while it's cool and calm, the Great Buddha mid-morning, lanterns after lunch, and back in Osaka for the evening.</p>
+
+  <div class="tl">
+    <div class="slot dawn">
+      <div class="when">☀️ ~08:30 · Depart</div>
+      <div class="what"><div class="h">Leave Namba — beat the heat and the crowds</div>
+        <div class="d">An early start means calmer deer, cooler walking and emptier temples. Grab breakfast at the station or a konbini on the way.</div></div>
+    </div>
+    <div class="slot dawn">
+      <div class="when">🦌 ~09:30 · Nara Park</div>
+      <div class="what"><div class="h">Meet the bowing deer</div>
+        <div class="d">Buy <b>shika senbei</b> (deer crackers, <b>~¥200</b>) from street vendors — the deer literally <b>bow</b> for food. Etiquette: hold crackers <b>up and out of sight</b> to stop a mobbing, don't tease, and watch little kids' fingers. Over <b>1,200 free-roaming deer</b> live here.</div></div>
+    </div>
+    <div class="slot">
+      <div class="when">🛕 ~10:30 · Todai-ji</div>
+      <div class="what"><div class="h">The Great Buddha Hall (Daibutsuden)</div>
+        <div class="d">Home to one of the world's largest bronze Buddhas — <b>15 m tall</b>. Find the pillar with the <b>"Buddha's nostril"</b> hole: squeeze through for good luck (a Ryan-sized kid favourite). Entry <b>~¥800</b>.</div></div>
+    </div>
+    <div class="slot noon">
+      <div class="when">🍡 ~12:30 · Lunch</div>
+      <div class="what"><div class="h">Naramachi old town + Nakatanidou mochi</div>
+        <div class="d">Lunch in <b>Naramachi</b> or near the park. <b>Must-do:</b> <b>Nakatanidou</b> near Sanjo-dori — the famous <b>high-speed mochi-pounding</b> shop. Catch a pounding show, then eat the fresh <b>yomogi mochi</b> (¥250) while it's still warm.</div></div>
+    </div>
+    <div class="slot">
+      <div class="when">🏮 ~14:00 · Kasuga Taisha</div>
+      <div class="what"><div class="h">The lantern-lined forest shrine</div>
+        <div class="d">A gentle uphill walk through the woods to the shrine famous for its <b>thousands of stone and bronze lanterns</b> lining the path — deer everywhere along the way.</div></div>
+    </div>
+    <div class="slot">
+      <div class="when">🍦 ~15:30 · Amble back</div>
+      <div class="what"><div class="h">Naramachi lanes &amp; Sanjo-dori</div>
+        <div class="d">Wander back through the old <b>machiya</b> lanes of Naramachi and the <b>Sanjo-dori</b> shopping street — matcha soft-serve stop strongly encouraged.</div></div>
+    </div>
+    <div class="slot night">
+      <div class="when">🌆 ~17:00 · Back to Osaka</div>
+      <div class="what"><div class="h">Kintetsu back to Namba — evening free</div>
+        <div class="d">Hit <b>Kuromon Ichiba market</b> if you haven't yet, or <b>Namba Parks</b> / a quiet dinner near the hotel. Then <b>pack for tomorrow's Shinkansen to Tokyo</b>.</div></div>
+    </div>
+  </div>
+
+  <h2><span class="ic">💡</span> Worth Knowing</h2>
+
+  <div class="tip"><div class="ti">🌧️</div><div>
+    <div class="th">Rain backup plan</div>
+    <div class="td">If Nara gets rained out, swap to the <b>Osaka Aquarium Kaiyukan</b> — one of the world's best aquariums, complete with whale sharks — or do <b>Osaka Castle + Kuromon Market</b> instead.</div></div></div>
+
+  <div class="tip"><div class="ti">⏰</div><div>
+    <div class="th">Go early</div>
+    <div class="td">Morning deer are calmer and the temperatures kinder. By midday in June it's hot, humid and busy — front-load the outdoor stuff.</div></div></div>
+
+  <div class="tip"><div class="ti">💴</div><div>
+    <div class="th">Carry cash</div>
+    <div class="td">Senbei vendors, mochi and street snacks are cash-only. Bring coins and small notes for the day.</div></div></div>
+
+  <div class="tip"><div class="ti">🥵</div><div>
+    <div class="th">June = hot + humid</div>
+    <div class="td">Water bottles and hats for all three. There's a fair amount of walking, much of it in the open.</div></div></div>
+
+  <div class="tip"><div class="ti">🦌</div><div>
+    <div class="th">Deer snatch paper!</div>
+    <div class="td">Keep food, maps and anything paper <b>out of your hands</b> when deer are nearby — they will grab and eat it. Crackers stay hidden until you're ready to feed.</div></div></div>
+
+  <h2><span class="ic">📌</span> Quick Reference</h2>
+  <div class="know">
+    <div class="k"><div class="ki">🚆</div><div><div class="kk">Train</div>
+      <div class="kv">Kintetsu Namba → Kintetsu-Nara · ~40 min · ICOCA works</div></div></div>
+    <div class="k"><div class="ki">🛕</div><div><div class="kk">Todai-ji entry</div>
+      <div class="kv">~¥800 per person · Great Buddha Hall (Daibutsuden)</div></div></div>
+    <div class="k"><div class="ki">🦌</div><div><div class="kk">Deer crackers</div>
+      <div class="kv">Shika senbei ~¥200 from street vendors · cash only</div></div></div>
+    <div class="k"><div class="ki">🍡</div><div><div class="kk">Nakatanidou</div>
+      <div class="kv">High-speed mochi pounding near Sanjo-dori · yomogi mochi ¥250</div></div></div>
+    <div class="k"><div class="ki">🏨</div><div><div class="kk">Base</div>
+      <div class="kv">Swissôtel Nankai Osaka · directly above Namba Station</div></div></div>
+    <div class="k"><div class="ki">🚅</div><div><div class="kk">Tomorrow</div>
+      <div class="kv">Checkout + Shinkansen to Tokyo · Seat E for the Mt Fuji side</div></div></div>
+  </div>
+
+  <p class="note">
+    Day 6 of the Japan leg — timings are a guide, not a schedule.<br>
+    Let the deer set the pace: the bows are the point, the temples are the bonus.
+  </p>
+</div>
+
+</body>
+</html>
