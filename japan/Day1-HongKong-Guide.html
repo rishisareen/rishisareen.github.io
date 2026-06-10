@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Day 1 · Hong Kong Arrival</title>
+<style>
+  :root{
+    --bg:#fbeef4; --card:#ffffff; --soft:#fdf3f8;
+    --ink:#2a1a24; --muted:#6b5460; --faint:#a98ea0;
+    --line:#f1dce8; --shadow:0 1px 3px rgba(120,20,70,.06),0 8px 22px rgba(120,20,70,.07);
+    --pink:#d6488a; --pink2:#b83a87; --gold:#e8a13a; --green:#1ba37e; --blue:#4f6ef0; --purple:#8a63d6;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.5;-webkit-font-smoothing:antialiased;padding-bottom:54px}
+  .wrap{max-width:600px;margin:0 auto;padding:0 15px}
+  /* Header */
+  header{position:relative;text-align:center;color:#fff;padding:34px 16px 30px;overflow:hidden;
+    background:linear-gradient(160deg,#e0529c 0%,#d6488a 45%,#b83a87 100%)}
+  header::after{content:"🌃";position:absolute;font-size:170px;opacity:.09;top:-18px;right:-14px;transform:rotate(8deg)}
+  header h1{font-size:1.55rem;font-weight:800;letter-spacing:.2px;position:relative}
+  header .sub{margin-top:7px;font-size:.95rem;font-weight:600;opacity:.95;position:relative}
+  header .date{margin-top:3px;font-size:.82rem;opacity:.85;position:relative}
+  .facts{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:14px;position:relative}
+  .facts span{font-size:.72rem;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);
+    border-radius:999px;padding:4px 11px;backdrop-filter:blur(4px)}
+  .back{display:inline-block;margin:16px 0 -8px;font-size:.82rem;color:var(--pink2);text-decoration:none;font-weight:600}
+  /* Sections */
+  h2{font-size:1.05rem;font-weight:800;margin:26px 0 12px;display:flex;align-items:center;gap:9px}
+  h2 .ic{font-size:1.15rem}
+  .lead{font-size:.9rem;color:var(--muted);margin:-4px 0 14px}
+  /* Steps (airport -> hotel) */
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:14px 15px;margin-bottom:11px;display:flex;gap:13px;align-items:flex-start;position:relative;overflow:hidden}
+  .step .num{flex:0 0 30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:.92rem;color:#fff;background:linear-gradient(150deg,var(--pink),var(--pink2));margin-top:2px}
+  .step .sb{flex:1;min-width:0}
+  .step .sname{font-weight:700;font-size:1rem}
+  .step .smeta{font-size:.75rem;color:var(--faint);margin-top:1px}
+  .step .snote{font-size:.83rem;color:var(--muted);margin-top:6px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .tag{font-size:.68rem;font-weight:700;border-radius:7px;padding:3px 8px;white-space:nowrap}
+  .t-key{background:rgba(214,72,138,.14);color:#b3306f}
+  .t-time{background:rgba(79,110,240,.13);color:#3a56d4}
+  .t-cost{background:rgba(27,163,126,.15);color:#0f8a66}
+  .t-warn{background:rgba(232,161,58,.18);color:#b67712}
+  /* Timeline */
+  .tl{position:relative;margin-left:6px;padding-left:22px}
+  .tl::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--gold),var(--pink),var(--purple))}
+  .slot{position:relative;margin-bottom:15px}
+  .slot::before{content:"";position:absolute;left:-22px;top:3px;width:14px;height:14px;border-radius:50%;
+    background:#fff;border:3px solid var(--pink)}
+  .slot.dawn::before{border-color:var(--gold)}
+  .slot.noon::before{border-color:var(--green)}
+  .slot.night::before{border-color:var(--purple)}
+  .slot .when{font-size:.74rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--pink)}
+  .slot.dawn .when{color:var(--gold)}.slot.noon .when{color:var(--green)}.slot.night .when{color:var(--purple)}
+  .slot .what{background:var(--card);border:1px solid var(--line);border-radius:13px;box-shadow:var(--shadow);
+    padding:11px 13px;margin-top:5px}
+  .slot .what .h{font-weight:700;font-size:.92rem}
+  .slot .what .d{font-size:.82rem;color:var(--muted);margin-top:3px}
+  /* Tip cards */
+  .tip{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    padding:13px 14px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start}
+  .tip .ti{font-size:1.4rem;flex:0 0 auto;line-height:1.1}
+  .tip .th{font-weight:700;font-size:.93rem}
+  .tip .td{font-size:.83rem;color:var(--muted);margin-top:3px}
+  /* Know list */
+  .know{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:6px 4px}
+  .know .k{display:flex;gap:11px;padding:11px 12px;border-bottom:1px solid var(--line)}
+  .know .k:last-child{border-bottom:0}
+  .know .ki{font-size:1.15rem;flex:0 0 22px;text-align:center}
+  .know .kk{font-weight:700;font-size:.86rem}
+  .know .kv{font-size:.83rem;color:var(--muted);margin-top:1px}
+  .note{color:var(--faint);font-size:.76rem;margin-top:20px;text-align:center;line-height:1.6}
+  b{color:var(--ink)}
+  a{color:#3a56d4}
+</style>
+</head>
+<body>
+<header>
+  <h1>🛬 Day 1 · Hong Kong</h1>
+  <div class="sub">Arrival → Hotel → The Peak</div>
+  <div class="date">Friday · 12 June 2026 · Rishi, Riya &amp; Ryan</div>
+  <div class="facts">
+    <span>✈️ Red-eye lands ~06:15</span>
+    <span>🏨 ibis Sheung Wan</span>
+    <span>🌤️ Best-weather day of the HK leg</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <a class="back" href="./trip.html">‹ Back to trip overview</a>
+
+  <h2><span class="ic">🚕</span> Airport → Hotel</h2>
+  <p class="lead">AI314 lands at <b>~06:15</b>. The clean path with tired kids and luggage: Airport Express to town, then a short taxi. Plan on being at the hotel by <b>~07:30</b>.</p>
+
+  <div class="step"><div class="num">1</div><div class="sb">
+    <div class="sname">Immigration &amp; bags</div><div class="smeta">HKG arrivals hall</div>
+    <div class="snote">Have each person's <b>HK PAR slip + matching passport</b> ready — Indian passports clear at the <b>manual counters</b>, not the e-channel. Then collect checked bags.</div>
+    <div class="tags"><span class="tag t-key">Carry PAR slips</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">2</div><div class="sb">
+    <div class="sname">Buy 3 Octopus cards + grab cash</div><div class="smeta">Airport Express counter / machines, arrivals</div>
+    <div class="snote">Buy <b>3 adult Octopus cards</b> (both kids pay adult fares) and top up with cash — this is your tap card for trains, ferries, trams &amp; convenience stores all over HK. Pull <b>HK$ cash</b> from an arrivals ATM while you're here.</div>
+    <div class="tags"><span class="tag t-key">Cash top-up</span><span class="tag t-cost">3 × adult cards</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">3</div><div class="sb">
+    <div class="sname">Airport Express → Hong Kong Station</div><div class="smeta">Tap in with Octopus</div>
+    <div class="snote">~24 min ride, <b>~HK$115 pp</b>. First train ~05:54, then every ~10 min. Fast, smooth, no traffic — the easiest way into town.</div>
+    <div class="tags"><span class="tag t-time">~24 min</span><span class="tag t-cost">~HK$115</span></div>
+  </div></div>
+
+  <div class="step"><div class="num">4</div><div class="sb">
+    <div class="sname">Hong Kong Station → ibis (taxi)</div><div class="smeta">28 Des Voeux Road West, Sheung Wan</div>
+    <div class="snote">Grab a <b>red urban taxi</b> outside the station — <b>~HK$35–45, 5–10 min</b>. Easiest option after a red-eye. <i>Free alternatives:</i> the complimentary Airport Express in-town shuttle, or MTR (walk to Central → Island Line one stop to Sheung Wan → ~8 min walk).</div>
+    <div class="tags"><span class="tag t-time">5–10 min</span><span class="tag t-cost">~HK$40 taxi</span></div>
+  </div></div>
+
+  <h2><span class="ic">🗓️</span> The Day, Hour by Hour</h2>
+  <p class="lead">Deliberately light in the morning — three travellers off an overnight flight will fade by afternoon, so the big evening is the part to be fresh for.</p>
+
+  <div class="tl">
+    <div class="slot dawn">
+      <div class="when">☀️ ~07:30 · Arrive</div>
+      <div class="what"><div class="h">Bag-drop at ibis — rooms aren't ready yet</div>
+        <div class="d">Check-in is ~2 pm, so leave bags at the front desk and ask them to message when a room frees up (often early afternoon). Freshen up and head out for food.</div></div>
+    </div>
+    <div class="slot dawn">
+      <div class="when">🥢 ~08:00 · Breakfast</div>
+      <div class="what"><div class="h">First HK meal — dim sum</div>
+        <div class="d">Walkable in Sheung Wan: <b>Lin Heung Kui</b> (classic cart-style, a bit chaotic, very local) or <b>Tim Ho Wan</b> (Michelin, casual, easy with kids). Order the BBQ pork buns.</div></div>
+    </div>
+    <div class="slot">
+      <div class="when">🚶 ~09:00 · Gentle morning</div>
+      <div class="what"><div class="h">Sheung Wan on foot — low energy, jet-lag friendly</div>
+        <div class="d"><b>Man Mo Temple</b> (incense coils on Hollywood Road) → <b>Cat Street</b> antiques → <b>PMQ</b> &amp; the Tai Ping Shan lanes. All within a 15-min walk of the hotel — no transit needed.</div></div>
+    </div>
+    <div class="slot noon">
+      <div class="when">😴 ~12:30 · Reset</div>
+      <div class="what"><div class="h">Back to the hotel — check in &amp; REST</div>
+        <div class="d">Important after a red-eye: a real nap + shower beats pushing through. Recharge for a couple of hours; the evening is the highlight.</div></div>
+    </div>
+    <div class="slot">
+      <div class="when">🚡 ~15:30 · The anchor</div>
+      <div class="what"><div class="h">Peak Tram → Victoria Peak</div>
+        <div class="d">Head to Central → <b>Peak Tram lower terminus</b> (33 Garden Road) → ride up to the <b>Sky Terrace</b> for the city's signature view. <i>Buy tram + Sky Terrace tickets online to skip the queue.</i></div></div>
+    </div>
+    <div class="slot">
+      <div class="when">⛴️ ~18:00 · Harbour</div>
+      <div class="what"><div class="h">Star Ferry to Tsim Sha Tsui</div>
+        <div class="d">Down from the Peak → walk to <b>Central Pier 7</b> → the iconic <b>Star Ferry</b> across to TST (~HK$5, pay with Octopus). One of the great cheap rides in the world.</div></div>
+    </div>
+    <div class="slot night">
+      <div class="when">🌃 ~20:00 · Finale</div>
+      <div class="what"><div class="h">Symphony of Lights + dinner</div>
+        <div class="d">Watch the nightly <b>Symphony of Lights</b> (8 pm) from the TST waterfront / Avenue of Stars, then dinner in Tsim Sha Tsui — or ferry back to the island side.</div></div>
+    </div>
+  </div>
+
+  <h2><span class="ic">💡</span> Worth Knowing</h2>
+
+  <div class="tip"><div class="ti">🌤️</div><div>
+    <div class="th">Why the Peak is today</div>
+    <div class="td">Friday is the best-weather day of the HK leg — Sunday has heavy squally showers forecast (HKO), so the open-air Peak + harbour evening was moved here from Sunday.</div></div></div>
+
+  <div class="tip"><div class="ti">🎟️</div><div>
+    <div class="th">Pre-book the Peak</div>
+    <div class="td">Peak Tram + Sky Terrace lines get long. Booking the combo ticket online in advance saves a real wait, especially with kids.</div></div></div>
+
+  <div class="tip"><div class="ti">📵</div><div>
+    <div class="th">Have your eSIM live on landing</div>
+    <div class="td">Activate the eSIM before you fly so maps, ride-hailing and the Octopus app work the moment you step off — no scrambling for airport Wi-Fi.</div></div></div>
+
+  <h2><span class="ic">📌</span> Quick Reference</h2>
+  <div class="know">
+    <div class="k"><div class="ki">🏨</div><div><div class="kk">Hotel</div>
+      <div class="kv">ibis Hong Kong Central &amp; Sheung Wan · 28 Des Voeux Road West · Conf <b>QKPSFDBR</b></div></div></div>
+    <div class="k"><div class="ki">🚇</div><div><div class="kk">Nearest MTR</div>
+      <div class="kv">Sheung Wan (Island Line) ~8 min walk, or Sai Ying Pun</div></div></div>
+    <div class="k"><div class="ki">💳</div><div><div class="kk">Octopus</div>
+      <div class="kv">3 adult cards, cash top-up · works on MTR, ferry, trams, buses &amp; 7-Eleven</div></div></div>
+    <div class="k"><div class="ki">🛂</div><div><div class="kk">Entry</div>
+      <div class="kv">HK PAR slip + passport per person · Indian passports use the manual counters</div></div></div>
+    <div class="k"><div class="ki">⛴️</div><div><div class="kk">Star Ferry</div>
+      <div class="kv">Central Pier 7 → Tsim Sha Tsui · ~HK$5 · pay with Octopus</div></div></div>
+    <div class="k"><div class="ki">🌃</div><div><div class="kk">Symphony of Lights</div>
+      <div class="kv">Nightly 8:00 pm · best from TST waterfront / Avenue of Stars</div></div></div>
+  </div>
+
+  <p class="note">
+    Day 1 of the Hong Kong leg — timings are a guide, not a schedule.<br>
+    Listen to the jet lag: the morning is meant to be slow, the evening is the payoff.
+  </p>
+</div>
+
+</body>
+</html>
