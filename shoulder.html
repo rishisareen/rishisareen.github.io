@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0c4a6e">
+<title>Shoulder Mobility (Travel)</title>
+<style>
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; overflow: hidden; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f8fafc; color: #0f172a; display: flex; flex-direction: column; height: 100vh; height: 100dvh; }
+  header { flex: 0 0 auto; padding: 0.75rem 1rem; background: #0c4a6e; color: #fff; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+  header h1 { font-size: 1rem; font-weight: 600; }
+  header .progress { font-size: 0.875rem; font-weight: 500; color: #bae6fd; background: rgba(255,255,255,0.08); padding: 0.25rem 0.6rem; border-radius: 999px; }
+  .slider { flex: 1 1 auto; overflow: hidden; position: relative; touch-action: pan-y; }
+  .track { display: flex; height: 100%; transition: transform 0.3s ease-out; will-change: transform; }
+  .slide { flex: 0 0 100%; height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; padding: 1rem 1rem 5rem 1rem; }
+  .slide h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.25rem; line-height: 1.2; }
+  .slide .prescription { font-size: 1rem; color: #475569; font-weight: 500; margin-bottom: 1rem; }
+  .slide img.thumb { width: 100%; height: 220px; object-fit: contain; background: #f1f5f9; border-radius: 0.75rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 1rem; display: block; }
+  .timer-card { background: #fff; border-radius: 1rem; padding: 1.25rem 1rem; margin-bottom: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); text-align: center; }
+  .timer-display { font-size: 4.5rem; font-weight: 800; line-height: 1; color: #0f172a; font-variant-numeric: tabular-nums; margin: 0.5rem 0 1rem 0; transition: color 0.2s; }
+  .timer-display.counting { color: #0284c7; }
+  .timer-display.resting { color: #ea580c; font-size: 3rem; }
+  .timer-display.done { color: #16a34a; }
+  .timer-btn { width: 100%; padding: 1rem; background: #0284c7; color: #fff; border: none; border-radius: 0.75rem; font-size: 1.0625rem; font-weight: 600; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: background 0.15s, transform 0.05s; }
+  .timer-btn:active { transform: scale(0.98); }
+  .timer-btn.running { background: #ef4444; }
+  .timer-btn.resting { background: #ea580c; }
+  .timer-btn.done { background: #16a34a; }
+  .set-progress { display: flex; justify-content: center; gap: 0.4rem; margin-top: 1rem; flex-wrap: wrap; }
+  .set-dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: #e2e8f0; transition: background 0.2s; }
+  .set-dot.done { background: #16a34a; }
+  .set-dot.active { background: #0284c7; box-shadow: 0 0 0 3px rgba(2,132,199,0.2); }
+  .set-label { font-size: 0.875rem; color: #64748b; margin-top: 0.5rem; }
+  .reps-card { background: #fff; border-radius: 1rem; padding: 1.25rem 1rem; margin-bottom: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); text-align: center; }
+  .reps-card .big-num { font-size: 4rem; font-weight: 800; line-height: 1; color: #0f172a; }
+  .reps-card .big-num-label { color: #64748b; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.5rem; }
+  .info { background: #fff; border-radius: 1rem; padding: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 1rem; }
+  .info p { margin-bottom: 0.65rem; line-height: 1.5; font-size: 0.95rem; }
+  .info p:last-child { margin-bottom: 0; }
+  .info strong { color: #0f172a; }
+  .info .cue { color: #075985; }
+  .info .watch { color: #b91c1c; }
+  .video-section { background: #fff; border-radius: 1rem; padding: 0.75rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); margin-bottom: 1rem; }
+  .video-section .video-label { font-size: 0.8125rem; color: #64748b; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 0.5rem; padding: 0 0.25rem; }
+  .video-section .video-wrap { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.5rem; background: #000; }
+  .video-section iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+  nav { flex: 0 0 auto; padding: 0.6rem 1rem calc(0.6rem + env(safe-area-inset-bottom)) 1rem; background: #fff; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; box-shadow: 0 -2px 8px rgba(0,0,0,0.05); }
+  nav button { flex: 1; padding: 0.75rem; background: #f1f5f9; border: none; border-radius: 0.5rem; font-size: 0.9375rem; font-weight: 600; color: #0f172a; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  nav button:disabled { opacity: 0.4; cursor: not-allowed; }
+  nav button:active:not(:disabled) { background: #e2e8f0; }
+  .dots { display: flex; gap: 0.3rem; align-items: center; }
+  .nav-dot { width: 0.4rem; height: 0.4rem; border-radius: 50%; background: #cbd5e1; }
+  .nav-dot.active { background: #0c4a6e; transform: scale(1.4); }
+  .slide.done { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem; }
+  .slide.done .emoji { font-size: 5rem; margin-bottom: 1rem; }
+  .slide.done h2 { font-size: 1.75rem; margin-bottom: 0.5rem; }
+  .slide.done p { color: #475569; margin-bottom: 1.5rem; line-height: 1.5; max-width: 320px; }
+  .slide.done button { padding: 1rem 2rem; background: #16a34a; color: #fff; border: none; border-radius: 0.75rem; font-size: 1rem; font-weight: 600; cursor: pointer; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Shoulder Mobility</h1>
+  <div class="progress" id="progress">1 / 8</div>
+</header>
+<div class="slider" id="slider"><div class="track" id="track"></div></div>
+<nav>
+  <button id="prev">← Prev</button>
+  <div class="dots" id="dots"></div>
+  <button id="next">Next →</button>
+</nav>
+<script>
+const exercises = [{"num": 1, "title": "Cat-Cow", "videoId": "LIVJZZyZ2qM", "start": 0, "search": "cat+cow+exercise+thoracic+spine", "prescription": "10 slow reps", "type": "reps", "bigNum": "10", "bigNumLabel": "Slow Reps", "setup": "All-fours position. Hands under shoulders, knees under hips. Spine neutral to start.", "do": "Inhale: drop belly, lift head and tailbone (cow). Exhale: round back, tuck chin to chest (cat). Slow, full range. 10 reps.", "cue": "Move from the mid-back / T-spine, not the neck. Breathe with the movement.", "watch": "Don't hyperextend the low back - flow comes from the upper / mid spine.", "thumb": "https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/06/11/cat-cow%7Bextension%7D"}, {"num": 2, "title": "Thread-the-Needle", "videoId": "MfUx9FCOb1E", "start": 0, "search": "thread+the+needle+thoracic+rotation", "prescription": "6 reps each side", "type": "reps", "bigNum": "6", "bigNumLabel": "Reps × Each Side", "setup": "All-fours position. Hips square over the knees.", "do": "Slide right arm UNDER the left armpit, lowering right shoulder and ear toward the floor. Pause 2-3 sec. Then reach right arm UP toward the ceiling, twisting torso open. That's 1 rep. ×6 each side.", "cue": "Twist comes from the mid-back, NOT the low back. Hips stay stacked over knees.", "watch": "Don't shift weight side-to-side - hips stay square.", "thumb": "https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/06/11/thread-the-needle-1%7Bextension%7D"}, {"num": 3, "title": "Wall Slides (W to Y)", "videoId": "HXZQzLVyn5Q", "start": 0, "search": "wall+slides+shoulder+rehab+scapular", "prescription": "10 reps × 2 sets", "type": "reps", "bigNum": "10", "bigNumLabel": "Reps × 2 Sets", "setup": "Stand back-flat to wall. Heels 5-10 cm from wall. Low back, head, elbows, wrists ALL touching the wall.", "do": "Start in 'W' (elbows 90°, hands by shoulders). Slowly slide hands up the wall to overhead 'Y' - maintain ALL contact points. Reverse slowly back to W. 1 slide = 1 rep. ×10, two sets.", "cue": "If elbows or wrists leave the wall, you've gone past your range. Slow and STRICT.", "watch": "Low back must stay flat against wall - no arching. If it lifts off, shorten the range.", "thumb": "https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/06/11/image-20260611093431353%7Bextension%7D"}, {"num": 4, "title": "Push-Up Plus (Serratus)", "videoId": "I2MM3UBAlU4", "start": 23, "search": "push+up+plus+serratus+anterior", "prescription": "10 reps × 2 sets", "type": "reps", "bigNum": "10", "bigNumLabel": "Reps × 2 Sets", "setup": "Standard push-up position. From knees if needed - that's fine.", "do": "Lower into push-up. Press back up. At the TOP, push the floor away further so upper back rounds slightly (shoulder blades wrap forward). Hold 1 sec at top. Lower normally. 1 cycle = 1 rep. ×10.", "cue": "The 'plus' is the extra protraction at the top - that's the serratus work. Spine stays neutral throughout.", "watch": "Don't sag the low back. Maintain a straight plank line.", "thumb": "https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/06/11/E8398_28art%7Bextension%7D"}, {"num": 5, "title": "Floor Y-T-W", "videoId": "QdGTI4Lshg4", "start": 0, "search": "prone+Y+T+W+raises+swimmer+shoulder", "prescription": "8 each shape × 2 sets", "type": "reps", "bigNum": "8", "bigNumLabel": "Each Shape × 2 Sets", "setup": "Face-down on the floor. PILLOW UNDER YOUR LOWER BELLY to keep lumbar neutral (disc-friendly). Forehead on a small towel. Thumbs UP throughout.", "do": "Y: arms overhead in a Y, thumbs up, lift arms 5cm off floor, squeeze lower traps. Hold 1s. ×8.   T: arms straight out to sides, thumbs up. Lift, squeeze mid-back. ×8.   W: elbows bent 90° at sides, hands forward, thumbs up. Lift hands up. ×8.   That's 1 SET. Do 2 sets.", "cue": "Lift comes from the shoulder blades pulling together, NOT from arching the low back. The pillow keeps the spine neutral.", "watch": "If you feel the low back, you're arching - drop the range and refocus on shoulder blade squeeze.", "thumb": "https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/06/11/image-20260611091953674%7Bextension%7D"}, {"num": 6, "title": "Prone Cobra Hold", "videoId": "YhtUM6KYIGY", "start": 0, "search": "prone+cobra+hold+swimmer+rehab", "prescription": "30s hold × 2 sets", "type": "timer", "duration": 30, "sets": 2, "setLabels": ["Set 1", "Set 2"], "setup": "Face-down on floor. Pillow under hips to keep lumbar neutral. Arms by sides, palms down.", "do": "Lift chest, head, and arms slightly off the floor. Squeeze shoulder blades BACK and DOWN (not up toward ears). Hold position for the full 30s. Lower. ×2.", "cue": "Think 'long neck, shoulder blades in your back pockets.' Lift comes from the upper back, not the lumbar.", "watch": "Lift only 5-10 cm. Quality of squeeze > height. If low back fires, reduce lift.", "thumb": "https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/06/11/Prone-Cobra%7Bextension%7D"}, {"num": 7, "title": "Doorway External Rotation Isometric", "videoId": "jqODGOpzVwY", "start": 0, "search": "doorway+external+rotation+isometric+rotator+cuff", "prescription": "10s push × 5 reps per side", "type": "timer", "duration": 10, "sets": 10, "setLabels": ["Right 1", "Right 2", "Right 3", "Right 4", "Right 5", "Left 1", "Left 2", "Left 3", "Left 4", "Left 5"], "setup": "Stand in a doorway. Arm at your side, elbow bent 90°, forearm in front horizontal. BACK of your forearm against the doorframe.", "do": "Push the back of your forearm OUTWARD into the doorframe (external rotation direction) at ~50% effort. Hold 10s. Relax. ×5 reps each side.", "cue": "Pure isometric - the arm should not move, but the rotator cuff should fire. Breathe normally throughout the push.", "watch": "Don't ramp to 100% effort. ~50% is the prescription. Doorway shouldn't budge.", "thumb": "https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/06/11/image-20260611092245446%7Bextension%7D"}, {"num": 8, "title": "Doorway Pec Stretch", "videoId": "M850sCj9LHQ", "start": 0, "search": "doorway+pec+stretch+chest+stretch", "prescription": "30s hold × 2 per side", "type": "timer", "duration": 30, "sets": 4, "setLabels": ["Right 1", "Right 2", "Left 1", "Left 2"], "setup": "Stand in doorway. Forearm against frame, elbow at shoulder height (90° abducted, 90° bent at elbow).", "do": "Step the same-side foot forward, gently lean torso forward through the doorway. Feel stretch across front of chest / shoulder. Hold 30s. Switch sides. ×2 per side.", "cue": "Mild stretch only - not painful. Should feel across the pec, NOT in the shoulder joint.", "watch": "If pain in front of shoulder, reduce range. Pec minor is what you're targeting.", "thumb": "https://raw.githubusercontent.com/rishisareen/blog-images/master/images/2026/06/11/image_iphone%7Bextension%7D"}];
+const track = document.getElementById('track');
+const dotsEl = document.getElementById('dots');
+const progressEl = document.getElementById('progress');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const slider = document.getElementById('slider');
+let currentIndex = 0;
+const REST_SECONDS = 5;
+
+function buildSlide(ex, i) {
+  const slide = document.createElement('section');
+  slide.className = 'slide';
+  slide.dataset.index = i;
+  let interactive = '';
+  if (ex.type === 'timer') {
+    const dots = Array.from({length: ex.sets}, (_, k) => `<div class="set-dot" data-set="${k}"></div>`).join('');
+    interactive = `
+      <div class="timer-card">
+        <div class="set-label" id="setLabel-${i}">Set 1 of ${ex.sets}${ex.setLabels ? ' - ' + ex.setLabels[0] : ''}</div>
+        <div class="timer-display" id="timer-${i}">${ex.duration}</div>
+        <button class="timer-btn" id="timerBtn-${i}">▶ Start Hold</button>
+        <div class="set-progress">${dots}</div>
+      </div>`;
+  } else {
+    interactive = `
+      <div class="reps-card">
+        <div class="big-num">${ex.bigNum}</div>
+        <div class="big-num-label">${ex.bigNumLabel}</div>
+      </div>`;
+  }
+  const thumbHtml = `<img class="thumb" src="${ex.thumb}" alt="${ex.title} preview" loading="lazy">`;
+  const embedUrl = `https://www.youtube-nocookie.com/embed/${ex.videoId}?rel=0&modestbranding=1&playsinline=1${ex.start ? '&start=' + ex.start : ''}`;
+  const videoHtml = `
+    <div class="video-section">
+      <div class="video-label">🎥 Full demo</div>
+      <div class="video-wrap">
+        <iframe src="${embedUrl}" title="${ex.title} demo" loading="lazy"
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>`;
+  slide.innerHTML = `
+    <h2>${ex.num}. ${ex.title}</h2>
+    <div class="prescription">${ex.prescription}</div>
+    ${thumbHtml}
+    ${interactive}
+    <div class="info">
+      <p><strong>Setup:</strong> ${ex.setup}</p>
+      <p><strong>Do:</strong> ${ex.do}</p>
+      <p class="cue"><strong>Cue:</strong> ${ex.cue}</p>
+      <p class="watch"><strong>Watch:</strong> ${ex.watch}</p>
+    </div>
+    ${videoHtml}`;
+  track.appendChild(slide);
+  if (ex.type === 'timer') setupTimer(i, ex);
+}
+
+function buildDoneSlide() {
+  const slide = document.createElement('section');
+  slide.className = 'slide done';
+  slide.innerHTML = `<div class="emoji">✅</div><h2>Routine complete!</h2><p>Aim for this routine daily while traveling. Especially good before or after a swim.</p><button id="restart">Start over</button>`;
+  track.appendChild(slide);
+  slide.querySelector('#restart').addEventListener('click', () => goTo(0));
+}
+function buildDots() { for (let i = 0; i < exercises.length; i++) { const d = document.createElement('div'); d.className = 'nav-dot'; dotsEl.appendChild(d); } }
+function updateUI() {
+  const total = exercises.length;
+  const onDone = currentIndex >= total;
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  progressEl.textContent = onDone ? '✓ Done' : `${currentIndex + 1} / ${total}`;
+  Array.from(dotsEl.children).forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+  prevBtn.disabled = currentIndex === 0;
+  nextBtn.disabled = currentIndex >= total;
+  nextBtn.textContent = currentIndex === total - 1 ? 'Finish →' : 'Next →';
+}
+function goTo(i) {
+  const total = exercises.length;
+  currentIndex = Math.max(0, Math.min(total, i));
+  updateUI();
+}
+
+const timerState = {};
+function setupTimer(i, ex) {
+  const needsRest = ex.sets > 1;
+  timerState[i] = { running: false, remaining: ex.duration, currentSet: 0, interval: null, phase: 'idle', restTime: REST_SECONDS };
+  const display = () => document.getElementById(`timer-${i}`);
+  const btn = () => document.getElementById(`timerBtn-${i}`);
+  const setLabel = () => document.getElementById(`setLabel-${i}`);
+  const dots = () => document.querySelectorAll(`#track .slide[data-index="${i}"] .set-dot`);
+  function renderSetState() {
+    const st = timerState[i];
+    dots().forEach((d, k) => {
+      d.classList.remove('done', 'active');
+      if (k < st.currentSet) d.classList.add('done');
+      else if (k === st.currentSet && st.phase !== 'done') d.classList.add('active');
+    });
+    const idx = st.currentSet;
+    if (idx < ex.sets) {
+      const label = ex.setLabels ? ' - ' + ex.setLabels[idx] : '';
+      setLabel().textContent = `Set ${idx + 1} of ${ex.sets}${label}`;
+    } else { setLabel().textContent = `All ${ex.sets} sets complete`; }
+  }
+  renderSetState();
+  function setBtn(label, cls) { const b = btn(); b.textContent = label; b.className = 'timer-btn' + (cls ? ' ' + cls : ''); }
+  function clearTimerClasses() { display().classList.remove('counting', 'resting', 'done'); }
+  function startCountdown() {
+    const st = timerState[i];
+    st.phase = 'counting'; st.running = true; st.remaining = ex.duration;
+    clearTimerClasses(); display().classList.add('counting'); display().textContent = ex.duration;
+    setBtn('⏸ Pause', 'running'); btn().disabled = false;
+    st.interval = setInterval(tick, 1000);
+  }
+  function startRest() {
+    const st = timerState[i];
+    st.phase = 'resting'; st.restTime = REST_SECONDS; st.running = true;
+    clearTimerClasses(); display().classList.add('resting'); display().textContent = `REST ${st.restTime}`;
+    setBtn('Resting...', 'resting'); btn().disabled = true;
+    st.interval = setInterval(tick, 1000);
+  }
+  function tick() {
+    const st = timerState[i];
+    if (st.phase === 'counting') {
+      st.remaining -= 1;
+      if (st.remaining > 0) { display().textContent = st.remaining; tickSound(); }
+      else {
+        clearInterval(st.interval); st.running = false; st.currentSet += 1;
+        endHoldSound(); vibrate(); renderSetState();
+        if (st.currentSet >= ex.sets) {
+          st.phase = 'done'; clearTimerClasses(); display().classList.add('done');
+          display().textContent = '✓'; setBtn('✓ Done - Swipe Next', 'done'); btn().disabled = false;
+        } else if (needsRest) { startRest(); }
+        else {
+          st.phase = 'idle'; st.remaining = ex.duration;
+          clearTimerClasses(); display().textContent = ex.duration;
+          setBtn('▶ Start Next Set'); btn().disabled = false;
+        }
+      }
+    } else if (st.phase === 'resting') {
+      st.restTime -= 1;
+      if (st.restTime > 0) { display().textContent = `REST ${st.restTime}`; restTickSound(); }
+      else { clearInterval(st.interval); st.running = false; renderSetState(); startCountdown(); endRestSound(); }
+    }
+  }
+  btn().addEventListener('click', () => {
+    const st = timerState[i];
+    if (st.phase === 'done') {
+      st.currentSet = 0; st.remaining = ex.duration; st.phase = 'idle';
+      clearTimerClasses(); display().textContent = ex.duration;
+      renderSetState(); setBtn('▶ Start Hold'); return;
+    }
+    if (st.phase === 'resting') return;
+    if (!st.running) { startCountdown(); }
+    else { st.running = false; clearInterval(st.interval); clearTimerClasses(); setBtn('▶ Resume'); }
+  });
+}
+
+let audioCtx = null;
+function getCtx() {
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+function tone(freq, durSec, gainVal, type) {
+  try {
+    const ctx = getCtx();
+    const osc = ctx.createOscillator(); const gain = ctx.createGain();
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.frequency.value = freq; osc.type = type || 'sine';
+    gain.gain.setValueAtTime(gainVal, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + durSec);
+    osc.start(); osc.stop(ctx.currentTime + durSec);
+  } catch (e) {}
+}
+function tickSound()     { tone(1800, 0.04, 0.6,  'square'); }
+function restTickSound() { tone(330,  0.22, 0.55, 'sine');   }
+function endHoldSound()  { tone(880, 0.25, 0.7, 'sine'); setTimeout(() => tone(660, 0.4, 0.7, 'sine'), 200); }
+function endRestSound()  { tone(800,  0.15, 0.6, 'sine'); setTimeout(() => tone(1200, 0.22, 0.6, 'sine'), 110); }
+function vibrate() { if (navigator.vibrate) navigator.vibrate([100, 50, 100]); }
+
+let wakeLock = null;
+async function acquireWakeLock() {
+  try { if ('wakeLock' in navigator && wakeLock === null) { wakeLock = await navigator.wakeLock.request('screen'); wakeLock.addEventListener('release', () => { wakeLock = null; }); } } catch (e) {}
+}
+document.body.addEventListener('click', acquireWakeLock, { passive: true });
+document.body.addEventListener('touchstart', acquireWakeLock, { passive: true });
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') acquireWakeLock(); });
+
+let touchStartX = 0, touchStartY = 0, swipeStartTime = 0;
+slider.addEventListener('touchstart', (e) => {
+  touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY; swipeStartTime = Date.now();
+}, {passive: true});
+slider.addEventListener('touchend', (e) => {
+  const dx = e.changedTouches[0].clientX - touchStartX;
+  const dy = e.changedTouches[0].clientY - touchStartY;
+  const elapsed = Date.now() - swipeStartTime;
+  if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5 && elapsed < 600) {
+    if (dx < 0) goTo(currentIndex + 1); else goTo(currentIndex - 1);
+  }
+}, {passive: true});
+prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') goTo(currentIndex - 1);
+  else if (e.key === 'ArrowRight') goTo(currentIndex + 1);
+});
+exercises.forEach((ex, i) => buildSlide(ex, i));
+buildDoneSlide(); buildDots(); updateUI();
+</script>
+</body>
+</html>
