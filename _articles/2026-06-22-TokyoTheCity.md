@@ -18,7 +18,7 @@ It was 2020 when I visited Japan for the first time. Feb '20, just before COVID 
 
 I returned in Jan 2024 on a personal trip through Hong Kong, Osaka and Tokyo. Jan is winters, most of the time was spent indoors. Went to Disneyland, TeamLabs. I was simply a tourist. Loved it again.
 
-Life, or rather my kids (Riya and Ryan), brought me back to Tokyo later that same year (after hearing my stories of how much I've loved Japan). Now my role had changed: from sightseer to guide for them.
+Life, or rather my kids (Riya and Ryan), brought me back to Tokyo later that same year in June 2024 (after hearing my stories of how much I've loved Japan). Now my role had changed: from sightseer to guide for them.
 
 I was extremely curious then. Would they like the city I've grown to love so much?
 
@@ -30,7 +30,7 @@ They enjoyed it so much that I made a promise to my daughter, Riya: finish Class
 
 She kept her promise. She worked hard, did well in her exams, and earned her place.
 
-So did I, and I planned this trip as soon as her exams were over.
+So did I, kept my promise and I planned this trip as soon as her exams were over.
 
 Which is how we three found ourselves back in Tokyo again.
 
