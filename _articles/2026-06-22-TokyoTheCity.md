@@ -90,7 +90,7 @@ It's not that Japan necessarily has more talented chefs or better ingredients. I
 
 Walk into a ramen shop and nobody comes to take your order. There's a ticket vending machine at the entrance. You select your meal, pay, hand a printed slip to the kitchen. Done.
 
-The metro is a better example. The entry gates stay open by default. You tap your card as you walk through - barely breaking stride. Trivial detail, until you multiply it across millions of daily commuters. No queues at closed gates, no fumbling, no friction. Just people moving.
+The metro is a better example. The entry gates stay open by default. You tap your card as you walk through - barely pausing. Trivial detail, until you multiply it across millions of daily commuters. No queues at closed gates, no fumbling, no friction. Just people moving.
 
 We took a lot of metro rides this trip, and Ryan loved this part. Every time, he'd take out his Suica card, tap, and walk straight in. In a sea of people, my 12-year-old navigated the Tokyo metro like it was second nature.
 
