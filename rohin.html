@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raina Family — Japan Trip</title>
+<style>
+  :root{
+    --bg:#fbf7f2; --card:#ffffff; --ink:#241f1c; --muted:#6f655e;
+    --line:#ece3d8; --accent:#d6473b; --accent2:#1f7a6b; --gold:#c98a1b;
+    --sky:#2e6bb0; --shadow:0 1px 3px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.05);
+    --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.55;padding-bottom:48px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:620px;margin:0 auto;padding:0 16px}
+
+  header{padding:34px 0 18px;text-align:center}
+  .kicker{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  h1{font-size:30px;line-height:1.12;margin:8px 0 6px;letter-spacing:-.02em}
+  .sub{color:var(--muted);font-size:15px}
+  .route{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--muted)}
+  .route b{color:var(--ink)}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:18px;margin:14px 0}
+  .card h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;font-weight:700}
+
+  /* alert */
+  .alert{background:linear-gradient(180deg,#fff5f3,#fff);border-color:#f3cfc9}
+  .alert h2{color:var(--accent)}
+  ol.todo{list-style:none;counter-reset:t}
+  ol.todo li{position:relative;padding:9px 0 9px 38px;border-top:1px solid var(--line);counter-increment:t;font-size:15px}
+  ol.todo li:first-child{border-top:none}
+  ol.todo li::before{content:counter(t);position:absolute;left:0;top:8px;width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;background:#f1e7d8;color:var(--gold);margin-left:4px;vertical-align:middle}
+
+  /* weather strip */
+  .wx{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;text-align:center}
+  .wx .d{background:#f7f1e9;border-radius:12px;padding:9px 4px}
+  .wx .day{font-size:11px;color:var(--muted);font-weight:700}
+  .wx .ico{font-size:20px;margin:3px 0}
+  .wx .t{font-size:12px;font-weight:700}
+  .wx .r{font-size:10px;color:var(--sky)}
+
+  /* day cards */
+  .day-card{padding:0;overflow:hidden}
+  .day-head{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--line)}
+  .date-badge{flex:0 0 auto;width:54px;text-align:center;background:#2a2420;color:#fff;border-radius:12px;padding:7px 0}
+  .date-badge .dow{font-size:10px;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+  .date-badge .num{font-size:20px;font-weight:800;line-height:1}
+  .date-badge .mon{font-size:10px;opacity:.8}
+  .day-head .meta{flex:1;min-width:0}
+  .day-head .loc{font-size:17px;font-weight:700}
+  .day-head .tag{font-size:12px;color:var(--muted)}
+  .wxbadge{flex:0 0 auto;font-size:12px;font-weight:700;padding:5px 9px;border-radius:999px;background:#eef4fa;color:var(--sky);white-space:nowrap}
+  .wxbadge.sun{background:#fff4e0;color:#c98a1b}
+
+  .body{padding:6px 18px 18px}
+  .slot{position:relative;padding:13px 0 13px 16px;border-left:2px solid var(--line)}
+  .slot:last-child{padding-bottom:4px}
+  .slot::before{content:"";position:absolute;left:-6px;top:17px;width:10px;height:10px;border-radius:50%;background:var(--accent2);border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
+  .slot .when{font-size:12px;font-weight:700;color:var(--accent2);text-transform:uppercase;letter-spacing:.04em}
+  .slot .what{font-size:15px;margin-top:2px}
+  .slot .what b{font-weight:700}
+  .slot small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+
+  .note{margin-top:12px;background:#f7f1e9;border-radius:12px;padding:11px 13px;font-size:13px;color:#5b5149}
+  .note b{color:var(--ink)}
+  .rain{background:#eef4fa;color:#3a4a5c}
+  .rain b{color:#1f3550}
+
+  .two{display:grid;grid-template-columns:1fr;gap:0}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  td{padding:9px 0;border-top:1px solid var(--line);vertical-align:top}
+  td:first-child{color:var(--muted);width:46%}
+  td:last-child{text-align:right;font-weight:600}
+  tr:first-child td{border-top:none}
+
+  a{color:var(--accent);text-decoration:none;font-weight:600}
+  .links a{display:block;padding:10px 0;border-top:1px solid var(--line);font-size:15px;display:flex;justify-content:space-between;align-items:center}
+  .links a:first-child{border-top:none}
+  .links a span{color:var(--muted);font-weight:400;font-size:13px}
+
+  footer{text-align:center;color:var(--muted);font-size:12px;padding:24px 0 8px}
+  .flag{display:inline-block;background:var(--accent);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Family Itinerary</div>
+    <h1>Japan — Osaka &amp; Tokyo</h1>
+    <div class="sub">Mon 29 Jun – Sat 4 Jul 2026 · Rohin, Sheetal, Ayaan (12), Pranaya (4)</div>
+    <div class="route"><span>🚄 <b>Osaka</b></span><span>→</span><span><b>Tokyo</b></span><span>→</span><span>✈️ <b>Delhi</b></span></div>
+  </header>
+
+  <!-- BOOK TODAY -->
+  <div class="card alert">
+    <h2>⚠️ Worth booking ahead</h2>
+    <ol class="todo">
+      <li><b>Disney 1-Day tickets</b> — official app/site. Wed &amp; Thu are cheapest tier (¥7,900). <span class="pill">pick driest day</span></li>
+      <li><b>teamLab Planets</b> timed entry — official site; slots sell out.</li>
+      <li><b>Shibuya Sky</b> (optional) — timed entry for a clear evening. Free alt below.</li>
+    </ol>
+    <div class="note"><b>Shinkansen — no need to pre-book.</b> You're fine buying same-day: Nozomi runs every few minutes, and you can grab non-reserved seats or reserve at the station machine / SmartEX on the morning of. Just budget <b>3 adult fares</b> — Ayaan (12) counts as an adult on Japanese trains; Pranaya (4) is free on a lap (or ~¥7,360 for her own reserved seat, nice on a 2.5h ride).</div>
+  </div>
+
+  <!-- WEATHER -->
+  <div class="card">
+    <h2>🌦 Weather at a glance</h2>
+    <div class="wx">
+      <div class="d"><div class="day">Mon 29<br>Osaka</div><div class="ico">☀️</div><div class="t">28°</div><div class="r">~10%</div></div>
+      <div class="d"><div class="day">Tue 30<br>Osaka</div><div class="ico">🌦</div><div class="t">25°</div><div class="r">~50%</div></div>
+      <div class="d"><div class="day">Wed 1<br>Tokyo</div><div class="ico">🌥</div><div class="t">29°</div><div class="r">~45%</div></div>
+      <div class="d"><div class="day">Thu 2<br>Tokyo</div><div class="ico">🌧</div><div class="t">28°</div><div class="r">~55%</div></div>
+      <div class="d"><div class="day">Fri 3<br>Tokyo</div><div class="ico">🌥</div><div class="t">29°</div><div class="r">~45%</div></div>
+      <div class="d"><div class="day">Sat 4<br>Fly</div><div class="ico">✈️</div><div class="t">—</div><div class="r">am</div></div>
+    </div>
+    <div class="note rain"><b>It's tsuyu (rainy season) in Tokyo</b> through ~19 Jul — short bursts, humid 28–30°C, not all-day rain. Pack <b>light rain ponchos</b> (better than umbrellas at Disney/with kids) and a small towel. <b>Strategy:</b> the day-by-day below is weather-flexible — swap Disney onto the driest of Wed/Thu and keep teamLab (indoor) for the wettest. Decide the night before from the live forecast.</div>
+  </div>
+
+  <!-- DAY: Mon 29 -->
+  <div class="card day-card">
+    <div class="day-head">
+      <div class="date-badge"><div class="dow">Mon</div><div class="num">29</div><div class="mon">Jun</div></div>
+      <div class="meta"><div class="loc">Osaka — bay &amp; Namba</div><div class="tag">At Osaka Aquarium this morning</div></div>
+      <div class="wxbadge sun">☀️ 28° dry</div>
+    </div>
+    <div class="body">
+      <div class="slot"><div class="when">Now → noon</div><div class="what">Finish <b>Osaka Aquarium Kaiyukan</b>.<small>Right outside: the <b>Tempozan Ferris Wheel</b> + harbour — quick, easy with Pranaya before you leave the bay.</small></div></div>
+      <div class="slot"><div class="when">Evening</div><div class="what"><b>Dotonbori street-food crawl</b> (8 min from your hotel).<small>Takoyaki, okonomiyaki, kushikatsu; Glico sign, the moving crab, riverside Don Quijote Ferris wheel. Weather's good tonight — do the outdoor stuff now.</small></div></div>
+      <div class="slot"><div class="when">Optional</div><div class="what"><b>Shinsekai &amp; Tsutenkaku Tower</b> for retro neon + kushikatsu dinner.<small>Skip if the kids are tired — Dotonbori alone is plenty.</small></div></div>
+      <div class="note"><b>Deliberately skipping</b> more museums/aquariums — you've done Nagoya science museum + Kaiyukan, so tonight is food, lights and atmosphere instead.</div>
+    </div>
+  </div>
+
+  <!-- DAY: Tue 30 -->
+  <div class="card day-card">
+    <div class="day-head">
+      <div class="date-badge"><div class="dow">Tue</div><div class="num">30</div><div class="mon">Jun</div></div>
+      <div class="meta"><div class="loc">Osaka morning → Tokyo</div><div class="tag">Hotel checkout before 11:00</div></div>
+      <div class="wxbadge">🌦 25° showers</div>
+    </div>
+    <div class="body">
+      <div class="slot"><div class="when">Morning — indoor pick</div><div class="what"><b>Pokémon Center Osaka + Nintendo Osaka</b> at Daimaru Umeda.<small>Big kid-pleaser for both, all indoor (rain-proof), and Umeda is <i>on the way</i> to Shin-Osaka. A fresh experience vs. yesterday's animals/science.</small></div></div>
+      <div class="slot"><div class="when">Alt / add-on</div><div class="what"><b>Kuromon Ichiba Market</b> (covered) for a food breakfast, or <b>Osaka Castle</b> for Ayaan if skies clear.<small>Checkout, then store bags at reception while you go.</small></div></div>
+      <div class="slot"><div class="when">~11:30</div><div class="what">Collect bags → <b>Namba → Shin-Osaka</b> (Midōsuji line, ~12 min).</div></div>
+      <div class="slot"><div class="when">~12:30–13:00</div><div class="what"><b>Nozomi to Tokyo</b> (~2h30m), arrive Tokyo Station ~15:00–15:30.<small>Buy on the spot — no advance booking needed. Non-reserved cars are fine; or reserve at the machine. If a suitcase is &gt;160cm (L+W+H), reserving an "oversized baggage" rear-row seat is free and avoids a ¥1,000/bag fee.</small></div></div>
+      <div class="slot"><div class="when">16:00</div><div class="what"><b>Check in — Airbnb, 1 Chome-7-20 Okubo</b>, Shinjuku.</div></div>
+      <div class="slot"><div class="when">Evening</div><div class="what"><b>Shin-Okubo (Koreatown)</b> dinner — you're right next to it.<small>Korean BBQ, cheese corndogs; then 24h Don Quijote for snacks/souvenirs.</small></div></div>
+    </div>
+  </div>
+
+  <!-- DAY: Wed 1 -->
+  <div class="card day-card">
+    <div class="day-head">
+      <div class="date-badge"><div class="dow">Wed</div><div class="num">1</div><div class="mon">Jul</div></div>
+      <div class="meta"><div class="loc">Disney — full day</div><div class="tag">Best on the driest of Wed/Thu</div></div>
+      <div class="wxbadge sun">🌥 29° drier</div>
+    </div>
+    <div class="body">
+      <div class="slot"><div class="when">~7:30 leave</div><div class="what"><b>Tokyo Disneyland</b> (best for a 4-year-old) — or DisneySea if you're set on Frozen / Fantasy Springs.<small>JR → Tokyo Stn → Keiyo Line → Maihama (~50–60 min). Parks 9:00–21:00.</small></div></div>
+      <div class="slot"><div class="when">All day</div><div class="what">Use the <b>official app</b> for free Standby Passes, <b>Premier Access</b> (¥1,500–2,000/ride — worth it with kids) &amp; Mobile Order.<small>Rent/bring a stroller for Pranaya. Pack ponchos — short showers likely.</small></div></div>
+      <div class="note rain"><b>Why Wed not Fri:</b> Disneyland <b>closes early Fri 3 Jul (6:30pm)</b>. Wed &amp; Thu run the full 9–9 and are the cheapest ticket tier.</div>
+    </div>
+  </div>
+
+  <!-- DAY: Thu 2 -->
+  <div class="card day-card">
+    <div class="day-head">
+      <div class="date-badge"><div class="dow">Thu</div><div class="num">2</div><div class="mon">Jul</div></div>
+      <div class="meta"><div class="loc">teamLab + bayside</div><div class="tag">Great rainy-day plan (mostly indoor)</div></div>
+      <div class="wxbadge">🌧 28° wettest</div>
+    </div>
+    <div class="body">
+      <div class="slot"><div class="when">Morning</div><div class="what"><b>teamLab Planets, Toyosu</b> — barefoot light-and-water rooms + new kids' Athletics Forest.<small>¥3,200 adult · ¥800 child · under-4 free. ~40 min from Shinjuku, ~1.5–2h. Pranaya gets wet to the knees — bring a change. <i>Lower-hassle alt:</i> teamLab Borderless (dry, shoes on).</small></div></div>
+      <div class="slot"><div class="when">Afternoon</div><div class="what"><b>Odaiba</b> (next stop on the Yurikamome) — life-size Gundam, DiverCity mall, waterfront.<small>Plenty of covered mall dining if it's pouring.</small></div></div>
+      <div class="slot"><div class="when">Optional add</div><div class="what"><b>Walk the Rainbow Bridge</b> 🌈 — free pedestrian promenade right here in Odaiba.<small>~1.7km / 25–30 min one-way crossing, free, great bay + skyline views (open 9am–9pm in summer). With Pranaya, do one direction only or just see it lit at dusk. Enter from the Shibaura side (Shibaura-futō stn, 5-min walk) — it has a lift; the Odaiba side is a long ramp. ~30–40 min from your Okubo stay, but a natural pairing with this Odaiba day.</small></div></div>
+      <div class="note"><b>Weather swap:</b> if Thu looks driest instead, move Disney here and do teamLab on the cloudier day — it's all indoor. (Skip the Rainbow Bridge walk if it's raining.)</div>
+    </div>
+  </div>
+
+  <!-- DAY: Fri 3 -->
+  <div class="card day-card">
+    <div class="day-head">
+      <div class="date-badge"><div class="dow">Fri</div><div class="num">3</div><div class="mon">Jul</div></div>
+      <div class="meta"><div class="loc">Shopping, food &amp; a view</div><div class="tag">Keep it light — early flight tomorrow</div></div>
+      <div class="wxbadge">🌥 29° mixed</div>
+    </div>
+    <div class="body">
+      <div class="slot"><div class="when">Daytime</div><div class="what"><b>Shibuya</b> (~7 min) — Pokémon Center Shibuya (free), Shibuya PARCO, crepes on Takeshita St in nearby Harajuku.</div></div>
+      <div class="slot"><div class="when">Late afternoon</div><div class="what"><b>Shibuya Sky</b> rooftop deck (book a clear slot, ¥2,500–2,700).<small>Hold Pranaya's hand up top — it's open-air. Skip if it's raining/windy.</small></div></div>
+      <div class="slot"><div class="when">Free view alt</div><div class="what"><b>Tokyo Metropolitan Gov't Building (Tocho)</b> — free 202m observation deck, ~15 min from your Okubo stay.<small>South deck open 9:30am–9:30pm (open Fri 3 Jul); enclosed, so it works in rain too. Same skyline as Shibuya Sky, ¥0. There's even a free piano up top.</small></div></div>
+      <div class="slot"><div class="when">Rainy-day swap</div><div class="what"><b>Ikebukuro Sunshine City</b> — biggest Pokémon Center + indoor aquarium + playground, all under one roof.</div></div>
+      <div class="slot"><div class="when">Evening</div><div class="what"><b>PACK tonight</b>, confirm the morning taxi, early sleep.</div></div>
+    </div>
+  </div>
+
+  <!-- DAY: Sat 4 -->
+  <div class="card day-card">
+    <div class="day-head">
+      <div class="date-badge"><div class="dow">Sat</div><div class="num">4</div><div class="mon">Jul</div></div>
+      <div class="meta"><div class="loc">Fly home — very early</div><div class="tag">MU576 · HND T3 · PNR ML9VPE</div></div>
+      <div class="wxbadge">✈️ 08:40</div>
+    </div>
+    <div class="body">
+      <div class="slot"><div class="when">~05:00–05:15 · train (cheapest)</div><div class="what"><b>Okubo → Haneda T3</b> by train works fine.<small>Walk to Shinjuku/Shin-Okubo → JR Yamanote to Shinagawa → Keikyu Airport Line to HND T3. ~40 min, <b>~¥1,600 total</b> for all four (¥540×3 adults; Pranaya free). First trains run early enough to reach T3 by ~6:00.</small></div></div>
+      <div class="slot"><div class="when">Optional · taxi/van</div><div class="what">Door-to-door if you'd rather not juggle trains at 5am.<small>~20–30 min, <b>~¥7,000–9,000</b> (incl. tolls). Pre-book a van (Welcome Pickups / Klook / Nearme) by Fri for a guaranteed 4-seater with luggage room. Costs ~¥6–7k more than the train — purely a comfort call.</small></div></div>
+      <div class="slot"><div class="when">~06:15–06:30</div><div class="what">At <b>Haneda Terminal 3</b>, check in.<small>China Eastern counter + bag drop <b>closes 07:40</b> (60 min before).</small></div></div>
+      <div class="slot"><div class="when">08:40</div><div class="what"><b>MU576</b> → Shanghai (PVG, arr 10:45) → 2h50m layover → MU563 → <b>New Delhi 17:45</b>.</div></div>
+      <div class="note rain"><b>Bags:</b> 2 checked pieces up to 46kg total + 7kg cabin (1 pc) per person. <b>Power banks/lithium batteries in hand baggage only.</b> Carry passports (only valid hotel ID) and check China transit rules for the Shanghai stop.</div>
+    </div>
+  </div>
+
+  <!-- BOOKING LINKS -->
+  <div class="card">
+    <h2>🔗 Book &amp; reference</h2>
+    <div class="links">
+      <a href="https://www.tokyodisneyresort.jp/en/ticket/" target="_blank">Disney tickets <span>+ official app</span></a>
+      <a href="https://teamlabplanets.dmm.com/en" target="_blank">teamLab Planets <span>timed entry</span></a>
+      <a href="https://smart-ex.jp/en" target="_blank">Shinkansen — SmartEX <span>optional, same-day OK</span></a>
+      <a href="https://www.welcomepickups.com/tokyo/airport-taxi/" target="_blank">Haneda transfer <span>optional · book by Fri</span></a>
+    </div>
+  </div>
+
+  <!-- COSTS -->
+  <div class="card">
+    <h2>💴 Cost ballpark (family of 4, JPY)</h2>
+    <table>
+      <tr><td>Shinkansen Osaka→Tokyo</td><td>~¥52,000</td></tr>
+      <tr><td>Disney day (tickets)</td><td>~¥28,000</td></tr>
+      <tr><td>teamLab Planets</td><td>~¥10,400</td></tr>
+      <tr><td>Shibuya Sky (free at Tocho)</td><td>~¥9,000 / ¥0</td></tr>
+      <tr><td>Haneda transfer — train / taxi</td><td>~¥1,600 / ~¥8,000</td></tr>
+    </table>
+    <div class="note">Excludes hotels, flights, food &amp; in-park extras. Tickets only — a guide for what to set aside.</div>
+  </div>
+
+  <footer>
+    Built 29 Jun 2026 · weather is rainy-season guidance — re-check the live forecast each morning.
+  </footer>
+
+</div>
+</body>
+</html>
