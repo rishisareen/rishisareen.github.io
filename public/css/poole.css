@@ -94,8 +94,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #303030;
   text-rendering: optimizeLegibility;
 }
+/* Sized against the real archive rather than by eye: across 94 article titles
+ * in the 48rem column, 2.5rem wrapped 25 of them and pushed some to three
+ * lines, where a heading stops reading as one. 2.1rem wraps 11 and caps every
+ * title at two lines. No size stops long titles wrapping - the longest runs to
+ * 79 characters - so the goal is bounding the damage, not avoiding it. */
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.1rem;
 }
 h2 {
   font-size: 1.3rem;
