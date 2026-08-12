@@ -74,16 +74,21 @@
             {{ content }}
           </div>
         </article>
-
-        <aside class="notes-toc-sidebar">
-          <nav class="toc" id="notes-toc">
-            <h4>Contents</h4>
-            <ul id="notes-toc-list"></ul>
-          </nav>
-        </aside>
       </main>
     </div>
-    </div>
+
+    {% comment %}
+      Kept outside .notes-wrap, like .notes-sidebar-toggle: opening the nav puts
+      a transform on .notes-wrap, and a transformed ancestor makes position:fixed
+      resolve against it instead of the viewport, so a TOC nested inside would
+      jump sideways and scroll away with the page.
+    {% endcomment %}
+    <aside class="notes-toc-sidebar">
+      <nav class="toc" id="notes-toc">
+        <h4>Contents</h4>
+        <ul id="notes-toc-list"></ul>
+      </nav>
+    </aside>
 
     <script>
     (function() {

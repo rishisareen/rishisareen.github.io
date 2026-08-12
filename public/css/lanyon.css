@@ -85,11 +85,11 @@ body {
 }
 
 html {
-  font-family: Athelas, Palatino, Georgia, serif;
+  font-family: 'Gentium Book Basic', Palatino, Georgia, serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Athelas, Palatino, Georgia, serif;
+  font-family: 'Gentium Book Basic', Palatino, Georgia, serif;
   font-weight: 700;
   color: #303030;
   letter-spacing: 0;
@@ -152,7 +152,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .site-title {
-  font-family: Athelas, Palatino, Georgia, serif;
+  font-family: 'Gentium Book Basic', Palatino, Georgia, serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
@@ -172,7 +172,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-link {
-  font-family: Athelas, Palatino, Georgia, serif;
+  font-family: 'Gentium Book Basic', Palatino, Georgia, serif;
   font-size: 1rem;
   font-weight: 400;
   color: #fff;
@@ -212,13 +212,9 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
   }
 
-  h2 {
-    font-size: 1.4rem;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-  }
+  /* h2/h3 used to be shrunk here because the desktop scale (2rem/1.5rem) was
+     far too large for a phone. The scale in poole.css is now restrained enough
+     to serve both, so there is only one set of heading sizes to reason about. */
 }
 
 
@@ -246,7 +242,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 14rem;
   visibility: hidden;
   overflow-y: auto;
-  font-family: Athelas, Palatino, Georgia, serif;
+  font-family: 'Gentium Book Basic', Palatino, Georgia, serif;
   font-size: .875rem; /* 15px */
   color: rgba(255,255,255,.6);
   background-color: #202020;
@@ -997,8 +993,14 @@ a.pagination-item:hover {
 .notes-toc-sidebar {
   position: fixed;
   top: 6rem;
-  right: 2rem;
-  width: 320px;
+  /* Same approach as .toc-sidebar: anchor to the centred .notes-content
+     (max-width 60rem, 3rem padding) instead of the viewport's right edge, so
+     the TOC tracks the text column rather than drifting into it as the window
+     narrows. 28rem leaves the same 1rem gap the article TOC uses. */
+  left: calc(50% + 28rem);
+  width: 200px;
+  /* Never spill past the right edge, whatever the breakpoint below rounds to. */
+  max-width: calc(50% - 28rem);
 }
 
 .notes-toc-sidebar .toc {
@@ -1051,7 +1053,11 @@ a.pagination-item:hover {
   font-weight: 600;
 }
 
-@media (max-width: 100em) {
+/* 91.5em is 1464px - media-query em ignores the root font-size, unlike the rem
+   above. Anything wider clears 28rem + 200px from the centre line. The notes
+   column is 60rem against the article's 48rem, so this TOC needs a wider window
+   than .toc-sidebar before it can sit beside the text instead of on top of it. */
+@media (max-width: 91.5em) {
   .notes-toc-sidebar {
     display: none;
   }
@@ -1133,6 +1139,12 @@ a.pagination-item:hover {
 /* Make sidebar visible only when toggled */
 #notes-sidebar-checkbox:checked ~ .notes-sidebar {
   visibility: visible;
+}
+
+/* The push slides the note 280px right, straight under a right-anchored TOC.
+   Stand it down while the nav drawer is open - you are navigating, not reading. */
+#notes-sidebar-checkbox:checked ~ .notes-toc-sidebar {
+  display: none;
 }
 
 /* Desktop and Mobile - same behavior */
@@ -1610,8 +1622,16 @@ a.pagination-item:hover {
 .toc-sidebar {
   position: fixed;
   top: 6rem;
-  right: calc((100vw - 48rem) / 2 - 240px);
+  /* Anchor to the centred .container rather than measuring from 100vw.
+     Percentages on a fixed element resolve against the viewport minus any
+     classic scrollbar - the same box .container is centred in - so Chrome and
+     Safari agree. 23rem also tracks .container's 24rem half-width whatever the
+     root font-size happens to be (poole.css sets it to 19px above 38em, so a
+     hard-coded px offset drifts by ~144px). */
+  left: calc(50% + 23rem);
   width: 200px;
+  /* Never spill past the right edge, whatever the breakpoint below rounds to. */
+  max-width: calc(50% - 23rem);
 }
 
 .toc {
@@ -1663,6 +1683,9 @@ a.pagination-item:hover {
   font-weight: 600;
 }
 
+/* 80em is 1280px - media-query em ignores the root font-size, unlike the rem
+   above. Anything wider clears 23rem + 200px from the centre line, so whenever
+   the TOC is shown it has room for its full width. */
 @media (max-width: 80em) {
   .toc-sidebar {
     display: none;

@@ -48,7 +48,7 @@ body {
 }
 
 html {
-  font-family: Athelas, Palatino, Georgia, serif;
+  font-family: 'Gentium Book Basic', Palatino, Georgia, serif;
   font-size: 18px;
   line-height: 1.6;
 }
@@ -80,10 +80,15 @@ a:focus {
   border-bottom: 1px dotted currentColor;
 }
 
-/* Headings */
+/* Headings
+ *
+ * Section headings sit close to body size and lean on weight rather than scale
+ * to mark a break - a heading at twice the body size shouts on every section.
+ * The space above does the separating instead: 2em above, 0.5em below, so a
+ * heading reads as attached to the text it introduces, not to the text above. */
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 1em;
-  margin-bottom: .25em;
+  margin-top: 2em;
+  margin-bottom: .5em;
   font-weight: bold;
   line-height: 1.25;
   color: #303030;
@@ -93,16 +98,16 @@ h1 {
   font-size: 2.5rem;
 }
 h2 {
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 }
 h4 {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 h5 {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 h6 {
   font-size: 0.75rem;
@@ -110,10 +115,13 @@ h6 {
   letter-spacing: 0.02em;
 }
 
-/* Body text */
+/* Body text
+ *
+ * A full blank line between paragraphs. At 0.5em the gap was barely larger
+ * than the leading inside a paragraph, so blocks of text ran together. */
 p {
   margin-top: 0;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.5em;
 }
 
 strong {
