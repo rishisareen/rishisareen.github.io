@@ -1166,6 +1166,15 @@ a.pagination-item:hover {
   margin-bottom: 3rem;
 }
 
+.home-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 22%;
+  margin-bottom: 1.5rem;
+}
+
 .hero h1 {
   font-size: 2.75rem;
   font-weight: 700;
@@ -1334,6 +1343,12 @@ a.pagination-item:hover {
 
   .hero p {
     font-size: 1.15rem;
+  }
+
+  .home-avatar {
+    width: 88px;
+    height: 88px;
+    margin-bottom: 1.25rem;
   }
 }
 
