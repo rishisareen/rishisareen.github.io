@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Live trip tracker — Delhi to Almaty, 11–18 September 2026. Flights, stays and a day-by-day that highlights today.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#2E5F51">
+<style>
+  html{color-scheme:light dark}
+  body{margin:0}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+</style>
+<title>Eight Days in Almaty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+:root{
+  --ground:#F1F3F1;
+  --surface:#FFFFFF;
+  --surface-2:#E6EBE8;
+  --ink:#14201C;
+  --ink-2:#4A5B54;
+  --ink-3:#7C8D85;
+  --line:#D2DAD6;
+  --line-strong:#B6C2BC;
+  --accent:#2E5F51;
+  --accent-soft:#DCE8E3;
+  --gold:#9C6D18;
+  --gold-soft:#F0E5C9;
+  --warn:#8A3E1E;
+  --warn-soft:#F4E1D7;
+  --live:#1C6B4A;
+  --live-soft:#D6EBDF;
+
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+
+  --wrap:62rem;
+  --r:4px;
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E1413; --surface:#161E1B; --surface-2:#1E2926;
+    --ink:#E9EFEB; --ink-2:#A6B5AF; --ink-3:#7B8C85;
+    --line:#293733; --line-strong:#3A4A45;
+    --accent:#84BCA9; --accent-soft:#1C302A;
+    --gold:#DCAE58; --gold-soft:#31280F;
+    --warn:#E09571; --warn-soft:#332016;
+    --live:#6FD2A0; --live-soft:#14301F;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E1413; --surface:#161E1B; --surface-2:#1E2926;
+  --ink:#E9EFEB; --ink-2:#A6B5AF; --ink-3:#7B8C85;
+  --line:#293733; --line-strong:#3A4A45;
+  --accent:#84BCA9; --accent-soft:#1C302A;
+  --gold:#DCAE58; --gold-soft:#31280F;
+  --warn:#E09571; --warn-soft:#332016;
+  --live:#6FD2A0; --live-soft:#14301F;
+}
+
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 1.25rem}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* masthead */
+.masthead{background:var(--surface);border-bottom:1px solid var(--line-strong)}
+.masthead .wrap{padding-top:2.5rem;padding-bottom:1.75rem;display:flex;flex-direction:column;gap:.85rem}
+.eyebrow{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(2.1rem,7vw,3.4rem);line-height:1.03;letter-spacing:-.025em;margin:0;text-wrap:balance}
+
+.statusbar{
+  display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
+  background:var(--accent-soft);border:1px solid var(--accent);
+  border-radius:var(--r);padding:.75rem 1rem;
+}
+.pulse{width:9px;height:9px;border-radius:50%;background:var(--live);flex:none;box-shadow:0 0 0 0 var(--live);animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(28,107,74,.45)}70%{box-shadow:0 0 0 9px rgba(28,107,74,0)}100%{box-shadow:0 0 0 0 rgba(28,107,74,0)}}
+@media (prefers-reduced-motion: reduce){.pulse{animation:none}}
+#statusMain{font-family:var(--f-display);font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+#statusSub{font-size:.94rem;color:var(--ink-2)}
+#clock{margin-left:auto;font-family:var(--f-mono);font-size:.8rem;color:var(--ink-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* sections */
+section{padding:2.5rem 0 .25rem}
+.sec-head{display:flex;align-items:baseline;gap:.8rem;margin-bottom:1.2rem;border-bottom:1px solid var(--line-strong);padding-bottom:.5rem}
+.sec-head h2{font-family:var(--f-display);font-weight:700;font-size:1.35rem;letter-spacing:-.02em;margin:0}
+.sec-head .note{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin-left:auto;white-space:nowrap}
+
+/* chips */
+.chip{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--f-mono);font-size:.65rem;letter-spacing:.09em;text-transform:uppercase;padding:.2rem .5rem;border-radius:100px;border:1px solid var(--line-strong);color:var(--ink-2);background:var(--surface-2);white-space:nowrap}
+.chip.now{background:var(--live-soft);border-color:var(--live);color:var(--live)}
+.chip.next{background:var(--gold-soft);border-color:var(--gold);color:var(--gold)}
+.chip.done{opacity:.6}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(19rem,1fr));gap:1rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.1rem 1.2rem;display:flex;flex-direction:column;gap:.6rem}
+.card.active{border-color:var(--live);box-shadow:inset 3px 0 0 var(--live)}
+.card.past{opacity:.55}
+.card h3{font-family:var(--f-display);font-weight:600;font-size:1.08rem;letter-spacing:-.01em;margin:0;display:flex;align-items:center;gap:.55rem;flex-wrap:wrap}
+.route{display:flex;align-items:center;gap:.7rem;font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.port{display:flex;flex-direction:column;gap:.1rem}
+.port b{font-family:var(--f-display);font-weight:700;font-size:1.5rem;letter-spacing:-.02em;line-height:1}
+.port span{font-size:.72rem;color:var(--ink-3);letter-spacing:.04em}
+.arrow{flex:1;height:1px;background:var(--line-strong);position:relative;min-width:1.5rem}
+.arrow::after{content:"";position:absolute;right:0;top:-3px;border-left:6px solid var(--line-strong);border-top:3.5px solid transparent;border-bottom:3.5px solid transparent}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:.25rem .8rem;font-size:.9rem}
+.kv dt{font-family:var(--f-mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding-top:.25rem}
+.kv dd{margin:0;color:var(--ink)}
+.cardlinks{display:flex;gap:.9rem;flex-wrap:wrap;font-family:var(--f-mono);font-size:.75rem;margin-top:.15rem;padding-top:.6rem;border-top:1px dotted var(--line-strong)}
+
+/* days */
+.days{display:flex;flex-direction:column;gap:.6rem}
+details.day{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+details.day[open]{border-color:var(--line-strong)}
+details.day.today{border-color:var(--live);box-shadow:inset 3px 0 0 var(--live)}
+details.day.past{opacity:.5}
+details.day > summary{cursor:pointer;list-style:none;padding:.9rem 1.1rem;display:grid;grid-template-columns:4.4rem 1fr auto;gap:.9rem;align-items:center}
+details.day > summary::-webkit-details-marker{display:none}
+.dnum{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;color:var(--ink-3);text-transform:uppercase;line-height:1.3}
+.dnum b{display:block;font-family:var(--f-display);font-weight:700;font-size:1.15rem;color:var(--ink);letter-spacing:-.01em}
+.dtitle{font-family:var(--f-display);font-weight:600;font-size:1.02rem;letter-spacing:-.01em;text-wrap:balance}
+.dtitle small{display:block;font-family:var(--f-body);font-weight:400;font-size:.87rem;color:var(--ink-2);letter-spacing:0;margin-top:.1rem}
+.dbody{padding:0 1.1rem 1.1rem;border-top:1px dotted var(--line-strong);margin-top:.2rem;padding-top:.9rem}
+.sked{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.5rem}
+.sked li{display:grid;grid-template-columns:4.1rem 1fr;gap:.8rem;align-items:baseline}
+.sked time{font-family:var(--f-mono);font-size:.76rem;color:var(--accent);font-variant-numeric:tabular-nums}
+.sked b{font-family:var(--f-display);font-weight:600;font-size:.98rem}
+.pace{font-family:var(--f-mono);font-size:.63rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+.flag{border-left:3px solid var(--warn);background:var(--warn-soft);padding:.6rem .8rem;margin-top:.85rem;font-size:.92rem;border-radius:0 var(--r) var(--r) 0}
+.flag strong{font-family:var(--f-display);font-weight:600}
+.opt{border:1px dashed var(--line-strong);border-radius:var(--r);padding:.6rem .8rem;margin-top:.8rem;font-size:.92rem;color:var(--ink-2)}
+.opt strong{font-family:var(--f-display);font-weight:600;color:var(--ink)}
+
+/* notes */
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(15.5rem,1fr));gap:1.2rem 2rem}
+.note-item h4{font-family:var(--f-mono);font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 .3rem}
+.note-item p{margin:0;font-size:.94rem;color:var(--ink-2)}
+.note-item p + p{margin-top:.4rem}
+.note-item strong{color:var(--ink);font-weight:600}
+.mono{font-family:var(--f-mono);font-size:.9em;font-variant-numeric:tabular-nums}
+
+.checks{list-style:none;margin:0;padding:0}
+.checks li{display:grid;grid-template-columns:1.5rem 1fr;gap:.8rem;padding:.75rem 0;border-bottom:1px solid var(--line);align-items:start}
+.checks li:last-child{border-bottom:none}
+.checks li::before{content:"";width:1rem;height:1rem;border:1.5px solid var(--line-strong);border-radius:var(--r);margin-top:.3rem;background:var(--surface)}
+.checks b{font-family:var(--f-display);font-weight:600;display:block}
+.checks span{color:var(--ink-2);font-size:.94rem}
+
+footer{border-top:1px solid var(--line-strong);margin-top:2.5rem;padding:1.5rem 0 3rem;font-size:.86rem;color:var(--ink-3)}
+footer p{margin:0 0 .4rem;max-width:44rem}
+
+@media(max-width:40rem){
+  body{font-size:16px}
+  details.day > summary{grid-template-columns:3.9rem 1fr;gap:.7rem}
+  details.day > summary .pace{grid-column:2;justify-self:start}
+  .sked li{grid-template-columns:3.5rem 1fr;gap:.55rem}
+  #clock{margin-left:0;width:100%}
+}
+</style>
+
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">Delhi → Almaty · 11–18 September 2026</p>
+    <h1>Eight Days in Almaty</h1>
+    <div class="statusbar">
+      <span class="pulse" aria-hidden="true"></span>
+      <div>
+        <div id="statusMain">Loading…</div>
+        <div id="statusSub"></div>
+      </div>
+      <div id="clock"></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- FLIGHTS -->
+<section>
+  <div class="sec-head"><h2>Flights</h2><span class="note">Air Astana · booked</span></div>
+  <div class="cards">
+
+    <article class="card" data-start="2026-09-11T06:05:00Z" data-end="2026-09-11T09:30:00Z" data-kind="flight">
+      <h3>KC 908 <span class="chip" data-chip></span></h3>
+      <div class="route">
+        <div class="port"><b>DEL</b><span>Delhi T3</span></div>
+        <div class="arrow"></div>
+        <div class="port"><b>ALA</b><span>Almaty T2</span></div>
+      </div>
+      <dl class="kv">
+        <dt>Depart</dt><dd>Fri 11 Sep, <span class="mono">11:35</span> Delhi time</dd>
+        <dt>Arrive</dt><dd>Fri 11 Sep, <span class="mono">14:30</span> Almaty time</dd>
+        <dt>Duration</dt><dd>2 h 55 m · gate 6, Terminal 3</dd>
+      </dl>
+      <div class="cardlinks">
+        <a href="https://www.flightradar24.com/data/flights/kc908" target="_blank" rel="noopener">Live status ↗</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Almaty+International+Airport" target="_blank" rel="noopener">Airport map ↗</a>
+      </div>
+    </article>
+
+    <article class="card" data-start="2026-09-18T15:15:00Z" data-end="2026-09-18T18:40:00Z" data-kind="flight">
+      <h3>KC 963 <span class="chip" data-chip></span></h3>
+      <div class="route">
+        <div class="port"><b>ALA</b><span>Almaty T2</span></div>
+        <div class="arrow"></div>
+        <div class="port"><b>DEL</b><span>Delhi T3</span></div>
+      </div>
+      <dl class="kv">
+        <dt>Depart</dt><dd>Fri 18 Sep, <span class="mono">20:15</span> Almaty time</dd>
+        <dt>Arrive</dt><dd>Sat 19 Sep, <span class="mono">00:10</span> Delhi time</dd>
+        <dt>Leave by</dt><dd><span class="mono">17:00</span> from the apartment</dd>
+      </dl>
+      <div class="cardlinks">
+        <a href="https://www.flightradar24.com/data/flights/kc963" target="_blank" rel="noopener">Live status ↗</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- STAYS -->
+<section>
+  <div class="sec-head"><h2>Stays</h2><span class="note">Both on Abylai Khan Ave</span></div>
+  <div class="cards">
+
+    <article class="card" data-start="2026-09-11T09:00:00Z" data-end="2026-09-15T07:00:00Z" data-kind="stay">
+      <h3>Novotel Living Jetisu <span class="chip" data-chip></span></h3>
+      <dl class="kv">
+        <dt>Dates</dt><dd>Fri 11 → Tue 15 Sep · 4 nights</dd>
+        <dt>Address</dt><dd>Abylai Khan Avenue 55</dd>
+        <dt>Check-in</dt><dd>From <span class="mono">14:00</span> · 24 h front desk</dd>
+        <dt>Nearby</dt><dd>Almaly metro 5 min · Arbat 500 m</dd>
+      </dl>
+      <div class="cardlinks">
+        <a href="https://www.google.com/maps/search/?api=1&query=Novotel+Living+Almaty+Jetisu%2C+Abylai+Khan+Avenue+55%2C+Almaty" target="_blank" rel="noopener">Map ↗</a>
+        <a href="https://all.accor.com/hotel/B5J5/index.en.shtml" target="_blank" rel="noopener">Hotel page ↗</a>
+      </div>
+    </article>
+
+    <article class="card" data-start="2026-09-15T10:00:00Z" data-end="2026-09-18T07:00:00Z" data-kind="stay">
+      <h3>Юбилейный однокомнатная <span class="chip" data-chip></span></h3>
+      <dl class="kv">
+        <dt>Dates</dt><dd>Tue 15 → Fri 18 Sep · 3 nights</dd>
+        <dt>Address</dt><dd>Abylai Khan Avenue 74 (cnr Aiteke Bi)</dd>
+        <dt>Check-in</dt><dd><span class="mono">15:00–24:00</span> · smart lock, code by WhatsApp</dd>
+        <dt>Check-out</dt><dd>By <span class="mono">12:00</span> · no front desk</dd>
+        <dt>Manager</dt><dd><span class="mono">+7 707 745 4568</span></dd>
+      </dl>
+      <div class="cardlinks">
+        <a href="https://www.google.com/maps/search/?api=1&query=%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82+%D0%90%D0%B1%D1%8B%D0%BB%D0%B0%D0%B9+%D0%A5%D0%B0%D0%BD%D0%B0+74%2C+Almaty" target="_blank" rel="noopener">Map ↗</a>
+        <a href="https://wa.me/77077454568" target="_blank" rel="noopener">WhatsApp manager ↗</a>
+      </div>
+      <div class="flag"><strong>Two things to confirm by message.</strong> That they will file your eQonaq arrival registration, and where the bags go on the 18th between 12:00 checkout and the 17:00 airport run.</div>
+    </article>
+
+  </div>
+</section>
+
+<!-- DAYS -->
+<section>
+  <div class="sec-head"><h2>The week</h2><span class="note">Tap a day · today opens itself</span></div>
+  <div class="days">
+
+    <details class="day" data-date="2026-09-11">
+      <summary>
+        <span class="dnum">Day 1<b>Fri 11</b></span>
+        <span class="dtitle">Land and wander<small>Nothing scheduled. You've been on a plane.</small></span>
+        <span class="pace">Easy</span>
+      </summary>
+      <div class="dbody">
+        <ul class="sked">
+          <li><time>14:30</time><span><b>Land at Almaty.</b> Draw ₸25,000 (₹5,200) at an arrivals ATM and switch on the eSIM.</span></li>
+          <li><time>15:00</time><span><b>Into town on Yandex Go</b> — ₸5,000–7,500 (₹1,040–1,550) mid-afternoon. Walk to the app's pickup pin rather than the taxi rank. The Blue Sky counter inside the terminal is the fallback at a fixed ₸9,000 (₹1,870). Ignore anyone who approaches you. Allow 35–45 min on a Friday.</span></li>
+          <li><time>16:30</time><span><b>Walk to Panfilov Park</b> — about 1 km from the hotel. Zenkov Cathedral, all wood, came through the 1911 earthquake standing.</span></li>
+          <li><time>18:00</time><span><b>Dinner on Arbat</b>, five minutes from your door. Then sleep.</span></li>
+        </ul>
+        <div class="flag"><strong>Keep tonight loose.</strong> The daytime KC908 has a habit of running late. Don't book anything you'd mind losing.</div>
+      </div>
+    </details>
+
+    <details class="day" data-date="2026-09-12">
+      <summary>
+        <span class="dnum">Day 2<b>Sat 12</b></span>
+        <span class="dtitle">Bazaar, Arbat, sunset from Kok-Tobe<small>All on foot bar one cable car</small></span>
+        <span class="pace">Easy</span>
+      </summary>
+      <div class="dbody">
+        <ul class="sked">
+          <li><time>10:00</time><span><b>Green Bazaar.</b> Dried apricots, kurt, spice, horse sausage. Shut on Mondays, so today is the day. Let him taste his way down the nut stalls; haggling is expected.</span></li>
+          <li><time>12:30</time><span><b>Lunch, then drift.</b> Arbat, Astana Square, and half an hour riding the metro just to look at the stations.</span></li>
+          <li><time>16:30</time><span><b>Kok-Tobe cable car.</b> Six minutes up from near Hotel Kazakhstan. ₸10,000 (₹2,075) adult return, ₸5,000 (₹1,040) child.</span></li>
+          <li><time>17:30</time><span><b>Alpine coaster</b> at the top, ₸7,000 (₹1,450) and ₸4,000 (₹830). Ferris wheel and a mirror maze up there too. Sunset around 19:10.</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="day" data-date="2026-09-13">
+      <summary>
+        <span class="dnum">Day 3<b>Sun 13</b></span>
+        <span class="dtitle">Charyn Canyon<small>The one long day. Worth it.</small></span>
+        <span class="pace">Big day · 7 h road</span>
+      </summary>
+      <div class="dbody">
+        <ul class="sked">
+          <li><time>07:00</time><span><b>Driver picks you up.</b> Private sedan for the day, ₸60,000–70,000 (₹12,450–14,500). Ask the hotel to arrange it, or book through a local operator.</span></li>
+          <li><time>10:15</time><span><b>Arrive.</b> Vehicle entry ₸3,027 (₹630) plus about ₸865 (₹180) a head. A 4×4 shuttle runs down to the canyon floor for ₸500 (₹105) each way if you'd rather not climb.</span></li>
+          <li><time>10:45</time><span><b>Valley of Castles.</b> Down a stepped path, then an hour along the riverbed between 100 m sandstone walls that squeeze to about 20 m. Flat at the bottom; the only effort is the walk back up.</span></li>
+          <li><time>13:30</time><span><b>Lunch at the yurt café</b>, then start back.</span></li>
+          <li><time>19:00</time><span><b>Home.</b> Eat near the hotel, don't plan anything.</span></li>
+        </ul>
+        <div class="opt"><strong>If it's raining or nobody fancies it:</strong> skip the canyon and take the Medeu–Shymbulak day from Monday instead. There is nothing here that has to happen today.</div>
+      </div>
+    </details>
+
+    <details class="day" data-date="2026-09-14">
+      <summary>
+        <span class="dnum">Day 4<b>Mon 14</b></span>
+        <span class="dtitle">Medeu and Shymbulak<small>3,200 m without walking up any of it</small></span>
+        <span class="pace">Moderate · cable cars</span>
+      </summary>
+      <div class="dbody">
+        <ul class="sked">
+          <li><time>10:00</time><span><b>Up to Medeu</b> (1,691 m). Bus 12 for ₸120 (₹25) on an Onay card, or a Yandex Go for ₸2,000–3,500 (₹415–725). Cars can't go past Medeu.</span></li>
+          <li><time>10:30</time><span><b>The 842 steps</b> up the dam wall — free, and exactly the kind of dare a thirteen-year-old takes. Skip it if you'd rather not.</span></li>
+          <li><time>11:30</time><span><b>Gondola to Shymbulak</b> (2,260 m). About ₸12,000 (₹2,490) adult return, ₸4,000 (₹830) child 6–14 — try his age at the window.</span></li>
+          <li><time>12:30</time><span><b>Combi lifts to Talgar Pass</b>, 3,200 m, about ₸7,000 (₹1,450) each. Near freezing at the top even now — take the fleece. Lunch on the terrace at Shymbulak on the way down.</span></li>
+          <li><time>17:00</time><span><b>Back in the city.</b> Monday closes the bazaar and the museums, so this was the right day for it.</span></li>
+        </ul>
+        <div class="flag"><strong>Check the lifts a day ahead.</strong> The Combi chairlifts to Talgar Pass shut for autumn maintenance around 30 September, and closures get announced late. If they're down, the gondola alone still makes the day.</div>
+      </div>
+    </details>
+
+    <details class="day" data-date="2026-09-15">
+      <summary>
+        <span class="dnum">Day 5<b>Tue 15</b></span>
+        <span class="dtitle">Move flats, and take it slowly<small>Two blocks. Don't plan a day trip.</small></span>
+        <span class="pace">Easy · transfer</span>
+      </summary>
+      <div class="dbody">
+        <ul class="sked">
+          <li><time>11:00</time><span><b>Check out of Novotel Living</b> and leave the bags at the front desk. That's the one thing the apartment can't do for you.</span></li>
+          <li><time>11:30</time><span><b>Slow morning nearby.</b> The Almaty Museum of Arts (opened 2025, ₸2,000 (₹415) / ₸500 (₹105)), or coffee and the Golden Square streets on foot.</span></li>
+          <li><time>14:30</time><span><b>Collect bags</b>, walk five minutes south to Abylai Khan 74.</span></li>
+          <li><time>15:00</time><span><b>Check in</b> by smart lock. Have the code from the manager the day before, not on the doorstep.</span></li>
+          <li><time>17:00</time><span><b>Arasan Baths</b>, Tolebaev St 78 on the west edge of Panfilov Park. Russian banya, Finnish sauna, Turkish hammam and a cold plunge, ₸2,500–4,700 (₹520–975) each depending on the hour. Men's and women's halves are entirely separate, so you and he are together throughout — and <strong>full nudity is the norm in the same-sex sections</strong>. Swimsuits are tolerated in the saunas but not the cold pool. Skip it if that would be awkward; there's no middle setting.</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <details class="day" data-date="2026-09-16">
+      <summary>
+        <span class="dnum">Day 6<b>Wed 16</b></span>
+        <span class="dtitle">Golden eagles at five<small>One fixed thing all day</small></span>
+        <span class="pace">Easy</span>
+      </summary>
+      <div class="dbody">
+        <ul class="sked">
+          <li><time>—</time><span><b>Morning free.</b> First President's Park is free and open from 05:00 — a 1.5 km avenue with Japanese and ethno gardens, bikes at ₸1,000 (₹208) for half an hour. Or nothing at all.</span></li>
+          <li><time>14:30</time><span><b>Ayusai gorge.</b> Easy marked trails and a small waterfall at the mouth of the Big Almaty Gorge, twenty minutes out of the city.</span></li>
+          <li><time>17:00</time><span><b>Sunkar Falconry Centre.</b> One show a day, closed Mondays. Falcons, owls and golden eagles flown to the glove. ₸2,000 (₹415) and ₸1,000 (₹208). Phone ahead to confirm.</span></li>
+        </ul>
+        <div class="opt"><strong>If he wants something faster:</strong> RC Metro karting on Zhandosova 2b, ₸2,200 (₹455) and ₸2,000 (₹415) a race, minimum height 150 cm, parent must be present. Fits neatly before lunch.</div>
+      </div>
+    </details>
+
+    <details class="day" data-date="2026-09-17">
+      <summary>
+        <span class="dnum">Day 7<b>Thu 17</b></span>
+        <span class="dtitle">Whatever you feel like<small>Deliberately empty</small></span>
+        <span class="pace">Your call</span>
+      </summary>
+      <div class="dbody">
+        <p style="margin:0 0 .8rem;color:var(--ink-2)">Leave this blank until the morning. By day seven you'll know whether you want mountains, water or a bench.</p>
+        <ul class="sked">
+          <li><time>Gentle</time><span><b>Butakovka Waterfall.</b> 25 minutes from the centre, then 6–8 km round trip over 3–4 hours. Rated fine from age 13. Real mountains, no long drive.</span></li>
+          <li><time>Indoors</time><span><b>Aquapark Hawaii &amp; Miami</b> at Aport Mall — indoor and outdoor, ₸15,490 (₹3,215) adult, ₸8,990 (₹1,865) for 3–17. Commit to the afternoon; you can't leave and re-enter.</span></li>
+          <li><time>Nothing</time><span><b>Repeat the bit he liked best.</b> Kok-Tobe again, or the bazaar for the things you didn't buy the first time.</span></li>
+        </ul>
+        <div class="opt"><strong>Cut for pace:</strong> Turgen Gorge and its trout farm — lovely, but three hours in a car on a week you wanted relaxed. It's here if the mood changes: ₸40,000 (₹8,300) for a half-day driver, easy 30-minute walk to Bear Waterfall, catch your own fish for ₸2,000 (₹415) a kilo.</div>
+      </div>
+    </details>
+
+    <details class="day" data-date="2026-09-18">
+      <summary>
+        <span class="dnum">Day 8<b>Fri 18</b></span>
+        <span class="dtitle">A last morning, then the 20:15<small>Bags need a home from noon</small></span>
+        <span class="pace">Easy</span>
+      </summary>
+      <div class="dbody">
+        <ul class="sked">
+          <li><time>10:00</time><span><b>Last walk.</b> Panfilov Park and Arbat, souvenirs — felt, dried fruit, Kazakh chocolate.</span></li>
+          <li><time>12:00</time><span><b>Check out.</b> Bags wherever you agreed with the manager. Sort this by message before you fly, not on the morning.</span></li>
+          <li><time>13:00</time><span><b>Long lunch</b> somewhere you liked. Nothing else.</span></li>
+          <li><time>17:00</time><span><b>Leave for the airport.</b> 15 km, about 30 minutes on a Friday evening.</span></li>
+          <li><time>20:15</time><span><b>KC963 to Delhi.</b> Landing around 00:10 on Saturday.</span></li>
+        </ul>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- ESSENTIALS -->
+<section>
+  <div class="sec-head"><h2>Day to day</h2></div>
+  <div class="notes">
+    <div class="note-item">
+      <h4>Taxis</h4>
+      <p>Yandex Go for everything. Minimum <span class="mono">₸400 (₹85)</span>, about <span class="mono">₸58 (₹12)</span> a km — a hop across the centre is ₸400 (₹85)–800.</p>
+      <p><strong>Never take a quote from someone who approaches you.</strong> That's the only scam here, and it lives at the airport.</p>
+    </div>
+    <div class="note-item">
+      <h4>Metro</h4>
+      <p>One line, eleven stations, <span class="mono">₸120 (₹25)</span>, 06:20 to midnight. No cash at the turnstiles — Onay card ₸500 (₹105) or pay by app QR.</p>
+      <p>Almaly is your station at both flats. Zhibek Zholy for the bazaar.</p>
+    </div>
+    <div class="note-item">
+      <h4>Money</h4>
+      <p><span class="mono">₸5 ≈ ₹1</span> — divide tenge by five. Visa and Mastercard nearly everywhere; <strong>pay by card by default.</strong> Keep <span class="mono">₸20,000–30,000 (₹4,150–6,200)</span> cash for the bazaar, park gates and small cafés.</p>
+      <p>Draw it in <strong>one ATM withdrawal</strong> — Kaspi (yellow), Halyk (green) or ForteBank all take international cards. The flat fees make repeat visits expensive.</p>
+      <p>Rupees are not exchangeable here. Carry a little USD as backup and change it in the city, never at the airport. Decline dynamic currency conversion at every terminal.</p>
+    </div>
+    <div class="note-item">
+      <h4>Eating</h4>
+      <p><strong>Georgian restaurants are the reliable fallback</strong> if you want to eat without meat — khachapuri, lobio, aubergine with walnuts.</p>
+      <p>Indian if you need it: Eastern Gate (Shevchenko 75), Magic Masala (Abay 107a), NAMO for South Indian (Markova 38A).</p>
+    </div>
+    <div class="note-item">
+      <h4>Weather</h4>
+      <p>Around <span class="mono">24 °C</span> by day, <span class="mono">11 °C</span> at night, rain on about six days across the whole month. Sunset drifts from 19:10 to 18:55 this week.</p>
+      <p>Talgar Pass at 3,200 m is a different climate. Fleece and a shell.</p>
+    </div>
+    <div class="note-item">
+      <h4>Paperwork</h4>
+      <p>No visa — 14 days visa-free on an Indian passport. Carry both passports and photocopies.</p>
+      <p>Your host files an <strong>eQonaq</strong> arrival notice within three working days. The hotel does it silently; the apartment manager needs asking.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE YOU GO -->
+<section>
+  <div class="sec-head"><h2>Before you fly</h2></div>
+  <ul class="checks">
+    <li><div><b>eQonaq registration confirmed by the apartment manager</b><span>In writing on WhatsApp. Save the reply. This is the one thing that can go wrong at the airport on the way home.</span></div></li>
+    <li><div><b>Bag plan for Friday the 18th</b><span>Checkout is 12:00 and the flight is 20:15. Agree with the manager now, not on the morning.</span></div></li>
+    <li><div><b>Door code, a day early</b><span>Smart locks work beautifully until the manager is asleep.</span></div></li>
+    <li><div><b>eSIM installed before you fly</b><span>About ₸5,000 (₹1,040). Skips the airport queue and Kazakhstan's IMEI rule for imported handsets.</span></div></li>
+    <li><div><b>Charyn driver booked for Sunday</b><span>₸60,000–70,000 (₹12,450–14,500) for the day. The hotel can arrange it.</span></div></li>
+    <li><div><b>Shymbulak lifts and the Sunkar show confirmed</b><span>A few days out. Both close at short notice.</span></div></li>
+    <li><div><b>Cards enabled for international use</b><span>Visa or Mastercard. RuPay does not work in Kazakhstan.</span></div></li>
+    <li><div><b>Layers, grippy shoes, swim kit, plug adapter</b><span>Type C/F, 220 V — European round two-pin, not Indian three-pin.</span></div></li>
+  </ul>
+</section>
+
+<footer class="wrap">
+  <p>Times shown in Almaty local time, <span class="mono">UTC+5</span> — half an hour behind Delhi. This page updates itself: the status bar, flight chips, stay chips and today's card all read from your device clock.</p>
+  <p>Prices are estimates gathered before the trip and will drift. The gondola, Charyn entry and Sunkar show times are the three worth re-checking on the day.</p>
+</footer>
+
+</main>
+
+<script>
+(function(){
+  var TZ = 5 * 60; // Almaty is UTC+5
+  var TRIP_START = Date.UTC(2026, 8, 11, 9, 0);  // 14:00 Almaty, landing day
+  var TRIP_END   = Date.UTC(2026, 8, 18, 15, 15); // 20:15 Almaty, wheels up
+
+  function almatyDate(now){
+    // a Date whose UTC fields hold Almaty wall-clock values
+    return new Date(now.getTime() + TZ * 60000);
+  }
+  function pad(n){ return n < 10 ? "0" + n : "" + n; }
+  function ymd(d){ return d.getUTCFullYear() + "-" + pad(d.getUTCMonth() + 1) + "-" + pad(d.getUTCDate()); }
+
+  function render(){
+    var now = new Date();
+    var t = now.getTime();
+    var a = almatyDate(now);
+    var todayKey = ymd(a);
+
+    // clock
+    var clock = document.getElementById("clock");
+    if (clock) {
+      clock.textContent = "Almaty " + pad(a.getUTCHours()) + ":" + pad(a.getUTCMinutes());
+    }
+
+    // status bar
+    var main = document.getElementById("statusMain");
+    var sub  = document.getElementById("statusSub");
+    var dayEls = document.querySelectorAll("details.day");
+
+    if (t < TRIP_START) {
+      var days = Math.ceil((TRIP_START - t) / 86400000);
+      main.textContent = days === 1 ? "Tomorrow" : days + " days to go";
+      sub.textContent = "KC908 lifts off from Delhi at 11:35 on Friday 11 September.";
+    } else if (t > TRIP_END) {
+      main.textContent = "Trip complete";
+      sub.textContent = "Eight days, one canyon, 3,200 metres and a lot of dried apricots.";
+    } else {
+      var dayNo = Math.floor((t - TRIP_START) / 86400000) + 1;
+      if (dayNo < 1) dayNo = 1;
+      if (dayNo > 8) dayNo = 8;
+      main.textContent = "Day " + dayNo + " of 8";
+      var todayEl = document.querySelector('details.day[data-date="' + todayKey + '"]');
+      if (todayEl) {
+        var title = todayEl.querySelector(".dtitle");
+        var label = title ? title.childNodes[0].nodeValue.trim() : "";
+        sub.textContent = "Today: " + label;
+      } else {
+        sub.textContent = "In Almaty.";
+      }
+    }
+
+    // day cards
+    for (var i = 0; i < dayEls.length; i++) {
+      var el = dayEls[i];
+      var key = el.getAttribute("data-date");
+      el.classList.remove("today", "past");
+      if (key === todayKey) {
+        el.classList.add("today");
+        if (!el.dataset.autoOpened) { el.open = true; el.dataset.autoOpened = "1"; }
+      } else if (key < todayKey) {
+        el.classList.add("past");
+      }
+    }
+
+    // flight + stay chips
+    var cards = document.querySelectorAll(".card[data-start]");
+    for (var j = 0; j < cards.length; j++) {
+      var card = cards[j];
+      var s = Date.parse(card.getAttribute("data-start"));
+      var e = Date.parse(card.getAttribute("data-end"));
+      var kind = card.getAttribute("data-kind");
+      var chip = card.querySelector("[data-chip]");
+      card.classList.remove("active", "past");
+      chip.className = "chip";
+      if (t < s) {
+        chip.textContent = "Upcoming";
+      } else if (t <= e) {
+        chip.textContent = kind === "flight" ? "In the air" : "Current stay";
+        chip.classList.add("now");
+        card.classList.add("active");
+      } else {
+        chip.textContent = kind === "flight" ? "Landed" : "Checked out";
+        chip.classList.add("done");
+        card.classList.add("past");
+      }
+    }
+  }
+
+  render();
+  setInterval(render, 30000);
+})();
+</script>
+</body>
+</html>
