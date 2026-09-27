@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#2E5F51">
+<meta name="description" content="Live trip tracker — Delhi to Krabi, 29 September to 4 October 2026. Flights, the resort and a day-by-day that highlights today.">
+<title>Five Nights in Krabi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EDF1EE; --card:#FFFFFF; --ink:#12272A; --muted:#5B7370; --faint:#8DA29E;
+    --rule:#D3DFDA; --accent:#2E5F51; --accent-soft:#E2EDE7; --today:#B4552F;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0C1F21; --card:#132B2C; --ink:#E5EDE9; --muted:#8CA5A0; --faint:#61807B;
+      --rule:#22403E; --accent:#6FC0A5; --accent-soft:#173834; --today:#E08A5E;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:"Karla","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:700px;margin:0 auto;padding:36px 20px 80px}
+  a{color:var(--accent)}
+
+  .kicker{color:var(--muted);font-size:14px;margin:0 0 6px}
+  h1{
+    font-family:"Instrument Serif",Georgia,"Times New Roman",serif;font-weight:400;
+    font-size:clamp(34px,8vw,54px);line-height:1.04;margin:0 0 14px;
+  }
+  #status{
+    display:inline-block;background:var(--accent-soft);color:var(--accent);
+    font-size:14px;font-weight:700;padding:6px 13px;border-radius:999px;margin-bottom:34px;
+  }
+
+  h2{
+    font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:28px;
+    margin:46px 0 2px;
+  }
+  .sub{color:var(--muted);font-size:14px;margin:0 0 16px}
+
+  .card{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:18px 20px;margin:0 0 12px}
+  .card h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:21px;margin:0 0 12px}
+
+  .route{display:flex;align-items:center;gap:14px;margin:0 0 14px;flex-wrap:wrap}
+  .port{display:flex;flex-direction:column}
+  .port b{font-size:22px;letter-spacing:.03em;line-height:1.1}
+  .port span{color:var(--muted);font-size:13px}
+  .arrow{color:var(--faint);font-size:20px}
+
+  dl{margin:0;display:grid;grid-template-columns:118px 1fr;gap:7px 16px;font-size:15px}
+  dt{color:var(--muted)}
+  dd{margin:0}
+  dd b{font-weight:700}
+  @media (max-width:440px){
+    dl{grid-template-columns:1fr;gap:0}
+    dt{font-size:13px;margin-top:8px}
+    dd{margin-bottom:2px}
+  }
+  .links{margin-top:14px;display:flex;gap:16px;flex-wrap:wrap;font-size:14px}
+
+  /* days */
+  details.day{background:var(--card);border:1px solid var(--rule);border-radius:10px;margin:0 0 10px;overflow:hidden}
+  details.day[open]{border-color:var(--accent)}
+  details.day.now{border-color:var(--today);border-width:2px}
+  summary{list-style:none;cursor:pointer;padding:15px 18px;display:block}
+  summary::-webkit-details-marker{display:none}
+  .d-top{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .d-n{color:var(--accent);font-weight:700;font-size:13px}
+  .d-date{font-family:"Instrument Serif",Georgia,serif;font-size:21px}
+  .d-title{font-family:"Instrument Serif",Georgia,serif;font-size:21px}
+  .d-sum{color:var(--muted);font-size:14.5px;margin-top:3px}
+  .chip{
+    display:inline-block;background:var(--accent-soft);color:var(--accent);
+    font-size:12px;font-weight:700;padding:3px 9px;border-radius:999px;margin-top:8px;
+  }
+  .chip.hot{background:transparent;color:var(--today);border:1px solid var(--today)}
+  .d-body{padding:0 18px 16px}
+  .row{display:grid;grid-template-columns:62px 1fr;gap:12px;padding:9px 0;border-top:1px solid var(--rule)}
+  .time{color:var(--accent);font-weight:700;font-size:14px;font-variant-numeric:tabular-nums;padding-top:1px}
+  .what b{font-weight:700}
+  .note{
+    background:var(--accent-soft);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:14.5px;
+  }
+  .note b{font-weight:700}
+
+  h4{
+    font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:19px;
+    margin:0 0 6px;
+  }
+  .kv{font-size:15px;margin:0 0 10px}
+  .kv:last-child{margin-bottom:0}
+
+  ul.checks{list-style:none;margin:0;padding:0}
+  ul.checks li{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:14px 16px;margin-bottom:9px;font-size:15px}
+  ul.checks li b{display:block;font-weight:700;margin-bottom:2px}
+  ul.checks li span{color:var(--muted);font-size:14.5px}
+
+  footer{color:var(--faint);font-size:13.5px;margin-top:44px;border-top:1px solid var(--rule);padding-top:16px}
+  footer p{margin:0 0 8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="kicker">Delhi → Phuket → Krabi · 29 September – 4 October 2026</p>
+  <h1>Five Nights in Krabi</h1>
+  <div id="status">Loading…</div>
+
+  <h2>Flights</h2>
+  <p class="sub">In through Phuket, out through Krabi. The drive between them is yours.</p>
+
+  <div class="card">
+    <h3>AI 2378 · Air India</h3>
+    <div class="route">
+      <span class="port"><b>DEL</b><span>Delhi T3</span></span>
+      <span class="arrow">→</span>
+      <span class="port"><b>HKT</b><span>Phuket, Terminal D</span></span>
+    </div>
+    <dl>
+      <dt>Depart</dt><dd>Tue 29 Sep, <b>01:25</b> Delhi time</dd>
+      <dt>Arrive</dt><dd>Tue 29 Sep, <b>07:25</b> Thailand time</dd>
+      <dt>Duration</dt><dd>4 h 30 m</dd>
+      <dt>Booking</dt><dd>95X7RU</dd>
+      <dt>Seats</dt><dd>11D Riya · 11F Rishi — exit row, second row, reclines</dd>
+      <dt>Baggage</dt><dd>30 kg checked each, 7 kg cabin</dd>
+      <dt>Counter</dt><dd>Shuts 75 min before departure</dd>
+      <dt>Arrival card</dt><dd>Rishi 1CBA098 · Riya B148CCC</dd>
+    </dl>
+    <div class="links">
+      <a href="https://www.flightradar24.com/data/flights/ai2378" target="_blank" rel="noopener">Live status ↗</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Phuket+International+Airport" target="_blank" rel="noopener">Airport map ↗</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Airport transfer · Lanta Taxi</h3>
+    <dl>
+      <dt>Route</dt><dd>Phuket airport → Klong Muang Beach</dd>
+      <dt>Fare</dt><dd>THB 2,700 (₹7,830) · token paid, confirmed</dd>
+      <dt>Distance</dt><dd>About 150 km via Phang Nga · roughly 3 hours</dd>
+      <dt>The night before</dt><dd>Confirm driver name and plate on WhatsApp</dd>
+      <dt>On landing</dt><dd>Meet inside arrivals with a name board, not at the kerb</dd>
+    </dl>
+  </div>
+
+  <div class="card">
+    <h3>6E 1070 · IndiGo</h3>
+    <div class="route">
+      <span class="port"><b>KBV</b><span>Krabi</span></span>
+      <span class="arrow">→</span>
+      <span class="port"><b>DEL</b><span>Delhi T3</span></span>
+    </div>
+    <dl>
+      <dt>Depart</dt><dd>Sun 4 Oct, <b>14:05</b> Thailand time</dd>
+      <dt>Arrive</dt><dd>Sun 4 Oct, <b>16:45</b> Delhi time</dd>
+      <dt>Booking</dt><dd>SELBKQ</dd>
+      <dt>Seats</dt><dd>13A Rishi · 13C Riya</dd>
+      <dt>Baggage</dt><dd><b>20 kg</b> checked each — ten less than coming out</dd>
+      <dt>Bag drop</dt><dd>Shuts <b>12:50</b> · gates close 13:40</dd>
+      <dt>Leave by</dt><dd>10:45 from the resort · about 40 minutes</dd>
+    </dl>
+    <div class="links">
+      <a href="https://www.flightradar24.com/data/flights/6e1070" target="_blank" rel="noopener">Live status ↗</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Krabi+International+Airport" target="_blank" rel="noopener">Airport map ↗</a>
+    </div>
+  </div>
+
+  <h2>The resort</h2>
+  <p class="sub">Five nights on Klong Muang Beach · prepaid, non-refundable</p>
+
+  <div class="card">
+    <h3>Sofitel Krabi Phokeethra Golf &amp; Spa</h3>
+    <dl>
+      <dt>Dates</dt><dd>Tue 29 Sep → Sun 4 Oct · 5 nights</dd>
+      <dt>Booking</dt><dd>QQVSDMSZ · 2 adults, 1 room</dd>
+      <dt>Check in</dt><dd>From 14:00 · late-morning arrival noted with front office</dd>
+      <dt>Check out</dt><dd>By 12:00 · you leave before it anyway</dd>
+      <dt>Address</dt><dd>200 Moo 3, Klong Muang Beach, Nong Thale, Mueang Krabi 81180</dd>
+      <dt>Paid</dt><dd>THB 16,380.60 (₹47,175.60) by Mastercard</dd>
+      <dt>At reception</dt><dd><b>Present the same Mastercard</b> used for the prepayment</dd>
+      <dt>Telephone</dt><dd><a href="tel:+6675627800">+66 75 627800</a></dd>
+      <dt>Reservations</dt><dd>Khun Yuka (Puchawadee) · H6184-RE@sofitel.com</dd>
+      <dt>Front office</dt><dd>Khun Troy (Kampanart), Club Millésime Manager · h6184-F02@sofitel.com</dd>
+    </dl>
+    <div class="links">
+      <a href="https://www.google.com/maps/search/?api=1&query=Sofitel+Krabi+Phokeethra+Golf+%26+Spa+Resort" target="_blank" rel="noopener">Map ↗</a>
+      <a href="https://www.sofitelkrabiphokeethra.com/" target="_blank" rel="noopener">Hotel site ↗</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>What ALL Platinum gets you here</h4>
+    <p class="kv"><b>Breakfast</b> — complimentary daily, both of you. Take it in Club Millésime if you want a quieter morning.</p>
+    <p class="kv"><b>Club Millésime</b> — afternoon tea 14:00–16:00, then wine, cocktails and canapés 17:00–19:00.</p>
+    <p class="kv"><b>Laundry</b> — complimentary. Five days of sea salt and humidity; use it.</p>
+    <p class="kv"><b>Upgrade</b> — next category up, subject to availability. Sea view asked for and noted, not promised.</p>
+    <p class="kv" style="color:var(--muted)">Confirm breakfast and lounge access at the desk on arrival rather than by email beforehand.</p>
+  </div>
+
+  <div class="card">
+    <h4>Riya's cake</h4>
+    <p class="kv">The resort offered it unprompted and front office has it noted. It comes <b>to the room</b>, on whichever evening suits their kitchen.</p>
+    <p class="kv" style="color:var(--muted)">No restaurant presentation, no singing, nothing in any public area. That was asked for explicitly and confirmed.</p>
+  </div>
+
+  <h2>The days</h2>
+  <p class="sub">Tap a day · today opens itself</p>
+
+  <details class="day" data-date="2026-09-29">
+    <summary>
+      <div class="d-top"><span class="d-n">Day 1</span><span class="d-date">Tue 29</span><span class="d-title">Land, drive, stop</span></div>
+      <div class="d-sum">Four hours of broken sleep and three hours of road. Nothing today is compulsory.</div>
+      <span class="chip">Easy · transfer day</span>
+    </summary>
+    <div class="d-body">
+      <div class="row"><span class="time">07:25</span><span class="what"><b>Land at Phuket.</b> Terminal D. Immigration, bags, then find the driver inside arrivals — not outside.</span></div>
+      <div class="row"><span class="time">08:30</span><span class="what"><b>Drive to Klong Muang.</b> Three hours through Phang Nga. This is the best sleeping opportunity of the whole journey — keep the eye masks out of the hold bag.</span></div>
+      <div class="row"><span class="time">11:30</span><span class="what"><b>Reach the resort.</b> Bags with the bell desk if the room isn't ready. Ask the concierge about the Hong trip <b>today</b>, not tomorrow.</span></div>
+      <div class="row"><span class="time">14:00</span><span class="what"><b>Pool and beach.</b> The lagoon pool is the largest in Thailand. That is the entire afternoon.</span></div>
+      <div class="row"><span class="time">17:00</span><span class="what"><b>Club Millésime.</b> Canapés, and the first quiet hour of the trip.</span></div>
+      <div class="row"><span class="time">19:30</span><span class="what"><b>Dinner in the resort.</b> Stay put. Sleep early.</span></div>
+      <div class="note"><b>Don't book anything for tonight.</b> A 01:25 departure out of Delhi has plenty of ways to slip, and you have no margin behind it.</div>
+    </div>
+  </details>
+
+  <details class="day" data-date="2026-09-30">
+    <summary>
+      <div class="d-top"><span class="d-n">Day 2</span><span class="d-date">Wed 30</span><span class="d-title">Hong Islands</span></div>
+      <div class="d-sum">Closest and most sheltered water you have, and the boat leaves fifteen minutes away.</div>
+      <span class="chip">Half day on the water</span>
+    </summary>
+    <div class="d-body">
+      <div class="row"><span class="time">09:00</span><span class="what"><b>Sofitel Signature Tour.</b> Hong, Pak Bia and Lading by speedboat. THB 3,531 (₹10,240) each, all in.</span></div>
+      <div class="row"><span class="time">11:30</span><span class="what"><b>The lagoon, then the viewpoint climb.</b> Steep, short, and the photograph of the trip.</span></div>
+      <div class="row"><span class="time">14:00</span><span class="what"><b>Back at the resort</b> with the afternoon intact. Shower, pool, nothing scheduled.</span></div>
+      <div class="row"><span class="time">19:00</span><span class="what"><b>Dinner along Klong Muang beach.</b> A short walk for something outside the resort.</span></div>
+      <div class="note"><b>Park fee THB 300 (₹870) each, cash at the pier.</b> Not included in the ticket. And if the sea is up, the boat shifts to Hin Pheng pier in Klong Muang rather than cancelling.</div>
+    </div>
+  </details>
+
+  <details class="day" data-date="2026-10-01">
+    <summary>
+      <div class="d-top"><span class="d-n">Day 3</span><span class="d-date">Thu 1</span><span class="d-title">Kayak, then slow</span></div>
+      <div class="d-sum">Mangrove channels between limestone walls. Calm water, no swell, works in rain.</div>
+      <span class="chip">Easy</span>
+    </summary>
+    <div class="d-body">
+      <div class="row"><span class="time">09:00</span><span class="what"><b>Sea kayak at Ao Thalane.</b> Sofitel half day with lunch, THB 1,883 (₹5,460) each. Runs from two guests, so it will actually go.</span></div>
+      <div class="row"><span class="time">13:00</span><span class="what"><b>Back for lunch.</b></span></div>
+      <div class="row"><span class="time">15:00</span><span class="what"><b>Spa, or the golf course.</b> Book an excursion through the resort's online boutique and spa treatments drop 20%.</span></div>
+      <div class="row"><span class="time">19:00</span><span class="what"><b>Early night.</b> Tomorrow is the long one.</span></div>
+      <div class="note"><b>Ask about Bor Thor instead</b> if you want something closer to the Phuket kayaking — it paddles through Tham Lod, a rock tunnel under the limestone, past prehistoric cave paintings.</div>
+    </div>
+  </details>
+
+  <details class="day" data-date="2026-10-02">
+    <summary>
+      <div class="d-top"><span class="d-n">Day 4</span><span class="d-date">Fri 2</span><span class="d-title">Phi Phi and Maya Bay</span></div>
+      <div class="d-sum">Two days after Maya Bay reopens from its annual closure, so you land on the beach.</div>
+      <span class="chip">Big day · 9 hours</span>
+    </summary>
+    <div class="d-body">
+      <div class="row"><span class="time">07:30</span><span class="what"><b>Pickup.</b> Catamaran rather than speedboat — about THB 2,950 (₹8,555) each. Early October swell is real and a speedboat slams for the first half hour.</span></div>
+      <div class="row"><span class="time">09:30</span><span class="what"><b>Maya Bay.</b> Wading only, no swimming. Park fee THB 400 (₹1,160) each, cash to the ranger.</span></div>
+      <div class="row"><span class="time">11:00</span><span class="what"><b>Pileh Lagoon.</b> Emerald water enclosed by cliffs. Swimming allowed here.</span></div>
+      <div class="row"><span class="time">12:30</span><span class="what"><b>Phi Phi Don</b> for lunch.</span></div>
+      <div class="row"><span class="time">14:00</span><span class="what"><b>Bamboo Island.</b> The best snorkelling of the day.</span></div>
+      <div class="row"><span class="time">17:00</span><span class="what"><b>Back at the resort.</b> Straight to the lounge if you've the energy.</span></div>
+      <div class="note"><b>Confirm the itinerary says landing at Maya Bay</b>, not viewing it from the water. Operators will still be running closure-period wording on their pages that week.</div>
+    </div>
+  </details>
+
+  <details class="day" data-date="2026-10-03">
+    <summary>
+      <div class="d-top"><span class="d-n">Day 5</span><span class="d-date">Sat 3</span><span class="d-title">Loose by design</span></div>
+      <div class="d-sum">Your weather buffer, and the last full day. Evening deliberately empty.</div>
+      <span class="chip">Your call</span>
+    </summary>
+    <div class="d-body">
+      <div class="row"><span class="time">09:00</span><span class="what"><b>Railay and Phra Nang Beach.</b> Longtail from Ao Nam Mao. Phra Nang is the beach people remember from Krabi.</span></div>
+      <div class="row"><span class="time">14:00</span><span class="what"><b>Back by early afternoon.</b> Leaves time to pack properly rather than at midnight.</span></div>
+      <div class="row"><span class="time">16:00</span><span class="what"><b>Spa.</b></span></div>
+      <div class="row"><span class="time">19:00</span><span class="what"><b>Evening free.</b> Ask Riya what she wants. Nothing arranged, nothing public.</span></div>
+      <div class="note"><b>If a boat day was cancelled earlier in the week</b>, it moves here and Railay drops. That is what this day is for. The inland Rainforest tour — Emerald Pool, hot spring waterfall, Tiger Cave — is the rain-proof alternative.</div>
+    </div>
+  </details>
+
+  <details class="day" data-date="2026-10-04">
+    <summary>
+      <div class="d-top"><span class="d-n">Day 6</span><span class="d-date">Sun 4</span><span class="d-title">Home on the 14:05</span></div>
+      <div class="d-sum">Late checkout is no use today — the flight goes before it.</div>
+      <span class="chip">Easy · travel day</span>
+    </summary>
+    <div class="d-body">
+      <div class="row"><span class="time">08:00</span><span class="what"><b>Breakfast.</b> Unhurried, but not leisurely.</span></div>
+      <div class="row"><span class="time">10:30</span><span class="what"><b>Settle the folio and check out.</b> Pay in baht. Decline any offer to bill you in rupees.</span></div>
+      <div class="row"><span class="time">10:45</span><span class="what"><b>Leave for Krabi airport.</b> Forty minutes. Bag drop shuts at 12:50.</span></div>
+      <div class="row"><span class="time">14:05</span><span class="what"><b>6E 1070 to Delhi.</b> Landing T3 at 16:45.</span></div>
+      <div class="note"><b>Twenty kilos each, not thirty.</b> Weigh the cases the night before — IndiGo charge THB at the counter and it is not cheap.</div>
+    </div>
+  </details>
+
+  <h2>Day to day</h2>
+
+  <div class="card">
+    <h4>Excursions</h4>
+    <p class="kv">Sofitel prices are quoted "++" — add 10% service, then 7% tax. The figures on the day cards are already all in.</p>
+    <p class="kv"><b>Worth the resort premium:</b> the Hong trip and the kayak. Fifteen minutes from the door instead of an hour's pickup circuit, and the kayak runs from two guests.</p>
+    <p class="kv"><b>Not worth it:</b> everything else. Phi Phi at THB 6,356 (₹18,430) against a catamaran at 2,950 buys you the same stops at the same hour. The full-day island combinations are THB 5,500–6,600 (₹15,950–19,140) against 1,800–2,600 independently.</p>
+    <p class="kv"><b>The catch:</b> every Sofitel island trip needs eight guests to run, in the quietest fortnight of the Krabi year. Ask the concierge on arrival day which dates already have names against them, and keep an independent operator in reserve.</p>
+  </div>
+
+  <div class="card">
+    <h4>Money</h4>
+    <p class="kv">THB 1 ≈ ₹2.9 — near enough to multiply by three. You are carrying <b>THB 40,000 (₹116,000)</b> in cash.</p>
+    <p class="kv"><b>Split it.</b> A few thousand on you, the rest in the room safe. Not 40,000 baht in a dry bag on a longtail.</p>
+    <p class="kv"><b>Small notes matter.</b> Park rangers, boat crews and beach restaurants cannot break a 1,000.</p>
+    <p class="kv"><b>Always pay in baht.</b> If a terminal or the folio offers rupees, decline — the conversion is several per cent worse than your card's.</p>
+    <p class="kv">Charge excursions, spa and dinners to the room so the whole folio lands on one card at checkout.</p>
+  </div>
+
+  <div class="card">
+    <h4>On the water</h4>
+    <p class="kv"><b>Jellyfish</b> are more common in monsoon months. Ask the crew before swimming at each stop.</p>
+    <p class="kv"><b>Life jackets stay on</b> during longtail transfers, however calm it looks.</p>
+    <p class="kv"><b>Reef-safe sunscreen only</b> — Thai marine parks turn away the other kind.</p>
+    <p class="kv">Park fees are cash, at the pier, on top of the ticket: Hong THB 300 (₹870), Phi Phi THB 400 (₹1,160).</p>
+  </div>
+
+  <div class="card">
+    <h4>Weather</h4>
+    <p class="kv">Green season. Around 29–31 °C by day, with 50–75% daily rain probability — usually heavy short bursts, mostly afternoon.</p>
+    <p class="kv">It rarely costs a whole day, but it does cancel boats. That is why the boat days sit early in the week and Saturday is kept loose.</p>
+    <p class="kv">Mornings are reliably the better half. Take the early departure every time it is offered.</p>
+  </div>
+
+  <div class="card">
+    <h4>Paperwork</h4>
+    <p class="kv">No visa needed on an Indian passport. Both Thailand Digital Arrival Cards are issued — <b>Rishi 1CBA098, Riya B148CCC</b>.</p>
+    <p class="kv">Save both to the phone offline and print a copy for each passport. Phuket arrivals at 07:25 is a scrum and roaming data is not something to depend on.</p>
+    <p class="kv">Coming home, the Indian duty-free allowance is ₹50,000 for a stay over three days.</p>
+    <p class="kv"><a href="https://tdac.immigration.go.th/arrival-card" target="_blank" rel="noopener">Update an arrival card ↗</a></p>
+  </div>
+
+  <h2>Last checks</h2>
+  <p class="sub">The night before</p>
+  <ul class="checks">
+    <li><b>The Mastercard used for the prepayment</b><span>Reception will ask for it. Without it they reprocess the charge and refund the first one, which takes seven working days.</span></li>
+    <li><b>Both passports and both arrival cards</b><span>Printed, plus photographs of each on the phone.</span></li>
+    <li><b>Lanta Taxi confirmed</b><span>Driver name and plate on WhatsApp the evening before, meeting inside arrivals.</span></li>
+    <li><b>Eye masks, earplugs, a layer each</b><span>In the cabin bag, not the hold — exit rows take nothing at your feet for take-off and landing, and they run cold.</span></li>
+    <li><b>Tell the crew at boarding not to wake you</b><span>Hindu meals are pre-ordered on both tickets and they will wake you to serve them. Eat at Delhi instead, and ask for blankets as you board.</span></li>
+    <li><b>Dry bag and reef-safe sunscreen</b></li>
+    <li><b>Cards enabled for international use</b><span>Decline dynamic currency conversion everywhere.</span></li>
+  </ul>
+
+  <footer>
+    <p>Times shown in Thailand local time, UTC+7 — ninety minutes ahead of Delhi. This page reads your device clock: the status line and today's card update themselves.</p>
+    <p>Prices are estimates gathered before the trip and will drift. The three worth re-checking on the day are the Hong trip's eight-guest minimum, the Phi Phi catamaran, and whether the operator lands at Maya Bay or only passes it.</p>
+  </footer>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  function pad(n){ n = String(n); return n.length < 2 ? "0" + n : n; }
+  try{
+    var now = new Date();
+    var key = now.getFullYear() + "-" + pad(now.getMonth()+1) + "-" + pad(now.getDate());
+
+    var start = new Date(2026, 8, 29);
+    var end   = new Date(2026, 9, 4);
+    var todayMid = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var dayMs = 86400000;
+    var msg;
+
+    if(todayMid < start){
+      var left = Math.round((start - todayMid) / dayMs);
+      msg = left === 1 ? "Tomorrow night you fly" : left + " days until Phuket";
+    } else if(todayMid > end){
+      msg = "Home. Five nights in Krabi, done.";
+    } else {
+      var n = Math.round((todayMid - start) / dayMs) + 1;
+      msg = "Day " + n + " of 6 — in Krabi";
+    }
+    document.getElementById("status").textContent = msg;
+
+    var el = document.querySelector('details.day[data-date="' + key + '"]');
+    if(el){
+      el.open = true;
+      el.className += " now";
+      var chip = el.querySelector(".chip");
+      if(chip){ chip.className += " hot"; chip.textContent = "Today"; }
+    } else if(todayMid < start){
+      var first = document.querySelector('details.day');
+      if(first) first.open = true;
+    }
+  }catch(e){
+    var s = document.getElementById("status");
+    if(s) s.textContent = "29 September – 4 October 2026";
+  }
+})();
+</script>
+</body>
+</html>
