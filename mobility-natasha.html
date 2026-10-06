@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mobility Ebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: single readable column, sticky section chips, video cards in a responsive grid */
+:root {
+  --bg: #f5f6f4;
+  --surface: #ffffff;
+  --fg: #1c2321;
+  --muted: #5d6a66;
+  --line: #dde2df;
+  --accent: #0d7a6b;
+  --accent-soft: #dcefeb;
+  --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121816; --surface: #1b2421; --fg: #e8eeec; --muted: #9aaaa5;
+    --line: #2b3733; --accent: #4fc9b5; --accent-soft: #1d3a35; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121816; --surface: #1b2421; --fg: #e8eeec; --muted: #9aaaa5;
+  --line: #2b3733; --accent: #4fc9b5; --accent-soft: #1d3a35; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 17px/1.55 var(--body);
+  padding-inline: max(16px, env(safe-area-inset-left));
+  padding-block: 0 3rem;
+}
+.wrap { max-width: 64rem; margin-inline: auto; }
+header { padding-block: 2rem 1.25rem; }
+h1 { font: 700 clamp(2.4rem, 8vw, 4rem)/1 var(--display); letter-spacing: .01em; margin: 0 0 .5rem; text-transform: uppercase; }
+.sub { color: var(--muted); margin: 0; max-width: 40rem; }
+nav {
+  position: sticky; top: 0; z-index: 5; background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  display: flex; gap: .5rem; overflow-x: auto; padding-block: .6rem;
+  margin-inline: -16px; padding-inline: 16px; scrollbar-width: none;
+}
+nav::-webkit-scrollbar { display: none; }
+nav a {
+  flex: none; text-decoration: none; color: var(--fg); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 999px; padding: .3rem .9rem; font-size: .95rem; font-weight: 600;
+}
+nav a:hover, nav a:focus-visible { background: var(--accent-soft); border-color: var(--accent); outline: none; }
+h2 { font: 700 clamp(1.7rem, 5vw, 2.3rem)/1.1 var(--display); text-transform: uppercase; letter-spacing: .02em; margin: 2.5rem 0 1rem; }
+.why { display: grid; gap: .75rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
+.why div { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 1rem; min-width: 0; }
+.why strong { display: block; font: 700 1.25rem/1.2 var(--display); text-transform: uppercase; color: var(--accent); margin-bottom: .25rem; }
+.why p { margin: 0; }
+.note { color: var(--muted); margin-top: 1rem; }
+.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr)); align-items: start; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; min-width: 0; }
+.card h3 { font: 600 1.15rem/1.25 var(--body); margin: 0; padding: .8rem 1rem .1rem; }
+.rx { display: inline-block; margin: .4rem 1rem .8rem; font-weight: 600; font-size: .9rem; color: var(--accent); background: var(--accent-soft); border-radius: 4px; padding: .1rem .5rem; font-variant-numeric: tabular-nums; }
+.rx.none { visibility: hidden; }
+.video { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; }
+.video.short { aspect-ratio: 9 / 16; max-height: 34rem; margin-inline: auto; }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.ext { display: block; padding: .5rem 1rem .8rem; font-size: .85rem; color: var(--muted); }
+.ext a { color: var(--accent); }
+footer { margin-top: 3rem; color: var(--muted); font-size: .9rem; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Mobility Ebook</h1>
+  <p class="sub">Ankles, hips, spine and shoulders. Press play on any video right here; sets and reps are listed above each one.</p>
+</header>
+
+<nav aria-label="Sections">
+  <a href="#why">Why</a>
+  <a href="#ankle">Ankle / Knee</a>
+  <a href="#hip">Hip</a>
+  <a href="#hipspine">Hip &amp; Spine</a>
+  <a href="#spine">Spine</a>
+  <a href="#shoulder">Shoulder</a>
+</nav>
+
+<main>
+<section id="why">
+  <h2>Why care about mobility?</h2>
+  <div class="why">
+    <div><strong>Low back pain</strong><p>Lack of mobility causes you to round your lower back at the bottom of a squat, which loads the spine in an unsafe position.</p></div>
+    <div><strong>Weak quads, knee pain</strong><p>If your knees can't shift past your toes in a squat, you can't properly strengthen your quads. Weak quads mean weak knees.</p></div>
+    <div><strong>Hip pain</strong><p>The body is one full chain. What happens at the base makes other areas overwork.</p></div>
+    <div><strong>Muscles left out</strong><p>Without the range, you can't fully work the correct muscles during exercises. We are not getting any younger, so keep this up to stay fit.</p></div>
+  </div>
+</section>
+
+<section id="ankle">
+  <h2>Ankle / Knee Mobility</h2>
+  <div class="grid">
+    <article class="card"><h3>Half kneeling ankle mobility</h3><span class="rx">2×10 each side</span><div class="video short"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/TIYYwI9cWYg" title="Half kneeling ankle mobility" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=TIYYwI9cWYg" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+    <article class="card"><h3>ATG lunge (advanced, but amazing)</h3><span class="rx none">–</span><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/HKJ8tuax6Ho" title="ATG lunge" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=HKJ8tuax6Ho" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+    <article class="card"><h3>Deep squat pause reps</h3><span class="rx">2×5–10</span><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/9_rG6fdHRfA" title="Deep squat pause reps" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=9_rG6fdHRfA" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+  </div>
+</section>
+
+<section id="hip">
+  <h2>Hip Mobility</h2>
+  <div class="grid">
+    <article class="card"><h3>Knees 90° internal/external hip rotation</h3><span class="rx">2×6 each side</span><div class="video short"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/CcW9x31bCno" title="Knees 90 degree hip rotation" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=CcW9x31bCno" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+    <article class="card"><h3>World's greatest stretch</h3><span class="rx">2×3 each side</span><div class="video short"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/GuCowPSfbno" title="World's greatest stretch" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=GuCowPSfbno" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+    <article class="card"><h3>Lying hip mobility (harder than it looks)</h3><span class="rx">2×6 each side</span><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/viaR2G36PiY" title="Lying hip mobility" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=viaR2G36PiY" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+    <article class="card"><h3>Seated good morning</h3><span class="rx">2×10</span><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/HorhsilIgXY" title="Seated good mornings" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=HorhsilIgXY" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+  </div>
+</section>
+
+<section id="hipspine">
+  <h2>Hip Mobility &amp; Spine</h2>
+  <div class="grid">
+    <article class="card"><h3>Deep squat with plate</h3><span class="rx">2×8</span><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Xbysbv_KG78" title="Deep squat with plate" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=Xbysbv_KG78" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+    <article class="card"><h3>90/90 hip opener</h3><span class="rx">2×8 each leg</span><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/JehuANIuyKI" title="90/90 hip opener" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=JehuANIuyKI" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+    <article class="card"><h3>Pigeon pose thread the needle</h3><span class="rx">2×8 each side</span><div class="video short"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/NABzXjFqX9s" title="Pigeon pose thread the needle" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=NABzXjFqX9s" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+    <article class="card"><h3>90/90 hip lift offs</h3><span class="rx">2×8 each side</span><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/xPiwiOPQBVc" title="90/90 hip lift offs" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=xPiwiOPQBVc" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+  </div>
+</section>
+
+<section id="spine">
+  <h2>Spine</h2>
+  <div class="grid">
+    <article class="card"><h3>Thread the needle</h3><span class="rx">2×10 each side</span><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/mTpZwkZw1Hg" title="Thread the needle mobility" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=mTpZwkZw1Hg" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+    <article class="card"><h3>Deep squat T-spine rotation</h3><span class="rx">2×3 each side, 2 deep breaths per rep</span><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/1574UfJjP-M" title="Deep squat T-spine rotation" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=1574UfJjP-M" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+    <article class="card"><h3>On-back T-spine (leg cross over)</h3><span class="rx">2×5–8 each side</span><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/IO0r635Wc8o" title="On back T-spine mobility" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=IO0r635Wc8o" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+  </div>
+</section>
+
+<section id="shoulder">
+  <h2>Shoulder</h2>
+  <div class="grid">
+    <article class="card"><h3>Kneeling shoulder mobility</h3><span class="rx">5 reps, 3–5 sec hold</span><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Ka3CAnVbVcM" title="Kneeling shoulder mobility" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=Ka3CAnVbVcM" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+    <article class="card"><h3>Pronated I-swimmers</h3><span class="rx">2×10</span><div class="video"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Id5d5pBYE5U" title="Pronated I-swimmers" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div><span class="ext">Not playing? <a href="https://www.youtube.com/watch?v=Id5d5pBYE5U" target="_blank" rel="noopener">Open on YouTube</a></span></article>
+  </div>
+  <p class="note">Tip: placing your hands further apart on the kneeling shoulder stretch gives a greater stretch.</p>
+</section>
+</main>
+
+<footer>Videos play from YouTube and need an internet connection. Embedded players only work when this page is served over http(s), not opened straight from a file; the "Open on YouTube" links always work.</footer>
+</div>
+</body>
+</html>
