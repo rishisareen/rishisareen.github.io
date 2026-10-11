@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 1: The Smallest Decision-Maker | From Bacteria to Bach</title>
+<meta name="description" content="How a single bacterium finds food with no brain at all">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  --bg:#FBF8F2; --surface:#FFFFFF; --ink:#1F2A30; --muted:#5E6A70; --rule:#E2DDD2;
+  --accent:#1F7A6E; --accent-ink:#13675E; --callout:#EEF5F1; --callout-rule:#1F9E8F;
+  --fig-bg:#FBF8F2;
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#12191D; --surface:#1A2328; --ink:#E6ECEA; --muted:#9AA8AD; --rule:#2C3A40;
+    --accent:#4CC7B6; --accent-ink:#8FE0D4; --callout:#1B2B2C; --callout-rule:#4CC7B6;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12191D; --surface:#1A2328; --ink:#E6ECEA; --muted:#9AA8AD; --rule:#2C3A40;
+  --accent:#4CC7B6; --accent-ink:#8FE0D4; --callout:#1B2B2C; --callout-rule:#4CC7B6;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.65}
+a{color:var(--accent-ink);text-underline-offset:2px}
+a:hover{color:var(--accent)}
+.topbar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--rule);font-family:var(--sans);font-size:14px}
+.topbar .in{max-width:1040px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;justify-content:space-between}
+.brand{font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.parts{display:flex;gap:4px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.parts a{display:inline-block;padding:3px 9px;border-radius:6px;text-decoration:none;color:var(--muted);border:1px solid transparent}
+.parts a:hover{color:var(--ink);border-color:var(--rule)}
+.parts a[aria-current="page"]{color:var(--ink);border-color:var(--accent);font-weight:600}
+main{max-width:720px;margin:0 auto;padding:28px 16px 40px}
+h1,h2,h3{font-family:var(--sans);line-height:1.25;letter-spacing:-.01em}
+h1{font-size:2rem;margin:.4em 0 .3em}
+h2{font-size:1.4rem;margin:2em 0 .6em}
+h3{font-size:1.12rem;margin:1.6em 0 .5em}
+.kicker{font-family:var(--sans);font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:0}
+h1 + p em:only-child{color:var(--muted)}
+img{max-width:100%;height:auto;display:block;margin:1.4em auto;border-radius:10px;background:var(--fig-bg);border:1px solid var(--rule)}
+blockquote{margin:1.6em 0;padding:14px 18px;background:var(--callout);border-left:4px solid var(--callout-rule);border-radius:0 8px 8px 0}
+blockquote p{margin:.3em 0}
+hr{border:0;border-top:1px solid var(--rule);margin:2.4em 0}
+ul,ol{padding-left:1.3em}
+li{margin:.3em 0}
+iframe{display:block;width:100%;border:1px solid var(--rule)!important;border-radius:10px;background:var(--surface);margin:1.4em 0}
+code{font-size:.9em}
+.pager{max-width:720px;margin:0 auto;padding:0 16px 56px;display:grid;grid-template-columns:1fr 1fr;gap:12px;font-family:var(--sans)}
+.pager a{display:block;padding:14px 16px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);text-decoration:none;color:var(--ink)}
+.pager a:hover{border-color:var(--accent)}
+.pager small{display:block;color:var(--muted);font-size:13px;margin-bottom:2px}
+.pager .next{text-align:right;grid-column:2}
+.pager .home{grid-column:1/-1;text-align:center}
+footer{border-top:1px solid var(--rule);font-family:var(--sans);font-size:13px;color:var(--muted);text-align:center;padding:18px 16px 28px}
+/* index */
+.hero{max-width:1040px;margin:0 auto;padding:40px 16px 8px}
+.hero h1{font-size:2.5rem;margin:.1em 0 .3em}
+.hero p{max-width:680px;font-size:1.1rem}
+.grid{max-width:1040px;margin:0 auto;padding:16px 16px 48px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.card img{margin:0;border:0;border-radius:0;border-bottom:1px solid var(--rule);aspect-ratio:16/9;object-fit:cover;width:100%}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h2{font-size:1.2rem;margin:0}
+.card h2 a{color:var(--ink);text-decoration:none}
+.card p{margin:0;font-size:1rem;color:var(--muted)}
+.card .links{margin-top:auto;padding-top:10px;display:flex;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:15px;font-weight:500}
+.sims{max-width:1040px;margin:0 auto;padding:0 16px 48px}
+.sims ul{font-family:var(--sans);font-size:16px}
+@media (max-width:560px){
+  body{font-size:17.5px}
+  h1{font-size:1.6rem}
+  .hero h1{font-size:1.9rem}
+  .pager{grid-template-columns:1fr}
+  .pager .next{grid-column:1;text-align:left}
+}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="in"><a class="brand" href="index.html">From Bacteria to Bach</a><nav aria-label="Series parts"><ul class="parts"><li><a href="part-1-the-smallest-decision-maker.html" aria-current="page" title="Part 1: The Smallest Decision-Maker">Part 1</a></li><li><a href="part-2-a-body-without-a-boss.html" title="Part 2: A Body Without a Boss">Part 2</a></li><li><a href="part-3-heading-somewhere.html" title="Part 3: Heading Somewhere">Part 3</a></li><li><a href="part-4-wired-to-belong.html" title="Part 4: Wired to Belong">Part 4</a></li><li><a href="part-5-the-brain-that-imagines-tomorrow.html" title="Part 5: The Brain That Imagines Tomorrow">Part 5</a></li></ul></nav></div></header>
+<main>
+<p class="kicker">Part 1 of 5</p>
+<h1>From Bacteria to Bach, Part 1: The Smallest Decision-Maker</h1>
+<p><em>How a single bacterium finds food with no brain at all</em></p>
+<p><img alt="A single E. coli bacterium swimming towards a source of food, with labels for its receptors, body, flagella and motors" src="p1-fig1-meet-the-bacterium.png"></p>
+<p>Put a tiny drop of sugar water into a dish crowded with bacteria, wait a few minutes, and look through a microscope. The bacteria will have gathered around the sugar, as if they knew exactly where it was.</p>
+<p>They have no eyes. No nose. No brain. Not even a single nerve cell. Each one is a lone cell, a sealed bag of chemistry far too small to see. And yet it detects food, decides which way to go, and gets there.</p>
+<p>This series is about how living things learned to sense the world, respond to it, and eventually get better at it: from a bacterium chasing sugar all the way to a human writing a symphony. Every later chapter builds on the trick you are about to meet. So it is worth understanding properly, because a version of it is still running inside you right now.</p>
+<hr>
+<h2>Meet the bacterium</h2>
+<blockquote>
+<p><strong>A note on where life began.</strong> All life on Earth traces back to single cells. The oldest signs of life, from around 3.5 billion years ago, come from tiny single-celled organisms, and for most of Earth's history single cells were the only life there was. Today's bacteria are not those first cells themselves. They are living descendants that kept a similar, very simple design: one cell, with no inner compartments and no organs. That makes a bacterium the simplest living example we have of how life senses and responds to the world, which is why our story starts here.</p>
+</blockquote>
+<p>Our main character is <em>Escherichia coli</em>, usually shortened to <em>E. coli</em>. Most kinds are harmless, and billions of them live in your gut. One <em>E. coli</em> is about two thousandths of a millimetre long. Line them up end to end and roughly 150 would fit across a single grain of table salt.</p>
+<p>Life at that size is strange. To a bacterium, water feels thick and sticky, the way honey would feel to you. The physicist Edward Purcell worked out that if a swimming bacterium suddenly stopped pushing, it would glide forward a distance smaller than the width of a single atom before coming to a dead stop. There is no coasting. If it wants to move, it has to keep its engine running every moment.</p>
+<p>That engine is remarkable. Sticking out of the bacterium are several long, thin, corkscrew-shaped tails called <strong>flagella</strong> (one is a <em>flagellum</em>). At the base of each tail sits a tiny rotary motor, built from proteins, that spins the tail more than a hundred times a second. It is one of the few true spinning wheels found anywhere in nature.</p>
+<blockquote>
+<p><strong>New idea: proteins.</strong> Proteins are the working machines of every living cell. They are long chains of building blocks that fold into precise 3D shapes, and their shape decides their job. Some proteins build structures, some speed up chemical reactions, and some, as you will see, act as sensors and switches.</p>
+</blockquote>
+<hr>
+<h2>The milestone: run and tumble</h2>
+<p>Here is the problem the bacterium has to solve. Food is somewhere nearby, dissolved in the water and spreading outwards, so the water closest to the food has the most of it. But the bacterium cannot see where the food is, and it cannot steer like a car. Its tails can only spin one way or the other.</p>
+<p>Its solution is called <strong>run and tumble</strong>, and it works like a children's game.</p>
+<p>Imagine playing "hot and cold" blindfolded. You cannot see the hidden prize, but a friend calls out "warmer" or "colder" as you move. A sensible strategy goes like this: while you keep hearing "warmer," keep walking straight. The moment you hear "colder," stop, spin around, and set off in a new random direction. You will wander and zigzag, but you will reach the prize surprisingly quickly.</p>
+<p>That is almost exactly what <em>E. coli</em> does.</p>
+<ul>
+<li><strong>Run.</strong> When all its motors spin anticlockwise, the corkscrew tails wind together into a single bundle that works like a propeller, and the bacterium swims smoothly forward, usually for about a second.</li>
+<li><strong>Tumble.</strong> When one or more motors flip to spinning clockwise, the bundle flies apart. For about a tenth of a second the bacterium tumbles on the spot, then sets off in a new, random direction.</li>
+</ul>
+<p>The clever part is <strong>when</strong> it chooses to tumble. If things are getting better, with more food than a moment ago, it keeps running for longer. If things are getting worse, it tumbles sooner.</p>
+<p><img alt="A zigzag path of runs and tumbles drifting towards a food source. Runs heading towards the food are long; runs heading away are short." src="p1-fig2-run-and-tumble.png"></p>
+<p>Look at the path in the picture. No single run is aimed at the food. The bacterium has no idea where the food is. But because the good runs last longer and the bad runs get cut short, the whole journey drifts towards the food. Scientists call this a <strong>biased random walk</strong>: random steps, gently nudged in a useful direction.</p>
+<blockquote>
+<p><strong>Key idea:</strong> You do not need a map, or even a sense of direction, to find your way. You only need to notice whether things are getting better or worse, and to change what you are doing when they get worse.</p>
+</blockquote>
+<hr>
+<h2>How does a cell "sense" anything?</h2>
+<p>So far we have said the bacterium "notices" more food. But it is a bag of chemicals. How does chemistry notice anything?</p>
+<p>The answer is a protein called a <strong>receptor</strong>, built into the cell's outer skin, the membrane. One end of the receptor pokes outside the cell, and the other end sits inside.</p>
+<p>Think of a receptor like a doorbell. The outside end has a pocket shaped to fit one particular kind of molecule, such as a sugar, the way only the right key fits a lock. When that molecule drops into the pocket, the whole receptor shifts its shape slightly. Because the receptor passes right through the membrane, that shape change on the outside causes a shape change on the inside. The doorbell has been pressed, and the inside of the cell now "knows" something is out there, even though the sugar never came in.</p>
+<p><em>E. coli</em> packs thousands of these receptors into a tight cluster at one end of the cell. They are wired together so that a few receptors detecting something nudge their neighbours too. This amplifies a faint signal into a clear one.</p>
+<p><img alt="The signal chain: food binds a receptor at the cell surface, a messenger protein carries the signal inside, and the message reaches the switch on the motor." src="p1-fig3-signal-chain.png"></p>
+<p>Next, the message has to reach the motors at the other end of the cell. Here the bacterium uses a relay of proteins that pass a small chemical tag from one to the next, a bit like runners passing a baton. The last protein in the relay, the <strong>messenger</strong>, carries the baton to the motor and flips its switch.</p>
+<p>The pattern goes like this:</p>
+<ul>
+<li><strong>Less food than before:</strong> the receptors let the relay run, lots of messengers carry the baton, the motors flip to clockwise, and the bacterium <strong>tumbles</strong>.</li>
+<li><strong>More food than before:</strong> food in the receptors quiets the relay, fewer messengers reach the motors, they stay anticlockwise, and the bacterium <strong>keeps running</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>New idea: signal relay.</strong> Many of the cell's decisions work like this two-part design: a sensor at the surface, and a messenger inside that carries the news to where action is needed. Bacteria use dozens of these sensor-and-messenger pairs, each tuned to something different: salt, oxygen, temperature, acidity. Remember this design. In the next parts of the series, evolution will scale it up dramatically.</p>
+</blockquote>
+<hr>
+<h2>The surprising part: a bacterium has memory</h2>
+<p>There is a puzzle hiding in the hot-and-cold game. "Warmer" only makes sense if you compare <strong>now</strong> with <strong>a moment ago</strong>. That requires memory.</p>
+<p>You might expect the bacterium to compare its front end with its back end instead, smelling which side has more food. But it is far too small for that. Across two thousandths of a millimetre, the difference is tiny and gets drowned out by the random jiggling of molecules. So instead of comparing across <strong>space</strong>, the bacterium compares across <strong>time</strong>. It asks: is there more food here than there was a second or two ago?</p>
+<p><img alt="Graph of food level over the last few seconds, comparing &quot;a moment ago&quot; with &quot;now&quot;. If now is higher, keep running. If lower, tumble." src="p1-fig4-memory.png"></p>
+<p>It keeps this memory using a slow chemical dial on its receptors. Over a few seconds, the cell adds or removes small chemical tags on each receptor, gradually adjusting how sensitive it is to whatever level of food is around. The receptors' current setting is a record of what things were like a few seconds ago. When the food level suddenly rises above that setting, the cell notices. If the level stays the same, the dial catches up and the signal fades away.</p>
+<p>You do this too. Walk into a bakery and the smell of fresh bread is overwhelming. Stay ten minutes and you barely notice it, even though the smell is still there. Your nose has reset its dial. Step outside and back in, and the smell hits you again. Scientists call this <strong>adaptation</strong>: a sense that stops responding to what stays the same and responds strongly to what changes.</p>
+<p>Adaptation gives the bacterium a superpower. It can track food across an enormous range, from a faint trace to a level roughly 100,000 times stronger, because it is always responding to the <strong>change</strong> rather than the total amount. A sensor that measured only the total would be useless: it would either be flooded at high levels or deaf at low ones.</p>
+<blockquote>
+<p><strong>Key idea:</strong> Living sensors mostly detect change, not amounts. They compare the present against a recent baseline, then reset that baseline. This principle, compare and reset, will turn up again and again in this series.</p>
+</blockquote>
+<hr>
+<h2>Food or danger?</h2>
+<p>The same machinery works in reverse. Some receptors are tuned to chemicals that are harmful, such as certain toxic metals. When they detect more of one, the rule flips: things are getting worse, so tumble sooner. The bacterium swims away from danger using exactly the same run-and-tumble trick it uses to swim towards food.</p>
+<p>So with a handful of proteins, <em>E. coli</em> has a complete behaviour loop:</p>
+<p><strong>Sense</strong> (receptors detect a chemical) → <strong>Decide</strong> (compare with a moment ago) → <strong>Act</strong> (run or tumble).</p>
+<p>Every animal that has ever lived, including you, runs some version of this loop.</p>
+<hr>
+<h2>The limit: a rule that never changes</h2>
+<p>For all its cleverness, the bacterium has one deep limitation. <strong>Its rule is fixed.</strong></p>
+<p>A bacterium today chases sugar exactly the way its ancestors did hundreds of millions of generations ago. It cannot get better at it through practice. If it swims into the same dead end a thousand times, it does not learn to avoid it. Its few seconds of memory are there to make the comparison work, not to store lessons.</p>
+<p>Bacteria do change over very long stretches of time, through evolution: random changes in their genes, with the more successful versions surviving and multiplying. But that is the species changing over many generations, not one bacterium learning during its lifetime. Learning, in the sense of an individual improving through experience, needs a system that can rewrite its own rules. That is still billions of years away.</p>
+<hr>
+<h2>Bacteria talk to each other</h2>
+<p>Here is one more surprise that sets up the rest of the series. Bacteria do not only sense food and danger. They also sense <strong>each other</strong>.</p>
+<p>Many bacteria constantly release a small signal molecule into the water around them. When only a few are present, the signal stays faint. When a crowd gathers, the signal builds up. Once it passes a threshold, every bacterium's receptors detect it at once, and the whole group switches on new behaviour together. This is called <strong>quorum sensing</strong>, after the "quorum," or minimum number of members a meeting needs before it can make decisions.</p>
+<p><img alt="On the left, a few scattered bacteria release a faint signal and nothing happens. On the right, many bacteria build up a strong signal, and they all switch on and glow together." src="p1-fig5-quorum-sensing.png"></p>
+<p>A beautiful example lives in the ocean near Hawaii. A small squid called the Hawaiian bobtail squid carries glowing bacteria in a special pouch on its underside. When enough bacteria have gathered there, quorum sensing switches on their light, all at once. The squid uses that glow to match the moonlight from above, hiding its shadow from predators below. A single bacterium glowing would be pointless and wasteful. A crowd glowing together is useful. So they wait until they can sense they are not alone.</p>
+<hr>
+<h2>Try it yourself: the Run-and-Tumble Simulator</h2>
+<p>Reading about run and tumble is one thing. Watching it work is better.</p>
+<iframe src="run-and-tumble-simulator.html" title="Run-and-Tumble Simulator" width="100%" height="900" style="border:0;"></iframe>
+
+<p><em>If the simulator does not appear above, <a href="run-and-tumble-simulator.html">open the Run-and-Tumble Simulator in its own page</a>.</em></p>
+<p>The simulator has two modes.</p>
+<p><strong>Watch it swim</strong> shows a petri dish from above, with food on one side and a bacterium following the same rule you just read about. Notice that it never stops once it arrives. Like a real bacterium, it keeps running and tumbling, drifting out and back, but the rule keeps pulling it in. Three experiments are worth trying:</p>
+<ol>
+<li><strong>Switch to a crowd of 30.</strong> Each one zigzags on its own, yet within about a minute almost the whole group has gathered around the food.</li>
+<li><strong>Turn memory down to "none."</strong> Without a way to compare now with a moment ago, the bacterium cannot tell better from worse, and the crowd stays scattered. Then try the other extreme, four seconds: the bacteria react too late, overshoot, and gather much more slowly. Real bacteria compare over about the last second or two.</li>
+<li><strong>Add poison</strong> between the bacteria and the food. The same rule, used in reverse, steers them around it.</li>
+</ol>
+<p><strong>Be the bacterium</strong> hides the dish. All you get is what a real bacterium gets: the food level where you are, and whether it is higher or lower than before your last move. You have two buttons, Run and Tumble. Most people are surprised how quickly they find the food with nothing but "warmer" and "colder" to go on.</p>
+<hr>
+<h2>Where this shows up in your life</h2>
+<p>This series will keep returning to two everyday examples: training your body, such as learning to run well, and training your mind, such as learning French. For now, just notice the first traces of the bacterium in each.</p>
+<p><strong>In running:</strong> the first few minutes of a run feel loud, with your breathing, heartbeat and footsteps. Ten minutes later you barely notice them. Your senses have adapted, just like the bacterium's receptors. What grabs your attention again is a change, like a sudden hill.</p>
+<p><strong>In French:</strong> as a beginner in a French café, the chatter around you blends into noise, until a word you learned yesterday jumps out from across the room. Your brain, like a bacterium, responds most to what has just changed.</p>
+<p>Both examples will grow as the series builds. Once nerves, brains and learning are on the table, we will be able to explain what is really happening when you get better at either one.</p>
+<hr>
+<h2>Mastery and belonging: where the journey begins</h2>
+<p>This series is about two great human drives: the drive to <strong>get better at things</strong> (mastery) and the drive to <strong>matter to other people</strong> (belonging). The bacterium shows us the seed of both.</p>
+<p><strong>The seed of mastery is the feedback loop.</strong> Try something, sense whether it made things better or worse, adjust. Every skill you will ever learn, from a tennis serve to a French accent to a piano fugue, grows from this loop. What the bacterium lacks is the ability to keep the lessons. Its loop steers it in the moment, but it never upgrades itself. Real mastery needs a loop that leaves a mark, so each attempt makes the next one better.</p>
+<p><strong>The seed of belonging is the signal from others.</strong> Through quorum sensing, even bacteria change their behaviour when they sense they are part of a group. They hold back from acting alone and act together when the crowd is there. It is a long way from a glowing squid pouch to the pull of friendship or teamwork. But the basic idea was already there 3.5 billion years ago: living things are built to sense each other, and to act differently together than alone.</p>
+<hr>
+<h2>Key ideas from Part 1</h2>
+<ul>
+<li><strong>Receptors</strong> are protein sensors in the cell's outer skin. When the right molecule fits, they change shape and pass the news inside, like a doorbell.</li>
+<li>A <strong>signal relay</strong> of proteins carries that news from the surface to the motors.</li>
+<li><strong>Run and tumble:</strong> swim straight while things improve, tumble to a random new direction when they get worse. Random steps, gently biased, lead to food.</li>
+<li>Bacteria compare <strong>now with a moment ago</strong>, using a few seconds of chemical memory.</li>
+<li><strong>Adaptation:</strong> senses respond to change, then reset to the new normal.</li>
+<li>The bacterium's rule is <strong>fixed</strong>: it steers but never learns.</li>
+<li><strong>Quorum sensing:</strong> bacteria sense how many others are around and act together.</li>
+</ul>
+<hr>
+<h2>Coming next</h2>
+<p>The bacterium has one big limitation we have not mentioned yet: it is alone in its own skin. Every decision happens inside a single cell, where the sensor and the motor are only a few thousandths of a millimetre apart.</p>
+<p>About 700 million years ago, the first animals appeared: many cells living together as one body. Suddenly, the cell that sensed danger was no longer the cell that had to move. Chemical messages, which work beautifully across one tiny cell, became far too slow across a whole body.</p>
+<p>In <a href="part-2-a-body-without-a-boss.html"><strong>Part 2: A Body Without a Boss</strong></a>, we will see how cells first learned to talk to each other, how the first nerve cells and electrical signals appeared, and how a jellyfish coordinates its entire pulsing body without any brain in charge.</p>
+</main>
+<nav class="pager" aria-label="Part navigation"><a class="prev" href="index.html"><small>Back to</small>Series home</a><a class="next" href="part-2-a-body-without-a-boss.html"><small>Next</small>Part 2: A Body Without a Boss</a><a class="home" href="run-and-tumble-simulator.html"><small>Open the simulator for this part on its own page</small>Run-and-Tumble Simulator</a></nav>
+<footer>From Bacteria to Bach &middot; a five-part series &middot; <a href="index.html">All parts</a></footer>
+</body>
+</html>

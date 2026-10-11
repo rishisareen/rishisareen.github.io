@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prediction and Practice | From Bacteria to Bach, Part 5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+html{color-scheme:light}
+body{margin:0}
+[hidden]{display:none!important}
+/* Layout: the series' lab-bench instrument, with two tabs. Tab one is a full-width perception test; tab two pairs a learning chart with its controls. */
+:root {
+  --bg: #F5F6F2;
+  --surface: #FFFFFF;
+  --ink: #1D2A33;
+  --muted: #5F6B72;
+  --rule: #D9DDD5;
+  --paper: #FFFFFF;
+  --mark: #1D2A33;
+  --dot: #D2493A;
+  --stripe: #C9CFBF;
+  --easy: #8C969B;
+  --edge: #D98E10;
+  --hard: #C2452F;
+  --you: #1F9E8F;
+  --grid: #E3E7DC;
+  --focus: #2B6CB0;
+  --on-accent: #FFFFFF;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11181C; --surface: #182227; --ink: #E6ECEA; --muted: #9AA8AD; --rule: #2C3A40; --paper: #F4F4EF; --mark: #1D2A33; --dot: #D2493A; --stripe: #B9BFB0;
+    --easy: #A3ADB2; --edge: #F2B347; --hard: #F07362; --you: #4CC7B6; --grid: #263338; --focus: #7FB2EE; --on-accent: #0B1F1C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11181C; --surface: #182227; --ink: #E6ECEA; --muted: #9AA8AD; --rule: #2C3A40; --paper: #F4F4EF; --mark: #1D2A33; --dot: #D2493A; --stripe: #B9BFB0;
+  --easy: #A3ADB2; --edge: #F2B347; --hard: #F07362; --you: #4CC7B6; --grid: #263338; --focus: #7FB2EE; --on-accent: #0B1F1C;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; padding-block: 24px 40px; }
+header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 10px 24px; }
+h1 { font-size: 1.6rem; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
+.sub { color: var(--muted); margin: 4px 0 0; max-width: 62ch; }
+.tabs { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 3px; background: var(--surface); }
+.tabs button { border: 0; background: transparent; color: var(--muted); font: 600 0.9rem var(--font-body); padding: 8px 16px; border-radius: 999px; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); }
+.card { margin-top: 18px; background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 14px; min-width: 0; }
+canvas { display: block; width: 100%; max-width: 100%; }
+#spot { aspect-ratio: 3 / 1; border-radius: 8px; }
+#chart { aspect-ratio: 16 / 10; }
+.steps { margin: 14px 0 0; padding-left: 1.3em; display: grid; gap: 4px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.label { font-weight: 600; font-size: 0.92rem; margin-right: 4px; }
+.btn { font: 600 0.9rem var(--font-body); border-radius: 10px; padding: 9px 13px; cursor: pointer; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); }
+.btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn.go { background: var(--you); border-color: var(--you); color: var(--on-accent); }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.controls { display: grid; gap: 14px; margin-top: 14px; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0; }
+.practice { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+@media (max-width: 800px) { .practice { grid-template-columns: 1fr; } }
+.group { display: grid; gap: 6px; }
+.group label { font-weight: 600; font-size: 0.92rem; display: flex; justify-content: space-between; gap: 12px; }
+.value { font: 500 0.95rem var(--font-data); color: var(--you); font-variant-numeric: tabular-nums; }
+input[type="range"] { width: 100%; accent-color: var(--you); }
+.scores { display: grid; gap: 6px; border-top: 1px solid var(--rule); padding-top: 12px; }
+.score { display: flex; justify-content: space-between; gap: 10px; font-size: 0.92rem; }
+.score b { font: 500 0.95rem var(--font-data); font-variant-numeric: tabular-nums; }
+.sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 8px; vertical-align: -1px; }
+</style>
+
+</head>
+<body>
+<style>
+.series-nav{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;border-bottom:1px solid var(--rule,#D9DDD5);background:var(--bg,#F5F6F2)}
+.series-nav .in{max-width:1040px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+.series-nav a{color:var(--ink,#1D2A33);text-underline-offset:2px}
+.series-nav .home{font-weight:600;text-decoration:none;margin-right:auto}
+html.embedded .series-nav{display:none}
+</style>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded')}catch(e){document.documentElement.classList.add('embedded')}</script>
+<nav class="series-nav" aria-label="Series"><div class="in">
+<a class="home" href="index.html" target="_top">From Bacteria to Bach</a>
+<a href="part-5-the-brain-that-imagines-tomorrow.html" target="_top">Read Part 5: The Brain That Imagines Tomorrow</a>
+
+</div></nav>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Prediction and Practice</h1>
+      <p class="sub">Two short experiments from Part 5: catch your brain filling in what it predicts, and see why practice works best at the edge of what you can do.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Experiment">
+      <button id="tab-spot" role="tab" aria-selected="true" aria-controls="panel-spot">Find your blind spot</button>
+      <button id="tab-practice" role="tab" aria-selected="false" aria-controls="panel-practice">Practise at the edge</button>
+    </div>
+  </header>
+
+  <!-- BLIND SPOT -->
+  <section id="panel-spot" role="tabpanel" aria-labelledby="tab-spot">
+    <div class="card">
+      <canvas id="spot" aria-label="A cross and a red dot for finding your blind spot"></canvas>
+      <ol class="steps">
+        <li>Close your <b id="close-eye">left</b> eye and look straight at the <b>cross</b> with your other eye. Keep looking at the cross the whole time.</li>
+        <li>Move your head slowly towards and away from the screen. Start at about arm's length.</li>
+        <li>At some distance, usually around three to four times the gap between the cross and the dot, the dot vanishes. It has landed on your blind spot.</li>
+        <li>Now switch on a background and repeat. Where the dot disappears, you will not see a hole. Your brain fills in the line or the stripes it expects.</li>
+      </ol>
+      <div class="controls">
+        <div class="row"><span class="label">Background</span>
+          <button class="btn" id="bg-plain" aria-pressed="true">Plain</button>
+          <button class="btn" id="bg-line" aria-pressed="false">A line through the dot</button>
+          <button class="btn" id="bg-stripes" aria-pressed="false">Stripes</button>
+        </div>
+        <div class="row"><span class="label">Eye</span>
+          <button class="btn" id="eye-right" aria-pressed="true">Test right eye</button>
+          <button class="btn" id="eye-left" aria-pressed="false">Test left eye</button>
+        </div>
+        <p class="hint">Works best on a laptop or desktop screen. On a phone, hold it close and move it slowly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICE -->
+  <section id="panel-practice" role="tabpanel" aria-labelledby="tab-practice" hidden>
+    <div class="card practice">
+      <div><canvas id="chart" aria-label="Skill growing over 300 practice attempts for four learners"></canvas></div>
+      <div class="controls" style="margin-top:0">
+        <p class="hint">Each learner practises the same skill 300 times. A good coach keeps adjusting the difficulty so each learner succeeds at their chosen rate.</p>
+        <div class="group">
+          <label for="target">Your success rate <span class="value" id="target-val">70%</span></label>
+          <input type="range" id="target" min="30" max="99" step="1" value="70">
+        </div>
+        <div class="row"><span class="label">Feedback</span>
+          <button class="btn" id="fb-on" aria-pressed="true">On</button>
+          <button class="btn" id="fb-off" aria-pressed="false">Off</button>
+        </div>
+        <button class="btn go" id="run">Practise 300 attempts</button>
+        <div class="scores" aria-live="polite">
+          <div class="score"><span><i class="sw" style="background:var(--easy)"></i>Too easy, succeeds 98%</span><b id="s-easy">-</b></div>
+          <div class="score"><span><i class="sw" style="background:var(--edge)"></i>At the edge, succeeds 85%</span><b id="s-edge">-</b></div>
+          <div class="score"><span><i class="sw" style="background:var(--hard)"></i>Too hard, succeeds 40%</span><b id="s-hard">-</b></div>
+          <div class="score"><span><i class="sw" style="background:var(--you)"></i>You, <span id="you-desc">70%, with feedback</span></span><b id="s-you">-</b></div>
+        </div>
+        <p class="hint">A simple illustrative model. Its shape follows research suggesting that, for some kinds of learning, progress is fastest when you succeed most of the time but not every time. Feedback off cuts learning sharply, because you cannot tell what to fix.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const colors = {};
+  const readColors = () => { const cs = getComputedStyle(document.documentElement); ['--paper','--mark','--dot','--stripe','--easy','--edge','--hard','--you','--grid','--muted','--ink','--surface','--rule'].forEach(k => colors[k] = cs.getPropertyValue(k).trim()); };
+  readColors();
+  const redraw = () => { readColors(); drawSpot(); drawChart(progress); };
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', redraw);
+  new MutationObserver(redraw).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  function fit(c, ratio) { const dpr = Math.min(window.devicePixelRatio || 1, 2); const w = c.clientWidth || 800, h = w / ratio; c.width = Math.round(w * dpr); c.height = Math.round(h * dpr); const g = c.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0); return { g, w, h }; }
+
+  // ---------- blind spot ----------
+  let bgMode = 'plain', eye = 'right';
+  const spot = $('spot');
+  function drawSpot() {
+    if ($('panel-spot').hidden) return;
+    const { g, w, h } = fit(spot, 3);
+    g.fillStyle = colors['--paper']; g.fillRect(0, 0, w, h);
+    const crossX = eye === 'right' ? w * 0.18 : w * 0.82, dotX = eye === 'right' ? w * 0.68 : w * 0.32, y = h * 0.5, r = Math.max(7, w * 0.014);
+    if (bgMode === 'stripes') { g.fillStyle = colors['--stripe']; const step = Math.max(10, w * 0.02); for (let x = 0; x < w; x += step * 2) g.fillRect(x, 0, step, h); }
+    if (bgMode === 'line') { g.fillStyle = colors['--mark']; const t = Math.max(3, w * 0.006); g.fillRect(0, y - t / 2, dotX - r * 1.6, t); g.fillRect(dotX + r * 1.6, y - t / 2, w, t); }
+    // cross
+    g.strokeStyle = colors['--mark']; g.lineWidth = Math.max(3, w * 0.005); const c = Math.max(12, w * 0.022);
+    g.beginPath(); g.moveTo(crossX - c, y); g.lineTo(crossX + c, y); g.moveTo(crossX, y - c); g.lineTo(crossX, y + c); g.stroke();
+    // dot
+    g.fillStyle = colors['--dot']; g.beginPath(); g.arc(dotX, y, r, 0, Math.PI * 2); g.fill();
+  }
+  const press = (ids, on) => ids.forEach(id => $(id).setAttribute('aria-pressed', String(id === on)));
+  $('bg-plain').onclick = () => { bgMode = 'plain'; press(['bg-plain', 'bg-line', 'bg-stripes'], 'bg-plain'); drawSpot(); };
+  $('bg-line').onclick = () => { bgMode = 'line'; press(['bg-plain', 'bg-line', 'bg-stripes'], 'bg-line'); drawSpot(); };
+  $('bg-stripes').onclick = () => { bgMode = 'stripes'; press(['bg-plain', 'bg-line', 'bg-stripes'], 'bg-stripes'); drawSpot(); };
+  $('eye-right').onclick = () => { eye = 'right'; $('close-eye').textContent = 'left'; press(['eye-right', 'eye-left'], 'eye-right'); drawSpot(); };
+  $('eye-left').onclick = () => { eye = 'left'; $('close-eye').textContent = 'right'; press(['eye-right', 'eye-left'], 'eye-left'); drawSpot(); };
+
+  // ---------- practice model ----------
+  // Learning per attempt depends on the success rate: little to learn when it is nearly always right,
+  // too little usable signal when it is mostly wrong. Peak near 85%. Progress slows as skill nears its ceiling.
+  const N = 300, ETA = 0.63;
+  const gain = p => p >= 0.85 ? Math.exp(-(((p - 0.85) / 0.1) ** 2)) : Math.exp(-(((0.85 - p) / 0.3) ** 2));
+  function curve(rate, feedback) { const out = [0]; let s = 0; for (let i = 1; i <= N; i++) { s += ETA * gain(rate) * (feedback ? 1 : 0.3) * (1 - s / 100); out.push(s); } return out; }
+  let you = { rate: 0.70, fb: true };
+  let curves = null, progress = 0;
+  function compute() { curves = { easy: curve(0.98, true), edge: curve(0.85, true), hard: curve(0.40, true), you: curve(you.rate, you.fb) }; }
+  const chart = $('chart');
+  function drawChart(prog) {
+    if ($('panel-practice').hidden || !curves) return;
+    const { g, w, h } = fit(chart, 1.6);
+    g.fillStyle = colors['--surface']; g.fillRect(0, 0, w, h);
+    const L = Math.max(46, w * 0.07), R = Math.max(96, w * 0.15), T = h * 0.06, B = h * 0.13;
+    const X = i => L + (i / N) * (w - L - R), Y = s => h - B - (s / 100) * (h - T - B);
+    const fs = Math.max(11, w * 0.017);
+    g.font = `500 ${fs}px "IBM Plex Mono", ui-monospace, monospace`; g.fillStyle = colors['--muted'];
+    g.strokeStyle = colors['--grid']; g.lineWidth = 1;
+    for (let s = 0; s <= 100; s += 25) { g.beginPath(); g.moveTo(L, Y(s)); g.lineTo(w - R, Y(s)); g.stroke(); g.textAlign = 'right'; g.textBaseline = 'middle'; g.fillText(String(s), L - 8, Y(s)); }
+    for (let i = 0; i <= N; i += 100) { g.textAlign = 'center'; g.textBaseline = 'top'; g.fillText(String(i), X(i), h - B + 8); }
+    g.font = `600 ${fs}px "IBM Plex Sans", system-ui, sans-serif`; g.textAlign = 'center'; g.fillText('practice attempts', (L + w - R) / 2, h - B + 8 + fs * 1.5);
+    g.save(); g.translate(fs * 0.9, (T + h - B) / 2); g.rotate(-Math.PI / 2); g.textBaseline = 'top'; g.fillText('skill', 0, 0); g.restore();
+    const upto = Math.round(prog * N);
+    const order = [['easy', 'too easy'], ['hard', 'too hard'], ['edge', 'at the edge'], ['you', 'you']];
+    const labels = [];
+    order.forEach(([k, name]) => {
+      const c = curves[k], col = colors['--' + k];
+      g.strokeStyle = col; g.lineWidth = k === 'you' ? 4 : 3; g.lineJoin = 'round'; g.setLineDash(k === 'you' ? [] : []);
+      g.beginPath(); for (let i = 0; i <= upto; i++) { const x = X(i), y = Y(c[i]); i ? g.lineTo(x, y) : g.moveTo(x, y); } g.stroke();
+      g.fillStyle = col; g.beginPath(); g.arc(X(upto), Y(c[upto]), 4.5, 0, Math.PI * 2); g.fill();
+      labels.push({ y: Y(c[upto]), name, col, x: X(upto) });
+    });
+    // end labels, nudged apart
+    labels.sort((a, b) => a.y - b.y); for (let i = 1; i < labels.length; i++) if (labels[i].y - labels[i - 1].y < fs * 1.3) labels[i].y = labels[i - 1].y + fs * 1.3;
+    g.font = `600 ${fs}px "IBM Plex Sans", system-ui, sans-serif`; g.textAlign = 'left'; g.textBaseline = 'middle';
+    labels.forEach(l => { g.fillStyle = l.col; g.fillText(l.name, l.x + 10, l.y); });
+    if (prog >= 1) ['easy', 'edge', 'hard', 'you'].forEach(k => $('s-' + k).textContent = `skill ${Math.round(curves[k][N])}`);
+  }
+  function run() {
+    compute(); ['easy', 'edge', 'hard', 'you'].forEach(k => $('s-' + k).textContent = '...');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, D = reduce ? 1 : 2400, start = performance.now();
+    const step = now => { progress = Math.min(1, (now - start) / D); drawChart(progress); if (progress < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }
+  const describe = () => { $('you-desc').textContent = `${Math.round(you.rate * 100)}%, ${you.fb ? 'with' : 'no'} feedback`; };
+  $('target').oninput = e => { you.rate = +e.target.value / 100; $('target-val').textContent = `${e.target.value}%`; describe(); };
+  $('fb-on').onclick = () => { you.fb = true; press(['fb-on', 'fb-off'], 'fb-on'); describe(); };
+  $('fb-off').onclick = () => { you.fb = false; press(['fb-on', 'fb-off'], 'fb-off'); describe(); };
+  $('run').onclick = run;
+
+  // ---------- tabs ----------
+  let practiceShown = false;
+  function setTab(t) {
+    $('tab-spot').setAttribute('aria-selected', String(t === 'spot')); $('tab-practice').setAttribute('aria-selected', String(t === 'practice'));
+    $('panel-spot').hidden = t !== 'spot'; $('panel-practice').hidden = t !== 'practice';
+    if (t === 'spot') drawSpot();
+    else if (!practiceShown) { practiceShown = true; run(); } else drawChart(progress);
+  }
+  $('tab-spot').onclick = () => setTab('spot');
+  $('tab-practice').onclick = () => setTab('practice');
+  if (location.hash === '#practice') setTab('practice');
+
+  window.addEventListener('resize', () => { drawSpot(); drawChart(progress); });
+  document.fonts && document.fonts.ready.then(redraw);
+  compute(); drawSpot();
+})();
+</script>
+
+</body>
+</html>

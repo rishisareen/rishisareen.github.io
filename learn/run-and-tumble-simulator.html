@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Run-and-Tumble Simulator | From Bacteria to Bach, Part 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+html{color-scheme:light}
+body{margin:0}
+[hidden]{display:none!important}
+/* Layout: lab-bench instrument. Dish on the left, control panel on the right; stacks on phones. */
+:root {
+  --bg: #F5F6F2;
+  --surface: #FFFFFF;
+  --ink: #1D2A33;
+  --muted: #5F6B72;
+  --rule: #D9DDD5;
+  --agar: #EEF1E6;
+  --agar-edge: #C9CFBF;
+  --cell: #1F9E8F;
+  --cell-deep: #13675E;
+  --cell-fill: #CDEDE7;
+  --food: #E39B1B;
+  --food-ink: #9A6206;
+  --poison: #D2493A;
+  --tumble: #E0603F;
+  --focus: #2B6CB0;
+  --fog: #24323A;
+  --fog-ink: #E6ECEA;
+  --on-accent: #FFFFFF;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11181C; --surface: #182227; --ink: #E6ECEA; --muted: #9AA8AD; --rule: #2C3A40;
+    --agar: #1C2A2B; --agar-edge: #35494A; --cell: #4CC7B6; --cell-deep: #8FE0D4; --cell-fill: #1E4743;
+    --food: #F2B347; --food-ink: #F2C46F; --poison: #F07362; --tumble: #F2876C; --focus: #7FB2EE;
+    --fog: #0A1013; --fog-ink: #C9D4D2; --on-accent: #0B1F1C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11181C; --surface: #182227; --ink: #E6ECEA; --muted: #9AA8AD; --rule: #2C3A40;
+  --agar: #1C2A2B; --agar-edge: #35494A; --cell: #4CC7B6; --cell-deep: #8FE0D4; --cell-fill: #1E4743;
+  --food: #F2B347; --food-ink: #F2C46F; --poison: #F07362; --tumble: #F2876C; --focus: #7FB2EE;
+  --fog: #0A1013; --fog-ink: #C9D4D2; --on-accent: #0B1F1C;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; padding-block: 24px 40px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 24px; }
+h1 { font-size: 1.6rem; font-weight: 700; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+.sub { color: var(--muted); margin: 4px 0 0; max-width: 60ch; }
+.tabs { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; padding: 3px; background: var(--surface); }
+.tabs button { border: 0; background: transparent; color: var(--muted); font: 600 0.9rem var(--font-body); padding: 8px 16px; border-radius: 999px; cursor: pointer; }
+.tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); }
+.bench { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px; margin-top: 20px; align-items: start; }
+@media (max-width: 760px) { .bench { grid-template-columns: 1fr; } }
+.dish-wrap { position: relative; background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 12px; min-width: 0; }
+canvas { display: block; width: 100%; aspect-ratio: 1; max-width: 100%; }
+.dish-caption { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font: 0.85rem var(--font-data); color: var(--muted); padding: 8px 4px 0; font-variant-numeric: tabular-nums; }
+.panel { display: grid; gap: 18px; min-width: 0; }
+.group { display: grid; gap: 8px; }
+.group > label, .label { font-weight: 600; font-size: 0.95rem; display: flex; justify-content: space-between; gap: 12px; }
+.value { font-family: var(--font-data); font-weight: 500; color: var(--cell-deep); font-variant-numeric: tabular-nums; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0; }
+input[type="range"] { width: 100%; accent-color: var(--cell); }
+.row { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn { font: 600 0.92rem var(--font-body); border-radius: 10px; padding: 10px 16px; cursor: pointer; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); }
+.btn.primary { background: var(--cell); border-color: var(--cell); color: var(--on-accent); }
+.btn.warn[aria-pressed="true"] { background: var(--poison); border-color: var(--poison); color: var(--on-accent); }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.readout { border-top: 1px solid var(--rule); padding-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+.readout div { display: grid; gap: 2px; }
+.readout span { font-size: 0.8rem; color: var(--muted); }
+.readout strong { font: 500 1.05rem var(--font-data); font-variant-numeric: tabular-nums; }
+.chip { display: inline-block; font: 600 0.8rem var(--font-body); padding: 2px 10px; border-radius: 999px; border: 1px solid currentColor; }
+.chip.run { color: var(--cell-deep); }
+.chip.tumble { color: var(--tumble); }
+.try { background: var(--agar); border: 1px solid var(--agar-edge); border-radius: 12px; padding: 14px 16px; }
+.try h2 { font-size: 0.95rem; margin: 0 0 6px; }
+.try ol { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; font-size: 0.9rem; }
+.meter { height: 18px; border-radius: 9px; background: var(--agar); border: 1px solid var(--agar-edge); overflow: hidden; }
+.meter i { display: block; height: 100%; width: 0; background: var(--food); transition: width 0.25s ease; }
+.compare { font: 600 1.6rem var(--font-body); }
+.compare.up { color: var(--cell-deep); }
+.compare.down { color: var(--tumble); }
+.compare.same { color: var(--muted); }
+.big-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.big-row .btn { padding: 16px; font-size: 1.05rem; }
+.result { font-weight: 600; color: var(--cell-deep); margin: 0; }
+@media (prefers-reduced-motion: reduce) { .meter i { transition: none; } }
+</style>
+
+</head>
+<body>
+<style>
+.series-nav{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;border-bottom:1px solid var(--rule,#D9DDD5);background:var(--bg,#F5F6F2)}
+.series-nav .in{max-width:1040px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+.series-nav a{color:var(--ink,#1D2A33);text-underline-offset:2px}
+.series-nav .home{font-weight:600;text-decoration:none;margin-right:auto}
+html.embedded .series-nav{display:none}
+</style>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded')}catch(e){document.documentElement.classList.add('embedded')}</script>
+<nav class="series-nav" aria-label="Series"><div class="in">
+<a class="home" href="index.html" target="_top">From Bacteria to Bach</a>
+<a href="part-1-the-smallest-decision-maker.html" target="_top">Read Part 1: The Smallest Decision-Maker</a>
+<a href="nerve-net-simulator.html" target="_top">Next simulator: Nerve Net Simulator</a>
+</div></nav>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Run-and-Tumble Simulator</h1>
+      <p class="sub">A bacterium cannot see food. It only senses whether things are getting better or worse, and changes direction when they get worse.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Mode">
+      <button id="tab-watch" role="tab" aria-selected="true">Watch it swim</button>
+      <button id="tab-play" role="tab" aria-selected="false">Be the bacterium</button>
+    </div>
+  </header>
+
+  <div class="bench">
+    <div class="dish-wrap">
+      <canvas id="dish" aria-label="Petri dish with food, bacteria and their swimming paths"></canvas>
+      <div class="dish-caption"><span id="cap-left">Time 0 s</span><span id="cap-right">Food in the dish (orange)</span></div>
+    </div>
+
+    <!-- WATCH MODE -->
+    <div class="panel" id="panel-watch">
+      <div class="row">
+        <button class="btn primary" id="play">Pause</button>
+        <button class="btn" id="restart">Restart</button>
+        <button class="btn" id="speed" aria-pressed="false">Speed 1x</button>
+      </div>
+
+      <div class="group">
+        <label for="memory">Memory <span class="value" id="memory-val">1.0 s</span></label>
+        <input type="range" id="memory" min="0" max="4" step="0.5" value="1">
+        <p class="hint">How far back it compares. At "none" it cannot tell better from worse. Too long, and it reacts late and overshoots.</p>
+      </div>
+
+      <div class="group">
+        <label for="eager">Tumbles when things get worse <span class="value" id="eager-val">5</span></label>
+        <input type="range" id="eager" min="1" max="6" step="1" value="5">
+        <p class="hint">Turn it down and the bacterium keeps swimming the wrong way for too long.</p>
+      </div>
+
+      <div class="group">
+        <span class="label">Bacteria in the dish</span>
+        <div class="row seg">
+          <button class="btn" id="n1" aria-pressed="true">One</button>
+          <button class="btn" id="n30" aria-pressed="false">A crowd of 30</button>
+          <button class="btn warn" id="poison" aria-pressed="false">Add poison</button>
+        </div>
+      </div>
+
+      <div class="readout" aria-live="polite">
+        <div><span>Doing now</span><strong id="r-state"><em class="chip run">Running</em></strong></div>
+        <div><span>Now vs a moment ago</span><strong id="r-compare">higher</strong></div>
+        <div><span id="r-goal-label">Reached the food</span><strong id="r-goal">not yet</strong></div>
+        <div><span id="r-extra-label">Time near food since arriving</span><strong id="r-extra">-</strong></div>
+      </div>
+
+      <div class="try">
+        <h2>Try these</h2>
+        <ol>
+          <li>Set memory to <b>none</b>. Without a comparison, the swimming turns aimless.</li>
+          <li>Switch to a crowd of 30 and watch the group gather around the food.</li>
+          <li>Add poison between the bacteria and the food. The same rule steers them around it.</li>
+        </ol>
+        <p class="hint" style="margin-top:8px">Bacteria never stop moving. At the food they keep running and tumbling, drifting out and back, but the same rule keeps pulling them in.</p>
+      </div>
+    </div>
+
+    <!-- PLAY MODE -->
+    <div class="panel" id="panel-play" hidden>
+      <p class="hint">The dish is hidden. You get only what a bacterium gets: the food level here, and whether it is higher or lower than before your last move. Find the food.</p>
+      <div class="group">
+        <span class="label">Food level here <span class="value" id="p-level">0%</span></span>
+        <div class="meter" aria-hidden="true"><i id="p-bar"></i></div>
+      </div>
+      <div class="group">
+        <span class="label">Compared with before</span>
+        <div class="compare same" id="p-compare">Start swimming</div>
+      </div>
+      <div class="big-row">
+        <button class="btn primary" id="p-run">Run</button>
+        <button class="btn" id="p-tumble">Tumble</button>
+      </div>
+      <p class="hint">Run swims straight for a moment. Tumble spins you to a random new direction.</p>
+      <div class="readout">
+        <div><span>Moves</span><strong id="p-moves">0</strong></div>
+        <div><span>Tumbles</span><strong id="p-tumbles">0</strong></div>
+      </div>
+      <p class="result" id="p-result" aria-live="polite"></p>
+      <div class="row">
+        <button class="btn" id="p-reveal">Reveal the dish</button>
+        <button class="btn" id="p-new">New game</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const canvas = $('dish'), ctx = canvas.getContext('2d');
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  let colors = {};
+  const readColors = () => { ['--agar','--agar-edge','--cell','--cell-deep','--cell-fill','--food','--food-ink','--poison','--tumble','--muted','--ink','--surface','--fog','--fog-ink'].forEach(k => colors[k] = css(k)); };
+  readColors();
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', readColors);
+  new MutationObserver(readColors).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  // ---------- world ----------
+  const FOOD = { x: 0.48, y: -0.22, s: 0.35, r: 0.14 };
+  const POISON = { x: -0.02, y: 0.08, s: 0.17 };
+  const START = { x: -0.62, y: 0.42 };
+  let poisonOn = false;
+  const gauss = (x, y, c, s) => Math.exp(-((x - c.x) ** 2 + (y - c.y) ** 2) / (2 * s * s));
+  const food = (x, y, f = FOOD) => gauss(x, y, f, f.s);
+  // Food leaks from one spot, so its level falls off roughly as 1 / distance (plus a faint background).
+  // Like real bacteria, the cell responds to relative change, so it uses the log of that level.
+  const level = (x, y) => 1 / (Math.hypot(x - FOOD.x, y - FOOD.y) + 0.06) + 0.3;
+  const signal = (x, y) => Math.log(level(x, y)) - (poisonOn ? 3 * gauss(x, y, POISON, POISON.s) : 0);
+  const randn = () => { let u = 0, v = 0; while (!u) u = Math.random(); v = Math.random(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); };
+
+  const SPEED = 0.13, TUMBLE_T = 0.25, DT = 1 / 60;
+  let memory = 1, eager = 5, nCells = 1, cells = [], simT = 0, running = true, speedX = 1, reachedAt = null, totalTumbles = 0, nearTime = 0;
+
+  function makeCell(i) {
+    const jitter = nCells > 1 ? 0.12 : 0;
+    const x = START.x + randn() * jitter, y = START.y + randn() * jitter;
+    const s = signal(x, y);
+    return { x, y, h: Math.random() * Math.PI * 2, base: s, tumble: 0, trail: [[x, y]], improving: true, wig: Math.random() * 10 };
+  }
+  function reset() {
+    cells = Array.from({ length: nCells }, (_, i) => makeCell(i));
+    simT = 0; reachedAt = null; totalTumbles = 0; nearTime = 0;
+  }
+
+  function stepCell(c, dt) {
+    const s = signal(c.x, c.y);
+    let rate;
+    if (memory <= 0) { rate = 1.0; c.improving = null; }
+    else {
+      const diff = s - c.base;
+      c.improving = diff > 1e-4 ? true : diff < -1e-4 ? false : c.improving;
+      rate = c.improving ? 0.08 : 1.0 * eager;
+      c.base += (s - c.base) * Math.min(1, dt / memory);
+    }
+    if (c.tumble > 0) {
+      c.tumble -= dt;
+      c.h += randn() * 6 * dt;
+      if (c.tumble <= 0) c.h = Math.random() * Math.PI * 2;
+    } else {
+      if (Math.random() < rate * dt) { c.tumble = TUMBLE_T; totalTumbles++; }
+      c.h += randn() * 0.35 * Math.sqrt(dt);
+      c.x += Math.cos(c.h) * SPEED * dt; c.y += Math.sin(c.h) * SPEED * dt;
+      const d = Math.hypot(c.x, c.y);
+      if (d > 0.95) { c.x *= 0.95 / d; c.y *= 0.95 / d; c.h = Math.atan2(-c.y, -c.x) + (Math.random() - 0.5) * 2; }
+    }
+    c.wig += dt * (c.tumble > 0 ? 30 : 16);
+    const last = c.trail[c.trail.length - 1];
+    if (Math.hypot(last[0] - c.x, last[1] - c.y) > 0.006) { c.trail.push([c.x, c.y]); if (c.trail.length > (nCells > 1 ? 70 : 900)) c.trail.shift(); }
+  }
+
+  // ---------- drawing ----------
+  let size = 600, dpr = 1;
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    size = canvas.clientWidth || 600;
+    canvas.width = Math.round(size * dpr); canvas.height = Math.round(size * dpr);
+  }
+  const P = (x, y) => [(x * 0.48 + 0.5) * size, (y * 0.48 + 0.5) * size];
+  const L = v => v * 0.48 * size;
+
+  function blob(c, color, alpha) {
+    const [x, y] = P(c.x, c.y), r = L(c.s * 2.2);
+    const g = ctx.createRadialGradient(x, y, 0, x, y, r);
+    g.addColorStop(0, hexA(color, alpha)); g.addColorStop(1, hexA(color, 0));
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
+  }
+  function hexA(hex, a) {
+    hex = hex.replace('#', ''); if (hex.length === 3) hex = hex.split('').map(ch => ch + ch).join('');
+    const n = parseInt(hex, 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`;
+  }
+  function drawDish(f = FOOD, showPoison = poisonOn) {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, size, size);
+    const [cx, cy] = P(0, 0);
+    ctx.beginPath(); ctx.arc(cx, cy, L(1), 0, Math.PI * 2); ctx.fillStyle = colors['--agar']; ctx.fill();
+    ctx.lineWidth = Math.max(3, size * 0.008); ctx.strokeStyle = colors['--agar-edge']; ctx.stroke();
+    ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, L(1), 0, Math.PI * 2); ctx.clip();
+    blob(f, colors['--food'], 0.55);
+    if (showPoison) blob(POISON, colors['--poison'], 0.5);
+    ctx.restore();
+    const [fx, fy] = P(f.x, f.y);
+    ctx.beginPath(); ctx.arc(fx, fy, L(0.035), 0, Math.PI * 2); ctx.fillStyle = colors['--food']; ctx.fill();
+    ctx.font = `600 ${Math.max(12, size * 0.026)}px "IBM Plex Sans", system-ui, sans-serif`; ctx.textAlign = 'center';
+    ctx.fillStyle = colors['--food-ink']; ctx.fillText('Food', fx, fy - L(0.24));
+    if (showPoison) { const [px, py] = P(POISON.x, POISON.y); ctx.fillStyle = colors['--poison']; ctx.fillText('Poison', px, py + 4); }
+  }
+  function drawTrail(c, alpha, width) {
+    if (c.trail.length < 2) return;
+    ctx.lineWidth = width; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    const n = c.trail.length;
+    for (let i = 1; i < n; i++) {
+      const a = alpha * (0.15 + 0.85 * i / n);
+      ctx.strokeStyle = hexA(colors['--cell'], a);
+      ctx.beginPath(); const p0 = P(...c.trail[i - 1]), p1 = P(...c.trail[i]); ctx.moveTo(p0[0], p0[1]); ctx.lineTo(p1[0], p1[1]); ctx.stroke();
+    }
+  }
+  function drawCell(c, scale) {
+    const [x, y] = P(c.x, c.y), s = size / 600 * scale, tumbling = c.tumble > 0;
+    ctx.save(); ctx.translate(x, y); ctx.rotate(c.h); ctx.scale(s, s);
+    ctx.strokeStyle = colors['--cell-deep']; ctx.lineWidth = 1.6;
+    for (let k = -1; k <= 1; k += 2) {
+      ctx.beginPath();
+      for (let i = 0; i <= 20; i++) {
+        const t = i / 20, px = -12 - t * 22;
+        const py = k * (tumbling ? 3 + t * 9 : 2 - t) + Math.sin(c.wig + t * 9 + k) * (tumbling ? 4 + t * 4 : 1.5 + t * 2);
+        i ? ctx.lineTo(px, py) : ctx.moveTo(px, py);
+      }
+      ctx.stroke();
+    }
+    ctx.beginPath(); ctx.moveTo(-6, -6); ctx.arcTo(14, -6, 14, 6, 6); ctx.arcTo(14, 6, -14, 6, 6); ctx.arcTo(-14, 6, -14, -6, 6); ctx.arcTo(-14, -6, 14, -6, 6); ctx.closePath();
+    ctx.fillStyle = colors['--cell-fill']; ctx.fill();
+    ctx.lineWidth = 2.2; ctx.strokeStyle = tumbling ? colors['--tumble'] : colors['--cell']; ctx.stroke();
+    ctx.restore();
+  }
+
+  // ---------- watch mode ----------
+  function updateReadout() {
+    const c = cells[0];
+    $('cap-left').textContent = `Time ${simT.toFixed(0)} s`;
+    if (nCells === 1) {
+      $('r-state').innerHTML = c.tumble > 0 ? '<em class="chip tumble">Tumbling</em>' : '<em class="chip run">Running</em>';
+      $('r-compare').textContent = c.improving === null ? 'no memory' : c.improving ? 'higher' : 'lower';
+      $('r-goal-label').textContent = 'Reached the food';
+      $('r-goal').textContent = reachedAt === null ? 'not yet' : `at ${reachedAt.toFixed(0)} s`;
+      $('r-extra-label').textContent = 'Time near food since arriving';
+      $('r-extra').textContent = reachedAt === null ? '-' : `${Math.round(100 * nearTime / Math.max(0.001, simT - reachedAt))}%`;
+    } else {
+      const near = cells.filter(k => Math.hypot(k.x - FOOD.x, k.y - FOOD.y) < FOOD.r * 2).length;
+      const tumbling = cells.filter(k => k.tumble > 0).length;
+      $('r-state').textContent = `${nCells - tumbling} run, ${tumbling} tumble`;
+      $('r-compare').textContent = memory <= 0 ? 'no memory' : `${cells.filter(k => k.improving).length} of ${nCells} higher`;
+      $('r-goal-label').textContent = 'Gathered near the food';
+      $('r-goal').textContent = `${near} of ${nCells}`;
+      $('r-extra-label').textContent = 'Tumbles so far';
+      $('r-extra').textContent = totalTumbles;
+    }
+  }
+  function renderWatch() {
+    drawDish();
+    const many = nCells > 1;
+    cells.forEach(c => drawTrail(c, many ? 0.35 : 0.9, many ? 1.5 : 2.5));
+    const [sx, sy] = P(START.x, START.y);
+    if (!many) { ctx.fillStyle = colors['--muted']; ctx.font = `500 ${Math.max(11, size * 0.022)}px "IBM Plex Sans", system-ui, sans-serif`; ctx.textAlign = 'center'; ctx.fillText('Start', sx, sy + L(0.09)); }
+    cells.forEach(c => drawCell(c, many ? 0.8 : 1.15));
+    updateReadout();
+  }
+
+  let mode = 'watch', lastFrame = performance.now(), acc = 0;
+  function frame(now) {
+    const elapsed = Math.min(0.1, (now - lastFrame) / 1000); lastFrame = now;
+    if (mode === 'watch') {
+      if (running) {
+        acc += elapsed * speedX;
+        while (acc >= DT) {
+          cells.forEach(c => stepCell(c, DT)); simT += DT; acc -= DT;
+          if (nCells === 1) {
+            const dd = Math.hypot(cells[0].x - FOOD.x, cells[0].y - FOOD.y);
+            if (reachedAt === null && dd < FOOD.r) reachedAt = simT;
+            if (reachedAt !== null && dd < FOOD.r * 2) nearTime += DT;
+          }
+        }
+      }
+      renderWatch();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  // ---------- controls ----------
+  const setPressed = (el, v) => el.setAttribute('aria-pressed', String(v));
+  $('play').onclick = () => { running = !running; $('play').textContent = running ? 'Pause' : 'Play'; };
+  $('restart').onclick = () => { reset(); if (!running) $('play').click(); };
+  $('speed').onclick = () => { speedX = speedX === 1 ? 4 : 1; $('speed').textContent = `Speed ${speedX}x`; setPressed($('speed'), speedX > 1); };
+  $('memory').oninput = e => { memory = +e.target.value; $('memory-val').textContent = memory <= 0 ? 'none' : `${memory.toFixed(1)} s`; };
+  $('eager').oninput = e => { eager = +e.target.value; $('eager-val').textContent = eager; };
+  $('n1').onclick = () => { nCells = 1; setPressed($('n1'), true); setPressed($('n30'), false); reset(); };
+  $('n30').onclick = () => { nCells = 30; setPressed($('n1'), false); setPressed($('n30'), true); reset(); };
+  $('poison').onclick = () => { poisonOn = !poisonOn; setPressed($('poison'), poisonOn); $('poison').textContent = poisonOn ? 'Remove poison' : 'Add poison'; reset(); };
+
+  // ---------- play mode ----------
+  const game = { x: 0, y: 0, h: 0, prev: 0, moves: 0, tumbles: 0, trail: [], found: false, revealed: false, food: { ...FOOD } };
+  function newGame() {
+    const a = Math.random() * Math.PI * 2, b = a + Math.PI + (Math.random() - 0.5) * 1.2;
+    game.food = { x: Math.cos(a) * 0.5, y: Math.sin(a) * 0.5, s: 0.45, r: 0.14 };
+    game.x = Math.cos(b) * 0.62; game.y = Math.sin(b) * 0.62; game.h = Math.random() * Math.PI * 2;
+    game.prev = food(game.x, game.y, game.food); game.moves = 0; game.tumbles = 0; game.trail = [[game.x, game.y]];
+    game.found = false; game.revealed = false;
+    $('p-compare').textContent = 'Start swimming'; $('p-compare').className = 'compare same';
+    $('p-result').textContent = ''; updateGame(); renderGame();
+  }
+  function updateGame() {
+    const lvl = food(game.x, game.y, game.food);
+    $('p-level').textContent = `${Math.round(lvl * 100)}%`;
+    $('p-bar').style.width = `${Math.round(lvl * 100)}%`;
+    $('p-moves').textContent = game.moves; $('p-tumbles').textContent = game.tumbles;
+    $('cap-left').textContent = `Moves ${game.moves}`;
+    $('cap-right').textContent = game.revealed ? 'Food in the dish (orange)' : 'Dish hidden';
+  }
+  function renderGame() {
+    if (game.revealed) {
+      drawDish(game.food, false);
+      drawTrail({ trail: game.trail }, 0.9, 2.5);
+      drawCell({ x: game.x, y: game.y, h: game.h, tumble: 0, wig: 0 }, 1.15);
+    } else {
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, size, size);
+      const [cx, cy] = P(0, 0);
+      ctx.beginPath(); ctx.arc(cx, cy, L(1), 0, Math.PI * 2); ctx.fillStyle = colors['--fog']; ctx.fill();
+      ctx.fillStyle = colors['--fog-ink']; ctx.textAlign = 'center';
+      ctx.font = `600 ${Math.max(14, size * 0.034)}px "IBM Plex Sans", system-ui, sans-serif`;
+      ctx.fillText('You cannot see the dish.', cx, cy - 10);
+      ctx.font = `400 ${Math.max(12, size * 0.026)}px "IBM Plex Sans", system-ui, sans-serif`;
+      ctx.fillText('Feel your way with Run and Tumble.', cx, cy + 22);
+    }
+  }
+  function move(kind) {
+    if (game.found) return;
+    if (kind === 'tumble') { game.h = Math.random() * Math.PI * 2; game.tumbles++; }
+    const steps = 30;
+    for (let i = 0; i < steps; i++) {
+      game.x += Math.cos(game.h) * 0.006; game.y += Math.sin(game.h) * 0.006;
+      const d = Math.hypot(game.x, game.y);
+      if (d > 0.95) { game.x *= 0.95 / d; game.y *= 0.95 / d; game.h = Math.atan2(-game.y, -game.x) + (Math.random() - 0.5) * 1.5; }
+      if (i % 3 === 0) game.trail.push([game.x, game.y]);
+    }
+    game.moves++;
+    const now = food(game.x, game.y, game.food), diff = now - game.prev;
+    const el = $('p-compare');
+    if (Math.abs(diff) < 0.004) { el.textContent = 'About the same'; el.className = 'compare same'; }
+    else if (diff > 0) { el.textContent = 'Higher: warmer'; el.className = 'compare up'; }
+    else { el.textContent = 'Lower: colder'; el.className = 'compare down'; }
+    game.prev = now;
+    if (Math.hypot(game.x - game.food.x, game.y - game.food.y) < game.food.r) {
+      game.found = true; game.revealed = true;
+      $('p-result').textContent = `You found the food in ${game.moves} moves, using only "better" or "worse".`;
+    }
+    updateGame(); renderGame();
+  }
+  $('p-run').onclick = () => move('run');
+  $('p-tumble').onclick = () => move('tumble');
+  $('p-reveal').onclick = () => { game.revealed = true; updateGame(); renderGame(); };
+  $('p-new').onclick = newGame;
+
+  function setMode(m) {
+    mode = m;
+    $('tab-watch').setAttribute('aria-selected', String(m === 'watch'));
+    $('tab-play').setAttribute('aria-selected', String(m === 'play'));
+    $('panel-watch').hidden = m !== 'watch'; $('panel-play').hidden = m !== 'play';
+    if (m === 'play') { if (!game.trail.length) newGame(); else { updateGame(); renderGame(); } }
+    else { $('cap-right').textContent = 'Food in the dish (orange)'; }
+  }
+  $('tab-watch').onclick = () => setMode('watch');
+  $('tab-play').onclick = () => setMode('play');
+
+  // ---------- boot ----------
+  resize();
+  window.addEventListener('resize', () => { resize(); if (mode === 'play') renderGame(); });
+  reset();
+  // warm start so the first frame already shows a path
+  for (let i = 0; i < 60 * 6; i++) cells.forEach(c => stepCell(c, DT)), simT += DT;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { running = false; $('play').textContent = 'Play'; }
+  document.fonts && document.fonts.ready.then(readColors);
+  requestAnimationFrame(t => { lastFrame = t; frame(t); });
+})();
+</script>
+
+</body>
+</html>

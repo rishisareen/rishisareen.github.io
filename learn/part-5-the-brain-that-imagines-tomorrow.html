@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 5: The Brain That Imagines Tomorrow | From Bacteria to Bach</title>
+<meta name="description" content="How humans learned to rehearse the future, and why we chase mastery and meaning">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  --bg:#FBF8F2; --surface:#FFFFFF; --ink:#1F2A30; --muted:#5E6A70; --rule:#E2DDD2;
+  --accent:#1F7A6E; --accent-ink:#13675E; --callout:#EEF5F1; --callout-rule:#1F9E8F;
+  --fig-bg:#FBF8F2;
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#12191D; --surface:#1A2328; --ink:#E6ECEA; --muted:#9AA8AD; --rule:#2C3A40;
+    --accent:#4CC7B6; --accent-ink:#8FE0D4; --callout:#1B2B2C; --callout-rule:#4CC7B6;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12191D; --surface:#1A2328; --ink:#E6ECEA; --muted:#9AA8AD; --rule:#2C3A40;
+  --accent:#4CC7B6; --accent-ink:#8FE0D4; --callout:#1B2B2C; --callout-rule:#4CC7B6;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.65}
+a{color:var(--accent-ink);text-underline-offset:2px}
+a:hover{color:var(--accent)}
+.topbar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--rule);font-family:var(--sans);font-size:14px}
+.topbar .in{max-width:1040px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;justify-content:space-between}
+.brand{font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.parts{display:flex;gap:4px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.parts a{display:inline-block;padding:3px 9px;border-radius:6px;text-decoration:none;color:var(--muted);border:1px solid transparent}
+.parts a:hover{color:var(--ink);border-color:var(--rule)}
+.parts a[aria-current="page"]{color:var(--ink);border-color:var(--accent);font-weight:600}
+main{max-width:720px;margin:0 auto;padding:28px 16px 40px}
+h1,h2,h3{font-family:var(--sans);line-height:1.25;letter-spacing:-.01em}
+h1{font-size:2rem;margin:.4em 0 .3em}
+h2{font-size:1.4rem;margin:2em 0 .6em}
+h3{font-size:1.12rem;margin:1.6em 0 .5em}
+.kicker{font-family:var(--sans);font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:0}
+h1 + p em:only-child{color:var(--muted)}
+img{max-width:100%;height:auto;display:block;margin:1.4em auto;border-radius:10px;background:var(--fig-bg);border:1px solid var(--rule)}
+blockquote{margin:1.6em 0;padding:14px 18px;background:var(--callout);border-left:4px solid var(--callout-rule);border-radius:0 8px 8px 0}
+blockquote p{margin:.3em 0}
+hr{border:0;border-top:1px solid var(--rule);margin:2.4em 0}
+ul,ol{padding-left:1.3em}
+li{margin:.3em 0}
+iframe{display:block;width:100%;border:1px solid var(--rule)!important;border-radius:10px;background:var(--surface);margin:1.4em 0}
+code{font-size:.9em}
+.pager{max-width:720px;margin:0 auto;padding:0 16px 56px;display:grid;grid-template-columns:1fr 1fr;gap:12px;font-family:var(--sans)}
+.pager a{display:block;padding:14px 16px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);text-decoration:none;color:var(--ink)}
+.pager a:hover{border-color:var(--accent)}
+.pager small{display:block;color:var(--muted);font-size:13px;margin-bottom:2px}
+.pager .next{text-align:right;grid-column:2}
+.pager .home{grid-column:1/-1;text-align:center}
+footer{border-top:1px solid var(--rule);font-family:var(--sans);font-size:13px;color:var(--muted);text-align:center;padding:18px 16px 28px}
+/* index */
+.hero{max-width:1040px;margin:0 auto;padding:40px 16px 8px}
+.hero h1{font-size:2.5rem;margin:.1em 0 .3em}
+.hero p{max-width:680px;font-size:1.1rem}
+.grid{max-width:1040px;margin:0 auto;padding:16px 16px 48px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.card img{margin:0;border:0;border-radius:0;border-bottom:1px solid var(--rule);aspect-ratio:16/9;object-fit:cover;width:100%}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h2{font-size:1.2rem;margin:0}
+.card h2 a{color:var(--ink);text-decoration:none}
+.card p{margin:0;font-size:1rem;color:var(--muted)}
+.card .links{margin-top:auto;padding-top:10px;display:flex;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:15px;font-weight:500}
+.sims{max-width:1040px;margin:0 auto;padding:0 16px 48px}
+.sims ul{font-family:var(--sans);font-size:16px}
+@media (max-width:560px){
+  body{font-size:17.5px}
+  h1{font-size:1.6rem}
+  .hero h1{font-size:1.9rem}
+  .pager{grid-template-columns:1fr}
+  .pager .next{grid-column:1;text-align:left}
+}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="in"><a class="brand" href="index.html">From Bacteria to Bach</a><nav aria-label="Series parts"><ul class="parts"><li><a href="part-1-the-smallest-decision-maker.html" title="Part 1: The Smallest Decision-Maker">Part 1</a></li><li><a href="part-2-a-body-without-a-boss.html" title="Part 2: A Body Without a Boss">Part 2</a></li><li><a href="part-3-heading-somewhere.html" title="Part 3: Heading Somewhere">Part 3</a></li><li><a href="part-4-wired-to-belong.html" title="Part 4: Wired to Belong">Part 4</a></li><li><a href="part-5-the-brain-that-imagines-tomorrow.html" aria-current="page" title="Part 5: The Brain That Imagines Tomorrow">Part 5</a></li></ul></nav></div></header>
+<main>
+<p class="kicker">Part 5 of 5</p>
+<h1>From Bacteria to Bach, Part 5: The Brain That Imagines Tomorrow</h1>
+<p><em>How humans learned to rehearse the future, and why we chase mastery and meaning</em></p>
+<p><img alt="A side view of the human brain. The large, wrinkled outer layer, the neocortex, covers most of it, and the region at the very front, behind the forehead, is highlighted as the prefrontal cortex." src="p5-fig1-human-brain.png"></p>
+<p>Over the last four parts, we have followed one thread through 3.5 billion years. A bacterium learned to sense and steer. Cells learned to talk, and nerves made their messages fast. A head appeared, then a spinal cord and a brain, then insulated wires and hormones. Mammals learned to change their own connections, to be surprised, to be curious, to play, and to need each other.</p>
+<p>This final part is about the last big step: a brain that does not just react to the world or learn from it, but <strong>imagines</strong> it. A brain that can picture a race it has not run yet, rehearse a conversation in a language it is still learning, and work for years towards something that matters to other people.</p>
+<p>We will cover five ideas: the human brain's huge outer layer, the surprising fact that perception is mostly prediction, the ability to travel in time in your mind, how practice turns effort into effortless skill, and why our deepest drives are to get better at things and to matter to others.</p>
+<hr>
+<h2>The milestone: a thinking layer</h2>
+<p>Modern humans appeared around 300,000 years ago, in Africa. Our brains are built on the same plan as every other mammal's: brainstem, cerebellum, the deep emotional structures from Part 4. What sets us apart is the outer layer.</p>
+<p>The <strong>neocortex</strong> is a thin sheet of neurons, only about two to four millimetres thick, wrapped around the top of the brain. In humans it is so large that it has to be folded and crumpled to fit inside the skull, which is why the brain looks wrinkled. Spread flat, it would cover roughly the area of a large dinner napkin. It contains about 16 billion of the brain's roughly 86 billion neurons.</p>
+<p>The front part of it, just behind your forehead, is the <strong>prefrontal cortex</strong>. Think of it as the brain's planner. It holds a goal in mind, weighs options, holds back an impulse, and switches strategy when something is not working. It is also the last part of the brain to finish developing, continuing to mature until around the mid-twenties.</p>
+<p>All this comes at a cost. The brain is about 2% of your body weight but uses around 20% of your energy at rest. Evolution only keeps something that expensive if it pays for itself. So what does all that extra cortex buy?</p>
+<p>The short answer: <strong>the ability to model the world, and to run that model forwards.</strong></p>
+<hr>
+<h2>Your brain is a prediction machine</h2>
+<p>Here is one of the strangest ideas in modern neuroscience. You do not see the world directly. You see your brain's best guess about the world.</p>
+<p>Remember from Part 2 that no light, sound or smell ever enters your brain. All that arrives is the same kind of electrical spike, from every sense. The brain is like someone in a sealed room, piecing together what is happening outside from coded messages passed under the door. To make sense of those messages quickly, it does not wait for all the information. It <strong>predicts</strong>.</p>
+<p><img alt="The prediction loop: the brain's model of the world sends predictions down to the senses. The senses compare them with what actually arrives and send back only the difference, the prediction error. The model is updated, and the cycle repeats many times every second." src="p5-fig2-prediction-loop.png"></p>
+<p>A leading theory, called <strong>predictive processing</strong>, says the brain constantly generates guesses about what its senses are about to report. Incoming signals are compared with those guesses, and mostly what travels up the system is the <strong>difference</strong>: the surprise. The model gets updated, and the cycle repeats many times a second. It is the bacterium's "now compared with a moment ago" from Part 1, and dopamine's "better or worse than expected" from Part 4, scaled up to everything you perceive.</p>
+<p>You can catch the brain's predictions in action:</p>
+<ul>
+<li><strong>Your blind spot.</strong> Each eye has a spot with no light sensors, where the nerve fibres leave the eye. You never see a hole in your vision. Your brain fills it in with whatever it predicts should be there. You can find yours in the interactive tool below.</li>
+<li><strong>The hollow mask.</strong> Look at the inside of a hollow face mask and it appears to bulge outwards like a normal face. Your brain's expectation that faces stick out overrides the actual depth information.</li>
+<li><strong>The dress.</strong> In 2015, a photo of a dress split the internet: some people saw blue and black, others white and gold. Same photo, different hidden assumptions about the lighting, different colours seen.</li>
+</ul>
+<p><img alt="The blind spot: the optic nerve leaves the back of the eye at a point with no light sensors. When a line passes through that point, the brain fills in the gap, so the line looks unbroken." src="p5-fig3-blind-spot.png"></p>
+<p>The neuroscientist Anil Seth describes perception as a "controlled hallucination." It is a hallucination because the brain generates it from the inside. It is controlled because the senses keep correcting it. Usually the result is close enough to reality to keep you alive. That is what it was built for: being useful, not being a perfect copy. This is why perception is sometimes called <strong>subjective reality</strong>.</p>
+<blockquote>
+<p><strong>Key idea:</strong> The brain does not passively receive the world. It predicts it, and uses the senses to check and correct those predictions. What you experience is the brain's model.</p>
+</blockquote>
+<hr>
+<h2>Mental time travel</h2>
+<p>Once you have a model of the world, you can do something extraordinary with it: run it without the world. That is imagination.</p>
+<p>You can replay yesterday's argument and think of what you should have said. You can picture tomorrow's race, step by step. You can rehearse a job interview, or a conversation in French, before it happens. Scientists call this <strong>mental time travel</strong>.</p>
+<p><img alt="A timeline running from the past through now to the future. The same memory network, including the hippocampus, is used both to remember the past and to imagine the future." src="p5-fig4-mental-time-travel.png"></p>
+<p>Remarkably, remembering and imagining seem to use much of the same machinery. The hippocampus, which we met in Part 4 recording new memories, is also active when people imagine future scenes. People with serious damage to the hippocampus often struggle not only to remember their past but also to imagine a detailed future. It seems the brain builds the future out of pieces of the past.</p>
+<p>This ability changes everything about motivation. A bacterium responds to the food in front of it. A dog can wait a little while for a treat. A human can choose to be uncomfortable today, getting up early to train or sitting down to practise verbs, because the planner can hold a picture of a goal months or years away and attach today's effort to it.</p>
+<p>Mental rehearsal can even improve skills. Studies of athletes and musicians find that imagining a movement in detail does improve later performance, though less than real practice. It works best as an addition to physical practice, not a replacement.</p>
+<hr>
+<h2>How practice turns effort into skill</h2>
+<p>Now we can bring together everything from the series to explain how anyone, at any age, gets genuinely good at something.</p>
+<p><strong>Step one: work at the edge.</strong> In Part 4 we saw that the brain learns most from surprise and error. If a task is too easy, there are no errors to learn from. If it is far too hard, errors are so constant that there is no useful signal, only confusion. The psychologist Anders Ericsson studied how experts train and found that they do not just repeat what they can already do. They practise <strong>deliberately</strong>: just beyond their current ability, with one specific target, and with clear feedback on how they did. One mathematical study of learning suggested that, for some kinds of learning, progress is fastest when you succeed roughly 85% of the time. That number is a guide, not a law, but the shape is right: mostly succeeding, regularly stretched.</p>
+<p><img alt="Three zones: comfort, where everything succeeds; the learning edge, where you mostly succeed but are stretched; and overwhelm, where you mostly fail. Below, a staircase: practised skills become automatic, freeing attention to climb to the next step." src="p5-fig5-mastery-ladder.png"></p>
+<p><strong>Step two: the right connections get stronger.</strong> Each attempt at the edge strengthens the connections you used, especially when an error is corrected or a success is better than expected. The cerebellum fine-tunes the timing by comparing what you intended with what happened.</p>
+<p><strong>Step three: the wires get insulated.</strong> In Part 3, myelin made big, fast animals possible. It turns out the brain keeps adding myelin through life, especially around circuits that get used a lot. In one experiment, mice learning to run on a tricky wheel with irregularly spaced rungs needed to build new myelin to master it. When that was blocked, they struggled to learn. Practice builds faster, better-timed wiring.</p>
+<p><strong>Step four: the skill becomes automatic.</strong> As you repeat a skill, the brain gradually packages its steps into a single chunk, run more and more by the habit circuits deep in the brain rather than by the planner. A beginner driver thinks "mirror, signal, check, brake, turn." An expert just turns. That handover frees the planner's attention, which is the crucial part. The expert spends that freed attention noticing finer details and pushing at the next edge. Someone who has stopped improving spends it on nothing.</p>
+<p><strong>Step five: sleep locks it in.</strong> Much of the strengthening of new memories and skills happens offline, during sleep, when the brain replays the day's practice.</p>
+<blockquote>
+<p><strong>Key idea:</strong> Mastery is the learning loop, pushed deliberately to the edge, again and again. Effort at the edge strengthens and insulates the right circuits; repetition makes them automatic; automation frees attention for the next edge.</p>
+</blockquote>
+<h3>A warning: old habits are never deleted</h3>
+<p>There is one catch. When you learn a new way of doing something, the old way does not disappear. The brain builds a new pathway beside the old one, and the two compete. The old pathway has years of strengthening and insulation behind it, so it is fast and reliable. The new one is weaker and needs the planner's attention to win.</p>
+<p>When you are fresh and focused, the planner holds the new technique in place. But fatigue, stress, speed or an unfamiliar setting weaken the planner, and the old pattern takes over again. That is why a corrected habit can suddenly reappear at the worst moment. The answer is to practise the new way while fresh until it is reliable, then add pressure step by step, so the new pathway learns to win in harder conditions too.</p>
+<hr>
+<h2>Mastery and meaning</h2>
+<p>Why do we bother? Why would anyone spend years on a skill that no one is forcing them to learn?</p>
+<p>Psychologists Edward Deci and Richard Ryan spent decades studying what keeps people motivated over the long term. Their research suggests three ingredients, sometimes called basic psychological needs:</p>
+<p><img alt="Three overlapping circles: getting better (mastery), choosing it yourself (ownership), and connecting with others (belonging). Where all three overlap is lasting motivation." src="p5-fig6-three-needs.png"></p>
+<ul>
+<li><strong>Getting better:</strong> feeling your skill grow. This is the surprise-and-learning machinery of Part 4, aimed at a goal.</li>
+<li><strong>Choosing it yourself:</strong> doing something because you decided to, not because you were made to.</li>
+<li><strong>Connecting with others:</strong> feeling that you belong, and that what you do matters to people you care about.</li>
+</ul>
+<p>The third ingredient connects straight back to Part 4. In one brain-scanning study, giving money to a good cause activated some of the same reward areas as receiving money yourself. For a social species, contributing to the group is rewarding in itself. Our ancestors survived because the group survived, and a brain that rewards being useful to others was a brain that got kept.</p>
+<p>Humans added one more thing no other animal has to the same degree: <strong>culture</strong>. We learn not only from our own experience, but from each other, across generations. A child today can learn in a few years mathematics that took humanity thousands of years to discover. Language, writing, teaching and music let one brain's hard-won mastery become another brain's starting point.</p>
+<hr>
+<h2>From bacteria to Bach</h2>
+<p>The title of this series borrows from the philosopher Daniel Dennett, whose book <em>From Bacteria to Bach and Back</em> asked how minds like ours could grow out of simple living things. Johann Sebastian Bach, the German composer born in 1685, is a fitting place to end, because his life shows every idea in this series working together.</p>
+<p>Bach grew up in a family of musicians and learned by copying the scores of other composers. According to an early account of his life, as a young man he walked roughly 400 kilometres to hear the famous organist Dieterich Buxtehude play, and stayed for months to learn. That is mastery: deliberate practice, at the edge, learning from the best. But Bach also wrote much of his music for others: for his church congregation, his family and his students. His great keyboard collection, <em>The Well-Tempered Clavier</em>, carries a title page saying it was written for "the use and profit of musical youth desirous of learning." That is belonging: a lifetime of skill, put to work for other people, and passed on.</p>
+<p>And underneath it all is the loop the bacterium started with: sense, compare with what you expected, adjust. Bach was doing it every time he played a phrase, heard it, and tried again.</p>
+<hr>
+<h2>Try it yourself: Prediction and Practice</h2>
+<iframe src="prediction-and-practice-simulator.html" title="Prediction and Practice" width="100%" height="980" style="border:0;"></iframe>
+
+<p><em>If the tool does not appear above, <a href="prediction-and-practice-simulator.html">open Prediction and Practice in its own page</a>.</em></p>
+<p>This tool has two parts.</p>
+<p><strong>Find your blind spot.</strong> Close your left eye, look at the cross with your right eye, and slowly move your head closer to or further from the screen. At some distance, the dot disappears. Switch on the striped background and notice that where the dot vanishes, you do not see a hole. Your brain fills in the stripes it predicts should be there.</p>
+<p><strong>Practise at the edge.</strong> Three learners practise the same skill for the same number of attempts. One always picks tasks that are too easy, one always picks tasks that are far too hard, and one keeps adjusting to stay at the edge. Then set your own success rate, switch feedback on and off, and see how your learner compares. The tool uses a simple model of learning, so treat the numbers as an illustration of the shape, not a precise prediction.</p>
+<hr>
+<h2>In your running</h2>
+<p>Everything in the series now comes together for a runner.</p>
+<p><strong>You run inside a prediction.</strong> Much of what you feel during a run is your brain's estimate of your effort and what is left in the tank. Some researchers argue that the sensation of exhaustion is partly the brain's protective forecast rather than a direct readout from the muscles, though how much is still debated. Either way, experience changes the forecast. A pace that felt frightening last year can feel calm this year, partly because your brain now predicts you can hold it.</p>
+<p><strong>Mental rehearsal helps.</strong> Picturing your race in detail, the start, the hard middle, the moment you want to slow down, is a genuine form of practice. Use it alongside training, not instead of it.</p>
+<p><strong>Train the skill at the edge, and the engine with patience.</strong> Most endurance training is easy running, which builds the heart, the blood supply and the energy factories in the muscles. Skill is different. Short, focused moments of practice at the edge, with one target and feedback, such as a few fast strides with attention on a quick, light cadence, are what improve technique.</p>
+<p><strong>Expect old habits under fatigue.</strong> A form change practised in fresh training runs can fall apart late in a long race, when fatigue weakens the planner and the old, well-insulated pattern returns. That does not mean the change failed. It means the new pathway needs gradual practice in tired conditions too.</p>
+<p><strong>Running with meaning lasts longer.</strong> Training for something you chose, alongside people who care, with a goal that matters beyond the clock, ticks all three boxes of lasting motivation.</p>
+<hr>
+<h2>In learning French</h2>
+<p><strong>Listening is predicting.</strong> A native French speaker understands fast speech partly because their brain predicts the next sound and word before it arrives. A beginner's brain cannot predict yet, so it has to process every sound from scratch, and fast speech overwhelms it. As your French model grows, predictions improve, and the same speed starts to feel slower. That is why listening to lots of French you mostly understand matters so much.</p>
+<p><strong>Rehearse conversations in your head.</strong> Before ordering in a café, imagine the exchange: what you will say, what they might reply, what you will say next. Mental rehearsal builds on the same machinery as memory and makes the real moment less overwhelming.</p>
+<p><strong>Grammar becomes automatic.</strong> At first you build each sentence consciously: "<em>table</em> is feminine, so <em>la</em>, so the adjective changes." With enough practice and exposure, the habit circuits take over and <em>la belle table</em> simply sounds right. That frees your attention for meaning, jokes and the person in front of you. That is fluency.</p>
+<p><strong>English will interrupt under pressure.</strong> When you are tired, nervous or speaking fast, English words and word order slip in. That is the old pathway winning. Practise speaking while fresh, then gradually add real conversations at real speed.</p>
+<p><strong>Learn French for someone.</strong> The strongest reason to keep going is connection: talking with people, understanding a culture, sharing something you love. Choose what you study, get better week by week, and use it with people. All three ingredients, together.</p>
+<hr>
+<h2>The whole journey</h2>
+<p><img alt="A staircase of five steps summarising the series: a single cell sensing and steering; cells talking and the first nerves; a head, a spinal cord and a brain; mammals learning, playing and bonding; and humans imagining, mastering and belonging." src="p5-fig7-the-whole-journey.png"></p>
+<p>Here is the series in one breath. A single cell learned to sense its world and steer by comparing now with a moment ago. Cells joined together and learned to talk, first with drifting chemicals, then with fast electrical nerves. Moving forward gave animals a head, a spinal cord and a brain, with insulated wires and hormones to run the body. Mammals learned to rewrite their own connections, guided by surprise, curiosity and play, and to need each other. And humans learned to imagine the future, to practise towards it on purpose, and to share what they learn.</p>
+<hr>
+<h2>Key ideas from Part 5</h2>
+<ul>
+<li>The human <strong>neocortex</strong> is a thin, folded sheet of about 16 billion neurons. The <strong>prefrontal cortex</strong> at the front is the planner.</li>
+<li>The brain is a <strong>prediction machine</strong>. Perception is its best guess, constantly checked and corrected by the senses.</li>
+<li>Remembering and imagining share machinery, giving us <strong>mental time travel</strong>: rehearsing the future and working towards distant goals.</li>
+<li><strong>Mastery</strong> comes from deliberate practice at the edge, with a clear target and feedback. Used circuits are strengthened and insulated, skills become automatic, and freed attention moves to the next edge. Sleep helps lock it in.</li>
+<li><strong>Old habits are never deleted.</strong> They compete with new ones and can return under fatigue or stress.</li>
+<li>Lasting motivation tends to come from <strong>getting better, choosing it yourself, and connecting with others</strong>.</li>
+<li><strong>Culture</strong> lets one person's mastery become another's starting point, from bacteria all the way to Bach.</li>
+</ul>
+<hr>
+<h2>Thank you for reading</h2>
+<p>This series began with a single bacterium in a drop of water, steering towards sugar by asking one question: is it better now than a moment ago? Three and a half billion years later, you are still asking that question, every time you practise something hard, notice that it is getting easier, and decide to keep going. The difference is that you can choose where you are going, and who you are going there with.</p>
+</main>
+<nav class="pager" aria-label="Part navigation"><a class="prev" href="part-4-wired-to-belong.html"><small>Previous</small>Part 4: Wired to Belong</a><a class="next" href="index.html"><small>Finished</small>Back to series home</a><a class="home" href="prediction-and-practice-simulator.html"><small>Open the simulator for this part on its own page</small>Prediction and Practice</a></nav>
+<footer>From Bacteria to Bach &middot; a five-part series &middot; <a href="index.html">All parts</a></footer>
+</body>
+</html>

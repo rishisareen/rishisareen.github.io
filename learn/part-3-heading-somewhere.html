@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 3: Heading Somewhere | From Bacteria to Bach</title>
+<meta name="description" content="Why moving forward gave animals a head, and the head a brain">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  --bg:#FBF8F2; --surface:#FFFFFF; --ink:#1F2A30; --muted:#5E6A70; --rule:#E2DDD2;
+  --accent:#1F7A6E; --accent-ink:#13675E; --callout:#EEF5F1; --callout-rule:#1F9E8F;
+  --fig-bg:#FBF8F2;
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#12191D; --surface:#1A2328; --ink:#E6ECEA; --muted:#9AA8AD; --rule:#2C3A40;
+    --accent:#4CC7B6; --accent-ink:#8FE0D4; --callout:#1B2B2C; --callout-rule:#4CC7B6;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12191D; --surface:#1A2328; --ink:#E6ECEA; --muted:#9AA8AD; --rule:#2C3A40;
+  --accent:#4CC7B6; --accent-ink:#8FE0D4; --callout:#1B2B2C; --callout-rule:#4CC7B6;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.65}
+a{color:var(--accent-ink);text-underline-offset:2px}
+a:hover{color:var(--accent)}
+.topbar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--rule);font-family:var(--sans);font-size:14px}
+.topbar .in{max-width:1040px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;justify-content:space-between}
+.brand{font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.parts{display:flex;gap:4px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.parts a{display:inline-block;padding:3px 9px;border-radius:6px;text-decoration:none;color:var(--muted);border:1px solid transparent}
+.parts a:hover{color:var(--ink);border-color:var(--rule)}
+.parts a[aria-current="page"]{color:var(--ink);border-color:var(--accent);font-weight:600}
+main{max-width:720px;margin:0 auto;padding:28px 16px 40px}
+h1,h2,h3{font-family:var(--sans);line-height:1.25;letter-spacing:-.01em}
+h1{font-size:2rem;margin:.4em 0 .3em}
+h2{font-size:1.4rem;margin:2em 0 .6em}
+h3{font-size:1.12rem;margin:1.6em 0 .5em}
+.kicker{font-family:var(--sans);font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:0}
+h1 + p em:only-child{color:var(--muted)}
+img{max-width:100%;height:auto;display:block;margin:1.4em auto;border-radius:10px;background:var(--fig-bg);border:1px solid var(--rule)}
+blockquote{margin:1.6em 0;padding:14px 18px;background:var(--callout);border-left:4px solid var(--callout-rule);border-radius:0 8px 8px 0}
+blockquote p{margin:.3em 0}
+hr{border:0;border-top:1px solid var(--rule);margin:2.4em 0}
+ul,ol{padding-left:1.3em}
+li{margin:.3em 0}
+iframe{display:block;width:100%;border:1px solid var(--rule)!important;border-radius:10px;background:var(--surface);margin:1.4em 0}
+code{font-size:.9em}
+.pager{max-width:720px;margin:0 auto;padding:0 16px 56px;display:grid;grid-template-columns:1fr 1fr;gap:12px;font-family:var(--sans)}
+.pager a{display:block;padding:14px 16px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);text-decoration:none;color:var(--ink)}
+.pager a:hover{border-color:var(--accent)}
+.pager small{display:block;color:var(--muted);font-size:13px;margin-bottom:2px}
+.pager .next{text-align:right;grid-column:2}
+.pager .home{grid-column:1/-1;text-align:center}
+footer{border-top:1px solid var(--rule);font-family:var(--sans);font-size:13px;color:var(--muted);text-align:center;padding:18px 16px 28px}
+/* index */
+.hero{max-width:1040px;margin:0 auto;padding:40px 16px 8px}
+.hero h1{font-size:2.5rem;margin:.1em 0 .3em}
+.hero p{max-width:680px;font-size:1.1rem}
+.grid{max-width:1040px;margin:0 auto;padding:16px 16px 48px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.card img{margin:0;border:0;border-radius:0;border-bottom:1px solid var(--rule);aspect-ratio:16/9;object-fit:cover;width:100%}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h2{font-size:1.2rem;margin:0}
+.card h2 a{color:var(--ink);text-decoration:none}
+.card p{margin:0;font-size:1rem;color:var(--muted)}
+.card .links{margin-top:auto;padding-top:10px;display:flex;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:15px;font-weight:500}
+.sims{max-width:1040px;margin:0 auto;padding:0 16px 48px}
+.sims ul{font-family:var(--sans);font-size:16px}
+@media (max-width:560px){
+  body{font-size:17.5px}
+  h1{font-size:1.6rem}
+  .hero h1{font-size:1.9rem}
+  .pager{grid-template-columns:1fr}
+  .pager .next{grid-column:1;text-align:left}
+}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="in"><a class="brand" href="index.html">From Bacteria to Bach</a><nav aria-label="Series parts"><ul class="parts"><li><a href="part-1-the-smallest-decision-maker.html" title="Part 1: The Smallest Decision-Maker">Part 1</a></li><li><a href="part-2-a-body-without-a-boss.html" title="Part 2: A Body Without a Boss">Part 2</a></li><li><a href="part-3-heading-somewhere.html" aria-current="page" title="Part 3: Heading Somewhere">Part 3</a></li><li><a href="part-4-wired-to-belong.html" title="Part 4: Wired to Belong">Part 4</a></li><li><a href="part-5-the-brain-that-imagines-tomorrow.html" title="Part 5: The Brain That Imagines Tomorrow">Part 5</a></li></ul></nav></div></header>
+<main>
+<p class="kicker">Part 3 of 5</p>
+<h1>From Bacteria to Bach, Part 3: Heading Somewhere</h1>
+<p><em>Why moving forward gave animals a head, and the head a brain</em></p>
+<p><img alt="A simple worm-like animal moving forward. Its eyes and smell sensors sit at the front, a knot of nerves sits just behind them, and a nerve cord runs back along its body." src="p3-fig1-head-first.png"></p>
+<p>In Part 2 we met the jellyfish. Its nerve net spreads a signal across the whole bell, so all its muscles squeeze together and it pulses through the water. There is no boss in the middle. Every neuron only talks to its neighbours.</p>
+<p>That works well for an animal that drifts and meets the world from every direction at once. But some early animals did something different. They started moving in one direction, always the same end first. That small change in lifestyle reshaped the whole nervous system. It pulled the senses to the front, gathered the nerves into a cord, and grew a brain at the front of that cord.</p>
+<p>This part covers four big ideas: why moving forward created a head, how nerves gathered into a spinal cord and a brain, how insulation made nerve signals dramatically faster, and how a second, slower messaging system, hormones, came to tune the whole body.</p>
+<hr>
+<h2>The milestone: a front end</h2>
+<p>A jellyfish is round. Turn it any way you like and it looks the same. Scientists call this <strong>radial symmetry</strong>, like a pizza or a wheel.</p>
+<p>More than 550 million years ago, animals appeared with a different body plan: a front and a back, a left side and a right side that mirror each other, a top and a bottom. This is called <strong>bilateral symmetry</strong>, and you have it. Draw a line from the top of your head down to your feet, and your left half roughly mirrors your right.</p>
+<p>A body with a front can do something a jellyfish cannot: travel steadily in one direction. And once an animal moves forward, its front end becomes special. It is the part that arrives first. It meets food first, bumps into danger first, and enters new light, new smells and new temperatures first.</p>
+<p>So evolution moved the senses there. Eyes, smell detectors and touch sensors became concentrated at the front, the way a car has its headlights, sensors and driver at the front, not scattered randomly around the back. This gathering of senses at the front is called <strong>cephalization</strong>, from the Greek word for head. It is, quite literally, the invention of the head.</p>
+<blockquote>
+<p><strong>Key idea:</strong> Moving forward made the front end the most important place on the body. Senses gathered there, and so did the nerves that process what the senses report.</p>
+</blockquote>
+<hr>
+<h2>From a net to a cord to a brain</h2>
+<p>Once the senses sat at the front, it made sense for nerve cells to gather nearby. Short wires are fast wires. If the cells that process smell sit right next to the nose, the message does not have to travel far.</p>
+<p>You can see this gathering in living animals today, like a series of snapshots.</p>
+<p><img alt="Three stages: a jellyfish with a spread-out nerve net, a flatworm with a small knot of nerves at the front and two nerve cords like a ladder, and a fish with a brain at the front of a single spinal cord." src="p3-fig2-net-cord-brain.png"></p>
+<ul>
+<li>A <strong>jellyfish</strong> has a spread-out net with no centre.</li>
+<li>A <strong>flatworm</strong>, a small worm-like animal that glides along pond bottoms, has a small knot of nerve cells at its front end and two nerve cords running down its body, connected like the rungs of a ladder.</li>
+<li>Our own distant ancestors, small swimming animals shaped a bit like a sleek eel, had a single <strong>nerve cord</strong> running along their back, with a slightly swollen front end.</li>
+</ul>
+<blockquote>
+<p><strong>New idea: ganglion.</strong> A ganglion is a knot of nerve cells packed together, where many signals meet and get combined. A brain began as a large ganglion at the front of the body.</p>
+</blockquote>
+<p>Why does gathering nerves together matter so much? In a net, every neuron only hears its neighbours. In a knot, thousands of neurons can talk to each other at once, mixing information from different senses. A cluster can <strong>combine and compare</strong>: "I smell food ahead, but I also see a large shadow." That ability to weigh things up, instead of just passing a signal along, is the beginning of making decisions.</p>
+<p>A useful way to picture it: a crowd passing a rumour from person to person versus a control room where all the reports arrive in one place and someone can look at the whole picture.</p>
+<hr>
+<h2>The spinal cord: more than a cable</h2>
+<p>Fish, frogs, birds and you all inherited that nerve cord along the back. In you, it is the <strong>spinal cord</strong>, a bundle of nerve tissue about as thick as your finger, running down inside your spine. The bones of the spine are its armour.</p>
+<p>It is tempting to think of the spinal cord as just a cable carrying messages between the brain and the body. It is that, but it does far more. It has two jobs that matter for everything else in this series.</p>
+<h3>Job one: reflexes</h3>
+<p>Touch something hot, and your hand jerks away <strong>before</strong> you feel any pain. That happens because the message never has to reach your brain first.</p>
+<p><img alt="A reflex: a sensor in the hand sends a signal to the spinal cord, where it is passed straight to a motor neuron that pulls the hand away. A separate, slower signal travels up to the brain, which only then feels the pain." src="p3-fig3-reflex.png"></p>
+<p>Here is the route:</p>
+<ol>
+<li>Sensors in your skin detect the heat and send spikes up a nerve to the spinal cord.</li>
+<li>Inside the cord, the signal is handed across a synapse or two to a <strong>motor neuron</strong>, a nerve cell that controls a muscle.</li>
+<li>The motor neuron fires, and your arm muscle pulls your hand away.</li>
+</ol>
+<p>At the same time, another copy of the message travels up to the brain. By the time it arrives and you think "ouch," your hand is already moving. This short loop is called a <strong>reflex arc</strong>. The famous knee-jerk at the doctor's is an even simpler version, where a single sensory neuron connects directly to a single motor neuron.</p>
+<p>Why have reflexes at all? Because the brain is far away, and thinking takes time. For dangers that need the same response every time, it is faster to handle them locally.</p>
+<h3>Job two: rhythm</h3>
+<p>The spinal cord also contains small circuits that can produce rhythmic movement on their own: left, right, left, right. Scientists call them <strong>central pattern generators</strong>. In classic experiments, cats whose spinal cords had been disconnected from the brain could still make stepping movements on a moving treadmill, and even adjusted their stepping to its speed.</p>
+<p>This means the brain does not command each step. It acts more like a manager, saying "walk, this fast, this way," while the spinal cord handles the left-right rhythm. This idea will come back when we talk about running.</p>
+<hr>
+<h2>The brain grows from the front of the cord</h2>
+<p>In every vertebrate embryo, including you before you were born, the nervous system starts as a simple tube. The back part stays a tube and becomes the spinal cord. The front end swells into a series of bulges, and those bulges become the brain. The brain is, in a real sense, the front end of the nerve cord that kept growing, because the front is where the senses are.</p>
+<p>The brain did not grow all at once. It grew in <strong>layers</strong>, with newer parts built on top of older ones.</p>
+<p><img alt="A simplified side view of the brain in layers. The brainstem at the bottom handles breathing and heartbeat, the cerebellum at the back handles balance and timing, and the larger forebrain on top handles senses, memory and planning. Lower layers are older and faster; upper layers are newer and more flexible." src="p3-fig4-brain-layers.png"></p>
+<ul>
+<li>The <strong>brainstem</strong>, at the bottom where the brain meets the spinal cord, runs the basics without you thinking: breathing, heartbeat, swallowing, staying awake.</li>
+<li>The <strong>cerebellum</strong>, a wrinkled lump at the back, specialises in balance and precise timing. It compares the movement you intended with the one that happened and corrects the difference.</li>
+<li>The <strong>forebrain</strong>, on top, handles senses, memory and choosing what to do. In mammals, and above all in humans, its outer layer grew enormously. That story belongs to Parts 4 and 5.</li>
+</ul>
+<p>A good way to picture this layering is a company. Workers on the floor handle routine jobs quickly. Supervisors coordinate them. Managers at the top set goals and handle unusual situations. Most of the time, the managers let the lower levels get on with it, and step in only when something new or tricky comes up. Your brain works the same way: old, fast, automatic control at the bottom, newer, slower, flexible control on top.</p>
+<hr>
+<h2>The speed upgrade: insulation</h2>
+<p>As animals grew bigger, they hit a new problem: distance again. A nerve signal in a jellyfish travels at less than a metre per second. That is fine across a small bell. But imagine a fish two metres long, or a giraffe whose brain is several metres from its feet. At walking pace, a "danger at the tail" message would arrive far too late.</p>
+<p>Evolution found two solutions.</p>
+<p>The first was <strong>thicker cables</strong>. A thicker axon conducts faster, the way a wide pipe carries water more easily than a narrow one. The squid took this to an extreme: its escape system uses giant axons up to about a millimetre across, about as wide as a pencil lead. They are fast, but enormous. A body built only from giant wires would have no room for anything else.</p>
+<p>The second solution, which appeared in early jawed fish over 400 million years ago, was far more elegant: <strong>insulation</strong>.</p>
+<p><img alt="Two nerve fibres compared. In a bare fibre, the spike creeps continuously along. In a fibre wrapped in myelin, the spike jumps from gap to gap between insulated sections, travelling dozens of times faster." src="p3-fig5-myelin.png"></p>
+<p>Special helper cells wrap themselves around an axon many times, like tape wound around a wire. This fatty wrapping is called <strong>myelin</strong>. It is not continuous. There are tiny bare gaps between the wrapped sections. Because the wrapping keeps the electrical signal from leaking out, the spike does not need to be rebuilt at every point along the axon. Instead, it jumps from gap to gap.</p>
+<p>Think of crossing a river on stepping stones instead of wading. Or an express train that only stops at a few stations instead of every one.</p>
+<p>The result is dramatic. A bare nerve fibre might carry a signal at around one metre per second. A thin, well-insulated fibre in your body can carry it at up to around 100 metres per second, faster than a high-speed train, while staying far thinner than a squid's giant axon. Myelin is also why your brain contains "white matter": the insulation is pale and fatty, and great bundles of insulated fibres look white.</p>
+<blockquote>
+<p><strong>Key idea:</strong> Myelin made nerves fast without making them fat. It is one of the reasons large, quick, complex animals became possible. And as we will see later in the series, your brain keeps adding myelin around circuits you use a lot.</p>
+</blockquote>
+<hr>
+<h2>The second messaging system: hormones</h2>
+<p>Nerves are fast and targeted, like a phone call to one person. But sometimes the body needs something different: a message to <strong>everyone at once</strong>, which lasts for a while.</p>
+<p>That is the job of <strong>hormones</strong>. A hormone is a chemical messenger released by a <strong>gland</strong> into the bloodstream. The blood carries it everywhere, and every cell with the right receptor responds. Blood takes about a minute to circulate around the whole body, and hormone effects can last from minutes to hours or longer.</p>
+<p><img alt="Nerves compared with hormones. A nerve sends a fast signal along a wire to one target. A gland releases a hormone into the blood, which carries it slowly to the whole body, where every cell with the right receptor responds." src="p3-fig6-nerves-and-hormones.png"></p>
+<p>If nerves are text messages to one person, hormones are an announcement over a building's loudspeaker: slower, less precise, but heard everywhere. Some examples you have felt yourself:</p>
+<ul>
+<li><strong>Adrenaline</strong>, from glands on top of your kidneys, prepares the whole body for action: faster heartbeat, more sugar in the blood, wide-open airways. It is the "all hands on deck" alarm.</li>
+<li><strong>Cortisol</strong>, from the same glands, helps the body handle longer-lasting stress and is part of your daily wake-up rhythm.</li>
+<li><strong>Melatonin</strong> rises in the evening and helps signal that it is time to sleep.</li>
+</ul>
+<p>Hormones are older than vertebrates. Insects, for example, use them to control when they shed their skin. But vertebrates organised their hormones under a central command: a tiny gland at the base of the brain called the <strong>pituitary</strong>, which in turn takes orders from a part of the brain just above it. This means the brain can run both systems: fast, precise nerves and slow, body-wide hormones.</p>
+<p>There is one more kind of broadcast that lives inside the brain itself, using chemicals such as dopamine to tell many connections at once that something matters. That turns out to be the key to learning, and it is the heart of Part 4.</p>
+<hr>
+<h2>Try it yourself: the Signal Race</h2>
+<iframe src="signal-race-simulator.html" title="Signal Race" width="100%" height="950" style="border:0;"></iframe>
+
+<p><em>If the simulator does not appear above, <a href="signal-race-simulator.html">open the Signal Race in its own page</a>.</em></p>
+<p>You step on something sharp. How quickly does your foot pull away? The simulator lets you race the message along different routes and compare the times.</p>
+<p>Try these:</p>
+<ol>
+<li><strong>Reflex versus thinking it over.</strong> Send the message as a spinal reflex, then route it through the brain for a decision. The brain route takes several times longer, mostly because deciding takes time.</li>
+<li><strong>Switch off the insulation.</strong> Remove myelin and race again. The same reflex goes from a few hundredths of a second to a couple of seconds.</li>
+<li><strong>Change the body size.</strong> Compare a mouse, a human and a giraffe, with and without myelin. The bigger the body, the more insulation matters.</li>
+<li><strong>Send it by hormone.</strong> Watch how long a message through the blood would take. Hormones are good for many things, but not for getting out of danger.</li>
+</ol>
+<hr>
+<h2>Where this shows up in your life</h2>
+<p><strong>In running:</strong> you have probably caught yourself after a trip or a stumble before you even knew it had happened. That was your spinal cord and brainstem, responding faster than thought. Your running stride itself leans on the spinal rhythm circuits: your brain decides "run, at this pace," and the cord handles much of the left-right pattern. Before a race, the nervous excitement you feel is partly adrenaline, the body-wide loudspeaker telling every cell to get ready.</p>
+<p><strong>In learning French:</strong> speaking a new language is partly a movement skill. Saying the French <em>r</em> or rounding your lips for the <em>u</em> in <em>tu</em> needs precise timing of dozens of tiny muscles in your throat, tongue and lips, and that timing is the speciality of the cerebellum. Every new sound you practise is fine-tuned there. And the insulation story will matter too: circuits you use often get wrapped in more myelin over time. We will come back to that when we reach mastery.</p>
+<hr>
+<h2>Mastery and belonging: headquarters and the loudspeaker</h2>
+<p><strong>Mastery begins with layers.</strong> A layered nervous system can hand routine jobs down to faster, lower levels, like reflexes and rhythms, and free the upper levels for what is new or difficult. That handing-down is exactly what happens when a skill becomes automatic: something that once took careful thought becomes something the lower layers just do. And myelin, the insulation that made big animals possible, is laid down more thickly around circuits that get used a lot. Practice literally builds faster wiring.</p>
+<p><strong>Belonging gets a broadcast system.</strong> Hormones are the body's way of putting every cell in the same mood at the same time, whether alert, calm, or ready to sleep. And animals with a head and forward-facing senses gained something else: the ability to watch each other. Think of a school of fish turning together in an instant. There is no leader. Each fish watches its nearest neighbours with its eyes and feels their movement in the water through a line of sensors along its sides, and keeps its place. It is the jellyfish's stadium wave again, but now between whole animals. Sensing others, and moving with them, becomes one of the most powerful things a nervous system can do.</p>
+<hr>
+<h2>Key ideas from Part 3</h2>
+<ul>
+<li>More than 550 million years ago, animals with <strong>bilateral symmetry</strong> appeared: a front and a back, a left and a right.</li>
+<li>Moving forward made the front end meet the world first, so senses gathered there. This is <strong>cephalization</strong>, the invention of the head.</li>
+<li>Nerves gathered too: from a net, to a <strong>ganglion</strong> and ladder-like cords, to a single <strong>nerve cord</strong> with a brain at its front.</li>
+<li>The <strong>spinal cord</strong> is more than a cable. It runs <strong>reflexes</strong> that act before the brain knows, and <strong>rhythm circuits</strong> that generate stepping.</li>
+<li>The brain grew in <strong>layers</strong>: the brainstem for life support, the cerebellum for balance and timing, the forebrain for senses, memory and choices. Older layers are fast and automatic; newer ones are slower and flexible.</li>
+<li><strong>Myelin</strong> insulation lets signals jump between gaps, making nerves up to about a hundred times faster without making them thick.</li>
+<li><strong>Hormones</strong> are a second, slower messaging system: glands release them into the blood, and they set the state of the whole body.</li>
+</ul>
+<hr>
+<h2>Coming next</h2>
+<p>So far, our animals sense, react and coordinate, faster and faster. But they mostly do the same thing every time. A reflex that pulls your foot from a thorn today will do exactly the same tomorrow.</p>
+<p>In <a href="part-4-wired-to-belong.html"><strong>Part 4: Wired to Belong</strong></a>, the nervous system learns to change itself. We will see how the brain decides which experiences are worth remembering, why the chemical dopamine is really a surprise signal, how curiosity and play turn learning into something animals seek out, and why, for social mammals like us, being left out can hurt in a way that is surprisingly close to physical pain.</p>
+</main>
+<nav class="pager" aria-label="Part navigation"><a class="prev" href="part-2-a-body-without-a-boss.html"><small>Previous</small>Part 2: A Body Without a Boss</a><a class="next" href="part-4-wired-to-belong.html"><small>Next</small>Part 4: Wired to Belong</a><a class="home" href="signal-race-simulator.html"><small>Open the simulator for this part on its own page</small>Signal Race</a></nav>
+<footer>From Bacteria to Bach &middot; a five-part series &middot; <a href="index.html">All parts</a></footer>
+</body>
+</html>

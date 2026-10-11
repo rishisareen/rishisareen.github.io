@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>From Bacteria to Bach</title>
+<meta name="description" content="A five-part series on how living things evolved from single-celled sensing to human thought, mastery and belonging.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  --bg:#FBF8F2; --surface:#FFFFFF; --ink:#1F2A30; --muted:#5E6A70; --rule:#E2DDD2;
+  --accent:#1F7A6E; --accent-ink:#13675E; --callout:#EEF5F1; --callout-rule:#1F9E8F;
+  --fig-bg:#FBF8F2;
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#12191D; --surface:#1A2328; --ink:#E6ECEA; --muted:#9AA8AD; --rule:#2C3A40;
+    --accent:#4CC7B6; --accent-ink:#8FE0D4; --callout:#1B2B2C; --callout-rule:#4CC7B6;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#12191D; --surface:#1A2328; --ink:#E6ECEA; --muted:#9AA8AD; --rule:#2C3A40;
+  --accent:#4CC7B6; --accent-ink:#8FE0D4; --callout:#1B2B2C; --callout-rule:#4CC7B6;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.65}
+a{color:var(--accent-ink);text-underline-offset:2px}
+a:hover{color:var(--accent)}
+.topbar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--rule);font-family:var(--sans);font-size:14px}
+.topbar .in{max-width:1040px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;justify-content:space-between}
+.brand{font-weight:600;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.parts{display:flex;gap:4px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.parts a{display:inline-block;padding:3px 9px;border-radius:6px;text-decoration:none;color:var(--muted);border:1px solid transparent}
+.parts a:hover{color:var(--ink);border-color:var(--rule)}
+.parts a[aria-current="page"]{color:var(--ink);border-color:var(--accent);font-weight:600}
+main{max-width:720px;margin:0 auto;padding:28px 16px 40px}
+h1,h2,h3{font-family:var(--sans);line-height:1.25;letter-spacing:-.01em}
+h1{font-size:2rem;margin:.4em 0 .3em}
+h2{font-size:1.4rem;margin:2em 0 .6em}
+h3{font-size:1.12rem;margin:1.6em 0 .5em}
+.kicker{font-family:var(--sans);font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin:0}
+h1 + p em:only-child{color:var(--muted)}
+img{max-width:100%;height:auto;display:block;margin:1.4em auto;border-radius:10px;background:var(--fig-bg);border:1px solid var(--rule)}
+blockquote{margin:1.6em 0;padding:14px 18px;background:var(--callout);border-left:4px solid var(--callout-rule);border-radius:0 8px 8px 0}
+blockquote p{margin:.3em 0}
+hr{border:0;border-top:1px solid var(--rule);margin:2.4em 0}
+ul,ol{padding-left:1.3em}
+li{margin:.3em 0}
+iframe{display:block;width:100%;border:1px solid var(--rule)!important;border-radius:10px;background:var(--surface);margin:1.4em 0}
+code{font-size:.9em}
+.pager{max-width:720px;margin:0 auto;padding:0 16px 56px;display:grid;grid-template-columns:1fr 1fr;gap:12px;font-family:var(--sans)}
+.pager a{display:block;padding:14px 16px;border:1px solid var(--rule);border-radius:10px;background:var(--surface);text-decoration:none;color:var(--ink)}
+.pager a:hover{border-color:var(--accent)}
+.pager small{display:block;color:var(--muted);font-size:13px;margin-bottom:2px}
+.pager .next{text-align:right;grid-column:2}
+.pager .home{grid-column:1/-1;text-align:center}
+footer{border-top:1px solid var(--rule);font-family:var(--sans);font-size:13px;color:var(--muted);text-align:center;padding:18px 16px 28px}
+/* index */
+.hero{max-width:1040px;margin:0 auto;padding:40px 16px 8px}
+.hero h1{font-size:2.5rem;margin:.1em 0 .3em}
+.hero p{max-width:680px;font-size:1.1rem}
+.grid{max-width:1040px;margin:0 auto;padding:16px 16px 48px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--rule);border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.card img{margin:0;border:0;border-radius:0;border-bottom:1px solid var(--rule);aspect-ratio:16/9;object-fit:cover;width:100%}
+.card .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h2{font-size:1.2rem;margin:0}
+.card h2 a{color:var(--ink);text-decoration:none}
+.card p{margin:0;font-size:1rem;color:var(--muted)}
+.card .links{margin-top:auto;padding-top:10px;display:flex;gap:16px;flex-wrap:wrap;font-family:var(--sans);font-size:15px;font-weight:500}
+.sims{max-width:1040px;margin:0 auto;padding:0 16px 48px}
+.sims ul{font-family:var(--sans);font-size:16px}
+@media (max-width:560px){
+  body{font-size:17.5px}
+  h1{font-size:1.6rem}
+  .hero h1{font-size:1.9rem}
+  .pager{grid-template-columns:1fr}
+  .pager .next{grid-column:1;text-align:left}
+}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="in"><a class="brand" href="index.html">From Bacteria to Bach</a><nav aria-label="Series parts"><ul class="parts"><li><a href="part-1-the-smallest-decision-maker.html" title="Part 1: The Smallest Decision-Maker">Part 1</a></li><li><a href="part-2-a-body-without-a-boss.html" title="Part 2: A Body Without a Boss">Part 2</a></li><li><a href="part-3-heading-somewhere.html" title="Part 3: Heading Somewhere">Part 3</a></li><li><a href="part-4-wired-to-belong.html" title="Part 4: Wired to Belong">Part 4</a></li><li><a href="part-5-the-brain-that-imagines-tomorrow.html" title="Part 5: The Brain That Imagines Tomorrow">Part 5</a></li></ul></nav></div></header>
+<section class="hero">
+<p class="kicker">A five-part series</p>
+<h1>From Bacteria to Bach</h1>
+<p>How living things went from a single cell steering towards sugar to human beings who practise for years, imagine the future and create things that matter to others. Each part adds one big step in evolution, explains the new ideas as they appear, and ends with a hands-on simulator you can play with.</p>
+<p><a href="part-1-the-smallest-decision-maker.html">Start with Part 1</a></p>
+</section>
+<div class="grid"><article class="card">
+<a href="part-1-the-smallest-decision-maker.html" tabindex="-1" aria-hidden="true"><img src="p1-fig1-meet-the-bacterium.png" alt=""></a>
+<div class="body"><p class="kicker">Part 1</p>
+<h2><a href="part-1-the-smallest-decision-maker.html">The Smallest Decision-Maker</a></h2>
+<p>How a single bacterium finds food with no brain at all</p>
+<div class="links"><a href="part-1-the-smallest-decision-maker.html">Read the article</a><a href="run-and-tumble-simulator.html">Run-and-Tumble Simulator</a></div>
+</div></article><article class="card">
+<a href="part-2-a-body-without-a-boss.html" tabindex="-1" aria-hidden="true"><img src="p2-fig5-nerve-net.png" alt=""></a>
+<div class="body"><p class="kicker">Part 2</p>
+<h2><a href="part-2-a-body-without-a-boss.html">A Body Without a Boss</a></h2>
+<p>How cells learned to talk, and how a jellyfish moves its whole body with no brain in charge</p>
+<div class="links"><a href="part-2-a-body-without-a-boss.html">Read the article</a><a href="nerve-net-simulator.html">Nerve Net Simulator</a></div>
+</div></article><article class="card">
+<a href="part-3-heading-somewhere.html" tabindex="-1" aria-hidden="true"><img src="p3-fig1-head-first.png" alt=""></a>
+<div class="body"><p class="kicker">Part 3</p>
+<h2><a href="part-3-heading-somewhere.html">Heading Somewhere</a></h2>
+<p>Why moving forward gave animals a head, and the head a brain</p>
+<div class="links"><a href="part-3-heading-somewhere.html">Read the article</a><a href="signal-race-simulator.html">Signal Race</a></div>
+</div></article><article class="card">
+<a href="part-4-wired-to-belong.html" tabindex="-1" aria-hidden="true"><img src="p4-fig1-tag-and-save.png" alt=""></a>
+<div class="body"><p class="kicker">Part 4</p>
+<h2><a href="part-4-wired-to-belong.html">Wired to Belong</a></h2>
+<p>How brains learned to change themselves, and why being left out hurts</p>
+<div class="links"><a href="part-4-wired-to-belong.html">Read the article</a><a href="surprise-signal-simulator.html">Surprise Signal</a></div>
+</div></article><article class="card">
+<a href="part-5-the-brain-that-imagines-tomorrow.html" tabindex="-1" aria-hidden="true"><img src="p5-fig1-human-brain.png" alt=""></a>
+<div class="body"><p class="kicker">Part 5</p>
+<h2><a href="part-5-the-brain-that-imagines-tomorrow.html">The Brain That Imagines Tomorrow</a></h2>
+<p>How humans learned to rehearse the future, and why we chase mastery and meaning</p>
+<div class="links"><a href="part-5-the-brain-that-imagines-tomorrow.html">Read the article</a><a href="prediction-and-practice-simulator.html">Prediction and Practice</a></div>
+</div></article></div>
+<section class="sims"><h2>All five simulators</h2><ul><li><a href="run-and-tumble-simulator.html">Run-and-Tumble Simulator</a>, from <a href="part-1-the-smallest-decision-maker.html">Part 1: The Smallest Decision-Maker</a></li><li><a href="nerve-net-simulator.html">Nerve Net Simulator</a>, from <a href="part-2-a-body-without-a-boss.html">Part 2: A Body Without a Boss</a></li><li><a href="signal-race-simulator.html">Signal Race</a>, from <a href="part-3-heading-somewhere.html">Part 3: Heading Somewhere</a></li><li><a href="surprise-signal-simulator.html">Surprise Signal</a>, from <a href="part-4-wired-to-belong.html">Part 4: Wired to Belong</a></li><li><a href="prediction-and-practice-simulator.html">Prediction and Practice</a>, from <a href="part-5-the-brain-that-imagines-tomorrow.html">Part 5: The Brain That Imagines Tomorrow</a></li></ul></section>
+<footer>From Bacteria to Bach &middot; a five-part series &middot; <a href="index.html">All parts</a></footer>
+</body>
+</html>

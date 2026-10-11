@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Signal Race | From Bacteria to Bach, Part 3</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+html{color-scheme:light}
+body{margin:0}
+[hidden]{display:none!important}
+/* Layout: same lab-bench instrument as the earlier simulators. Wide race track on top, controls and a results log below. */
+:root {
+  --bg: #F5F6F2;
+  --surface: #FFFFFF;
+  --ink: #1D2A33;
+  --muted: #5F6B72;
+  --rule: #D9DDD5;
+  --track: #EEF1E6;
+  --sense: #D9573C;
+  --motor: #1F9E8F;
+  --brain: #6E5FCF;
+  --brain-fill: #E9E7FA;
+  --cord-fill: #D3F0EB;
+  --hormone: #E39B1B;
+  --hormone-ink: #9A6206;
+  --skin: #F1E2CF;
+  --skin-edge: #C9A985;
+  --focus: #2B6CB0;
+  --on-accent: #FFFFFF;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11181C; --surface: #182227; --ink: #E6ECEA; --muted: #9AA8AD; --rule: #2C3A40; --track: #1A2629;
+    --sense: #F2876C; --motor: #4CC7B6; --brain: #B4A9F5; --brain-fill: #252547; --cord-fill: #1E4743;
+    --hormone: #F2B347; --hormone-ink: #F2C46F; --skin: #4A3F35; --skin-edge: #8C7559; --focus: #7FB2EE; --on-accent: #0B1F1C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11181C; --surface: #182227; --ink: #E6ECEA; --muted: #9AA8AD; --rule: #2C3A40; --track: #1A2629;
+  --sense: #F2876C; --motor: #4CC7B6; --brain: #B4A9F5; --brain-fill: #252547; --cord-fill: #1E4743;
+  --hormone: #F2B347; --hormone-ink: #F2C46F; --skin: #4A3F35; --skin-edge: #8C7559; --focus: #7FB2EE; --on-accent: #0B1F1C;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; padding-block: 24px 40px; }
+h1 { font-size: 1.6rem; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
+.sub { color: var(--muted); margin: 4px 0 0; max-width: 64ch; }
+.stage { margin-top: 18px; background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 12px; }
+canvas { display: block; width: 100%; aspect-ratio: 16 / 10; max-width: 100%; }
+.clock { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 16px; padding: 8px 4px 0; }
+.clock strong { font: 500 1.5rem var(--font-data); font-variant-numeric: tabular-nums; }
+.clock span { font: 0.85rem var(--font-data); color: var(--muted); }
+.controls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: 16px; margin-top: 18px; align-items: end; }
+@media (max-width: 820px) { .controls { grid-template-columns: 1fr; } }
+.group { display: grid; gap: 6px; min-width: 0; }
+.label { font-weight: 600; font-size: 0.92rem; }
+.seg { display: flex; flex-wrap: wrap; gap: 6px; }
+.btn { font: 600 0.9rem var(--font-body); border-radius: 10px; padding: 9px 12px; cursor: pointer; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); }
+.btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.go { background: var(--motor); border-color: var(--motor); color: var(--on-accent); padding: 12px 26px; font-size: 1rem; }
+button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.results { margin-top: 22px; }
+.results-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.results h2 { font-size: 1.05rem; margin: 0; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0; }
+.table-wrap { overflow-x: auto; margin-top: 8px; border: 1px solid var(--rule); border-radius: 12px; background: var(--surface); }
+table { width: 100%; border-collapse: collapse; min-width: 640px; font-size: 0.9rem; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--rule); white-space: nowrap; }
+th { font-weight: 600; color: var(--muted); font-size: 0.8rem; }
+tr:last-child td { border-bottom: 0; }
+td.num { font-family: var(--font-data); font-variant-numeric: tabular-nums; }
+.bar { height: 12px; border-radius: 6px; background: var(--motor); min-width: 4px; }
+.bar.brain { background: var(--brain); }
+.bar.hormone { background: var(--hormone); }
+.barcell { width: 40%; min-width: 180px; }
+.scale { display: flex; justify-content: space-between; font: 0.72rem var(--font-data); color: var(--muted); padding: 4px 12px 0; }
+.harm { font-weight: 600; }
+.harm.low { color: var(--motor); }
+.harm.mid { color: var(--hormone-ink); }
+.harm.high { color: var(--sense); }
+</style>
+
+</head>
+<body>
+<style>
+.series-nav{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;border-bottom:1px solid var(--rule,#D9DDD5);background:var(--bg,#F5F6F2)}
+.series-nav .in{max-width:1040px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+.series-nav a{color:var(--ink,#1D2A33);text-underline-offset:2px}
+.series-nav .home{font-weight:600;text-decoration:none;margin-right:auto}
+html.embedded .series-nav{display:none}
+</style>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded')}catch(e){document.documentElement.classList.add('embedded')}</script>
+<nav class="series-nav" aria-label="Series"><div class="in">
+<a class="home" href="index.html" target="_top">From Bacteria to Bach</a>
+<a href="part-3-heading-somewhere.html" target="_top">Read Part 3: Heading Somewhere</a>
+<a href="surprise-signal-simulator.html" target="_top">Next simulator: Surprise Signal</a>
+</div></nav>
+
+<div class="wrap">
+  <h1>Signal Race</h1>
+  <p class="sub">You step on something sharp. How quickly does your foot pull away? Choose how the message travels, then race it.</p>
+
+  <div class="stage">
+    <canvas id="track" aria-label="Diagram of the route from foot to spinal cord, brain and leg muscle, with a moving signal"></canvas>
+    <div class="clock" aria-live="polite">
+      <strong id="clock">0.000 s</strong>
+      <span id="playback">Press Race to start</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="group">
+      <span class="label">Route</span>
+      <div class="seg">
+        <button class="btn" id="r-reflex" aria-pressed="true">Spinal reflex</button>
+        <button class="btn" id="r-brain" aria-pressed="false">Brain decides</button>
+        <button class="btn" id="r-hormone" aria-pressed="false">Hormone</button>
+      </div>
+    </div>
+    <div class="group">
+      <span class="label">Nerve insulation</span>
+      <div class="seg">
+        <button class="btn" id="i-myelin" aria-pressed="true">Myelin</button>
+        <button class="btn" id="i-bare" aria-pressed="false">Bare fibres</button>
+      </div>
+    </div>
+    <div class="group">
+      <span class="label">Body</span>
+      <div class="seg">
+        <button class="btn" id="b-mouse" aria-pressed="false">Mouse</button>
+        <button class="btn" id="b-human" aria-pressed="true">Human</button>
+        <button class="btn" id="b-giraffe" aria-pressed="false">Giraffe</button>
+      </div>
+    </div>
+    <button class="btn go" id="go">Race</button>
+  </div>
+
+  <div class="results">
+    <div class="results-head">
+      <h2>Results</h2>
+      <button class="btn" id="clear">Clear results</button>
+    </div>
+    <p class="hint">Bars use a stretched scale, so a thousandth of a second and a minute fit on the same row. Speeds: insulated fibres about 60 m/s, bare fibres about 1 m/s. Deciding adds about a fifth of a second. Hormone times are rough estimates.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Route</th><th>Insulation</th><th>Body</th><th>Time to pull away</th><th>Harm</th><th class="barcell">Compared</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <div class="scale"><span>0.001 s</span><span>0.01 s</span><span>0.1 s</span><span>1 s</span><span>10 s</span><span>100 s</span></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const canvas = $('track'), ctx = canvas.getContext('2d');
+  const colors = {};
+  const readColors = () => { const cs = getComputedStyle(document.documentElement); ['--track','--sense','--motor','--brain','--brain-fill','--cord-fill','--hormone','--hormone-ink','--skin','--skin-edge','--muted','--ink','--surface','--rule'].forEach(k => colors[k] = cs.getPropertyValue(k).trim()); };
+  readColors();
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { readColors(); draw(); });
+  new MutationObserver(() => { readColors(); draw(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  const hexA = (hex, a) => { hex = hex.replace('#', ''); const n = parseInt(hex, 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; };
+
+  // ---------- the physics ----------
+  const BODIES = { mouse: { name: 'Mouse', leg: 0.05, neck: 0.04, blood: 10 }, human: { name: 'Human', leg: 1.0, neck: 0.4, blood: 20 }, giraffe: { name: 'Giraffe', leg: 2.5, neck: 2.5, blood: 30 } };
+  const SPEED = { myelin: 60, bare: 1 };   // metres per second
+  const SYN = 0.001, DECIDE = 0.2;          // seconds per synapse, time to decide
+  let route = 'reflex', insul = 'myelin', body = 'human';
+
+  function timing() {
+    const b = BODIES[body], v = SPEED[insul];
+    const up = b.leg / v, neck = b.neck / v;
+    if (route === 'reflex') return { total: 2 * up + 2 * SYN, legs: [['in', up], ['syn', 2 * SYN], ['out', up]], ouch: up + 2 * neck * 0.5 + neck };
+    if (route === 'brain') return { total: 2 * up + 2 * neck + DECIDE + 5 * SYN, legs: [['in', up], ['up', neck], ['think', DECIDE + 5 * SYN], ['down', neck], ['out', up]] };
+    const nerveUp = b.leg / 60 + b.neck / 60;
+    return { total: nerveUp + 1 + b.blood, legs: [['in', b.leg / 60], ['up', b.neck / 60], ['gland', 1], ['blood', b.blood]], rough: true };
+  }
+
+  // ---------- geometry (logical canvas 1000 x 625) ----------
+  const LW = 1000, LH = 625;
+  const PTS = {
+    foot: [150, 545], cordLow: [500, 430], cordHigh: [500, 170], brain: [500, 95], muscle: [810, 520],
+  };
+  const pathIn = [[205, 535], [300, 535], [300, 430], [488, 430]];
+  const pathOut = [[512, 430], [700, 430], [700, 520], [760, 520]];
+  const pathUp = [[500, 418], [500, 135]];
+  const pathDown = [[508, 135], [508, 418]];
+  const gland = [600, 290];
+  const pathBlood = [[600, 290], [650, 320], [640, 380], [690, 470], [760, 505]];
+  const pathToGland = [[512, 135], [600, 135], [600, 270]];
+
+  function along(pts, f) {
+    let L = 0; const seg = []; for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); seg.push(d); L += d; }
+    let r = Math.max(0, Math.min(1, f)) * L;
+    for (let i = 0; i < seg.length; i++) { if (r <= seg[i]) { const u = seg[i] ? r / seg[i] : 0; return [pts[i][0] + (pts[i + 1][0] - pts[i][0]) * u, pts[i][1] + (pts[i + 1][1] - pts[i][1]) * u]; } r -= seg[i]; }
+    return pts[pts.length - 1];
+  }
+
+  let size = { w: 1000, h: 625 }, dpr = 1;
+  function resize() { dpr = Math.min(window.devicePixelRatio || 1, 2); const w = canvas.clientWidth || 1000; size = { w, h: w * LH / LW }; canvas.width = Math.round(size.w * dpr); canvas.height = Math.round(size.h * dpr); draw(); }
+
+  // animation state
+  let anim = null; // {T, D, start, legs, cum}
+  function polyline(pts, col, w, dash) { ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = w; ctx.lineJoin = 'round'; ctx.lineCap = 'round'; if (dash) ctx.setLineDash(dash); ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.stroke(); ctx.restore(); }
+  function rrect(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+  function label(txt, x, y, col, weight = 600, sz = 20, align = 'center') { ctx.fillStyle = col; ctx.font = `${weight} ${sz}px "IBM Plex Sans", system-ui, sans-serif`; ctx.textAlign = align; ctx.textBaseline = 'middle'; ctx.fillText(txt, x, y); }
+  function dot(p, col, r = 9) { const g = ctx.createRadialGradient(p[0], p[1], 0, p[0], p[1], r * 3); g.addColorStop(0, hexA(col, 0.6)); g.addColorStop(1, hexA(col, 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(p[0], p[1], r * 3, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = col; ctx.beginPath(); ctx.arc(p[0], p[1], r, 0, Math.PI * 2); ctx.fill(); }
+
+  function draw(now) {
+    ctx.setTransform(dpr * size.w / LW, 0, 0, dpr * size.w / LW, 0, 0);
+    ctx.fillStyle = colors['--track']; ctx.fillRect(0, 0, LW, LH);
+    // brain
+    rrect(410, 40, 180, 95, 26); ctx.fillStyle = colors['--brain-fill']; ctx.fill(); ctx.strokeStyle = colors['--brain']; ctx.lineWidth = 3; ctx.stroke();
+    label('Brain', 500, 88, colors['--brain'], 700, 24);
+    // cord
+    rrect(478, 150, 44, 300, 20); ctx.fillStyle = colors['--cord-fill']; ctx.fill(); ctx.strokeStyle = colors['--motor']; ctx.lineWidth = 3; ctx.stroke();
+    label('Spinal', 420, 300, colors['--motor'], 700, 20, 'right'); label('cord', 420, 324, colors['--motor'], 700, 20, 'right');
+    // nerves
+    polyline(pathIn, hexA(colors['--sense'], 0.45), 6); polyline(pathOut, hexA(colors['--motor'], 0.45), 6);
+    polyline(pathUp, hexA(colors['--brain'], 0.35), 4); polyline(pathDown, hexA(colors['--brain'], 0.35), 4);
+    // gland and blood vessel
+    const showH = route === 'hormone';
+    polyline(pathToGland, hexA(colors['--brain'], showH ? 0.35 : 0.12), 4);
+    polyline(pathBlood, hexA(colors['--hormone'], showH ? 0.5 : 0.15), 10);
+    ctx.fillStyle = hexA(colors['--hormone'], showH ? 1 : 0.35); ctx.beginPath(); ctx.arc(gland[0], gland[1], 18, 0, Math.PI * 2); ctx.fill();
+    label('gland', 640, 262, hexA(colors['--hormone-ink'], showH ? 1 : 0.45), 600, 18, 'left');
+    label('blood', 700, 400, hexA(colors['--hormone-ink'], showH ? 1 : 0.45), 600, 18, 'left');
+    // foot + thorn
+    let lift = 0, elapsedReal = 0, done = false;
+    if (anim) { const p = Math.min(1, (now - anim.start) / anim.D); elapsedReal = p * anim.T; done = p >= 1; if (done) lift = Math.min(1, (now - anim.start - anim.D) / 300); }
+    ctx.fillStyle = colors['--muted']; ctx.beginPath(); ctx.moveTo(120, 585); ctx.lineTo(140, 548); ctx.lineTo(160, 585); ctx.closePath(); ctx.fill();
+    ctx.save(); ctx.translate(0, -50 * lift);
+    rrect(70, 520, 150, 52, 26); ctx.fillStyle = colors['--skin']; ctx.fill(); ctx.strokeStyle = colors['--skin-edge']; ctx.lineWidth = 3; ctx.stroke();
+    ctx.restore();
+    label('Foot on a thorn', 145, 608, colors['--muted'], 600, 18);
+    // muscle
+    rrect(760, 480, 170, 80, 30); ctx.fillStyle = hexA(colors['--motor'], done ? 0.5 : 0.15); ctx.fill(); ctx.strokeStyle = colors['--motor']; ctx.lineWidth = 3; ctx.stroke();
+    label('Leg muscle', 845, 520, colors['--ink'], 600, 20);
+
+    // moving signal
+    if (anim) {
+      let t = elapsedReal, cum = 0;
+      for (const [k, d] of anim.legs) {
+        const local = d > 0 ? (t - cum) / d : 1;
+        if (t < cum + d || (k === anim.legs[anim.legs.length - 1][0] && !done)) {
+          const f = Math.max(0, Math.min(1, local));
+          if (k === 'in') dot(along(pathIn, f), colors['--sense']);
+          if (k === 'syn') dot([500, 430], colors['--ink'], 8);
+          if (k === 'out') dot(along(pathOut, f), colors['--motor']);
+          if (k === 'up') dot(along(pathUp, 1 - f), colors['--brain']);
+          if (k === 'down') dot(along(pathDown, f), colors['--brain']);
+          if (k === 'think') { const pulse = 0.5 + 0.5 * Math.sin(now / 120); ctx.strokeStyle = hexA(colors['--brain'], 0.4 + 0.5 * pulse); ctx.lineWidth = 6; rrect(404, 34, 192, 107, 30); ctx.stroke(); label('deciding...', 500, 160, colors['--brain'], 600, 18); }
+          if (k === 'gland') dot(along(pathToGland, f), colors['--brain']);
+          if (k === 'blood') for (let i = 0; i < 6; i++) { const ff = f - i * 0.05; if (ff > 0) dot(along(pathBlood, ff), colors['--hormone'], 6); }
+          break;
+        }
+        cum += d;
+      }
+      // reflex: show the copy reaching the brain afterwards
+      if (route === 'reflex' && anim.route === 'reflex') {
+        const upT = BODIES[anim.body].leg / SPEED[anim.insul], neck = BODIES[anim.body].neck / SPEED[anim.insul];
+        const tt = elapsedReal - upT;
+        if (tt > 0 && tt < neck) dot(along(pathUp, 1 - tt / neck), colors['--brain'], 7);
+      }
+      if (done) { label('Pulled away!', 145, 470, colors['--motor'], 700, 22); }
+      if (done && anim.route === 'reflex') label('"Ouch" comes after', 500, 16 + 0, colors['--brain'], 600, 16);
+    }
+    // clock
+    $('clock').textContent = anim ? `${fmt(elapsedReal)}` : '0.000 s';
+  }
+  function fmt(s) { return s < 10 ? `${s.toFixed(3)} s` : `${s.toFixed(1)} s`; }
+
+  // ---------- results ----------
+  const rows = [];
+  const LOG_LO = -3, LOG_HI = 2;
+  function harm(T) { return T < 0.1 ? ['barely a scratch', 'low'] : T < 1 ? ['a nasty jab', 'mid'] : ['badly hurt', 'high']; }
+  function renderRows() {
+    $('rows').innerHTML = rows.map(r => {
+      const w = Math.max(1.5, (Math.log10(r.T) - LOG_LO) / (LOG_HI - LOG_LO) * 100);
+      const [h, cls] = harm(r.T);
+      return `<tr><td>${r.routeName}</td><td>${r.route === 'hormone' ? '-' : r.insulName}</td><td>${r.bodyName}</td><td class="num">${r.rough ? 'about ' : ''}${fmt(r.T)}</td><td class="harm ${cls}">${h}</td><td class="barcell"><div class="bar ${r.route}" style="width:${w.toFixed(1)}%"></div></td></tr>`;
+    }).join('') || `<tr><td colspan="6" class="hint">No races yet. Press Race to add one.</td></tr>`;
+  }
+
+  function race() {
+    const tm = timing(), T = tm.total;
+    let D, note;
+    if (T < 0.6) { D = 2600; note = `Shown about ${Math.round(D / 1000 / T)} times slower than real life`; }
+    else if (T <= 6) { D = T * 1000; note = 'Shown at real speed'; }
+    else { D = 6000; note = `Shown about ${Math.round(T / 6)} times faster than real life`; }
+    anim = { T, D, start: performance.now(), legs: tm.legs, route, insul, body };
+    $('playback').textContent = note;
+    rows.unshift({ T, route, rough: tm.rough, routeName: { reflex: 'Spinal reflex', brain: 'Brain decides', hormone: 'Hormone' }[route], insulName: insul === 'myelin' ? 'Myelin' : 'Bare fibres', bodyName: BODIES[body].name });
+    if (rows.length > 12) rows.pop();
+    setTimeout(renderRows, D);
+  }
+
+  // ---------- controls ----------
+  const group = (ids, val, set) => ids.forEach(([id, v]) => $(id).onclick = () => { set(v); ids.forEach(([i, vv]) => $(i).setAttribute('aria-pressed', String(vv === v))); syncDisabled(); draw(performance.now()); });
+  group([['r-reflex', 'reflex'], ['r-brain', 'brain'], ['r-hormone', 'hormone']], route, v => route = v);
+  group([['i-myelin', 'myelin'], ['i-bare', 'bare']], insul, v => insul = v);
+  group([['b-mouse', 'mouse'], ['b-human', 'human'], ['b-giraffe', 'giraffe']], body, v => body = v);
+  function syncDisabled() { const h = route === 'hormone'; $('i-myelin').disabled = h; $('i-bare').disabled = h; }
+  $('go').onclick = race;
+  $('clear').onclick = () => { rows.length = 0; renderRows(); };
+
+  function loop(now) { draw(now); requestAnimationFrame(loop); }
+  resize(); window.addEventListener('resize', resize);
+  document.fonts && document.fonts.ready.then(() => draw(performance.now()));
+  // opening state: one example race already in the log, and a reflex race starts so the comparison is visible straight away
+  route = 'brain'; rows.push({ T: timing().total, route: 'brain', routeName: 'Brain decides', insulName: 'Myelin', bodyName: 'Human' });
+  route = 'reflex'; renderRows();
+  requestAnimationFrame(loop);
+  setTimeout(race, 600);
+})();
+</script>
+
+</body>
+</html>

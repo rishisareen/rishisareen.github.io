@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Surprise Signal | From Bacteria to Bach, Part 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+html{color-scheme:light}
+body{margin:0}
+[hidden]{display:none!important}
+/* Layout: same lab-bench instrument as the earlier simulators. Recording trace on top, trial buttons beside the expectation meter, trial history below. */
+:root {
+  --bg: #F5F6F2;
+  --surface: #FFFFFF;
+  --ink: #1D2A33;
+  --muted: #5F6B72;
+  --rule: #D9DDD5;
+  --scope: #F2F4EC;
+  --grid: #DDE2D6;
+  --trace: #D98E10;
+  --cue: #E8B931;
+  --juice: #D9573C;
+  --good: #1F9E8F;
+  --bad: #C2452F;
+  --focus: #2B6CB0;
+  --on-accent: #FFFFFF;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11181C; --surface: #182227; --ink: #E6ECEA; --muted: #9AA8AD; --rule: #2C3A40; --scope: #141E22; --grid: #263338;
+    --trace: #F2B347; --cue: #F2D06B; --juice: #F2876C; --good: #4CC7B6; --bad: #F07362; --focus: #7FB2EE; --on-accent: #0B1F1C;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11181C; --surface: #182227; --ink: #E6ECEA; --muted: #9AA8AD; --rule: #2C3A40; --scope: #141E22; --grid: #263338;
+  --trace: #F2B347; --cue: #F2D06B; --juice: #F2876C; --good: #4CC7B6; --bad: #F07362; --focus: #7FB2EE; --on-accent: #0B1F1C;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; padding-block: 24px 40px; }
+h1 { font-size: 1.6rem; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
+.sub { color: var(--muted); margin: 4px 0 0; max-width: 66ch; }
+.bench { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 22px; margin-top: 18px; align-items: start; }
+@media (max-width: 800px) { .bench { grid-template-columns: 1fr; } }
+.scope { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 12px; min-width: 0; }
+canvas { display: block; width: 100%; max-width: 100%; }
+#trace { aspect-ratio: 16 / 9; }
+.verdict { font-weight: 600; margin: 10px 4px 2px; min-height: 1.5em; }
+.verdict.good { color: var(--good); }
+.verdict.bad { color: var(--bad); }
+.verdict.flat { color: var(--muted); }
+.panel { display: grid; gap: 16px; min-width: 0; }
+.label { font-weight: 600; font-size: 0.95rem; }
+.trials { display: grid; gap: 8px; }
+.btn { font: 600 0.95rem var(--font-body); border-radius: 10px; padding: 11px 14px; cursor: pointer; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); text-align: left; display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+.btn.main { background: var(--good); border-color: var(--good); color: var(--on-accent); }
+.btn small { font: 500 0.78rem var(--font-data); opacity: 0.8; }
+.btn:disabled { opacity: 0.5; cursor: wait; }
+button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.meter { display: grid; gap: 6px; }
+.bar { height: 16px; border-radius: 8px; background: var(--scope); border: 1px solid var(--rule); overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: var(--juice); transition: width 0.4s ease; }
+.meter-row { display: flex; justify-content: space-between; font-size: 0.92rem; }
+.meter-row b { font: 500 1rem var(--font-data); font-variant-numeric: tabular-nums; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0; }
+.history { margin-top: 20px; }
+.history h2 { font-size: 1.02rem; margin: 0 0 8px; }
+.strip { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 8px; }
+@media (max-width: 560px) { .strip { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.mini { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 6px; min-width: 0; }
+.mini canvas { aspect-ratio: 2 / 1; }
+.mini span { display: block; font: 0.72rem var(--font-data); color: var(--muted); text-align: center; margin-top: 3px; }
+.reset { justify-self: start; }
+@media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+</style>
+
+</head>
+<body>
+<style>
+.series-nav{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;border-bottom:1px solid var(--rule,#D9DDD5);background:var(--bg,#F5F6F2)}
+.series-nav .in{max-width:1040px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+.series-nav a{color:var(--ink,#1D2A33);text-underline-offset:2px}
+.series-nav .home{font-weight:600;text-decoration:none;margin-right:auto}
+html.embedded .series-nav{display:none}
+</style>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded')}catch(e){document.documentElement.classList.add('embedded')}</script>
+<nav class="series-nav" aria-label="Series"><div class="in">
+<a class="home" href="index.html" target="_top">From Bacteria to Bach</a>
+<a href="part-4-wired-to-belong.html" target="_top">Read Part 4: Wired to Belong</a>
+<a href="prediction-and-practice-simulator.html" target="_top">Next simulator: Prediction and Practice</a>
+</div></nav>
+
+<div class="wrap">
+  <h1>Surprise Signal</h1>
+  <p class="sub">Based on the classic experiment: a light comes on, and a moment later juice may arrive. The trace shows how dopamine neurons respond, worked out from what the brain currently expects.</p>
+
+  <div class="bench">
+    <div class="scope">
+      <canvas id="trace" aria-label="Dopamine activity over one trial, with the moments the light and the juice arrive"></canvas>
+      <p class="verdict" id="verdict" aria-live="polite"></p>
+    </div>
+
+    <div class="panel">
+      <div class="meter">
+        <div class="meter-row"><span>Juice the brain expects after the light</span><b id="exp-val">0%</b></div>
+        <div class="bar" aria-hidden="true"><i id="exp-bar"></i></div>
+        <p class="hint">100% means one usual sip. This expectation is what the brain learns: each trial nudges it towards what actually happened.</p>
+      </div>
+      <div class="trials">
+        <span class="label">Run a trial</span>
+        <button class="btn main" id="t-normal">Light, then juice <small>the usual</small></button>
+        <button class="btn" id="t-none">Light, but no juice <small>a letdown</small></button>
+        <button class="btn" id="t-double">Light, then double juice <small>a bonus</small></button>
+        <button class="btn" id="t-surprise">Juice with no light <small>out of nowhere</small></button>
+      </div>
+      <button class="btn reset" id="reset">Start again with a new brain</button>
+    </div>
+  </div>
+
+  <div class="history">
+    <h2>Last eight trials</h2>
+    <div class="strip" id="strip"></div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const canvas = $('trace'), ctx = canvas.getContext('2d');
+  const colors = {};
+  const readColors = () => { const cs = getComputedStyle(document.documentElement); ['--scope','--grid','--trace','--cue','--juice','--good','--bad','--muted','--ink','--surface','--rule'].forEach(k => colors[k] = cs.getPropertyValue(k).trim()); };
+  readColors();
+  const redrawAll = () => { readColors(); drawTrace(current, current ? 1 : 0); renderStrip(); };
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', redrawAll);
+  new MutationObserver(redrawAll).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  // ---------- the learning model ----------
+  // V is the expected juice after the light. A prediction error (actual minus expected) drives both
+  // the dopamine response and the update, as in the reward-prediction-error account of dopamine.
+  const ALPHA = 0.35, T_CUE = 1.0, T_JUICE = 2.6, T_END = 4.2;
+  let V = 0, current = null, history = [], playing = false;
+  const TRIALS = {
+    normal: { cue: true, juice: 1, name: 'light + juice' },
+    none: { cue: true, juice: 0, name: 'light, no juice' },
+    double: { cue: true, juice: 2, name: 'light + double' },
+    surprise: { cue: false, juice: 1, name: 'juice, no light' },
+  };
+  function runModel(kind) {
+    const t = TRIALS[kind];
+    const atCue = t.cue ? V : 0;                    // the light itself is unpredictable, so its "news" is what it promises
+    const expectedAtJuice = t.cue ? V : 0;
+    const atJuice = t.juice - expectedAtJuice;      // better (+), as expected (0), worse (-)
+    const before = V;
+    if (t.cue) V = V + ALPHA * (t.juice - V);
+    return { kind, ...t, atCue, atJuice, before, after: V };
+  }
+  function dopamine(tr, time) {
+    const bump = (c, w) => Math.exp(-((time - c) ** 2) / (2 * w * w));
+    let d = 0;
+    if (tr.cue) d += tr.atCue * bump(T_CUE + 0.12, 0.09);
+    if (tr.atJuice >= 0) d += tr.atJuice * bump(T_JUICE + 0.12, 0.09);
+    else d += tr.atJuice * 0.45 * bump(T_JUICE + 0.3, 0.22);
+    return d;
+  }
+
+  // ---------- drawing ----------
+  function fit(c) { const dpr = Math.min(window.devicePixelRatio || 1, 2); const w = c.clientWidth || 600, h = w * (c === canvas ? 9 / 16 : 0.5); c.width = Math.round(w * dpr); c.height = Math.round(h * dpr); return { w, h, dpr }; }
+  let main = fit(canvas);
+  function drawTrace(tr, progress) {
+    const { w, h, dpr } = main; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = colors['--scope']; ctx.fillRect(0, 0, w, h);
+    const padL = w * 0.06, padR = w * 0.04, top = h * 0.12, base = h * 0.62, scale = h * 0.22;
+    const X = t => padL + (t / T_END) * (w - padL - padR);
+    // grid
+    ctx.strokeStyle = colors['--grid']; ctx.lineWidth = 1;
+    for (let t = 0; t <= T_END; t += 0.5) { ctx.beginPath(); ctx.moveTo(X(t), top); ctx.lineTo(X(t), h * 0.8); ctx.stroke(); }
+    ctx.setLineDash([5, 5]); ctx.strokeStyle = colors['--muted']; ctx.beginPath(); ctx.moveTo(X(0), base); ctx.lineTo(X(T_END), base); ctx.stroke(); ctx.setLineDash([]);
+    const font = (s, wgt = 500) => `${wgt} ${Math.max(11, s)}px "IBM Plex Sans", system-ui, sans-serif`;
+    ctx.fillStyle = colors['--muted']; ctx.font = font(w * 0.018); ctx.textAlign = 'left'; ctx.fillText('dopamine activity', padL, top - h * 0.03);
+    ctx.textAlign = 'right'; ctx.fillText('normal level', X(T_END), base - 6);
+    // event markers
+    const iconY = h * 0.86;
+    if (tr && tr.cue) { const lit = progress * T_END >= T_CUE; ctx.beginPath(); ctx.arc(X(T_CUE), iconY, h * 0.035, 0, Math.PI * 2); ctx.fillStyle = lit ? colors['--cue'] : colors['--grid']; ctx.fill(); }
+    ctx.fillStyle = colors['--muted']; ctx.font = font(w * 0.018); ctx.textAlign = 'center';
+    ctx.fillText('light', X(T_CUE), iconY + h * 0.085);
+    if (tr) {
+      const arrived = progress * T_END >= T_JUICE, s = h * 0.032 * (tr.juice === 2 ? 1.35 : 1);
+      if (tr.juice > 0) { ctx.fillStyle = arrived ? colors['--juice'] : colors['--grid']; ctx.fillRect(X(T_JUICE) - s, iconY - s, 2 * s, 2 * s); }
+      else { ctx.strokeStyle = colors['--bad']; ctx.lineWidth = 2; ctx.strokeRect(X(T_JUICE) - s, iconY - s, 2 * s, 2 * s); if (arrived) { ctx.beginPath(); ctx.moveTo(X(T_JUICE) - s, iconY + s); ctx.lineTo(X(T_JUICE) + s, iconY - s); ctx.stroke(); } }
+    }
+    ctx.fillStyle = colors['--muted']; ctx.fillText(tr && tr.juice === 0 ? 'no juice' : tr && tr.juice === 2 ? 'double juice' : 'juice', X(T_JUICE), iconY + h * 0.085);
+    // trace
+    if (tr) {
+      ctx.strokeStyle = colors['--trace']; ctx.lineWidth = Math.max(3, w * 0.006); ctx.lineJoin = 'round'; ctx.beginPath();
+      const end = progress * T_END;
+      for (let i = 0; i <= 400; i++) { const t = (i / 400) * T_END; if (t > end) break; const y = base - Math.max(-1.2, Math.min(2.2, dopamine(tr, t))) * scale; i ? ctx.lineTo(X(t), y) : ctx.moveTo(X(t), y); }
+      ctx.stroke();
+    }
+  }
+
+  function verdictFor(tr) {
+    const pct = v => `${Math.round(v * 100)}%`;
+    if (!tr.cue) return ['Burst at the juice. With no light to warn it, the juice was a complete surprise.', 'good'];
+    if (tr.juice === 0) return tr.before > 0.15 ? ['A dip where the juice should have been: worse than expected. The expectation drops.', 'bad'] : ['Nothing much happens. The brain was not expecting juice yet, so its absence is no surprise.', 'flat'];
+    if (tr.juice === 2) return ['A big burst at the juice: better than expected, even though the light promised some.', 'good'];
+    if (tr.atJuice > 0.4) return [`Burst at the juice: better than expected. Expectation rises from ${pct(tr.before)} to ${pct(tr.after)}.`, 'good'];
+    if (tr.atJuice > 0.1) return ['Smaller burst at the juice, bigger one at the light. The signal is moving to the moment of the promise.', 'good'];
+    return ['Burst at the light, flat at the juice. The juice is now fully expected, so it brings no news.', 'flat'];
+  }
+
+  function renderStrip() {
+    const strip = $('strip'); strip.innerHTML = '';
+    const items = history.slice(-8);
+    for (let k = 0; k < 8; k++) {
+      const tr = items[k]; const div = document.createElement('div'); div.className = 'mini';
+      const c = document.createElement('canvas'); div.appendChild(c);
+      const sp = document.createElement('span'); sp.textContent = tr ? `${history.length - items.length + k + 1}. ${tr.name}` : 'empty'; div.appendChild(sp);
+      strip.appendChild(div);
+      const { w, h, dpr } = fit(c); const g = c.getContext('2d'); g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      g.fillStyle = colors['--scope']; g.fillRect(0, 0, w, h);
+      const base = h * 0.66, sc = h * 0.34, X = t => 4 + t / T_END * (w - 8);
+      g.strokeStyle = colors['--grid']; g.setLineDash([3, 3]); g.beginPath(); g.moveTo(0, base); g.lineTo(w, base); g.stroke(); g.setLineDash([]);
+      if (!tr) continue;
+      g.strokeStyle = colors['--trace']; g.lineWidth = 2; g.beginPath();
+      for (let i = 0; i <= 120; i++) { const t = i / 120 * T_END; const y = base - Math.max(-1.2, Math.min(2.2, dopamine(tr, t))) * sc; i ? g.lineTo(X(t), y) : g.moveTo(X(t), y); }
+      g.stroke();
+    }
+  }
+
+  function updateMeter() { $('exp-val').textContent = `${Math.round(V * 100)}%`; $('exp-bar').style.width = `${Math.min(100, V * 100)}%`; }
+
+  const buttons = ['t-normal', 't-none', 't-double', 't-surprise'];
+  function play(kind) {
+    if (playing) return;
+    const tr = runModel(kind); current = tr; playing = true;
+    buttons.forEach(id => $(id).disabled = true);
+    $('verdict').textContent = ''; $('verdict').className = 'verdict';
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches, D = reduce ? 1 : 2200, start = performance.now();
+    const step = now => {
+      const p = Math.min(1, (now - start) / D); drawTrace(tr, p);
+      if (p < 1) requestAnimationFrame(step);
+      else {
+        playing = false; buttons.forEach(id => $(id).disabled = false);
+        history.push(tr); renderStrip(); updateMeter();
+        const [txt, cls] = verdictFor(tr); $('verdict').textContent = txt; $('verdict').className = 'verdict ' + cls;
+      }
+    };
+    requestAnimationFrame(step);
+  }
+  $('t-normal').onclick = () => play('normal');
+  $('t-none').onclick = () => play('none');
+  $('t-double').onclick = () => play('double');
+  $('t-surprise').onclick = () => play('surprise');
+  $('reset').onclick = () => { if (playing) return; V = 0; history = []; current = null; updateMeter(); renderStrip(); drawTrace(null, 0); $('verdict').textContent = 'A fresh brain: it has no idea yet what the light means.'; $('verdict').className = 'verdict flat'; };
+  window.addEventListener('resize', () => { main = fit(canvas); drawTrace(current, current ? 1 : 0); renderStrip(); });
+  document.fonts && document.fonts.ready.then(() => { readColors(); drawTrace(current, current ? 1 : 0); renderStrip(); });
+
+  // opening state: one trial plays straight away
+  updateMeter(); renderStrip(); drawTrace(null, 0);
+  setTimeout(() => play('normal'), 400);
+})();
+</script>
+
+</body>
+</html>

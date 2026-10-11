@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nerve Net Simulator | From Bacteria to Bach, Part 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+html{color-scheme:light}
+body{margin:0}
+[hidden]{display:none!important}
+/* Layout: same lab-bench instrument as the Part 1 simulator. Jellyfish bell on the left, controls on the right; stacks on phones. */
+:root {
+  --bg: #F5F6F2;
+  --surface: #FFFFFF;
+  --ink: #1D2A33;
+  --muted: #5F6B72;
+  --rule: #D9DDD5;
+  --water: #EAF0F4;
+  --bell: #E9E7FA;
+  --bell-edge: #6E5FCF;
+  --net: #A79FE0;
+  --node: #6E5FCF;
+  --spike: #E39B1B;
+  --spike-ink: #9A6206;
+  --pace: #1F9E8F;
+  --cut: #D2493A;
+  --focus: #2B6CB0;
+  --on-accent: #FFFFFF;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-data: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11181C; --surface: #182227; --ink: #E6ECEA; --muted: #9AA8AD; --rule: #2C3A40;
+    --water: #142028; --bell: #252547; --bell-edge: #A99BF2; --net: #5A5296; --node: #B4A9F5;
+    --spike: #F2B347; --spike-ink: #F2C46F; --pace: #4CC7B6; --cut: #F07362; --focus: #7FB2EE; --on-accent: #12131F;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11181C; --surface: #182227; --ink: #E6ECEA; --muted: #9AA8AD; --rule: #2C3A40;
+  --water: #142028; --bell: #252547; --bell-edge: #A99BF2; --net: #5A5296; --node: #B4A9F5;
+  --spike: #F2B347; --spike-ink: #F2C46F; --pace: #4CC7B6; --cut: #F07362; --focus: #7FB2EE; --on-accent: #12131F;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; padding-block: 24px 40px; }
+h1 { font-size: 1.6rem; font-weight: 700; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+.sub { color: var(--muted); margin: 4px 0 0; max-width: 62ch; }
+.bench { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px; margin-top: 20px; align-items: start; }
+@media (max-width: 760px) { .bench { grid-template-columns: 1fr; } }
+.stage { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 12px; min-width: 0; }
+canvas { display: block; width: 100%; aspect-ratio: 1; max-width: 100%; cursor: pointer; touch-action: manipulation; }
+.caption { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font: 0.85rem var(--font-data); color: var(--muted); padding: 8px 4px 0; font-variant-numeric: tabular-nums; }
+.panel { display: grid; gap: 18px; min-width: 0; }
+.group { display: grid; gap: 8px; }
+.group > label, .label { font-weight: 600; font-size: 0.95rem; display: flex; justify-content: space-between; gap: 12px; }
+.value { font-family: var(--font-data); font-weight: 500; color: var(--node); font-variant-numeric: tabular-nums; }
+.hint { color: var(--muted); font-size: 0.85rem; margin: 0; }
+input[type="range"] { width: 100%; accent-color: var(--node); }
+.row { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn { font: 600 0.92rem var(--font-body); border-radius: 10px; padding: 10px 14px; cursor: pointer; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); }
+.btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn.pace[aria-pressed="true"] { background: var(--pace); border-color: var(--pace); color: var(--on-accent); }
+button:focus-visible, input:focus-visible, canvas:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.readout { border-top: 1px solid var(--rule); padding-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+.readout div { display: grid; gap: 2px; min-width: 0; }
+.readout span { font-size: 0.8rem; color: var(--muted); }
+.readout strong { font: 500 1.02rem var(--font-data); font-variant-numeric: tabular-nums; }
+.status { font-weight: 600; min-height: 1.5em; margin: 0; }
+.status.spike { color: var(--spike-ink); }
+.status.weak { color: var(--muted); }
+.try { background: var(--water); border: 1px solid var(--rule); border-radius: 12px; padding: 14px 16px; }
+.try h2 { font-size: 0.95rem; margin: 0 0 6px; }
+.try ol { margin: 0; padding-left: 1.2em; display: grid; gap: 4px; font-size: 0.9rem; }
+</style>
+
+</head>
+<body>
+<style>
+.series-nav{font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;border-bottom:1px solid var(--rule,#D9DDD5);background:var(--bg,#F5F6F2)}
+.series-nav .in{max-width:1040px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center}
+.series-nav a{color:var(--ink,#1D2A33);text-underline-offset:2px}
+.series-nav .home{font-weight:600;text-decoration:none;margin-right:auto}
+html.embedded .series-nav{display:none}
+</style>
+<script>try{if(window.self!==window.top)document.documentElement.classList.add('embedded')}catch(e){document.documentElement.classList.add('embedded')}</script>
+<nav class="series-nav" aria-label="Series"><div class="in">
+<a class="home" href="index.html" target="_top">From Bacteria to Bach</a>
+<a href="part-2-a-body-without-a-boss.html" target="_top">Read Part 2: A Body Without a Boss</a>
+<a href="signal-race-simulator.html" target="_top">Next simulator: Signal Race</a>
+</div></nav>
+
+<div class="wrap">
+  <h1>Nerve Net Simulator</h1>
+  <p class="sub">A jellyfish bell seen from above, with its web of nerve cells. Tap anywhere on the bell to stimulate the neuron there. There is no brain in the middle: every neuron only talks to its neighbours.</p>
+
+  <div class="bench">
+    <div class="stage">
+      <canvas id="bell" tabindex="0" aria-label="Jellyfish bell with nerve net. Tap to stimulate a neuron."></canvas>
+      <div class="caption"><span id="cap-left">Tap the bell</span><span>Slowed down so you can see it</span></div>
+    </div>
+
+    <div class="panel">
+      <div class="group">
+        <label for="strength">Touch strength <span class="value" id="strength-val">70%</span></label>
+        <input type="range" id="strength" min="0" max="100" step="5" value="70">
+        <p class="hint">A neuron fires only if the touch crosses its threshold, at 50%. Below that, nothing spreads.</p>
+      </div>
+
+      <div class="group">
+        <span class="label">Message type</span>
+        <div class="row">
+          <button class="btn" id="m-nerve" aria-pressed="true">Nerve spikes</button>
+          <button class="btn" id="m-chem" aria-pressed="false">Chemical drift</button>
+        </div>
+      </div>
+
+      <div class="group">
+        <span class="label">Damage to the net</span>
+        <div class="row">
+          <button class="btn" id="c-none" aria-pressed="true">No cut</button>
+          <button class="btn" id="c-small" aria-pressed="false">Small cut</button>
+          <button class="btn" id="c-half" aria-pressed="false">Cut across the middle</button>
+        </div>
+      </div>
+
+      <div class="group">
+        <span class="label">Rhythm</span>
+        <div class="row">
+          <button class="btn pace" id="pace" aria-pressed="false">Turn on rim pacemakers</button>
+        </div>
+      </div>
+
+      <p class="status" id="status" aria-live="polite"></p>
+
+      <div class="readout">
+        <div><span>Neurons reached by this signal</span><strong id="r-reached">0 of 0</strong></div>
+        <div><span>Time to reach them</span><strong id="r-time">-</strong></div>
+        <div><span>Bell squeeze</span><strong id="r-squeeze">0%</strong></div>
+        <div><span>Message type</span><strong id="r-type">nerve</strong></div>
+      </div>
+
+      <div class="try">
+        <h2>Try these</h2>
+        <ol>
+          <li>Set touch strength below 50% and tap. The neuron twitches, but nothing spreads.</li>
+          <li>Switch to chemical drift and tap. The bell crumples slowly and unevenly.</li>
+          <li>Make a small cut, then tap. The signal flows around it. Cut across the middle and only one half squeezes.</li>
+          <li>Turn on the rim pacemakers and watch the bell beat by itself.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const canvas = $('bell'), ctx = canvas.getContext('2d');
+  const colors = {};
+  const readColors = () => { const cs = getComputedStyle(document.documentElement); ['--water','--bell','--bell-edge','--net','--node','--spike','--spike-ink','--pace','--cut','--muted','--ink','--surface'].forEach(k => colors[k] = cs.getPropertyValue(k).trim()); };
+  readColors();
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', readColors);
+  new MutationObserver(readColors).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  const hexA = (hex, a) => { hex = hex.replace('#', ''); if (hex.length === 3) hex = hex.split('').map(c => c + c).join(''); const n = parseInt(hex, 16); return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`; };
+
+  // ---------- build the net (fixed seed so every visitor sees the same jellyfish) ----------
+  let seed = 7; const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+  const nodes = [];
+  while (nodes.length < 150) {
+    const a = rnd() * Math.PI * 2, d = Math.sqrt(rnd()) * 0.86, x = Math.cos(a) * d, y = Math.sin(a) * d;
+    if (nodes.every(n => Math.hypot(n.x - x, n.y - y) > 0.105)) nodes.push({ x, y, pace: false });
+  }
+  for (let k = 0; k < 8; k++) { const a = k / 8 * Math.PI * 2 + 0.2; nodes.push({ x: Math.cos(a) * 0.93, y: Math.sin(a) * 0.93, pace: true }); }
+  const N = nodes.length;
+  const allEdges = [];
+  for (let i = 0; i < N; i++) for (let j = i + 1; j < N; j++) { const d = Math.hypot(nodes[i].x - nodes[j].x, nodes[i].y - nodes[j].y); if (d < 0.2) allEdges.push({ i, j, d }); }
+
+  // cuts
+  const segCross = (p1, p2, q1, q2) => { const o = (a, b, c) => (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x); return o(p1, p2, q1) * o(p1, p2, q2) < 0 && o(q1, q2, p1) * o(q1, q2, p2) < 0; };
+  const CUTS = { none: null, small: [{ x: -0.55, y: 0.05 }, { x: 0.15, y: 0.05 }], half: [{ x: 0.02, y: -1.1 }, { x: 0.02, y: 1.1 }] };
+  let cut = 'none', edges = [], adj = [];
+  function rebuild() {
+    const c = CUTS[cut];
+    edges = allEdges.filter(e => !c || !segCross(nodes[e.i], nodes[e.j], c[0], c[1]));
+    adj = Array.from({ length: N }, () => []);
+    edges.forEach(e => { adj[e.i].push([e.j, e.d]); adj[e.j].push([e.i, e.d]); });
+  }
+  rebuild();
+
+  // ---------- simulation state ----------
+  const SPEED = 1.4, REFRACT = 1.1;        // nerve: units per second, recovery time
+  const CHEM_T = 26;                        // chemical: seconds to drift 1.5 units
+  let t = 0, mode = 'nerve', pacemakers = false, nextPace = 0.6, paceIdx = 0;
+  const lastFire = new Float64Array(N).fill(-99), act = new Float64Array(N);
+  let travelling = [];                      // nerve spikes in flight: {from,to,t0,t1}
+  let pulse = null;                         // {t0, reached:Set, lastT}
+  let chem = null;                          // {x,y,t0,activated:Float64Array}
+  let blips = [];                           // sub-threshold touches
+  let status = { text: '', cls: '' };
+
+  function fire(i, when) {
+    if (when - lastFire[i] < REFRACT) return false;
+    lastFire[i] = when; act[i] = 1;
+    if (pulse) { pulse.reached.add(i); pulse.lastT = when; }
+    adj[i].forEach(([j, d]) => travelling.push({ from: i, to: j, t0: when, t1: when + d / SPEED }));
+    return true;
+  }
+  function nearest(x, y) { let b = -1, bd = 1e9; nodes.forEach((n, i) => { const d = Math.hypot(n.x - x, n.y - y); if (d < bd) { bd = d; b = i; } }); return [b, bd]; }
+
+  function touch(x, y, strength, fromPace = false) {
+    const [i, d] = nearest(x, y);
+    if (d > 0.2 && !fromPace) return;
+    const n = nodes[i];
+    if (strength < 50) {
+      blips.push({ x: n.x, y: n.y, t0: t, s: strength / 50 });
+      pulse = { t0: t, reached: new Set(), lastT: t };
+      setStatus(`Below threshold (${strength}%): the neuron twitches, but no spike, so nothing spreads.`, 'weak');
+      return;
+    }
+    pulse = { t0: t, reached: new Set(), lastT: t };
+    if (mode === 'nerve') {
+      if (!fire(i, t) && !fromPace) setStatus('That neuron is still recovering from its last spike. Wait a moment and tap again.', 'weak');
+      else if (!fromPace) setStatus('Spike! It passes from neighbour to neighbour across the whole net.', 'spike');
+    } else {
+      chem = { x: n.x, y: n.y, t0: t, activated: new Float64Array(N).fill(-1) };
+      setStatus('Chemical released. It drifts outwards, slower and slower as it spreads.', 'spike');
+    }
+  }
+  function setStatus(text, cls) { status = { text, cls }; $('status').textContent = text; $('status').className = 'status ' + cls; }
+
+  function step(dt) {
+    t += dt;
+    // nerve spikes arriving
+    if (travelling.length) {
+      const still = [];
+      for (const s of travelling) { if (s.t1 <= t) fire(s.to, s.t1); else still.push(s); }
+      travelling = still;
+    }
+    // chemical drift
+    if (chem) {
+      const el = t - chem.t0;
+      nodes.forEach((n, i) => {
+        if (chem.activated[i] >= 0) return;
+        const d = Math.hypot(n.x - chem.x, n.y - chem.y);
+        const reachT = CHEM_T * (d / 1.5) ** 2;          // diffusion: time grows with distance squared
+        if (el >= reachT) { chem.activated[i] = t; act[i] = 1; if (pulse) { pulse.reached.add(i); pulse.lastT = t; } }
+      });
+      if (el > CHEM_T * 2.2) chem = null;
+    }
+    // pacemakers
+    if (pacemakers && t >= nextPace) {
+      const pIdx = 150 + (paceIdx++ % 8);
+      if (mode === 'nerve') { pulse = { t0: t, reached: new Set(), lastT: t }; fire(pIdx, t); }
+      nextPace = t + 2.4;
+    }
+    for (let i = 0; i < N; i++) act[i] = Math.max(0, act[i] - dt * (mode === 'nerve' ? 2.2 : 0.5));
+    blips = blips.filter(b => t - b.t0 < 0.8);
+  }
+
+  // ---------- drawing ----------
+  let size = 600, dpr = 1;
+  function resize() { dpr = Math.min(window.devicePixelRatio || 1, 2); size = canvas.clientWidth || 600; canvas.width = Math.round(size * dpr); canvas.height = Math.round(size * dpr); }
+  const S = 0.44;
+  const toPx = (x, y) => [(x * S + 0.5) * size, (y * S + 0.5) * size];
+  const fromPx = (px, py) => [((px / size) - 0.5) / S, ((py / size) - 0.5) / S];
+  const squeezeAt = i => act[i];
+  function pos(i) { const n = nodes[i], k = 1 - 0.13 * localSqueeze(i); return toPx(n.x * k, n.y * k); }
+  let localCache = new Float64Array(N);
+  function computeLocal() { for (let i = 0; i < N; i++) { let s = act[i], c = 1; adj[i].forEach(([j]) => { s += act[j]; c++; }); localCache[i] = s / c; } }
+  const localSqueeze = i => localCache[i];
+
+  function draw() {
+    computeLocal();
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, size, size);
+    ctx.fillStyle = colors['--water']; ctx.fillRect(0, 0, size, size);
+    // bell outline: rim radius follows local squeeze by angle
+    const rimPts = 72; ctx.beginPath();
+    for (let k = 0; k <= rimPts; k++) {
+      const a = k / rimPts * Math.PI * 2;
+      let s = 0, w = 0;
+      nodes.forEach((n, i) => { const r = Math.hypot(n.x, n.y); if (r > 0.55) { const da = Math.abs(Math.atan2(Math.sin(Math.atan2(n.y, n.x) - a), Math.cos(Math.atan2(n.y, n.x) - a))); if (da < 0.35) { s += localCache[i]; w++; } } });
+      const sq = w ? s / w : 0, R = 1.0 * (1 - 0.13 * sq);
+      const [px, py] = toPx(Math.cos(a) * R, Math.sin(a) * R); k ? ctx.lineTo(px, py) : ctx.moveTo(px, py);
+    }
+    ctx.closePath(); ctx.fillStyle = colors['--bell']; ctx.fill(); ctx.lineWidth = Math.max(2.5, size * 0.006); ctx.strokeStyle = colors['--bell-edge']; ctx.stroke();
+
+    // chemical cloud
+    if (chem) {
+      const el = t - chem.t0, R = 1.5 * Math.sqrt(Math.max(0, el) / CHEM_T);
+      const [cx, cy] = toPx(chem.x, chem.y), rp = Math.max(1, R * S * size);
+      const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, rp * 1.15);
+      g.addColorStop(0, hexA(colors['--spike'], 0.45)); g.addColorStop(0.8, hexA(colors['--spike'], 0.18)); g.addColorStop(1, hexA(colors['--spike'], 0));
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(cx, cy, rp * 1.15, 0, Math.PI * 2); ctx.fill();
+    }
+    // edges
+    ctx.lineCap = 'round';
+    edges.forEach(e => {
+      const [x1, y1] = pos(e.i), [x2, y2] = pos(e.j), hot = Math.max(act[e.i], act[e.j]);
+      ctx.strokeStyle = hot > 0.05 && mode === 'nerve' ? hexA(colors['--spike'], 0.25 + 0.6 * hot) : colors['--net'];
+      ctx.lineWidth = size / 600 * (1.3 + (mode === 'nerve' ? hot * 1.8 : 0));
+      ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    });
+    // spikes in flight
+    travelling.forEach(s => {
+      const u = Math.min(1, Math.max(0, (t - s.t0) / (s.t1 - s.t0))); const [x1, y1] = pos(s.from), [x2, y2] = pos(s.to);
+      ctx.fillStyle = colors['--spike']; ctx.beginPath(); ctx.arc(x1 + (x2 - x1) * u, y1 + (y2 - y1) * u, size / 600 * 3.2, 0, Math.PI * 2); ctx.fill();
+    });
+    // nodes
+    nodes.forEach((n, i) => {
+      const [x, y] = pos(i), a = act[i], r = size / 600 * (n.pace ? 7 : 4.2);
+      if (a > 0.05) { const g = ctx.createRadialGradient(x, y, 0, x, y, r * 4); g.addColorStop(0, hexA(colors['--spike'], 0.7 * a)); g.addColorStop(1, hexA(colors['--spike'], 0)); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, r * 4, 0, Math.PI * 2); ctx.fill(); }
+      ctx.fillStyle = a > 0.3 ? colors['--spike'] : n.pace ? colors['--pace'] : colors['--node'];
+      ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
+    });
+    // sub-threshold blips
+    blips.forEach(b => { const u = (t - b.t0) / 0.8; const [x, y] = toPx(b.x, b.y); ctx.strokeStyle = hexA(colors['--muted'], 1 - u); ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, size / 600 * (8 + 14 * u * b.s), 0, Math.PI * 2); ctx.stroke(); });
+    // cut line
+    const c = CUTS[cut];
+    if (c) {
+      ctx.save(); ctx.beginPath(); const [cx0, cy0] = toPx(0, 0); ctx.arc(cx0, cy0, S * size * 1.02, 0, Math.PI * 2); ctx.clip();
+      const [ax, ay] = toPx(c[0].x, c[0].y), [bx, by] = toPx(c[1].x, c[1].y);
+      ctx.strokeStyle = colors['--cut']; ctx.lineWidth = Math.max(3, size * 0.007); ctx.setLineDash([size * 0.015, size * 0.012]);
+      ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(bx, by); ctx.stroke(); ctx.restore();
+    }
+    // side view mini bell (bottom right corner)
+    let tot = 0; for (let i = 0; i < N; i++) tot += act[i]; const sq = Math.min(1, tot / N * 2.2);
+    const bx = size * 0.9, by = size * 0.95, w = size * 0.075 * (1 - 0.3 * sq), h = size * 0.06 * (1 + 0.25 * sq);
+    ctx.strokeStyle = colors['--bell-edge']; ctx.lineWidth = 2.5; ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(bx - w, by); ctx.quadraticCurveTo(bx - w, by - h * 1.6, bx, by - h * 1.6); ctx.quadraticCurveTo(bx + w, by - h * 1.6, bx + w, by); ctx.stroke();
+    ctx.fillStyle = colors['--muted']; ctx.font = `500 ${Math.max(11, size * 0.022)}px "IBM Plex Sans", system-ui, sans-serif`; ctx.textAlign = 'center';
+    ctx.fillText('side view', bx, by + size * 0.035);
+    $('r-squeeze').textContent = `${Math.round(sq * 100)}%`;
+  }
+
+  function readout() {
+    const reached = pulse ? pulse.reached.size : 0;
+    $('r-reached').textContent = `${reached} of ${N}`;
+    $('r-time').textContent = pulse && reached ? `${(pulse.lastT - pulse.t0).toFixed(1)} s` : '-';
+    $('r-type').textContent = mode === 'nerve' ? 'nerve spikes' : 'chemical drift';
+    $('cap-left').textContent = pacemakers ? 'Pacemakers on' : 'Tap the bell';
+  }
+
+  // ---------- input ----------
+  canvas.addEventListener('pointerdown', e => {
+    const r = canvas.getBoundingClientRect(); const [x, y] = fromPx(e.clientX - r.left, e.clientY - r.top);
+    if (Math.hypot(x, y) > 1.05) return;
+    touch(x, y, +$('strength').value);
+  });
+  canvas.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); touch(-0.35, 0.3, +$('strength').value); } });
+  $('strength').oninput = e => { $('strength-val').textContent = `${e.target.value}%`; };
+  const setPressed = (ids, on) => ids.forEach(id => $(id).setAttribute('aria-pressed', String(id === on)));
+  $('m-nerve').onclick = () => { mode = 'nerve'; chem = null; setPressed(['m-nerve', 'm-chem'], 'm-nerve'); setStatus('Nerve mode: spikes hop from neuron to neuron.', ''); };
+  $('m-chem').onclick = () => { mode = 'chem'; travelling = []; setPressed(['m-nerve', 'm-chem'], 'm-chem'); setStatus('Chemical mode: the touch releases a chemical that drifts outwards.', ''); if (pacemakers) $('pace').click(); };
+  const setCut = c => { cut = c; rebuild(); travelling = []; setPressed(['c-none', 'c-small', 'c-half'], { none: 'c-none', small: 'c-small', half: 'c-half' }[c]); };
+  $('c-none').onclick = () => setCut('none');
+  $('c-small').onclick = () => { setCut('small'); setStatus('A slit is cut through the net. Tap just above it and watch the signal flow around the ends.', ''); };
+  $('c-half').onclick = () => { setCut('half'); setStatus('The bell is cut across the middle. Tap one side.', ''); };
+  $('pace').onclick = () => {
+    if (mode !== 'nerve' && !pacemakers) { $('m-nerve').click(); }
+    pacemakers = !pacemakers; nextPace = t + 0.3;
+    $('pace').setAttribute('aria-pressed', String(pacemakers)); $('pace').textContent = pacemakers ? 'Turn off rim pacemakers' : 'Turn on rim pacemakers';
+    if (pacemakers) setStatus('The teal cells on the rim fire on a rhythm. Each beat spreads through the net.', 'spike');
+  };
+
+  // ---------- loop ----------
+  let last = performance.now();
+  function frame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    step(dt); draw(); readout();
+    requestAnimationFrame(frame);
+  }
+  resize(); window.addEventListener('resize', resize);
+  document.fonts && document.fonts.ready.then(readColors);
+  // opening state: one touch already spreading, so the first view shows what the net does
+  touch(-0.45, 0.35, 70); for (let k = 0; k < 24; k++) step(1 / 60);
+  setStatus('Tap anywhere on the bell to send a spike through the net.', '');
+  requestAnimationFrame(t0 => { last = t0; frame(t0); });
+})();
+</script>
+
+</body>
+</html>
