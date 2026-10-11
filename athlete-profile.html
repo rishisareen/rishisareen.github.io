@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#2E5F51">
+<meta name="robots" content="noindex">
+<meta name="description" content="Athlete profile of Rishi Sareen: five-time Ironman, race history, current fitness, injury history and goals.">
+<title>Athlete Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EDF1EE; --card:#FFFFFF; --ink:#12272A; --muted:#5B7370; --faint:#93A8A3;
+    --rule:#D3DFDA; --accent:#2E5F51; --soft:#E2EDE7; --hot:#B4552F;
+    --z1:#DCEBE4; --z2:#B9D7CA; --z3:#EBD6BB; --z4:#E3B28F; --z5:#CF8461;
+    color-scheme: light dark;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0C1F21; --card:#132B2C; --ink:#E5EDE9; --muted:#8CA5A0; --faint:#61807B;
+      --rule:#22403E; --accent:#6FC0A5; --soft:#173834; --hot:#E08A5E;
+      --z1:#173834; --z2:#1F4A42; --z3:#4A3A26; --z4:#5C3A29; --z5:#6E3221;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:"Karla","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:40px 16px 72px}
+  a{color:var(--accent)}
+
+  .kicker{color:var(--muted);font-size:14px;margin:0 0 8px}
+  h1{
+    font-family:"Instrument Serif",Georgia,"Times New Roman",serif;font-weight:400;
+    font-size:clamp(40px,10vw,62px);line-height:1.02;margin:0 0 16px;
+  }
+  .pill{
+    display:inline-block;background:var(--soft);color:var(--accent);
+    font-size:14px;font-weight:700;padding:6px 14px;border-radius:999px;
+  }
+  .lede{font-size:17px;margin:22px 0 0;max-width:600px}
+  h2{
+    font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:28px;
+    margin:48px 0 14px;
+  }
+  h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:22px;margin:0 0 10px}
+
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:28px}
+  @media (min-width:600px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px 16px}
+  .stat .v{font-family:"Instrument Serif",Georgia,serif;font-size:30px;line-height:1.05;font-variant-numeric:tabular-nums}
+  .stat .l{color:var(--muted);font-size:13px;margin-top:4px}
+
+  /* cards + key/value */
+  .card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:18px 20px;margin-bottom:12px}
+  .card p{margin:0 0 10px;font-size:15.5px}
+  .card p:last-child{margin-bottom:0}
+  dl.kv{display:grid;grid-template-columns:150px 1fr;gap:0;margin:0}
+  dl.kv dt,dl.kv dd{padding:10px 0;border-top:1px solid var(--rule);margin:0;font-size:15px}
+  dl.kv dt{color:var(--muted);padding-right:12px}
+  dl.kv dt:first-of-type,dl.kv dd:first-of-type{border-top:0;padding-top:0}
+  @media (max-width:480px){
+    dl.kv{grid-template-columns:1fr}
+    dl.kv dt{border-top:1px solid var(--rule);padding-bottom:0;font-size:13px}
+    dl.kv dd{border-top:0;padding-top:2px}
+  }
+
+  /* tables */
+  .tbl{overflow-x:auto;-webkit-overflow-scrolling:touch;background:var(--card);border:1px solid var(--rule);border-radius:12px;margin-bottom:12px}
+  table{width:100%;border-collapse:collapse;font-size:14.5px;font-variant-numeric:tabular-nums;min-width:560px}
+  th,td{text-align:left;padding:11px 14px;border-top:1px solid var(--rule);white-space:nowrap}
+  thead th{border-top:0;color:var(--muted);font-weight:500;font-size:13px}
+  td.race{white-space:normal;min-width:170px}
+  td.total{font-weight:700}
+  tr.best td{background:var(--soft)}
+  tr.best td.total{color:var(--accent)}
+  .tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:1px}
+  .sub{color:var(--muted);font-size:13px}
+  .note{background:var(--soft);border-radius:10px;padding:12px 14px;margin:12px 0;font-size:15px}
+
+  /* zones */
+  .zones{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:6px}
+  .z{border-radius:8px;padding:10px 8px;text-align:center}
+  .z b{display:block;font-size:13px}
+  .z span{font-size:12.5px;font-variant-numeric:tabular-nums;white-space:nowrap}
+  @media (max-width:420px){.zones{gap:4px}.z{padding:9px 2px}.z span{font-size:11.5px;letter-spacing:-.01em}}
+  .z1{background:var(--z1)}.z2{background:var(--z2)}.z3{background:var(--z3)}.z4{background:var(--z4)}.z5{background:var(--z5)}
+
+  /* lists */
+  ul.clean{margin:0;padding-left:20px}
+  ul.clean li{margin:0 0 8px;font-size:15.5px}
+  ul.clean li:last-child{margin-bottom:0}
+  .two{display:grid;grid-template-columns:1fr;gap:12px}
+  @media (min-width:640px){.two{grid-template-columns:1fr 1fr}}
+  ol.qs{margin:0;padding-left:22px}
+  ol.qs li{margin:0 0 10px;font-size:15.5px}
+  ol.qs li:last-child{margin-bottom:0}
+
+  footer{color:var(--faint);font-size:13.5px;margin-top:48px;border-top:1px solid var(--rule);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="kicker">Athlete profile · Triathlon</p>
+  <h1>Rishi Sareen</h1>
+  <span class="pill">Updated 11 October 2026</span>
+  <p class="lede">I started triathlon at 38, unable to swim and having never run more than 7 km. Ten years and five Ironmans later, I'm rebuilding after a back injury, with a long-term goal of a fast Ironman.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="v">5×</div><div class="l">Ironman finishes</div></div>
+    <div class="stat"><div class="v">11:56</div><div class="l">Ironman PB, Barcelona 2024</div></div>
+    <div class="stat"><div class="v">165</div><div class="l">Threshold HR, bpm</div></div>
+    <div class="stat"><div class="v">~220 W</div><div class="l">Bike FTP (2025)</div></div>
+  </div>
+
+  <h2>Basics</h2>
+  <div class="card">
+    <dl class="kv">
+      <dt>Age</dt><dd>48</dd>
+      <dt>Location</dt><dd>Gurgaon, India. Delhi NCR air quality is poor from November to February, so winter training is mostly indoors.</dd>
+      <dt>Height / weight</dt><dd>181 cm · 85 kg (Oct 2026). Target 80 kg by mid-December 2026.</dd>
+      <dt>Work</dt><dd>Full-time senior corporate role. A lot of desk time, historically 10–12 hours a day of sitting.</dd>
+      <dt>Family</dt><dd>Two kids, 18 (in college) and 13.</dd>
+      <dt>Sleep</dt><dd>Usually 6–6.5 hours. Better on holidays.</dd>
+      <dt>Tools</dt><dd>Garmin Epix 2 · TrainerRoad with a Tacx Neo trainer · gym · pool (indoor pool planned for winter)</dd>
+    </dl>
+  </div>
+
+  <h2>Race history</h2>
+  <h3>Full Ironman</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Race</th><th>Total</th><th>Swim</th><th>Bike</th><th>Run</th><th>AG rank</th></tr></thead>
+      <tbody>
+        <tr><td class="race">Ironman Philippines 2018 <span class="sub">(hilly)</span></td><td class="total">15:57:04</td><td>1:42:27</td><td>7:50:58</td><td>5:57:20</td><td>181 <span class="sub">M40-44</span></td></tr>
+        <tr><td class="race">Ironman Copenhagen 2019</td><td class="total">14:22:03</td><td>1:30:57</td><td>7:08:49</td><td>5:18:42</td><td>355 <span class="sub">M40-44</span></td></tr>
+        <tr><td class="race">Ironman Italy 2022</td><td class="total">13:16:36</td><td>1:58:28</td><td>6:06:59</td><td>4:42:52</td><td>306 <span class="sub">M40-44</span></td></tr>
+        <tr class="best"><td class="race">Ironman Barcelona 2024 <span class="tag">PB</span></td><td class="total">11:56:49</td><td>1:32:40</td><td>5:50:09</td><td>4:17:54</td><td>229 <span class="sub">M45-49</span></td></tr>
+        <tr><td class="race">Ironman Frankfurt 2025</td><td class="total">14:17:23</td><td>1:52:03</td><td>6:44:56</td><td>5:22:24</td><td>247 <span class="sub">M45-49</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="note">Best splits so far: swim ~1:31–1:33, bike 5:50, run 4:18. <b>The gap from my best to sub-10 is about 2 hours.</b> Frankfurt 2025 was slower mainly because of the heat. Halfway through the bike, once I knew a PB wasn't on, I went very easy.</div>
+
+  <h3 style="margin-top:28px">70.3 / half distance</h3>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Race</th><th>Total</th><th>Swim</th><th>Bike</th><th>Run</th><th>AG rank</th></tr></thead>
+      <tbody>
+        <tr><td class="race">Ironman 70.3 Goa 2019</td><td class="total">6:35:04</td><td>0:52:33</td><td>3:10:16</td><td>2:20:06</td><td>19 <span class="sub">M40-44</span></td></tr>
+        <tr><td class="race">Ironman 70.3 Goa 2022</td><td class="total">6:10:57</td><td>0:46:25</td><td>2:57:34</td><td>2:12:30</td><td>16 <span class="sub">M40-44</span></td></tr>
+        <tr><td class="race">Ironman 70.3 Vietnam 2024</td><td class="total">5:43:58</td><td>0:15:37 <span class="sub">(shortened swim)</span></td><td>3:00:28</td><td>2:17:12</td><td>61 <span class="sub">M45-49</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <p>Plus 4–5 local half-distance events (2017–2022). My first, in February 2017, took 7:45.</p>
+    <p><b>Running bests:</b> 5 km 21:59 (2022) · 10 km 47:34 (2021) · one standalone marathon, 3:48 (2022). Every other marathon has been inside an Ironman.</p>
+    <p><b>2026:</b> trained for Hyrox until June, then withdrew injured (see below).</p>
+  </div>
+
+  <h2>Where I am now</h2>
+  <div class="card">
+    <dl class="kv">
+      <dt>Threshold HR</dt><dd>165 bpm</dd>
+      <dt>Threshold run pace</dt><dd>5:46/km, down from 4:50/km in Feb 2026 (injury break)</dd>
+      <dt>Max / resting HR</dt><dd>187 / 46</dd>
+      <dt>VO2 max</dt><dd>Run 43 · Bike 49</dd>
+      <dt>Bike FTP</dt><dd>~220 W in 2025 (≈2.5 W/kg). Probably lower now, not retested.</dd>
+      <dt>Swim pace</dt><dd>~2:20–2:30 per 100 m, easy</dd>
+      <dt>Training load</dt><dd>Plenty of easy aerobic work, but a shortage of tempo/threshold work</dd>
+      <dt>Race predictions</dt><dd>5k 29:06 · 10k 1:03:57 · HM 2:30:39. These reflect very low run volume, not my ceiling.</dd>
+    </dl>
+    <p style="margin-top:16px;color:var(--muted);font-size:13px">Garmin heart-rate zones (based on lactate threshold)</p>
+    <div class="zones">
+      <div class="z z1"><b>Z1</b><span>119–148</span></div>
+      <div class="z z2"><b>Z2</b><span>149–164</span></div>
+      <div class="z z3"><b>Z3</b><span>165–177</span></div>
+      <div class="z z4"><b>Z4</b><span>178–185</span></div>
+      <div class="z z5"><b>Z5</b><span>186–187</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>The last three months</h3>
+    <ul class="clean">
+      <li><b>July:</b> rehab. Strength only, 3–4 times a week, plus some yoga.</li>
+      <li><b>August:</b> strength continued. Two illnesses (a viral bout, then H1N1) cost about 11 days. Zero cardio.</li>
+      <li><b>September:</b> a deliberate restart with small sessions, none longer than 30 minutes. Swim 5 · bike 2 · run 3 · strength 7. About 12,000 steps a day.</li>
+      <li><b>October:</b> around 5–6 short cardio sessions a week plus 3 strength sessions. Runs are 15–25 minutes, very easy.</li>
+    </ul>
+  </div>
+
+  <h2>Injury and health</h2>
+  <div class="card">
+    <p><b>June 2026: weak L4/L5 (disc bulge).</b> Caused by prolonged sitting, bad posture and no mobility work, which led to anterior pelvic tilt and glute weakness that built up over time. It was not caused by a jump in training load. I withdrew from Hyrox and did rehab with a physio, who cleared me in August for easy swimming and cycling, with running restarting as walk-jog. Daily mobility and glute/core strength are now non-negotiable.</p>
+    <p><b>August 2026:</b> a viral illness, then H1N1. Fully recovered.</p>
+  </div>
+
+  <h2>Goals</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Long term</h3>
+      <ul class="clean">
+        <li><b>A fast Ironman. The dream is sub-10.</b></li>
+        <li>Strong and healthy into my 70s, so strength and longevity matter as much as race times.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Now, Oct–Dec 2026</h3>
+      <ul class="clean">
+        <li>Rebuild the endurance base without injury, training every week, including travel weeks.</li>
+        <li>Get to 80 kg by mid-December.</li>
+        <li>Choose and enter a 2027 A-race.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>What works for me</h2>
+  <div class="two">
+    <div class="card">
+      <h3>Works</h3>
+      <ul class="clean">
+        <li><b>Small steps, consistency first.</b> Volume comes later.</li>
+        <li><b>A coach and accountability.</b> I'm noticeably more consistent when someone is expecting me.</li>
+        <li><b>Clear numbers and structure.</b> I'm data-driven and competitive.</li>
+        <li><b>Swimming as the entry point.</b> Low impact, and I enjoy it.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Doesn't</h3>
+      <ul class="clean">
+        <li>Plans much bigger than my real capacity.</li>
+        <li>Training through illness.</li>
+        <li>Travel: the training mostly holds, but the eating doesn't.</li>
+        <li>Heavy work weeks, especially the week after a trip.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Practicalities</h2>
+  <div class="card">
+    <ul class="clean">
+      <li>Weekday training windows: early morning, or 4–6 pm around work.</li>
+      <li>Some travel through October and November.</li>
+      <li>Delhi's winter air means mostly indoor training from November to February: trainer, pool, gym.</li>
+    </ul>
+  </div>
+
+  <h2>Questions for a coach</h2>
+  <div class="card">
+    <ol class="qs">
+      <li>Given where I am now, is <b>sub-10</b> realistic, and on what timeline?</li>
+      <li>Which <b>2027 A-race</b>, and in which month?</li>
+      <li><b>Zones:</b> Garmin's "Zone 2" (149–164) sits right under my threshold, while MAF would put me at about 132. How should we set my aerobic threshold? Do I need a lab or field test?</li>
+      <li>How do we build <b>run volume</b> safely after the back injury, and fit strength and mobility around it?</li>
+      <li>How do I <b>lose weight while building volume</b> without hurting recovery? What fuelling do you recommend for long sessions?</li>
+      <li>How do we handle <b>Delhi's winter air</b> and <b>travel</b> without losing the base?</li>
+      <li><b>How you coach:</b> check-in frequency, platform, and how plans adjust when life gets busy.</li>
+    </ol>
+  </div>
+
+  <footer>Race results from official Ironman timing. Current numbers from Garmin, October 2026.</footer>
+</div>
+</body>
+</html>
