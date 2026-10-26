@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0f172a">
+<title>Pre-Run Minimum</title>
+<style>
+/* Layout: one-screen swipe deck - dark bar, scrolling exercise cards, thumb nav - same system as glute.html / mobility.html */
+:root {
+  --bg: #f8fafc; --surface: #ffffff; --ink: #0f172a; --soft: #475569; --muted: #64748b; --line: #e2e8f0; --chip: #f1f5f9;
+  --accent: #2563eb; --accent-ring: rgba(37,99,235,0.22); --cue: #1e40af; --warn: #b91c1c; --rest: #ea580c; --ok: #16a34a;
+  --bar: #0f172a; --bar-ink: #ffffff; --bar-muted: #94a3b8; --bar-chip: rgba(255,255,255,0.12);
+  --plate: #ffffff; --why-bg: #fff7ed; --why-ink: #9a3412; --video-a: #ef4444; --video-b: #dc2626; --shadow: rgba(15,23,42,0.07);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0b1220; --surface: #141d2f; --ink: #e5e9f0; --soft: #b4bfd0; --muted: #8b98ad; --line: #26334b; --chip: #1d2840;
+  --accent: #3b82f6; --accent-ring: rgba(59,130,246,0.3); --cue: #93c5fd; --warn: #fca5a5; --rest: #fb923c; --ok: #22c55e;
+  --bar: #020617; --bar-ink: #f1f5f9; --bar-muted: #94a3b8; --bar-chip: rgba(255,255,255,0.1);
+  --plate: #f1f5f9; --why-bg: #2a1a0e; --why-ink: #fdba74; --video-a: #dc2626; --video-b: #b91c1c; --shadow: rgba(0,0,0,0.35);
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0b1220; --surface: #141d2f; --ink: #e5e9f0; --soft: #b4bfd0; --muted: #8b98ad; --line: #26334b; --chip: #1d2840;
+  --accent: #3b82f6; --accent-ring: rgba(59,130,246,0.3); --cue: #93c5fd; --warn: #fca5a5; --rest: #fb923c; --ok: #22c55e;
+  --bar: #020617; --bar-ink: #f1f5f9; --bar-muted: #94a3b8; --bar-chip: rgba(255,255,255,0.1);
+  --plate: #f1f5f9; --why-bg: #2a1a0e; --why-ink: #fdba74; --video-a: #dc2626; --video-b: #b91c1c; --shadow: rgba(0,0,0,0.35);
+  color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; overflow: hidden; -webkit-tap-highlight-color: transparent; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--ink); display: flex; flex-direction: column; }
+header { flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; padding-block: 0.75rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); background: var(--bar); color: var(--bar-ink); }
+header h1 { margin: 0; font-size: 1rem; font-weight: 650; letter-spacing: 0.01em; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hdr-right { display: flex; align-items: center; gap: 0.45rem; flex: 0 0 auto; }
+.swap { font-size: 0.72rem; font-weight: 600; color: var(--bar-ink); background: var(--bar-chip); padding: 0.3rem 0.6rem; border-radius: 999px; text-decoration: none; }
+.progress { font-size: 0.85rem; font-weight: 600; color: var(--bar-muted); background: var(--bar-chip); padding: 0.25rem 0.6rem; border-radius: 999px; font-variant-numeric: tabular-nums; }
+.slider { flex: 1 1 auto; overflow: hidden; position: relative; touch-action: pan-y; }
+.track { display: flex; height: 100%; transition: transform 0.3s ease-out; will-change: transform; }
+.slide { flex: 0 0 100%; height: 100%; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-block: 1rem 1.5rem; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.slide-inner { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.85rem; }
+.why { margin: 0; background: var(--why-bg); color: var(--why-ink); border-radius: 0.75rem; padding: 0.7rem 0.85rem; font-size: 0.88rem; line-height: 1.45; font-weight: 500; }
+.slide h2 { margin: 0; font-size: 1.45rem; line-height: 1.2; text-wrap: balance; }
+.prescription { margin: -0.5rem 0 0; color: var(--soft); font-weight: 600; font-size: 0.98rem; }
+.plate { background: var(--plate); border-radius: 0.85rem; box-shadow: 0 1px 4px var(--shadow); padding: 0.35rem; }
+.plate img { display: block; width: 100%; max-width: 100%; height: auto; }
+.card { background: var(--surface); border-radius: 1rem; box-shadow: 0 1px 4px var(--shadow); padding: 1.1rem 1rem; }
+.center { text-align: center; }
+.big-num { font-size: 4rem; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+.big-num-label { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.45rem; font-weight: 600; }
+.set-label { font-size: 0.875rem; color: var(--muted); }
+.timer-display { font-size: 4.5rem; font-weight: 800; line-height: 1; margin: 0.5rem 0 1rem; font-variant-numeric: tabular-nums; transition: color 0.2s; }
+.timer-display.counting { color: var(--accent); }
+.timer-display.resting { color: var(--rest); font-size: 3rem; }
+.timer-display.done { color: var(--ok); }
+.timer-btn { width: 100%; padding: 1rem; border: none; border-radius: 0.75rem; background: var(--accent); color: #ffffff; font-size: 1.05rem; font-weight: 650; cursor: pointer; }
+.timer-btn:active { transform: scale(0.985); }
+.timer-btn.running { background: #ef4444; }
+.timer-btn.resting { background: var(--rest); }
+.timer-btn.done { background: var(--ok); }
+.timer-btn:disabled { cursor: default; }
+.set-progress { display: flex; justify-content: center; gap: 0.45rem; margin-top: 1rem; }
+.set-dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--line); }
+.set-dot.done { background: var(--ok); }
+.set-dot.active { background: var(--accent); box-shadow: 0 0 0 3px var(--accent-ring); }
+.info p { margin: 0 0 0.65rem; line-height: 1.5; font-size: 0.95rem; }
+.info p:last-child { margin-bottom: 0; }
+.info .cue { color: var(--cue); }
+.info .watch { color: var(--warn); }
+.video-card { display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1rem; border-radius: 0.75rem; color: #ffffff; text-decoration: none; background: linear-gradient(135deg, var(--video-a), var(--video-b)); }
+.video-card .play { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,0.2); display: grid; place-items: center; font-size: 1.1rem; }
+.video-card .vt { font-weight: 700; font-size: 0.94rem; }
+.video-card .vs { font-size: 0.8rem; opacity: 0.9; margin-top: 0.1rem; }
+.slide.done .slide-inner { min-height: 100%; justify-content: center; align-items: center; text-align: center; }
+.done-mark { font-size: 3.5rem; font-weight: 800; color: var(--ok); line-height: 1; }
+.slide.done h2 { font-size: 1.7rem; }
+.next-steps { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 0.5rem; text-align: left; width: 100%; max-width: 340px; }
+.next-steps li { background: var(--surface); border-radius: 0.75rem; box-shadow: 0 1px 4px var(--shadow); padding: 0.7rem 0.85rem; font-size: 0.95rem; line-height: 1.4; }
+.next-steps b { color: var(--accent); margin-right: 0.35rem; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+.btn-primary { padding: 0.95rem 1.6rem; border: none; border-radius: 0.75rem; background: var(--ok); color: #ffffff; font-size: 1rem; font-weight: 650; cursor: pointer; }
+.btn-ghost { padding: 0.95rem 1.4rem; border-radius: 0.75rem; background: var(--chip); color: var(--ink); font-size: 0.95rem; font-weight: 650; text-decoration: none; }
+nav { flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; background: var(--surface); box-shadow: 0 -2px 8px var(--shadow); padding-top: 0.6rem; padding-bottom: calc(0.6rem + env(safe-area-inset-bottom, 0px)); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+nav button { flex: 1; padding: 0.75rem; border: none; border-radius: 0.55rem; background: var(--chip); color: var(--ink); font-size: 0.95rem; font-weight: 650; cursor: pointer; }
+nav button:disabled { opacity: 0.4; cursor: default; }
+.dots { display: flex; gap: 0.35rem; align-items: center; }
+.nav-dot { width: 0.45rem; height: 0.45rem; border-radius: 50%; background: var(--line); }
+.nav-dot.active { background: var(--ink); transform: scale(1.35); }
+button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .track, .timer-display { transition: none; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Pre-Run Minimum · 3 min</h1>
+  <div class="hdr-right"><a class="swap" href="glute.html">⇄ Glute</a><div class="progress" id="progress">1 / 3</div></div>
+</header>
+<div class="slider" id="slider"><div class="track" id="track"></div></div>
+<nav>
+  <button id="prev" type="button">← Prev</button>
+  <div class="dots" id="dots"></div>
+  <button id="next" type="button">Next →</button>
+</nav>
+<script>
+const exercises = [{"num": 1, "title": "Sciatic Nerve Slider", "img": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgMjAwIiB3aWR0aD0iNDQwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PG1hcmtlciBpZD0iYSIgdmlld0JveD0iMCAwIDEwIDEwIiByZWZYPSI4IiByZWZZPSI1IiBtYXJrZXJXaWR0aD0iNS41IiBtYXJrZXJIZWlnaHQ9IjUuNSIgb3JpZW50PSJhdXRvLXN0YXJ0LXJldmVyc2UiPjxwYXRoIGQ9Ik0wLDAgTDEwLDUgTDAsMTAgeiIgZmlsbD0iIzBmMTcyYSIvPjwvbWFya2VyPjxtYXJrZXIgaWQ9ImFyIiB2aWV3Qm94PSIwIDAgMTAgMTAiIHJlZlg9IjgiIHJlZlk9IjUiIG1hcmtlcldpZHRoPSI1LjUiIG1hcmtlckhlaWdodD0iNS41IiBvcmllbnQ9ImF1dG8tc3RhcnQtcmV2ZXJzZSI+PHBhdGggZD0iTTAsMCBMMTAsNSBMMCwxMCB6IiBmaWxsPSIjZGMyNjI2Ii8+PC9tYXJrZXI+PC9kZWZzPjxyZWN0IHg9IjEyIiB5PSI4IiByeD0iOSIgd2lkdGg9IjQ2LjAiIGhlaWdodD0iMTkiIGZpbGw9IiMyNTYzZWIiLz48dGV4dCB4PSIzNS4wIiB5PSIyMiIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwtYXBwbGUtc3lzdGVtLFNlZ29lIFVJLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkxFRlQ8L3RleHQ+PHRleHQgeD0iMTQ4IiB5PSIyMiIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwtYXBwbGUtc3lzdGVtLFNlZ29lIFVJLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiMwZjE3MmEiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjEgIGtuZWUgYmVudCArIGNoaW4gRE9XTjwvdGV4dD48dGV4dCB4PSIzMzYiIHk9IjIyIiBmb250LWZhbWlseT0ic3lzdGVtLXVpLC1hcHBsZS1zeXN0ZW0sU2Vnb2UgVUksc2Fucy1zZXJpZiIgZm9udC13ZWlnaHQ9IjcwMCIgZm9udC1zaXplPSIxMyIgZmlsbD0iIzBmMTcyYSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+MiAga25lZSBzdHJhaWdodCArIGNoaW4gVVA8L3RleHQ+PGxpbmUgeDE9IjE2IiB5MT0iMTc2IiB4Mj0iNDI0IiB5Mj0iMTc2IiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9IjIyOCIgeTE9IjM0IiB4Mj0iMjI4IiB5Mj0iMTY4IiBzdHJva2U9IiNlMmU4ZjAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWRhc2hhcnJheT0iNSA1Ii8+PGxpbmUgeDE9IjU2IiB5MT0iMTIyIiB4Mj0iMTE2IiB5Mj0iMTIyIiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9IjYyIiB5MT0iMTI0IiB4Mj0iNjIiIHkyPSIxNzQiIHN0cm9rZT0iI2NiZDVlMSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48bGluZSB4MT0iMTEwIiB5MT0iMTI0IiB4Mj0iMTEwIiB5Mj0iMTc0IiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9IjEwMiIgeTE9IjExMiIgeDI9IjE1MiIgeTI9IjExNiIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2Utb3BhY2l0eT0iMC40NSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEzIi8+PGxpbmUgeDE9IjE1MiIgeTE9IjExNiIgeDI9IjE1MCIgeTI9IjE3MCIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2Utb3BhY2l0eT0iMC40NSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEyIi8+PHBhdGggZD0iTSAxMDIgMTEyIFEgMTA4IDg2IDk2IDY0IiBmaWxsPSJub25lIiBzdHJva2U9IiM5NGEzYjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyMiIvPjxjaXJjbGUgY3g9IjEwOCIgY3k9IjQ4IiByPSIxMS41IiBmaWxsPSIjOTRhM2I4Ii8+PGxpbmUgeDE9IjExMSIgeTE9IjUxIiB4Mj0iMTE4IiB5Mj0iNTgiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNIDEyOCAzNCBRIDEzNyA0NyAxMjkgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2RjMjYyNiIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG1hcmtlci1lbmQ9InVybCgjYXIpIi8+PGxpbmUgeDE9Ijk4IiB5MT0iNzAiIHgyPSIxMTIiIHkyPSI5NiIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iOSIvPjxsaW5lIHgxPSIxMTIiIHkxPSI5NiIgeDI9IjEzMCIgeTI9IjExMCIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iOCIvPjxsaW5lIHgxPSIxMDIiIHkxPSIxMTMiIHgyPSIxNTQiIHkyPSIxMTMiIHN0cm9rZT0iIzI1NjNlYiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjE0Ii8+PGxpbmUgeDE9IjE1NCIgeTE9IjExMyIgeDI9IjEzOCIgeTI9IjE2NSIgc3Ryb2tlPSIjMjU2M2ViIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMTMiLz48bGluZSB4MT0iMTM4IiB5MT0iMTY3IiB4Mj0iMTU2IiB5Mj0iMTY5IiBzdHJva2U9IiMyNTYzZWIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI5Ii8+PGxpbmUgeDE9IjI1MiIgeTE9IjEyMiIgeDI9IjMxMiIgeTI9IjEyMiIgc3Ryb2tlPSIjY2JkNWUxIiBzdHJva2Utd2lkdGg9IjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxsaW5lIHgxPSIyNTgiIHkxPSIxMjQiIHgyPSIyNTgiIHkyPSIxNzQiIHN0cm9rZT0iI2NiZDVlMSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48bGluZSB4MT0iMzA2IiB5MT0iMTI0IiB4Mj0iMzA2IiB5Mj0iMTc0IiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9IjI5OCIgeTE9IjExMiIgeDI9IjM0OCIgeTI9IjExNiIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2Utb3BhY2l0eT0iMC40NSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEzIi8+PGxpbmUgeDE9IjM0OCIgeTE9IjExNiIgeDI9IjM0NiIgeTI9IjE3MCIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2Utb3BhY2l0eT0iMC40NSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEyIi8+PHBhdGggZD0iTSAyOTggMTEyIFEgMzA0IDg2IDI5MiA2NCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMjIiLz48Y2lyY2xlIGN4PSIyODkiIGN5PSI0NSIgcj0iMTEuNSIgZmlsbD0iIzk0YTNiOCIvPjxsaW5lIHgxPSIyOTMiIHkxPSI0MSIgeDI9IjMwMCIgeTI9IjM0IiBzdHJva2U9IiMwZjE3MmEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTSAzMTggNjAgUSAzMjcgNDcgMzE5IDM0IiBmaWxsPSJub25lIiBzdHJva2U9IiNkYzI2MjYiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBtYXJrZXItZW5kPSJ1cmwoI2FyKSIvPjxsaW5lIHgxPSIyOTQiIHkxPSI3MCIgeDI9IjMwOCIgeTI9Ijk2IiBzdHJva2U9IiM5NGEzYjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI5Ii8+PGxpbmUgeDE9IjMwOCIgeTE9Ijk2IiB4Mj0iMzI2IiB5Mj0iMTEwIiBzdHJva2U9IiM5NGEzYjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI4Ii8+PGxpbmUgeDE9IjI5OCIgeTE9IjExMyIgeDI9IjM1MCIgeTI9IjExMyIgc3Ryb2tlPSIjMjU2M2ViIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMTQiLz48bGluZSB4MT0iMzUwIiB5MT0iMTEzIiB4Mj0iNDAyIiB5Mj0iMTIxIiBzdHJva2U9IiMyNTYzZWIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxMyIvPjxsaW5lIHgxPSI0MDQiIHkxPSIxMjAiIHgyPSI0MDciIHkyPSIxMDQiIHN0cm9rZT0iIzI1NjNlYiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjkiLz48cGF0aCBkPSJNIDM0MCAxNjAgUSAzODggMTYyIDM5OCAxMzgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG1hcmtlci1lbmQ9InVybCgjYSkiLz48Y2lyY2xlIGN4PSIyMjgiIGN5PSI5NiIgcj0iMTciIGZpbGw9IiNmZmYiIHN0cm9rZT0iI2NiZDVlMSIgc3Ryb2tlLXdpZHRoPSIyIi8+PGxpbmUgeDE9IjIxNiIgeTE9Ijk2IiB4Mj0iMjQwIiB5Mj0iOTYiIHN0cm9rZT0iIzBmMTcyYSIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgbWFya2VyLXN0YXJ0PSJ1cmwoI2EpIiBtYXJrZXItZW5kPSJ1cmwoI2EpIi8+PHRleHQgeD0iMjIwIiB5PSIxOTQiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksLWFwcGxlLXN5c3RlbSxTZWdvZSBVSSxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iNzAwIiBmb250LXNpemU9IjEzIiBmaWxsPSIjOTRhM2I4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5ib3RoIGVuZHMgbW92ZSB0b2dldGhlciwgMnMgZWFjaCB3YXk8L3RleHQ+PC9zdmc+Cg==", "prescription": "15 reps · 2s each way", "type": "reps", "bigNum": 15, "bigNumLabel": "Smooth reps", "setup": "Sit on the edge of a chair, thighs supported, a slight slump. LEFT knee bent with the foot tucked under you, chin down to your chest.", "do": "Straighten the LEFT knee and lift your chin to the ceiling at the same time. Then bend the knee and drop the chin at the same time. About 2s each way. 15 reps.", "cue": "Glide, never stretch. One end loads while the other unloads, so the nerve slides instead of being pulled. A walk can't do this, because walking never reaches the running position.", "watch": "It must not hurt. If you feel it, straighten the knee less. Never straighten the knee with the chin DOWN: that is the slump test, the version that provokes the nerve. Many online videos show it, so follow the drawing.", "video": "https://www.youtube.com/results?search_query=seated+sciatic+nerve+slider+knee+extension+neck+extension", "videoTitle": "Search YouTube for a demo", "videoSub": "Check it matches the drawing: chin UP as the knee straightens"}, {"num": 2, "title": "Lateral Band Walk", "img": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgMjAwIiB3aWR0aD0iNDQwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PG1hcmtlciBpZD0iYSIgdmlld0JveD0iMCAwIDEwIDEwIiByZWZYPSI4IiByZWZZPSI1IiBtYXJrZXJXaWR0aD0iNS41IiBtYXJrZXJIZWlnaHQ9IjUuNSIgb3JpZW50PSJhdXRvLXN0YXJ0LXJldmVyc2UiPjxwYXRoIGQ9Ik0wLDAgTDEwLDUgTDAsMTAgeiIgZmlsbD0iIzBmMTcyYSIvPjwvbWFya2VyPjxtYXJrZXIgaWQ9ImFyIiB2aWV3Qm94PSIwIDAgMTAgMTAiIHJlZlg9IjgiIHJlZlk9IjUiIG1hcmtlcldpZHRoPSI1LjUiIG1hcmtlckhlaWdodD0iNS41IiBvcmllbnQ9ImF1dG8tc3RhcnQtcmV2ZXJzZSI+PHBhdGggZD0iTTAsMCBMMTAsNSBMMCwxMCB6IiBmaWxsPSIjZGMyNjI2Ii8+PC9tYXJrZXI+PC9kZWZzPjxyZWN0IHg9IjEyIiB5PSI4IiByeD0iOSIgd2lkdGg9IjQ2LjAiIGhlaWdodD0iMTkiIGZpbGw9IiMyNTYzZWIiLz48dGV4dCB4PSIzNS4wIiB5PSIyMiIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwtYXBwbGUtc3lzdGVtLFNlZ29lIFVJLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMTIiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkxFRlQ8L3RleHQ+PHRleHQgeD0iNDM2IiB5PSIyMCIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwtYXBwbGUtc3lzdGVtLFNlZ29lIFVJLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiM5NGEzYjgiIHRleHQtYW5jaG9yPSJlbmQiPnNlZW4gZnJvbSBiZWhpbmQ8L3RleHQ+PGxpbmUgeDE9IjE2IiB5MT0iMTc2IiB4Mj0iNDI0IiB5Mj0iMTc2IiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTSAyMzggMTEwIEwgMTk2IDE0MSBMIDE3NiAxNzIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI1NjNlYiIgc3Ryb2tlLW9wYWNpdHk9IjAuNCIgc3Ryb2tlLXdpZHRoPSIxMCIgc3Ryb2tlLWRhc2hhcnJheT0iNyA3IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSIzMiIgcj0iMTEiIGZpbGw9IiM5NGEzYjgiLz48cGF0aCBkPSJNIDIyOCA1MCBMIDI3MiA1MCBMIDI2NiA3OCBMIDI3MCAxMDIgTCAyMzAgMTAyIEwgMjM0IDc4IFoiIGZpbGw9IiM5NGEzYjgiLz48bGluZSB4MT0iMjMwIiB5MT0iNTYiIHgyPSIyMTAiIHkyPSI4MCIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMTAiLz48bGluZSB4MT0iMjEwIiB5MT0iODAiIHgyPSIyMzIiIHkyPSI5NCIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iOSIvPjxsaW5lIHgxPSIyNzAiIHkxPSI1NiIgeDI9IjI5MCIgeTI9IjgwIiBzdHJva2U9IiM5NGEzYjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxMCIvPjxsaW5lIHgxPSIyOTAiIHkxPSI4MCIgeDI9IjI2OCIgeTI9Ijk0IiBzdHJva2U9IiM5NGEzYjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI5Ii8+PHBhdGggZD0iTSAyMzAgOTggcSAtMiAyMCAxMCAyMCBxIDEyIDAgMTIgLTIwIHoiIGZpbGw9IiMyNTYzZWIiLz48bGluZSB4MT0iMjM4IiB5MT0iMTEyIiB4Mj0iMjIwIiB5Mj0iMTQxIiBzdHJva2U9IiMyNTYzZWIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxMyIvPjxsaW5lIHgxPSIyMjAiIHkxPSIxNDEiIHgyPSIyMTQiIHkyPSIxNzEiIHN0cm9rZT0iIzI1NjNlYiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjEyIi8+PGxpbmUgeDE9IjI2MiIgeTE9IjExMCIgeDI9IjI4MCIgeTI9IjE0MSIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iMTMiLz48bGluZSB4MT0iMjgwIiB5MT0iMTQxIiB4Mj0iMjg2IiB5Mj0iMTcxIiBzdHJva2U9IiM5NGEzYjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxMiIvPjxsaW5lIHgxPSIyMDYiIHkxPSIxNzQiIHgyPSIyMjIiIHkyPSIxNzQiIHN0cm9rZT0iI2NiZDVlMSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48bGluZSB4MT0iMjc4IiB5MT0iMTc0IiB4Mj0iMjk0IiB5Mj0iMTc0IiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9IjIyNiIgeTE9IjEzMSIgeDI9IjI3NCIgeTI9IjEzMSIgc3Ryb2tlPSIjZjk3MzE2IiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxlbGxpcHNlIGN4PSIyMjUiIGN5PSIxMzEiIHJ4PSI5IiByeT0iNC41IiBmaWxsPSJub25lIiBzdHJva2U9IiNmOTczMTYiIHN0cm9rZS13aWR0aD0iNCIvPjxlbGxpcHNlIGN4PSIyNzUiIGN5PSIxMzEiIHJ4PSI5IiByeT0iNC41IiBmaWxsPSJub25lIiBzdHJva2U9IiNmOTczMTYiIHN0cm9rZS13aWR0aD0iNCIvPjxsaW5lIHgxPSIyOTIiIHkxPSIxNTAiIHgyPSIzMTIiIHkyPSIxNTAiIHN0cm9rZT0iI2RjMjYyNiIgc3Ryb2tlLXdpZHRoPSIyLjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgbWFya2VyLWVuZD0idXJsKCNhcikiLz48bGluZSB4MT0iMjEwIiB5MT0iMTU1IiB4Mj0iMTk0IiB5Mj0iMTU1IiBzdHJva2U9IiNkYzI2MjYiIHN0cm9rZS13aWR0aD0iMi42IiBzdHJva2UtbGluZWNhcD0icm91bmQiIG1hcmtlci1lbmQ9InVybCgjYXIpIi8+PHRleHQgeD0iMzAwIiB5PSIxMjYiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksLWFwcGxlLXN5c3RlbSxTZWdvZSBVSSxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iNzAwIiBmb250LXNpemU9IjEzIiBmaWxsPSIjZWE1ODBjIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPmJhbmQgYWJvdmUga25lZXM8L3RleHQ+PHRleHQgeD0iMzE4IiB5PSIxNTUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksLWFwcGxlLXN5c3RlbSxTZWdvZSBVSSxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iNzAwIiBmb250LXNpemU9IjEzIiBmaWxsPSIjZGMyNjI2IiB0ZXh0LWFuY2hvcj0ic3RhcnQiPmtuZWVzIHB1c2ggT1VUPC90ZXh0Pjx0ZXh0IHg9IjIwIiB5PSI2MiIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwtYXBwbGUtc3lzdGVtLFNlZ29lIFVJLHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMTMiIGZpbGw9IiMwZjE3MmEiIHRleHQtYW5jaG9yPSJzdGFydCI+c2xpZ2h0IHNxdWF0LDwvdGV4dD48dGV4dCB4PSIyMCIgeT0iNzgiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksLWFwcGxlLXN5c3RlbSxTZWdvZSBVSSxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iNzAwIiBmb250LXNpemU9IjEzIiBmaWxsPSIjMGYxNzJhIiB0ZXh0LWFuY2hvcj0ic3RhcnQiPmhpcHMgbGV2ZWw8L3RleHQ+PGxpbmUgeDE9IjIwNiIgeTE9IjE5MCIgeDI9IjE0NiIgeTI9IjE5MCIgc3Ryb2tlPSIjMGYxNzJhIiBzdHJva2Utd2lkdGg9IjMuMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBtYXJrZXItZW5kPSJ1cmwoI2EpIi8+PHRleHQgeD0iMTQwIiB5PSIxOTUiIGZvbnQtZmFtaWx5PSJzeXN0ZW0tdWksLWFwcGxlLXN5c3RlbSxTZWdvZSBVSSxzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iNzAwIiBmb250LXNpemU9IjEzIiBmaWxsPSIjMGYxNzJhIiB0ZXh0LWFuY2hvcj0iZW5kIj5zdGVwIExFRlQ8L3RleHQ+PC9zdmc+Cg==", "prescription": "15 steps each way × 2", "type": "reps", "bigNum": 15, "bigNumLabel": "Steps each way × 2 rounds", "setup": "Mini band just above the knees. Feet hip-width, slight squat with the hips back, chest up, toes forward.", "do": "Step sideways to the LEFT with the left foot, then let the right foot follow. Keep the band tight, so the feet never touch. 15 steps left, then 15 back to the right. Do 2 rounds.", "cue": "Knees push OUT against the band the whole time. This wakes up the left glute med, the muscle that stops your knee drifting inward and loading the outside of it, where your IT band sits.", "watch": "Hips stay level, with no rocking side to side. Stay low: standing up tall lets the glute switch off.", "video": "https://www.youtube.com/results?search_query=lateral+band+walk+glute+medius+correct+form", "videoTitle": "Search YouTube for a demo", "videoSub": "Lateral band walk, band above the knees"}, {"num": 3, "title": "Left Standing Glute Squeeze", "img": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NDAgMjAwIiB3aWR0aD0iNDQwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PG1hcmtlciBpZD0iYSIgdmlld0JveD0iMCAwIDEwIDEwIiByZWZYPSI4IiByZWZZPSI1IiBtYXJrZXJXaWR0aD0iNS41IiBtYXJrZXJIZWlnaHQ9IjUuNSIgb3JpZW50PSJhdXRvLXN0YXJ0LXJldmVyc2UiPjxwYXRoIGQ9Ik0wLDAgTDEwLDUgTDAsMTAgeiIgZmlsbD0iIzBmMTcyYSIvPjwvbWFya2VyPjxtYXJrZXIgaWQ9ImFyIiB2aWV3Qm94PSIwIDAgMTAgMTAiIHJlZlg9IjgiIHJlZlk9IjUiIG1hcmtlcldpZHRoPSI1LjUiIG1hcmtlckhlaWdodD0iNS41IiBvcmllbnQ9ImF1dG8tc3RhcnQtcmV2ZXJzZSI+PHBhdGggZD0iTTAsMCBMMTAsNSBMMCwxMCB6IiBmaWxsPSIjZGMyNjI2Ii8+PC9tYXJrZXI+PC9kZWZzPjxyZWN0IHg9IjEyIiB5PSI4IiByeD0iOSIgd2lkdGg9IjQ2LjAiIGhlaWdodD0iMTkiIGZpbGw9IiMyNTYzZWIiLz48dGV4dCB4PSIzNS4wIiB5PSIyMiIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwtYXBwbGUtc3lzdGVtLFNlZ29lIFVJLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkxFRlQ8L3RleHQ+PGxpbmUgeDE9IjE2IiB5MT0iMTc2IiB4Mj0iNDI0IiB5Mj0iMTc2IiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHRleHQgeD0iNDM2IiB5PSIyMCIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwtYXBwbGUtc3lzdGVtLFNlZ29lIFVJLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM5NGEzYjgiIHRleHQtYW5jaG9yPSJlbmQiPnNlZW4gZnJvbSBiZWhpbmQ8L3RleHQ+PGxpbmUgeDE9IjEwNCIgeTE9IjI2IiB4Mj0iMTA0IiB5Mj0iMTA0IiBzdHJva2U9IiNjYmQ1ZTEiIHN0cm9rZS13aWR0aD0iNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGNpcmNsZSBjeD0iMjEwIiBjeT0iMzAiIHI9IjExIiBmaWxsPSIjOTRhM2I4Ii8+PHBhdGggZD0iTSAxODggNDggTCAyMzIgNDggTCAyMjYgODAgTCAyMzIgMTA2IEwgMTg4IDEwNiBMIDE5NCA4MCBaIiBmaWxsPSIjOTRhM2I4Ii8+PGxpbmUgeDE9IjE5MCIgeTE9IjU0IiB4Mj0iMTYyIiB5Mj0iODIiIHN0cm9rZT0iIzk0YTNiOCIgc3Ryb2tlLXdpZHRoPSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9IjE2MiIgeTE9IjgyIiB4Mj0iMTE0IiB5Mj0iOTYiIHN0cm9rZT0iIzk0YTNiOCIgc3Ryb2tlLXdpZHRoPSI5IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48bGluZSB4MT0iMjMwIiB5MT0iNTQiIHgyPSIyNTAiIHkyPSI4MiIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2Utd2lkdGg9IjEwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48bGluZSB4MT0iMjUwIiB5MT0iODIiIHgyPSIyNTQiIHkyPSIxMTIiIHN0cm9rZT0iIzk0YTNiOCIgc3Ryb2tlLXdpZHRoPSI5IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48cGF0aCBkPSJNIDE4OCAxMDAgcSAtMiAyMCAxMCAyMCBxIDEyIDAgMTIgLTIwIHoiIGZpbGw9IiMyNTYzZWIiLz48bGluZSB4MT0iMTk4IiB5MT0iMTEyIiB4Mj0iMTk0IiB5Mj0iMTQ2IiBzdHJva2U9IiMyNTYzZWIiIHN0cm9rZS13aWR0aD0iMTMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxsaW5lIHgxPSIxOTQiIHkxPSIxNDYiIHgyPSIxOTIiIHkyPSIxNzIiIHN0cm9rZT0iIzI1NjNlYiIgc3Ryb2tlLXdpZHRoPSIxMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9IjIyMiIgeTE9IjExMCIgeDI9IjIyOCIgeTI9IjE0NiIgc3Ryb2tlPSIjOTRhM2I4IiBzdHJva2Utd2lkdGg9IjEyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48bGluZSB4MT0iMjI4IiB5MT0iMTQ2IiB4Mj0iMjMyIiB5Mj0iMTcwIiBzdHJva2U9IiM5NGEzYjgiIHN0cm9rZS13aWR0aD0iMTEiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxsaW5lIHgxPSIyMjQiIHkxPSIxNzQiIHgyPSIyNDIiIHkyPSIxNzQiIHN0cm9rZT0iI2NiZDVlMSIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48dGV4dCB4PSIxMTgiIHk9IjEyMCIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwtYXBwbGUtc3lzdGVtLFNlZ29lIFVJLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM5NGEzYjgiIHRleHQtYW5jaG9yPSJtaWRkbGUiPmZpbmdlcnRpcHMgb25seTwvdGV4dD48bGluZSB4MT0iMTgwIiB5MT0iMTUyIiB4Mj0iMTk4IiB5Mj0iMTIyIiBzdHJva2U9IiMwZjE3MmEiIHN0cm9rZS13aWR0aD0iMy4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIG1hcmtlci1lbmQ9InVybCgjYSkiLz48dGV4dCB4PSIxNzQiIHk9IjE1MCIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwtYXBwbGUtc3lzdGVtLFNlZ29lIFVJLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiMwZjE3MmEiIHRleHQtYW5jaG9yPSJlbmQiPnNxdWVlemUgdGhlPC90ZXh0Pjx0ZXh0IHg9IjE3NCIgeT0iMTY2IiBmb250LWZhbWlseT0ic3lzdGVtLXVpLC1hcHBsZS1zeXN0ZW0sU2Vnb2UgVUksc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzI1NjNlYiIgdGV4dC1hbmNob3I9ImVuZCI+TEVGVCBnbHV0ZTwvdGV4dD48dGV4dCB4PSIyNDgiIHk9IjE0OCIgZm9udC1mYW1pbHk9InN5c3RlbS11aSwtYXBwbGUtc3lzdGVtLFNlZ29lIFVJLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM5NGEzYjgiIHRleHQtYW5jaG9yPSJzdGFydCI+cmlnaHQgbGVnIGxpZ2h0PC90ZXh0Pjx0ZXh0IHg9IjIxNiIgeT0iMTk0IiBmb250LWZhbWlseT0ic3lzdGVtLXVpLC1hcHBsZS1zeXN0ZW0sU2Vnb2UgVUksc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzk0YTNiOCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+d2VpZ2h0IHNoaWZ0ZWQgb250byB0aGUgTEVGVCBsZWc8L3RleHQ+PC9zdmc+", "prescription": "15s hold × 2", "type": "timer", "duration": 15, "sets": 2, "setup": "Stand with your weight shifted slightly onto the LEFT leg. Fingertips on a wall for balance only.", "do": "Squeeze the left glute as hard as you can without moving. Hold 15s, rest 5s, hold again.", "cue": "Switches the glute on while you stand on that leg, which is exactly its job when your foot lands.", "watch": "Fingertips only. If you are gripping the wall, shift less weight onto the left.", "video": "https://www.youtube.com/watch?v=YYqFfdanScQ", "videoTitle": "Watch the demo on YouTube", "videoSub": "The same move as exercise 7 in your glute app"}];
+const WHY = "Before every run, even after a walk. On Oct 25 you skipped it and started stiff, with the left knee tight and the nerve sensitive.";
+const REST_SECONDS = 5;
+const track = document.getElementById('track'), dotsEl = document.getElementById('dots');
+const progressEl = document.getElementById('progress'), prevBtn = document.getElementById('prev'), nextBtn = document.getElementById('next');
+const slider = document.getElementById('slider');
+let current = 0;
+
+function buildSlide(ex, i) {
+  const s = document.createElement('section');
+  s.className = 'slide'; s.dataset.index = i;
+  const interactive = ex.type === 'timer'
+    ? `<div class="card center"><div class="set-label">Set 1 of ${ex.sets}</div><div class="timer-display">${ex.duration}</div>
+       <button class="timer-btn" type="button">▶ Start hold</button>
+       <div class="set-progress">${Array.from({length: ex.sets}, () => '<div class="set-dot"></div>').join('')}</div></div>`
+    : `<div class="card center"><div class="big-num">${ex.bigNum}</div><div class="big-num-label">${ex.bigNumLabel}</div></div>`;
+  s.innerHTML = `<div class="slide-inner">
+    ${i === 0 ? `<p class="why">${WHY}</p>` : ''}
+    <h2>${ex.num}. ${ex.title}</h2>
+    <p class="prescription">${ex.prescription}</p>
+    <div class="plate"><img src="${ex.img}" alt="${ex.title}: ${ex.do}"></div>
+    ${interactive}
+    <div class="card info">
+      <p><strong>Setup:</strong> ${ex.setup}</p>
+      <p><strong>Do:</strong> ${ex.do}</p>
+      <p class="cue"><strong>Cue:</strong> ${ex.cue}</p>
+      <p class="watch"><strong>Watch:</strong> ${ex.watch}</p>
+    </div>
+    <a class="video-card" href="${ex.video}" target="_blank" rel="noopener">
+      <span class="play">▶</span><span><div class="vt">${ex.videoTitle}</div><div class="vs">${ex.videoSub}</div></span>
+    </a></div>`;
+  track.appendChild(s);
+  if (ex.type === 'timer') setupTimer(s, ex, i);
+}
+
+function buildDone() {
+  const s = document.createElement('section');
+  s.className = 'slide done';
+  s.innerHTML = `<div class="slide-inner">
+    <div class="done-mark">✓</div>
+    <h2>Ready to run</h2>
+    <ol class="next-steps">
+      <li><b>1</b>5 min brisk walk</li>
+      <li><b>2</b>Sciatic slider × 10</li>
+      <li><b>3</b>Jog: metronome at 165, short quick steps</li>
+    </ol>
+    <div class="btn-row"><button class="btn-primary" type="button" id="restart">Start over</button><a class="btn-ghost" href="glute.html">Full glute routine →</a></div></div>`;
+  track.appendChild(s);
+  s.querySelector('#restart').addEventListener('click', () => goTo(0));
+}
+
+// Sound and vibration: audio unlocks on the first tap, as browsers require.
+let actx = null;
+function unlockAudio() {
+  try {
+    if (!actx) { const C = window.AudioContext || window.webkitAudioContext; if (C) actx = new C(); }
+    if (actx && actx.state === 'suspended') actx.resume();
+  } catch (e) { actx = null; }
+}
+function tone(freq, dur, vol) {
+  if (!actx) return;
+  try {
+    const o = actx.createOscillator(), g = actx.createGain(), t = actx.currentTime;
+    o.type = 'sine'; o.frequency.value = freq;
+    g.gain.setValueAtTime(vol, t); g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+    o.connect(g); g.connect(actx.destination); o.start(t); o.stop(t + dur);
+  } catch (e) {}
+}
+const tickSound = () => tone(1000, 0.05, 0.15);
+const restTickSound = () => tone(600, 0.05, 0.12);
+const endHoldSound = () => { tone(880, 0.25, 0.6); setTimeout(() => tone(660, 0.4, 0.6), 200); };
+const endRestSound = () => { tone(587, 0.18, 0.6); setTimeout(() => tone(784, 0.18, 0.6), 150); setTimeout(() => tone(1047, 0.45, 0.65), 300); };
+function vibrate() { try { if (navigator.vibrate) navigator.vibrate([200, 100, 200]); } catch (e) {} }
+
+// Keep the screen awake once the routine has started.
+let wakeLock = null, wakeWanted = false;
+async function requestWake() {
+  wakeWanted = true;
+  try {
+    if ('wakeLock' in navigator && !wakeLock) {
+      wakeLock = await navigator.wakeLock.request('screen');
+      wakeLock.addEventListener('release', () => { wakeLock = null; });
+    }
+  } catch (e) { wakeLock = null; }
+}
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && wakeWanted) requestWake(); });
+document.addEventListener('pointerdown', () => { unlockAudio(); requestWake(); }, { once: true });
+
+function setupTimer(slide, ex) {
+  const disp = slide.querySelector('.timer-display'), btn = slide.querySelector('.timer-btn');
+  const label = slide.querySelector('.set-label'), dots = [...slide.querySelectorAll('.set-dot')];
+  const st = { phase: 'idle', set: 0, left: ex.duration, iv: null };
+  const stop = () => { clearInterval(st.iv); st.iv = null; };
+  const setDisp = (t, c) => { disp.textContent = t; disp.className = 'timer-display' + (c ? ' ' + c : ''); };
+  const setBtn = (t, c, off) => { btn.textContent = t; btn.className = 'timer-btn' + (c ? ' ' + c : ''); btn.disabled = !!off; };
+  function render() {
+    dots.forEach((d, k) => { d.className = 'set-dot' + (k < st.set ? ' done' : (k === st.set && st.phase !== 'done' ? ' active' : '')); });
+    label.textContent = st.set < ex.sets ? `Set ${st.set + 1} of ${ex.sets}` : `All ${ex.sets} sets complete`;
+  }
+  function count() {
+    st.phase = 'counting'; setDisp(st.left, 'counting'); setBtn('⏸ Pause', 'running'); stop();
+    st.iv = setInterval(() => {
+      st.left -= 1;
+      if (st.left > 0) { setDisp(st.left, 'counting'); tickSound(); return; }
+      stop(); st.set += 1; endHoldSound(); vibrate(); render();
+      if (st.set >= ex.sets) { st.phase = 'done'; setDisp('✓', 'done'); setBtn('✓ Done · Next', 'done'); }
+      else rest();
+    }, 1000);
+  }
+  function rest() {
+    st.phase = 'resting'; let r = REST_SECONDS; setDisp(`REST ${r}`, 'resting'); setBtn('Resting…', 'resting', true);
+    st.iv = setInterval(() => {
+      r -= 1;
+      if (r > 0) { setDisp(`REST ${r}`, 'resting'); restTickSound(); return; }
+      stop(); st.left = ex.duration; render(); endRestSound(); count();
+    }, 1000);
+  }
+  btn.addEventListener('click', () => {
+    unlockAudio(); requestWake();
+    if (st.phase === 'idle') { st.left = ex.duration; count(); }
+    else if (st.phase === 'counting') { stop(); st.phase = 'paused'; setBtn('▶ Resume'); }
+    else if (st.phase === 'paused') count();
+    else if (st.phase === 'done') goTo(current + 1);
+  });
+  render();
+}
+
+function updateUI() {
+  const total = exercises.length, onDone = current >= total;
+  track.style.transform = `translateX(-${current * 100}%)`;
+  progressEl.textContent = onDone ? '✓ Done' : `${current + 1} / ${total}`;
+  [...dotsEl.children].forEach((d, k) => d.classList.toggle('active', k === current));
+  prevBtn.disabled = current === 0;
+  nextBtn.disabled = onDone;
+  nextBtn.textContent = current === total - 1 ? 'Finish →' : 'Next →';
+}
+function goTo(i) { current = Math.max(0, Math.min(exercises.length, i)); updateUI(); }
+
+exercises.forEach(buildSlide);
+buildDone();
+exercises.forEach(() => { const d = document.createElement('div'); d.className = 'nav-dot'; dotsEl.appendChild(d); });
+prevBtn.addEventListener('click', () => goTo(current - 1));
+nextBtn.addEventListener('click', () => goTo(current + 1));
+document.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') goTo(current + 1); if (e.key === 'ArrowLeft') goTo(current - 1); });
+let sx = null, sy = null;
+slider.addEventListener('touchstart', (e) => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+slider.addEventListener('touchend', (e) => {
+  if (sx === null) return;
+  const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) goTo(current + (dx < 0 ? 1 : -1));
+  sx = null;
+}, { passive: true });
+updateUI();
+</script>
+</body>
+</html>
