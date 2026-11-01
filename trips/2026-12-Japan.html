@@ -1,0 +1,757 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Japan Winter 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: an iOS grouped list. Large title, a segmented control, then white cards on a grey ground; one blue for actions and travel, red only for the calendar weekday, green only for "booked". */
+:root {
+  --bg: #F2F2F7;
+  --card: #FFFFFF;
+  --label: #1D1D1F;
+  --secondary: #6E6E73;
+  --tertiary: #8E8E93;
+  --separator: rgba(60, 60, 67, 0.16);
+  --fill: rgba(118, 118, 128, 0.12);
+  --selected: #FFFFFF;
+  --blue: #0066CC;
+  --blue-soft: rgba(0, 122, 255, 0.10);
+  --red: #E0352B;
+  --green: #1F7A35;
+  --green-soft: rgba(52, 199, 89, 0.14);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #000000;
+    --card: #1C1C1E;
+    --label: #F5F5F7;
+    --secondary: #98989D;
+    --tertiary: #8E8E93;
+    --separator: rgba(84, 84, 88, 0.55);
+    --fill: rgba(118, 118, 128, 0.24);
+    --selected: #636366;
+    --blue: #3D9BFF;
+    --blue-soft: rgba(10, 132, 255, 0.18);
+    --red: #FF453A;
+    --green: #30D158;
+    --green-soft: rgba(48, 209, 88, 0.16);
+    --shadow: none;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --card: #1C1C1E;
+  --label: #F5F5F7;
+  --secondary: #98989D;
+  --tertiary: #8E8E93;
+  --separator: rgba(84, 84, 88, 0.55);
+  --fill: rgba(118, 118, 128, 0.24);
+  --selected: #636366;
+  --blue: #3D9BFF;
+  --blue-soft: rgba(10, 132, 255, 0.18);
+  --red: #FF453A;
+  --green: #30D158;
+  --green-soft: rgba(48, 209, 88, 0.16);
+  --shadow: none;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: 76px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body {
+  background: var(--bg);
+  color: var(--label);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+}
+a { color: var(--blue); text-decoration: none; }
+a:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 8px; }
+
+.wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 64px;
+}
+
+/* Header */
+.top { display: grid; gap: 6px; }
+.pill {
+  justify-self: start;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--blue);
+  background: var(--blue-soft);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.pill:empty { display: none; }
+h1 {
+  font-size: 34px;
+  line-height: 41px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 4px 0 0;
+}
+.sub { margin: 0; font-size: 17px; color: var(--secondary); }
+
+.stops {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.stop {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.stop b { font-size: 17px; font-weight: 600; }
+.stop span { font-size: 13px; color: var(--secondary); font-variant-numeric: tabular-nums; }
+.stop .n { color: var(--label); font-weight: 500; }
+
+.status {
+  margin: 14px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--secondary);
+}
+.check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--green-soft);
+  color: var(--green);
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+}
+.check svg { width: 12px; height: 12px; }
+
+/* Segmented control */
+.seg-wrap {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: var(--bg);
+  padding-block: 12px;
+  margin-top: 20px;
+}
+.seg {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2px;
+  padding: 2px;
+  background: var(--fill);
+  border-radius: 9px;
+}
+.seg a {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--label);
+  padding: 6px 4px;
+  border-radius: 7px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.seg a.on {
+  background: var(--selected);
+  font-weight: 600;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+/* Sections */
+section { padding-top: 28px; display: grid; gap: 12px; }
+h2 { font-size: 22px; line-height: 28px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
+.place { padding-top: 14px; display: grid; gap: 2px; }
+.place h3 { font-size: 20px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
+.place p { margin: 0; font-size: 15px; color: var(--secondary); }
+
+/* Day cards */
+.day {
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.day.is-today { box-shadow: 0 0 0 2px var(--blue); }
+.day-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px 12px;
+}
+.cal {
+  width: 46px;
+  flex: none;
+  display: grid;
+  justify-items: center;
+  line-height: 1;
+  gap: 3px;
+}
+.cal .dow { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--red); }
+.cal .dn { font-size: 26px; font-weight: 400; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.day-title { min-width: 0; display: grid; gap: 1px; }
+.day-title b { font-size: 17px; font-weight: 600; }
+.day-title span { font-size: 13px; color: var(--secondary); }
+.today-tag {
+  margin-left: auto;
+  flex: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: var(--blue);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.rows { list-style: none; margin: 0; padding: 0 0 4px; }
+.rows li {
+  display: grid;
+  grid-template-columns: 78px minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 16px 10px 16px;
+  position: relative;
+}
+.rows li + li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 106px;
+  right: 0;
+  height: 1px;
+  background: var(--separator);
+}
+.rows .when { font-size: 15px; color: var(--secondary); font-variant-numeric: tabular-nums; }
+.rows .what { font-size: 15px; min-width: 0; }
+.rows li.go .when { color: var(--blue); font-weight: 600; }
+.rows .what .ic { display: inline-block; width: 16px; height: 16px; vertical-align: -3px; margin-right: 6px; color: var(--blue); }
+.rows .what b { font-weight: 600; }
+.rows .what small { display: block; font-size: 13px; color: var(--secondary); margin-top: 2px; }
+
+/* Grouped lists */
+.group {
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.group > li { padding: 14px 16px; position: relative; display: grid; gap: 4px; }
+.group > li + li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 0;
+  height: 1px;
+  background: var(--separator);
+}
+.hotel-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.hotel-top b { font-size: 17px; font-weight: 600; min-width: 0; }
+.badge {
+  flex: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+  background: var(--green-soft);
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.hotel .dates { font-size: 15px; color: var(--label); font-variant-numeric: tabular-nums; }
+.hotel p { margin: 0; font-size: 15px; color: var(--secondary); }
+
+/* Boarding passes */
+.passes { display: grid; gap: 12px; }
+.pass {
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.pass-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 14px 16px 0;
+}
+.pass-head b { font-size: 15px; font-weight: 600; }
+.pass-head span { font-size: 15px; color: var(--secondary); font-variant-numeric: tabular-nums; }
+.pass-route {
+  display: grid;
+  grid-template-columns: auto minmax(20px, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px 14px;
+}
+.pt { display: grid; gap: 2px; }
+.pt:last-child { text-align: right; }
+.pt .code { font-size: 32px; line-height: 1; font-weight: 600; letter-spacing: -0.01em; }
+.pt .time { font-size: 15px; font-weight: 500; font-variant-numeric: tabular-nums; }
+.pt .term { font-size: 13px; color: var(--secondary); }
+.mid { display: grid; justify-items: center; color: var(--tertiary); }
+.mid svg { width: 20px; height: 20px; }
+.mid::before {
+  content: "";
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 1px;
+  align-self: center;
+  background: var(--separator);
+}
+.mid svg { grid-area: 1 / 1; background: var(--card); padding: 0 4px; width: 28px; }
+.pass-foot {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 12px 16px 14px;
+  border-top: 1px dashed var(--separator);
+}
+.pass-foot div { display: grid; gap: 2px; min-width: 0; }
+.pass-foot dt { font-size: 12px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+.pass-foot dd { margin: 0; font-size: 15px; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+/* Tips */
+.tip { grid-template-columns: 30px minmax(0, 1fr); column-gap: 12px; }
+.tip-ic {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  grid-row: span 2;
+}
+.tip-ic svg { width: 17px; height: 17px; }
+.tip b { font-size: 17px; font-weight: 600; }
+.tip p { margin: 0; font-size: 15px; color: var(--secondary); }
+
+footer { padding-top: 36px; text-align: center; font-size: 13px; color: var(--tertiary); }
+
+@media (max-width: 520px) {
+  .stops { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 360px) {
+  .rows li { grid-template-columns: 68px minmax(0, 1fr); }
+  .rows li + li::before { left: 96px; }
+  .pt .code { font-size: 26px; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></symbol>
+    <symbol id="i-bus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></symbol>
+    <symbol id="i-train" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="3" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><path d="M8 15h.01"/><path d="M16 15h.01"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="14" x="4" y="7" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M9 21v1"/><path d="M15 21v1"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.9 4.9 1.4 1.4"/><path d="m17.7 17.7 1.4 1.4"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.3 17.7-1.4 1.4"/><path d="m19.1 4.9-1.4 1.4"/></symbol>
+    <symbol id="i-snow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"/><path d="M12 2v20"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></symbol>
+    <symbol id="i-bath" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6 6.5 3.5a1.5 1.5 0 0 0-1-.5C4.7 3 4 3.7 4 4.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/><path d="M2 12h20"/><path d="M7 19v2"/><path d="M17 19v2"/></symbol>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <header class="top">
+    <span class="pill" id="countdown"></span>
+    <h1>Japan</h1>
+    <p class="sub">11–24 December 2026 · Rishi, Riya and Ryan</p>
+
+    <div class="stops">
+      <div class="stop"><b>Tokyo</b><span>12–15 Dec</span><span class="n">3 nights</span></div>
+      <div class="stop"><b>Niseko</b><span>15–19 Dec</span><span class="n">4 nights</span></div>
+      <div class="stop"><b>Sapporo</b><span>19–23 Dec</span><span class="n">4 nights</span></div>
+      <div class="stop"><b>Haneda</b><span>23–24 Dec</span><span class="n">1 night</span></div>
+    </div>
+
+    <p class="status"><span class="check"><svg><use href="#i-check"/></svg></span>All flights and hotels are booked</p>
+  </header>
+
+  <div class="seg-wrap">
+    <nav class="seg" aria-label="Sections">
+      <a href="#itinerary" class="on">Itinerary</a>
+      <a href="#hotels">Hotels</a>
+      <a href="#flights">Flights</a>
+      <a href="#tips">Good to know</a>
+    </nav>
+  </div>
+
+  <main>
+    <section id="itinerary" data-seg="itinerary">
+      <h2>Itinerary</h2>
+
+      <div class="place"><h3>Tokyo</h3><p>ibis Styles Tokyo Ginza</p></div>
+
+      <article class="day" data-date="2026-12-11">
+        <div class="day-head">
+          <div class="cal"><span class="dow">Fri</span><span class="dn">11</span></div>
+          <div class="day-title"><b>Fly to Tokyo</b><span>Overnight flight</span></div>
+        </div>
+        <ul class="rows">
+          <li class="go"><span class="when">20:20</span><span class="what"><svg class="ic"><use href="#i-plane"/></svg>Air India <b>AI358</b> from Delhi T3<small>Lands at Haneda at 07:00. Sleep on board.</small></span></li>
+        </ul>
+      </article>
+
+      <article class="day" data-date="2026-12-12">
+        <div class="day-head">
+          <div class="cal"><span class="dow">Sat</span><span class="dn">12</span></div>
+          <div class="day-title"><b>Arrive in Tokyo</b><span>Take it easy</span></div>
+        </div>
+        <ul class="rows">
+          <li class="go"><span class="when">07:00</span><span class="what"><svg class="ic"><use href="#i-car"/></svg>Large taxi from Haneda to Ginza<small>About 30 minutes. Drop bags, breakfast, rest.</small></span></li>
+          <li><span class="when">Afternoon</span><span class="what">teamLab Planets in Toyosu, or teamLab Borderless at Azabudai Hills</span></li>
+          <li><span class="when">Evening</span><span class="what">Walk to the Marunouchi Illumination<small>15 minutes on foot. Dinner on Tokyo Station's Ramen Street or under the Yurakucho tracks.</small></span></li>
+        </ul>
+      </article>
+
+      <article class="day" data-date="2026-12-13">
+        <div class="day-head">
+          <div class="cal"><span class="dow">Sun</span><span class="dn">13</span></div>
+          <div class="day-title"><b>Shopping for Niseko</b><span>Warm layers and ski wear</span></div>
+        </div>
+        <ul class="rows">
+          <li><span class="when">Morning</span><span class="what">Uniqlo Ginza for thermal layers<small>A short walk from the hotel.</small></span></li>
+          <li class="go"><span class="when">Midday</span><span class="what"><svg class="ic"><use href="#i-train"/></svg>Marunouchi line to Awajicho, about 10 minutes<small>Kanda-Ogawamachi's ski shop street: Victoria, Ishii Sports, London Sports. Ski Shop Vail has English-speaking staff.</small></span></li>
+          <li><span class="when">Note</span><span class="what">Skis, boots and snow suits can also be rented in Niseko</span></li>
+          <li><span class="when">Evening</span><span class="what">Roppongi Hills lights and Christmas market<small>10 minutes on the Hibiya line.</small></span></li>
+        </ul>
+      </article>
+
+      <article class="day" data-date="2026-12-14">
+        <div class="day-head">
+          <div class="cal"><span class="dow">Mon</span><span class="dn">14</span></div>
+          <div class="day-title"><b>Tokyo day</b><span>Shibuya, Harajuku, Akihabara</span></div>
+        </div>
+        <ul class="rows">
+          <li><span class="when">Day</span><span class="what">Harajuku, Shibuya Parco and Akihabara</span></li>
+          <li><span class="when">Sunset</span><span class="what">Shibuya Sky</span></li>
+          <li><span class="when">Evening</span><span class="what">Pack for Hokkaido<small>The hotel sends spare suitcases to Sapporo. Book a large taxi for 06:00.</small></span></li>
+        </ul>
+      </article>
+
+      <div class="place"><h3>Niseko</h3><p>Hilton Niseko Village · breakfast and dinner included</p></div>
+
+      <article class="day" data-date="2026-12-15">
+        <div class="day-head">
+          <div class="cal"><span class="dow">Tue</span><span class="dn">15</span></div>
+          <div class="day-title"><b>To Niseko</b><span>Travel day</span></div>
+        </div>
+        <ul class="rows">
+          <li class="go"><span class="when">06:00</span><span class="what"><svg class="ic"><use href="#i-car"/></svg>Taxi to Haneda Terminal 1</span></li>
+          <li class="go"><span class="when">07:30</span><span class="what"><svg class="ic"><use href="#i-plane"/></svg>JAL <b>JL503</b> to New Chitose<small>Lands at 09:00.</small></span></li>
+          <li class="go"><span class="when">Morning</span><span class="what"><svg class="ic"><use href="#i-bus"/></svg>Resort Liner bus to the Hilton<small>About 2.5 hours.</small></span></li>
+          <li><span class="when">Afternoon</span><span class="what">Pick up ski rentals. First play in the deep snow.</span></li>
+          <li><span class="when">Evening</span><span class="what">Hot spring bath, then dinner at the hotel</span></li>
+        </ul>
+      </article>
+
+      <article class="day" data-date="2026-12-16">
+        <div class="day-head">
+          <div class="cal"><span class="dow">Wed</span><span class="dn">16</span></div>
+          <div class="day-title"><b>First ski lesson</b><span>Beginners, all three</span></div>
+        </div>
+        <ul class="rows">
+          <li><span class="when">Day</span><span class="what">Ski lesson at the gondola, right next to the hotel</span></li>
+          <li><span class="when">Evening</span><span class="what">Hot spring bath and dinner at the hotel</span></li>
+        </ul>
+      </article>
+
+      <article class="day" data-date="2026-12-17">
+        <div class="day-head">
+          <div class="cal"><span class="dow">Thu</span><span class="dn">17</span></div>
+          <div class="day-title"><b>Second ski lesson</b><span>This is when it clicks</span></div>
+        </div>
+        <ul class="rows">
+          <li><span class="when">Day</span><span class="what">Second lesson<small>If skiing isn't fun, snow play and a snowshoe walk instead.</small></span></li>
+          <li class="go"><span class="when">Evening</span><span class="what"><svg class="ic"><use href="#i-bus"/></svg>Free hotel bus to Hirafu village<small>After dinner. Lights and shops.</small></span></li>
+        </ul>
+      </article>
+
+      <article class="day" data-date="2026-12-18">
+        <div class="day-head">
+          <div class="cal"><span class="dow">Fri</span><span class="dn">18</span></div>
+          <div class="day-title"><b>Free day in the snow</b><span>The weather decides</span></div>
+        </div>
+        <ul class="rows">
+          <li><span class="when">If clear</span><span class="what">Gondola up for views of Mt Yotei, then the easy runs</span></li>
+          <li><span class="when">If snowing</span><span class="what">Hanazono tube park and a long hot spring soak</span></li>
+          <li><span class="when">Evening</span><span class="what">Last dinner in Niseko</span></li>
+        </ul>
+      </article>
+
+      <div class="place"><h3>Sapporo</h3><p>Grand Mercure Sapporo Odori Park · breakfast and lounge</p></div>
+
+      <article class="day" data-date="2026-12-19">
+        <div class="day-head">
+          <div class="cal"><span class="dow">Sat</span><span class="dn">19</span></div>
+          <div class="day-title"><b>To Sapporo</b><span>Travel day</span></div>
+        </div>
+        <ul class="rows">
+          <li><span class="when">Morning</span><span class="what">A last hour in the snow or the hot spring<small>The hotel keeps bags after check-out.</small></span></li>
+          <li class="go"><span class="when">Midday</span><span class="what"><svg class="ic"><use href="#i-bus"/></svg>Resort Liner bus to Sapporo<small>About 3 hours. Suitcases from Tokyo wait at the hotel.</small></span></li>
+          <li><span class="when">Evening</span><span class="what">Odori Park lights and the Munich Christmas Market<small>15 minutes on foot.</small></span></li>
+        </ul>
+      </article>
+
+      <article class="day" data-date="2026-12-20">
+        <div class="day-head">
+          <div class="cal"><span class="dow">Sun</span><span class="dn">20</span></div>
+          <div class="day-title"><b>Sapporo city day</b><span>Chocolate, markets, hot springs</span></div>
+        </div>
+        <ul class="rows">
+          <li><span class="when">Morning</span><span class="what">Shiroi Koibito Park, Nijo market and the TV Tower</span></li>
+          <li class="go"><span class="when">Afternoon</span><span class="what"><svg class="ic"><use href="#i-bus"/></svg>Jozankei hot spring town<small>About an hour by bus.</small></span></li>
+          <li><span class="when">Or</span><span class="what">Asahiyama Zoo, if the penguin walk has started<small>1.5 hours each way by train.</small></span></li>
+          <li><span class="when">Evening</span><span class="what">Soup curry and the Christmas market</span></li>
+        </ul>
+      </article>
+
+      <article class="day" data-date="2026-12-21">
+        <div class="day-head">
+          <div class="cal"><span class="dow">Mon</span><span class="dn">21</span></div>
+          <div class="day-title"><b>Snowmobiles at Rusutsu</b><span>Day trip</span></div>
+        </div>
+        <ul class="rows">
+          <li class="go"><span class="when">08:00</span><span class="what"><svg class="ic"><use href="#i-bus"/></svg>Free Rusutsu-Go bus from central Sapporo</span></li>
+          <li><span class="when">Day</span><span class="what">Ryan drives his own snowmobile on the 30-minute course. Rishi and Riya ride the 1-hour course.<small>Snow tubing after.</small></span></li>
+          <li class="go"><span class="when">16:40</span><span class="what"><svg class="ic"><use href="#i-bus"/></svg>Bus back to Sapporo</span></li>
+          <li><span class="when">Evening</span><span class="what">Grilled lamb (jingisukan) at Daruma<small>The hotel sends spare suitcases to Haneda.</small></span></li>
+        </ul>
+      </article>
+
+      <article class="day" data-date="2026-12-22">
+        <div class="day-head">
+          <div class="cal"><span class="dow">Tue</span><span class="dn">22</span></div>
+          <div class="day-title"><b>Otaru and Mt Moiwa</b><span>Canal town and night view</span></div>
+        </div>
+        <ul class="rows">
+          <li class="go"><span class="when">Morning</span><span class="what"><svg class="ic"><use href="#i-train"/></svg>Train to Otaru, 40 minutes<small>Snowy canal, Sakaimachi street, the music box museum, LeTAO and a sushi lunch.</small></span></li>
+          <li><span class="when">16:00</span><span class="what">Gas lamps light up along the canal</span></li>
+          <li><span class="when">Evening</span><span class="what">Mt Moiwa ropeway for the night view. Pack.</span></li>
+        </ul>
+      </article>
+
+      <div class="place"><h3>Haneda</h3><p>Mercure Tokyo Haneda Airport</p></div>
+
+      <article class="day" data-date="2026-12-23">
+        <div class="day-head">
+          <div class="cal"><span class="dow">Wed</span><span class="dn">23</span></div>
+          <div class="day-title"><b>Back to Tokyo</b><span>Travel day</span></div>
+        </div>
+        <ul class="rows">
+          <li class="go"><span class="when">08:15</span><span class="what"><svg class="ic"><use href="#i-train"/></svg>Check out. JR Rapid Airport to New Chitose<small>40 minutes.</small></span></li>
+          <li class="go"><span class="when">10:35</span><span class="what"><svg class="ic"><use href="#i-plane"/></svg>JAL <b>JL506</b> to Haneda<small>Lands at Terminal 1 at 12:20.</small></span></li>
+          <li class="go"><span class="when">Afternoon</span><span class="what"><svg class="ic"><use href="#i-train"/></svg>Keikyu line to Otorii<small>The hotel is 5 minutes from the station.</small></span></li>
+          <li class="go"><span class="when">Evening</span><span class="what"><svg class="ic"><use href="#i-train"/></svg>Keikyu straight to Ginza, about 35 minutes<small>Christmas lights and a farewell dinner.</small></span></li>
+        </ul>
+      </article>
+
+      <article class="day" data-date="2026-12-24">
+        <div class="day-head">
+          <div class="cal"><span class="dow">Thu</span><span class="dn">24</span></div>
+          <div class="day-title"><b>Home</b><span>Christmas Eve</span></div>
+        </div>
+        <ul class="rows">
+          <li class="go"><span class="when">09:00</span><span class="what"><svg class="ic"><use href="#i-train"/></svg>Keikyu two stops to Terminal 3, or a short taxi</span></li>
+          <li class="go"><span class="when">11:45</span><span class="what"><svg class="ic"><use href="#i-plane"/></svg>Air India <b>AI357</b> to Delhi<small>Lands at 18:20.</small></span></li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="hotels" data-seg="hotels">
+      <h2>Hotels</h2>
+      <ul class="group">
+        <li class="hotel">
+          <div class="hotel-top"><b>ibis Styles Tokyo Ginza</b><span class="badge">Booked</span></div>
+          <span class="dates">12–15 Dec · 3 nights · 2 rooms</span>
+          <p>Ginza 7-10-9. Ginza station exit A3 is 5 minutes away, JR Shimbashi 6 minutes.</p>
+        </li>
+        <li class="hotel">
+          <div class="hotel-top"><b>Hilton Niseko Village</b><span class="badge">Booked</span></div>
+          <span class="dates">15–19 Dec · 4 nights</span>
+          <p>Breakfast and dinner included. Indoor and outdoor hot spring baths, the gondola 20 metres away, and a free bus to Hirafu.</p>
+        </li>
+        <li class="hotel">
+          <div class="hotel-top"><b>Grand Mercure Sapporo Odori Park</b><span class="badge">Booked</span></div>
+          <span class="dates">19–23 Dec · 4 nights</span>
+          <p>Triple room with lounge access. Lounge 15:00–19:00 and 21:00–23:00. Odori Park is 3 minutes away, the subway at the door.</p>
+        </li>
+        <li class="hotel">
+          <div class="hotel-top"><b>Mercure Tokyo Haneda Airport</b><span class="badge">Booked</span></div>
+          <span class="dates">23–24 Dec · 1 night · room for 3</span>
+          <p>5 minutes from Otorii station on the Keikyu line. Terminal 3 is two stops away.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="flights" data-seg="flights">
+      <h2>Flights</h2>
+      <div class="passes">
+        <div class="pass">
+          <div class="pass-head"><b>Air India AI358</b><span>Fri 11 Dec</span></div>
+          <div class="pass-route">
+            <div class="pt"><span class="code">DEL</span><span class="time">20:20</span><span class="term">Terminal 3</span></div>
+            <div class="mid" aria-hidden="true"><svg><use href="#i-plane"/></svg></div>
+            <div class="pt"><span class="code">HND</span><span class="time">07:00 +1</span><span class="term">Terminal 3</span></div>
+          </div>
+          <dl class="pass-foot">
+            <div><dt>Class</dt><dd>Premium Econ.</dd></div>
+            <div><dt>Bags</dt><dd>2 × 23 kg</dd></div>
+            <div><dt>Meal</dt><dd>Hindu</dd></div>
+          </dl>
+        </div>
+
+        <div class="pass">
+          <div class="pass-head"><b>JAL JL503</b><span>Tue 15 Dec</span></div>
+          <div class="pass-route">
+            <div class="pt"><span class="code">HND</span><span class="time">07:30</span><span class="term">Terminal 1</span></div>
+            <div class="mid" aria-hidden="true"><svg><use href="#i-plane"/></svg></div>
+            <div class="pt"><span class="code">CTS</span><span class="time">09:00</span><span class="term">New Chitose</span></div>
+          </div>
+          <dl class="pass-foot">
+            <div><dt>Class</dt><dd>Class J</dd></div>
+            <div><dt>Seats</dt><dd>17K 17H 18K</dd></div>
+            <div><dt>Bags</dt><dd>20 kg each</dd></div>
+          </dl>
+        </div>
+
+        <div class="pass">
+          <div class="pass-head"><b>JAL JL506</b><span>Wed 23 Dec</span></div>
+          <div class="pass-route">
+            <div class="pt"><span class="code">CTS</span><span class="time">10:35</span><span class="term">New Chitose</span></div>
+            <div class="mid" aria-hidden="true"><svg><use href="#i-plane"/></svg></div>
+            <div class="pt"><span class="code">HND</span><span class="time">12:20</span><span class="term">Terminal 1</span></div>
+          </div>
+          <dl class="pass-foot">
+            <div><dt>Class</dt><dd>Economy</dd></div>
+            <div><dt>Seats</dt><dd>Chosen</dd></div>
+            <div><dt>Bags</dt><dd>20 kg each</dd></div>
+          </dl>
+        </div>
+
+        <div class="pass">
+          <div class="pass-head"><b>Air India AI357</b><span>Thu 24 Dec</span></div>
+          <div class="pass-route">
+            <div class="pt"><span class="code">HND</span><span class="time">11:45</span><span class="term">Terminal 3</span></div>
+            <div class="mid" aria-hidden="true"><svg><use href="#i-plane"/></svg></div>
+            <div class="pt"><span class="code">DEL</span><span class="time">18:20</span><span class="term">Terminal 3</span></div>
+          </div>
+          <dl class="pass-foot">
+            <div><dt>Class</dt><dd>Premium Econ.</dd></div>
+            <div><dt>Bags</dt><dd>2 × 23 kg</dd></div>
+            <div><dt>Arrives</dt><dd>Same day</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section id="tips" data-seg="tips">
+      <h2>Good to know</h2>
+      <ul class="group">
+        <li class="tip">
+          <span class="tip-ic"><svg><use href="#i-bag"/></svg></span>
+          <b>One suitcase each inside Japan</b>
+          <p>JAL allows 20 kg each. The other suitcases go by courier: Tokyo hotel to Sapporo on 14 Dec, then Sapporo to Haneda on 21 Dec.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-ic"><svg><use href="#i-bus"/></svg></span>
+          <b>Buses to and from Niseko</b>
+          <p>The Resort Liner runs from New Chitose airport to the Hilton door, and from the Hilton to Sapporo hotels. About 2.5 to 3 hours.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-ic"><svg><use href="#i-snow"/></svg></span>
+          <b>Real snow</b>
+          <p>Niseko usually has 47–74 cm of snow on the ground in late December. Sapporo has 16–28 cm. Pack waterproof gloves and boots.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-ic"><svg><use href="#i-sun"/></svg></span>
+          <b>Short days</b>
+          <p>In Hokkaido the sun rises around 07:00 and sets around 16:00. Do outdoor plans early.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-ic"><svg><use href="#i-bath"/></svg></span>
+          <b>Hot spring baths</b>
+          <p>Wash and rinse at the seated showers first. No swimwear. Small towels stay out of the water.</p>
+        </li>
+        <li class="tip">
+          <span class="tip-ic"><svg><use href="#i-plane"/></svg></span>
+          <b>If snow delays the 23rd</b>
+          <p>JAL flies New Chitose to Haneda many times a day. The flight home isn't until 11:45 on the 24th, so there's a full spare evening.</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>Updated 1 November 2026</footer>
+</div>
+
+<script>
+(function () {
+  var DAY = 86400000;
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var start = new Date(2026, 11, 11);
+  var end = new Date(2026, 11, 24);
+  var pill = document.getElementById("countdown");
+  var diff = Math.round((start - today) / DAY);
+
+  if (diff > 1) pill.textContent = diff + " days to go";
+  else if (diff === 1) pill.textContent = "Tomorrow";
+  else if (today <= end) pill.textContent = "Day " + (Math.round((today - start) / DAY) + 1) + " of 14";
+
+  var iso = today.getFullYear() + "-" + String(today.getMonth() + 1).padStart(2, "0") + "-" + String(today.getDate()).padStart(2, "0");
+  var card = document.querySelector('.day[data-date="' + iso + '"]');
+  if (card) {
+    card.classList.add("is-today");
+    card.id = "today";
+    var tag = document.createElement("span");
+    tag.className = "today-tag";
+    tag.textContent = "Today";
+    card.querySelector(".day-head").appendChild(tag);
+    var first = document.querySelector('.seg a[href="#itinerary"]');
+    if (first) first.setAttribute("href", "#today");
+  }
+
+  var links = Array.prototype.slice.call(document.querySelectorAll(".seg a"));
+  var sections = Array.prototype.slice.call(document.querySelectorAll("section[data-seg]"));
+  function mark() {
+    var y = window.scrollY + 120;
+    var current = sections[0];
+    sections.forEach(function (s) { if (s.offsetTop <= y) current = s; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) current = sections[sections.length - 1];
+    links.forEach(function (a, i) { a.classList.toggle("on", sections[i] === current); });
+  }
+  window.addEventListener("scroll", mark, { passive: true });
+  mark();
+})();
+</script>
+
+</body></html>
