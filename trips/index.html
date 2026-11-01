@@ -4,25 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#F4EFE6">
+<meta name="theme-color" content="#F6F2EB">
 <meta name="description" content="Trip plans: flights, stays and day-by-day itineraries.">
-<title>Trips</title>
+<title>Travels</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Karla:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  /* Warm paper ground, one serif for display, one humanist sans for detail.
-     Each trip carries a single accent colour, used only on its date block and route dot. */
+  /* A contents page: serif trip names on hairline rules, grouped by year.
+     No colour beyond ink and paper; past trips simply step back to a fainter ink. */
   :root{
-    --bg:#F4EFE6; --card:#FFFDF8; --ink:#1E1A16; --muted:#6B6258; --faint:#A39A8E;
-    --rule:#E3DACB; --shadow:0 1px 2px rgba(60,40,10,.05), 0 8px 24px -12px rgba(60,40,10,.12);
+    --bg:#F6F2EB; --ink:#1C1915; --muted:#6E665C; --faint:#A69D91; --rule:#E2DACD;
     color-scheme: light dark;
   }
   @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#14110E; --card:#1D1915; --ink:#F1EBE0; --muted:#A39A8D; --faint:#6F675C;
-      --rule:#2E2822; --shadow:none;
-    }
+    :root{ --bg:#13110F; --ink:#EFE9DF; --muted:#A1988B; --faint:#6C645A; --rule:#2B2621; }
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
@@ -32,199 +28,163 @@
     font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;
     padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
-  .wrap{max-width:720px;margin:0 auto;padding:56px 20px 72px}
+  .wrap{max-width:640px;margin:0 auto;padding:72px 24px 80px}
+  .serif{font-family:"Instrument Serif",Georgia,"Times New Roman",serif;font-weight:400}
+  .caps{font-size:12px;letter-spacing:.14em;text-transform:uppercase}
 
-  header{margin-bottom:40px}
-  .kicker{margin:0 0 10px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-  h1{
-    margin:0 0 14px;font-family:"Instrument Serif",Georgia,"Times New Roman",serif;font-weight:400;
-    font-size:clamp(44px,12vw,76px);line-height:.98;letter-spacing:-.01em;
-  }
-  h1 em{font-style:italic;color:var(--muted)}
-  .lede{margin:0;color:var(--muted);max-width:34em}
+  h1{margin:0;font-size:clamp(52px,14vw,84px);line-height:.95;letter-spacing:-.01em}
+  #next{margin:12px 0 0;color:var(--muted);font-size:15px;min-height:1.5em}
+  #next a{color:inherit;text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+  #next a:hover{text-decoration-color:var(--muted)}
 
-  section{margin-top:44px}
-  section[hidden]{display:none}
-  .sec-head{display:flex;align-items:baseline;gap:14px;margin:0 0 16px}
-  h2{
-    margin:0;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:28px;line-height:1.1;
-  }
-  .sec-head::after{content:"";flex:1;height:1px;background:var(--rule);order:1}
-  .count{order:2;font-size:13px;color:var(--faint)}
+  .year{margin-top:48px}
+  .yr{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 6px}
+  .yr h2{margin:0;font-size:24px}
+  .yr span{color:var(--faint)}
+  .list{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--rule)}
 
-  .list{display:grid;gap:14px}
-  .trip{
-    --a:var(--a-light);
-    position:relative;display:grid;grid-template-columns:84px 1fr auto;gap:0 20px;align-items:center;
-    padding:20px 22px 20px 20px;background:var(--card);border:1px solid var(--rule);border-radius:18px;
-    box-shadow:var(--shadow);color:inherit;text-decoration:none;
-    transition:transform .2s ease, border-color .2s ease;
-  }
-  @media (prefers-color-scheme: dark){.trip{--a:var(--a-dark)}}
-  .trip:hover{transform:translateY(-2px);border-color:var(--a)}
-  .trip:focus-visible{outline:2px solid var(--a);outline-offset:3px}
-  .date{
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    height:84px;border-radius:12px;background:color-mix(in srgb, var(--a) 11%, transparent);color:var(--a);
-    text-align:center;line-height:1;
-  }
-  .date b{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:32px;letter-spacing:-.01em}
-  .date span{margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-  .body{min-width:0}
-  .body h3{
-    margin:0 0 4px;font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:28px;line-height:1.1;
-  }
-  .route{margin:0 0 8px;font-size:14px;color:var(--muted)}
-  .meta{display:flex;flex-wrap:wrap;gap:6px 14px;margin:0;font-size:13px;color:var(--faint)}
-  .chip{
-    display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.02em;
-    background:color-mix(in srgb, var(--a) 13%, transparent);color:var(--a);
-  }
-  .chip.past{background:transparent;border:1px solid var(--rule);color:var(--faint);font-weight:500}
-  .chev{color:var(--faint);transition:transform .2s ease,color .2s ease}
-  .trip:hover .chev{transform:translateX(3px);color:var(--a)}
-  .past-list .trip{box-shadow:none;background:transparent}
-  .past-list .date{background:transparent;border:1px solid var(--rule);color:var(--faint)}
-  .past-list .body h3{color:var(--muted)}
+  .trip{display:grid;grid-template-columns:56px minmax(0,1fr);gap:18px;padding:18px 0 17px;
+    border-top:1px solid var(--rule);color:inherit;text-decoration:none}
+  .trip:focus-visible{outline:1px solid var(--muted);outline-offset:4px}
+  .date{padding-top:2px;line-height:1}
+  .date b{display:block;font-size:34px;letter-spacing:-.01em}
+  .date span{display:block;margin-top:6px;color:var(--muted)}
+  .body h3{margin:0;font-size:clamp(26px,7vw,32px);line-height:1.1;transition:transform .25s ease}
+  .when{margin-left:6px;font-size:.58em;font-style:italic;color:var(--muted);white-space:nowrap}
+  .route{margin:4px 0 2px;font-size:14px;color:var(--muted)}
+  .meta{margin:0;font-size:13px;color:var(--faint)}
 
-  .more{margin:12px 0 0;padding-left:4px;font-size:13px;color:var(--muted)}
-  .more a{color:var(--ink);text-underline-offset:3px;text-decoration-color:var(--rule)}
-  .more a:hover{text-decoration-color:var(--ink)}
+  .trip:hover h3{transform:translateX(4px)}
 
-  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--rule);font-size:13px;color:var(--faint)}
+  .trip.past .date,.trip.past .date span,.trip.past h3,.trip.past .route{color:var(--faint)}
+  .trip.past:hover h3{color:var(--muted)}
 
-  @media (max-width:520px){
-    .wrap{padding:40px 16px 56px}
-    .trip{grid-template-columns:68px 1fr;gap:0 16px;padding:16px}
-    .date{height:68px}
-    .date b{font-size:26px}
-    .body h3{font-size:24px}
-    .chev{display:none}
+  footer{margin-top:56px;color:var(--faint);font-size:13px}
+
+  @media (max-width:480px){
+    .wrap{padding:52px 18px 64px} .year{margin-top:40px}
+    .trip{grid-template-columns:44px minmax(0,1fr);gap:14px}
+    .date b{font-size:28px}
   }
-  @media (prefers-reduced-motion:reduce){.trip,.chev{transition:none}.trip:hover{transform:none}}
+  @media (prefers-reduced-motion:reduce){ .body h3{transition:none} .trip:hover h3{transform:none} }
 </style>
 </head>
 <body>
-<div class="wrap">
+<main class="wrap">
   <header>
-    <p class="kicker">Itineraries &amp; bookings</p>
-    <h1>Where to <em>next</em></h1>
-    <p class="lede">Flights, stays and day-by-day plans for each trip, in one place.</p>
+    <h1 class="serif">Travels</h1>
+    <p id="next"></p>
   </header>
 
-  <section id="upcoming" hidden>
-    <div class="sec-head"><h2>Upcoming</h2><span class="count"></span></div>
-    <div class="list"></div>
-  </section>
+  <div id="years"></div>
 
-  <section id="past" hidden>
-    <div class="sec-head"><h2>Past</h2><span class="count"></span></div>
-    <div class="list past-list"></div>
-  </section>
-
-  <!-- Source of truth: one anchor per trip. JS sorts them into Upcoming / Past by date. -->
+  <!-- One entry per trip. The script groups them by year, newest first, and marks past trips.
+       To add a trip, copy an entry and change the link, dates and lines. -->
   <div id="source" hidden>
-    <a class="trip" href="2026-06-Japan/trip.html" data-start="2026-06-11" data-end="2026-06-23"
-       style="--a-light:#B4552F;--a-dark:#E08A5E">
-      <div class="date"><b>11</b><span>Jun</span></div>
+    <a class="trip" href="2026-06-Japan/trip.html" data-start="2026-06-11" data-end="2026-06-23">
+      <div class="date"><b class="serif">11</b><span class="caps">Jun</span></div>
       <div class="body">
-        <h3>Hong Kong &amp; Japan</h3>
+        <h3 class="serif">Hong Kong &amp; Japan</h3>
         <p class="route">Hong Kong → Osaka → Tokyo</p>
-        <p class="meta"><span>11–23 June 2026</span><span>11 nights</span><span>Family trip, with day guides</span></p>
+        <p class="meta">11–23 Jun · 13 days · Rishi, Riya, Ryan</p>
       </div>
-      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
     </a>
-
-    <a class="trip" href="2026-10-Kazak.html" data-start="2026-09-11" data-end="2026-09-18"
-       style="--a-light:#2E5F51;--a-dark:#6FC0A5">
-      <div class="date"><b>11</b><span>Sep</span></div>
+    <a class="trip" href="2026-10-Kazak.html" data-start="2026-09-11" data-end="2026-09-18">
+      <div class="date"><b class="serif">11</b><span class="caps">Sep</span></div>
       <div class="body">
-        <h3>Almaty</h3>
-        <p class="route">Delhi → Almaty, Kazakhstan</p>
-        <p class="meta"><span>11–18 September 2026</span><span>7 nights</span></p>
+        <h3 class="serif">Almaty</h3>
+        <p class="route">Almaty, Kazakhstan</p>
+        <p class="meta">11–18 Sep · 8 days · Rishi, Ryan</p>
       </div>
-      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
     </a>
-
-    <a class="trip" href="2026-10-Krabi.html" data-start="2026-09-29" data-end="2026-10-04"
-       style="--a-light:#1F7A7A;--a-dark:#5FC4C0">
-      <div class="date"><b>29</b><span>Sep</span></div>
+    <a class="trip" href="2026-10-Krabi.html" data-start="2026-09-29" data-end="2026-10-04">
+      <div class="date"><b class="serif">29</b><span class="caps">Sep</span></div>
       <div class="body">
-        <h3>Krabi</h3>
-        <p class="route">Delhi → Phuket → Klong Muang, Thailand</p>
-        <p class="meta"><span>29 Sep – 4 Oct 2026</span><span>5 nights</span></p>
+        <h3 class="serif">Krabi</h3>
+        <p class="route">Krabi, Thailand</p>
+        <p class="meta">29 Sep – 4 Oct · 6 days · Rishi, Riya</p>
       </div>
-      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
     </a>
-
-    <a class="trip" href="2026-11-Taiwan.html" data-start="2026-11-11" data-end="2026-11-24"
-       style="--a-light:#2F5FAE;--a-dark:#7FA9F0">
-      <div class="date"><b>11</b><span>Nov</span></div>
+    <a class="trip" href="2026-11-Taiwan.html" data-start="2026-11-11" data-end="2026-11-24">
+      <div class="date"><b class="serif">11</b><span class="caps">Nov</span></div>
       <div class="body">
-        <h3>Taiwan</h3>
-        <p class="route">Taipei → Taichung → Tainan</p>
-        <p class="meta"><span>11–24 November 2026</span><span>13 nights</span><span>Rishi</span></p>
+        <h3 class="serif">Taiwan</h3>
+        <p class="route">Taipei → Taichung → Tainan → Taipei</p>
+        <p class="meta">11–24 Nov · 14 days · Rishi</p>
       </div>
-      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
     </a>
-
-    <a class="trip" href="2026-12-Japan.html" data-start="2026-12-11" data-end="2026-12-24"
-       style="--a-light:#8E3B52;--a-dark:#E58CA3">
-      <div class="date"><b>11</b><span>Dec</span></div>
+    <a class="trip" href="2026-12-Japan.html" data-start="2026-12-11" data-end="2026-12-24">
+      <div class="date"><b class="serif">11</b><span class="caps">Dec</span></div>
       <div class="body">
-        <h3>Japan, in winter</h3>
+        <h3 class="serif">Japan, in winter</h3>
         <p class="route">Tokyo → Niseko → Sapporo → Tokyo</p>
-        <p class="meta"><span>11–24 December 2026</span><span>13 nights</span><span>Rishi, Riya &amp; Ryan</span></p>
+        <p class="meta">11–24 Dec · 14 days · Rishi, Riya, Ryan</p>
       </div>
-      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
     </a>
   </div>
 
-  <footer>Each page keeps its own flights, hotels and daily plan. To add a trip, copy a card in <code>index.html</code> and change the link and dates.</footer>
-</div>
+  <footer>Each trip page keeps its own flights, hotels and day-by-day plan.</footer>
+</main>
 
 <script>
 (function () {
   var DAY = 86400000;
   var today = new Date(); today.setHours(0, 0, 0, 0);
-
   function parse(s) { var p = s.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
-  function chipFor(start, end) {
-    if (today > end) return ["Completed", "past"];
-    if (today >= start) return ["Happening now", ""];
-    var d = Math.round((start - today) / DAY);
-    if (d === 1) return ["Tomorrow", ""];
-    if (d < 60) return ["In " + d + " days", ""];
-    var m = Math.round(d / 30);
-    return ["In " + m + " months", ""];
+  function until(d) {
+    var n = Math.round((d - today) / DAY);
+    return n === 0 ? "today" : n === 1 ? "tomorrow" : "in " + n + " days";
   }
 
-  var cards = Array.prototype.slice.call(document.querySelectorAll("#source .trip")).map(function (el) {
-    return { el: el, start: parse(el.dataset.start), end: parse(el.dataset.end) };
+  var trips = Array.prototype.slice.call(document.querySelectorAll("#source .trip")).map(function (el) {
+    return { el: el, start: parse(el.dataset.start), end: parse(el.dataset.end),
+             name: el.querySelector("h3").textContent };
+  }).sort(function (a, b) { return b.start - a.start; });
+
+  // The trip under way, or failing that the soonest one ahead.
+  var now = trips.filter(function (t) { return t.start <= today && today <= t.end; })[0];
+  var next = trips.filter(function (t) { return t.start > today; }).pop();
+  var focus = now || next;
+
+  var line = document.getElementById("next");
+  if (focus) {
+    var link = document.createElement("a");
+    link.href = focus.el.getAttribute("href");
+    link.textContent = focus.name;
+    var tag = document.createElement("em");
+    tag.className = "when";
+    if (now) {
+      var day = Math.round((today - now.start) / DAY) + 1;
+      var total = Math.round((now.end - now.start) / DAY) + 1;
+      line.append("Now: ", link, ", day " + day + " of " + total);
+      tag.textContent = "now";
+    } else {
+      line.append("Next: ", link, ", " + until(next.start));
+      tag.textContent = until(next.start);
+    }
+    focus.el.querySelector("h3").appendChild(tag);
+  } else {
+    line.textContent = "Nothing booked yet. Somewhere new soon.";
+  }
+
+  var years = document.getElementById("years"), section, list, count, year;
+  trips.forEach(function (t) {
+    if (t.end < today) t.el.classList.add("past");
+    if (t.start.getFullYear() !== year) {
+      year = t.start.getFullYear();
+      section = document.createElement("section");
+      section.className = "year";
+      section.innerHTML = '<div class="yr"><h2 class="serif">' + year + '</h2><span class="caps"></span></div><ol class="list"></ol>';
+      list = section.querySelector(".list");
+      count = section.querySelector(".yr span");
+      years.appendChild(section);
+    }
+    var li = document.createElement("li");
+    li.appendChild(t.el);
+    list.appendChild(li);
+    var n = list.children.length;
+    count.textContent = n + (n === 1 ? " trip" : " trips");
   });
-  var upcoming = cards.filter(function (c) { return c.end >= today; })
-                      .sort(function (a, b) { return a.start - b.start; });
-  var past = cards.filter(function (c) { return c.end < today; })
-                  .sort(function (a, b) { return b.start - a.start; });
-
-  function fill(id, items) {
-    var sec = document.getElementById(id);
-    if (!items.length) return;
-    var list = sec.querySelector(".list");
-    items.forEach(function (c) {
-      var chip = chipFor(c.start, c.end);
-      var meta = c.el.querySelector(".meta");
-      var span = document.createElement("span");
-      span.className = "chip" + (chip[1] ? " " + chip[1] : "");
-      span.textContent = chip[0];
-      meta.insertBefore(span, meta.firstChild);
-      list.appendChild(c.el);
-    });
-    sec.querySelector(".count").textContent = items.length + (items.length === 1 ? " trip" : " trips");
-    sec.hidden = false;
-  }
-  fill("upcoming", upcoming);
-  fill("past", past);
 })();
 </script>
 <noscript><style>#source{display:block!important}</style></noscript>
